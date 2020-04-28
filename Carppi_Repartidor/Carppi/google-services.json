@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212288786760",
+    "firebase_url": "https://carppi-repartidor.firebaseio.com",
+    "project_id": "carppi-repartidor",
+    "storage_bucket": "carppi-repartidor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212288786760:android:7ac89e8d6112b002c6637d",
+        "android_client_info": {
+          "package_name": "com.Carppi.Carppi_repartidor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212288786760-pf3lq4n6acs527sl7043kurt6s1l2e87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs0UmaPd7S_FoxFJs80ecr-UKQqei12wg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212288786760-pf3lq4n6acs527sl7043kurt6s1l2e87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

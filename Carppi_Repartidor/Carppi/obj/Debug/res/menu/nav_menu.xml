@@ -1,0 +1,56 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><group android:checkableBehavior="single"><!--  
+    <item
+      android:id="@+id/nav_home"
+      android:icon="@drawable/ic_dashboard"
+      android:title="Dashboard"
+            />
+    <item
+      android:id="@+id/nav_messages"
+      android:icon="@drawable/ic_event"
+      android:title="Cambiar Foto"
+            />
+    <item
+      android:id="@+id/nav_friends"
+      android:icon="@drawable/ic_headset"
+      android:title="Mis Estadisticas"
+            />
+    <item
+      android:id="@+id/nav_discussion"
+      android:icon="@drawable/ic_forum"
+      android:title="Quiero Ser Conductor!"
+            />
+    <item
+      android:id="@+id/nav_Clabe"
+      android:icon="@drawable/ic_forum"
+      android:title="Ingresa Tu Clabe"
+            />
+    <item
+      android:id="@+id/nav_Balance"
+      android:icon="@drawable/ic_forum"
+      android:title="Mi Balance"
+            />
+        --><item android:id="@+id/nav_LoginButton" android:icon="@drawable/ic_forum" android:title="Log In" /><!--    <item
+      android:id="@+id/nav_LogOutButton"
+      android:icon="@drawable/ic_forum"
+      android:title="Log Out"
+            />
+        --><item android:id="@+id/nav_GroceryRequest" android:icon="@drawable/ic_forum" android:title="Peticiones de canasta" /><!--      <item
+      android:id="@+id/nav_GroceryConversation"
+      android:icon="@drawable/ic_forum"
+      android:title="Peticiones de canasta (Conversaciones)"
+            />
+        --></group><!--
+  <item android:title="Sub items">
+    <menu>
+      <item
+        android:icon="@drawable/ic_dashboard"
+        android:title="Sub item 1" />
+      <item
+        android:icon="@drawable/ic_forum"
+        android:title="Sub item 2" />
+     <item
+        android:icon="@drawable/ic_done"
+        android:title="Sub item 5" />
+     </menu>
+  </item>
+    --></menu>

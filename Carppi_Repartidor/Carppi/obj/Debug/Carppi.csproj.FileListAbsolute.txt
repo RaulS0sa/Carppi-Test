@@ -1,0 +1,1125 @@
+/Users/macbookair/Projects/Copia de Carppi/Carppi/bin/Debug/Carppi.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/bin/Debug/Carppi.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/bin/Debug/com.Travelers.Travelers.apk
+/Users/macbookair/Projects/Copia de Carppi/Carppi/bin/Debug/com.Travelers.Travelers.aab
+/Users/macbookair/Projects/Copia de Carppi/Carppi/bin/Debug/com.Travelers.Travelers-Signed.aab
+/Users/macbookair/Projects/Copia de Carppi/Carppi/bin/Debug/com.Travelers.Travelers-Signed.apk
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/MonoAndroid,Version=v10.0.AssemblyAttributes.cs
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/build.props
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/adb.props
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/googsvcsjson/values/goog_svcs_json.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/_VerifyXamarinAndroidSupportVersions.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_BuildLibraryImportsCache.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res.flag
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_AndroidXJetifyEmbeddedFiles.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/_AndroidXJetifyEmbeddedFiles.jetify
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/3C677A132B093B1C.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/3C677A132B093B1C.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/BA8C41E25A08B211.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/FEC82E2B4F08AF29.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/7640F0B964089559.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/CE08094D756F72A0.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/12D505331C6F2108.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/DE19B468226F0640.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/A6305EE1854D2FF7.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/AE0F0B75D8B7F188.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/62C3BA2EE6B7D6C0.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/0AFBED8216958B97.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/C6375CD92895ACDF.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/515BBDB4BCB34E9C.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/151FD27DA9B353A4.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/32F2B3B87E9CAD20.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/76B6DC716B9CB018.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/BA7A6D2A559C9750.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/66A761543C9CC4F8.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/3C677A132B093B1C.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/BA8C41E25A08B211.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/FEC82E2B4F08AF29.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/7640F0B964089559.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/CE08094D756F72A0.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/12D505331C6F2108.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/DE19B468226F0640.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/A6305EE1854D2FF7.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/AE0F0B75D8B7F188.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/62C3BA2EE6B7D6C0.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/0AFBED8216958B97.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/C6375CD92895ACDF.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/515BBDB4BCB34E9C.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/151FD27DA9B353A4.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/32F2B3B87E9CAD20.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/76B6DC716B9CB018.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/BA7A6D2A559C9750.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/66A761543C9CC4F8.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/flata/compiled.flata
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/R.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/R.cs.flag
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/Carppi.csproj.CoreCompileInputs.cache
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/Carppi.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/Carppi.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/com.Travelers.Travelers.apk
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/base.zip
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/com.Travelers.Travelers.aab
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/com.Travelers.Travelers.apks
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/layout/activity_main.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/values/colors.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/values/ic_launcher_background.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/values/strings.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/values/styles.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-anydpi-v26/ic_launcher.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-anydpi-v26/ic_launcher_round.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/ic_action_not_listed_location.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/nav_item_colors.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/layout/fragment1_webview.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/ic_action_account_circle.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/layout/loginlayout.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/mybutton.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/rocket.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/iconforpushnotifs.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable/iconforpushnotifsjpeg.jpg
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/xml/file_paths.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/layout/alertwebview.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_action.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_dashboard.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_discuss.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_done.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_event.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_forum.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_headset.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_menu.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-hdpi/icon.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_action.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_dashboard.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_discuss.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_done.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_event.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_forum.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_headset.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_menu.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-mdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_action.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_dashboard.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_discuss.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_done.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_event.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_forum.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_headset.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_menu.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xhdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_action.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_dashboard.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_discuss.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_done.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_event.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_forum.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_headset.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_menu.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/drawable-xxhdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/menu/nav_menu.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/layout/nav_header.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/layout/toolbar.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/res/menu/bottom_navigation_main.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/uploadflags.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/resolvedassemblies.hash
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Bolts.AppLinks.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Bolts.Tasks.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Carppi.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Carppi.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Google.ZXing.Core.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Java.Interop.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Microsoft.Azure.CognitiveServices.Vision.Face.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Microsoft.Rest.ClientRuntime.Azure.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Microsoft.Rest.ClientRuntime.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Mono.Android.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Mono.Android.Export.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Mono.Android.Export.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Mono.Android.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Mono.Security.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Mono.Security.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/mscorlib.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/mscorlib.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/netstandard.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Newtonsoft.Json.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Plugin.CurrentActivity.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Plugin.Geolocator.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Plugin.Media.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Plugin.Permissions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/SQLite-net.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/SQLitePCLRaw.batteries_green.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/SQLitePCLRaw.batteries_v2.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/SQLitePCLRaw.core.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/SQLitePCLRaw.lib.e_sqlite3.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/SQLitePCLRaw.provider.e_sqlite3.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Collections.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.ComponentModel.Composition.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.ComponentModel.Composition.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Core.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Core.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Data.DataSetExtensions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Data.DataSetExtensions.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Data.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Data.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Diagnostics.Debug.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Diagnostics.Tools.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Drawing.Common.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Drawing.Common.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Globalization.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.IO.Compression.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.IO.Compression.FileSystem.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.IO.Compression.FileSystem.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.IO.Compression.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.IO.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Linq.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Linq.Expressions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Net.Http.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Net.Http.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Net.Primitives.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Numerics.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Numerics.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Numerics.Vectors.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Numerics.Vectors.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Reflection.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Reflection.Extensions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Resources.ResourceManager.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Runtime.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Runtime.Extensions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Runtime.Serialization.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Runtime.Serialization.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Runtime.Serialization.Primitives.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.ServiceModel.Internals.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.ServiceModel.Internals.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Text.Encoding.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Text.RegularExpressions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Threading.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Threading.Tasks.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Transactions.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Transactions.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Web.Services.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Web.Services.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Xml.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Xml.Linq.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Xml.Linq.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Xml.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/System.Xml.ReaderWriter.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Core.Common.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Core.Runtime.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.Common.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.LiveData.Core.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.LiveData.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.Runtime.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.ViewModel.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Animated.Vector.Drawable.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Annotations.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.AsyncLayoutInflater.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Collections.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Compat.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Constraint.Layout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Constraint.Layout.Solver.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CoordinaterLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Core.UI.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Core.Utils.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CursorAdapter.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CustomTabs.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CustomView.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Design.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.DocumentFile.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.DrawerLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Fragment.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Interpolator.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Loader.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.LocalBroadcastManager.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Media.Compat.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Print.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.SlidingPaneLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.SwipeRefreshLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Transition.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v4.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v7.AppCompat.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v7.CardView.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v7.RecyclerView.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Vector.Drawable.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.VersionedParcelable.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.ViewPager.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Activity.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Activity.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Annotation.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Annotation.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.Resources.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.Resources.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Common.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Common.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Runtime.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Runtime.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AsyncLayoutInflater.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AsyncLayoutInflater.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Browser.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Browser.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CardView.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CardView.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Collection.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Collection.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.Solver.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.Solver.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CoordinatorLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CoordinatorLayout.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Core.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Core.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CursorAdapter.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CursorAdapter.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CustomView.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CustomView.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DocumentFile.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DocumentFile.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DrawerLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DrawerLayout.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Fragment.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Fragment.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Interpolator.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Interpolator.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.UI.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.UI.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.Utils.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.Utils.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.V4.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.V4.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Common.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Common.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.Core.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.Core.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Runtime.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Runtime.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.ViewModel.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.ViewModel.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Loader.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Loader.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.LocalBroadcastManager.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.LocalBroadcastManager.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Media.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Media.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.MultiDex.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.MultiDex.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Print.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Print.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.RecyclerView.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.RecyclerView.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SavedState.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SavedState.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SlidingPaneLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SlidingPaneLayout.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SwipeRefreshLayout.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SwipeRefreshLayout.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Transition.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Transition.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.Animated.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.Animated.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VersionedParcelable.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VersionedParcelable.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ViewPager.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ViewPager.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Essentials.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Essentials.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Facebook.Common.Android.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Facebook.Core.Android.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Facebook.Login.Android.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Common.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Iid.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Iid.Interop.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Measurement.Connector.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Messaging.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Google.Android.Material.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Google.Android.Material.pdb
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.Google.AutoValue.Annotations.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Base.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Basement.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Stats.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Tasks.dll
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/0a8d7fb2-1733-467e-9c9f-7c126154c5e2.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/21c2193b-3cf5-4065-a0aa-463f64947b53.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/31475b76-9279-4bba-8968-94861d94147e.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/3f8d1adc-c31a-4750-b81e-be371b5cc4df.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/606bd9bb-8fe7-4dcd-a8f8-fa3158e09f02.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/9f6328a8-80fc-4f5d-835d-03bc295acc10.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/c8fc914e-42db-4afd-8461-10705e1a18d9.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/ced6a240-9bb6-4fcf-8e17-02f6285d01f4.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/d6dcf314-306d-42d0-b851-520c5a931e36.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/d8e91ce3-f859-4175-b37b-df439621737d.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/dad05137-1e86-4029-99a3-2bfd1106ade4.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/e405d867-ebe7-4ce0-aa7e-2478eb499438.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/ebaccc7f-b7f6-4cec-b12f-1fdb711f91e9.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/f824a756-44b8-41a1-88e0-b95ef32b55fd.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/proguard/fc981a35-c0ed-4623-baf0-f27cffa61ea2.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_AndroidXJetifyProguardRules.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/_AndroidXJetifyProguardRules.jetify
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_AndroidXCecilfy.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.armeabi-v7a.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.arm64-v8a.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.armeabi-v7a.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.arm64-v8a.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/AndroidManifest.xml
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/__environment__.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/MonoRuntimeProvider.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/assets/machine.config
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/mono.android.jar
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/static.flag
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/buildid.txt
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.armeabi-v7a.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.arm64-v8a.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/appcompat/app/AlertDialog_IDialogInterfaceOnCancelListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/appcompat/app/AlertDialog_IDialogInterfaceOnClickListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/appcompat/app/AlertDialog_IDialogInterfaceOnMultiChoiceClickListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/appcompat/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/appcompat/resources/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/appcompat/widget/Toolbar_NavigationOnClickEventDispatcher.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/browser/customtabs/CustomTabsClient_CustomTabsCallbackImpl.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/browser/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/cardview/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/constraintlayout/widget/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/coordinatorlayout/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/core/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/media/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/recyclerview/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/androidx/transition/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/facebook/common/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/facebook/login/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/google/android/gms/base/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/google/android/gms/common/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/google/android/material/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/google/android/material/snackbar/Snackbar_SnackbarActionClickImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/google/firebase/messaging/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6434af9c19aa01b597/GoogleApiClientConnectionCallbacksImpl.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6434af9c19aa01b597/GoogleApiClientOnConnectionFailedListenerImpl.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64396a3fe5f8138e3f/CustomTabsServiceConnectionImpl.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64396a3fe5f8138e3f/KeepAliveService.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64435a5ac349fa9fda/ActivityLifecycleContextListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6450e07d0e82e86181/AwaitableResultCallback_1.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6450e07d0e82e86181/ResultCallback_1.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc646925f37ba1198680/GraphRequestAsyncTask.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc646957603ea1820544/MediaPickerActivity.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/MainActivity.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/MainActivity_BottomCalback.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/MainActivity_facebookCallback.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/ShowTripOptionToRideSharer.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6494e69c2e1a5005e4/MyFirebaseIIDService.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6494e69c2e1a5005e4/MyFirebaseMessagingService.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc6495d4f5d63cc5c882/AwaitableTaskCompleteListener_1.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc649efb5bdbf2d8cfa5/GeolocationContinuousListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc649efb5bdbf2d8cfa5/GeolocationSingleListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/AccelerometerListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/BarometerListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/BatteryBroadcastReceiver.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/ClipboardChangeListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/ConnectivityBroadcastReceiver.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/EnergySaverBroadcastReceiver.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/GyroscopeListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/Listener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/MagnetometerListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/OrientationSensorListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/SensorListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/SingleLocationListener.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/TextToSpeechImplementation.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/WebAuthenticatorCallbackActivity.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/facebookCallback.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGrocery.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGroceryRequest.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGroceryRequestConversaciones.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGrocery_GroceryWebClient.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_LocalWebView.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_LocalWebViewClient.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_NewWebClient.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_UtilityJavascriptInterface.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_WebInterfaceMenuCarppi.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentProfile.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/GroceryRequestConversacionWebClient.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/GroceryRequestWebClient.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/GroceryUtilityResponseJavascriptInterface.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/MyProfileTracker.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/UtilityJavascriptInterfaceGrocery.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/UtilityJavascriptInterfaceProfile.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceFragmentGrocery.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceGroceryRequest.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceGroceryRequest_Conversaciones.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceProfile.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/android/app/ApplicationRegistration.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/android/support/v4/media/session/MediaSessionCompat_OnActiveChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/app/ActionBar_OnMenuVisibilityListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/app/ActionBar_OnNavigationListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/app/ActionBar_TabListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ActionMenuView_OnMenuItemClickListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ContentFrameLayout_OnAttachListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/MenuItemHoverListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/PopupMenu_OnDismissListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/PopupMenu_OnMenuItemClickListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/SearchView_OnCloseListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/SearchView_OnQueryTextListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/SearchView_OnSuggestionListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ShareActionProvider_OnShareTargetSelectedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/Toolbar_OnMenuItemClickListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ViewStubCompat_OnInflateListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/asynclayoutinflater/view/AsyncLayoutInflater_OnInflateFinishedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/app/SharedElementCallback_OnSharedElementsReadyListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/os/CancellationSignal_OnCancelListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/accessibility/AccessibilityManagerCompat_AccessibilityStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/accessibility/AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/ActionProvider_SubUiVisibilityListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/ActionProvider_VisibilityListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/DragStartHelper_OnDragStartListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/inputmethod/InputConnectionCompat_OnCommitContentListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/MenuItemCompat_OnActionExpandListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/OnApplyWindowInsetsListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/ViewPropertyAnimatorListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/view/ViewPropertyAnimatorUpdateListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/core/widget/NestedScrollView_OnScrollChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/drawerlayout/widget/DrawerLayout_DrawerListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/fragment/app/FragmentManager_OnBackStackChangedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/loader/content/Loader_OnLoadCanceledListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/loader/content/Loader_OnLoadCompleteListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/AsyncListDiffer_ListListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_OnChildAttachStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_OnItemTouchListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_RecyclerListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/slidingpanelayout/widget/SlidingPaneLayout_PanelSlideListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/swiperefreshlayout/widget/SwipeRefreshLayout_OnRefreshListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/transition/Transition_TransitionListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/viewpager/widget/ViewPager_OnAdapterChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/androidx/viewpager/widget/ViewPager_OnPageChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/facebook/internal/PlatformServiceClient_CompletedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/facebook/internal/WebDialog_OnCompleteListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/facebook/login/widget/ProfilePictureView_OnErrorListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/facebook/share/widget/LikeView_OnErrorListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/GoogleApiClient_OnConnectionFailedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/internal/BackgroundDetector_BackgroundStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/internal/SignInConnectionListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/PendingResult_StatusListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/images/ImageManager_OnImageLoadedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/dynamic/OnDelegateCreatedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/security/ProviderInstaller_ProviderInstallListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnCanceledListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnCompleteListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnFailureListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnSuccessListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnTokenCanceledListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/appbar/AppBarLayout_OnOffsetChangedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/behavior/SwipeDismissBehavior_OnDismissListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/bottomnavigation/BottomNavigationView_OnNavigationItemReselectedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/bottomnavigation/BottomNavigationView_OnNavigationItemSelectedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/chip/ChipGroup_OnCheckedChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/navigation/NavigationView_OnNavigationItemSelectedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/android/material/tabs/TabLayout_BaseOnTabSelectedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/firebase/analytics/connector/AnalyticsConnector_AnalyticsConnectorListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseAppLifecycleListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseApp_BackgroundStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseApp_IdTokenListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseApp_IdTokenListenersCountChangedListenerImplementor.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/mono/MonoPackageManager_Resources.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/xamarin/essentials/fileProvider.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_AndroidXJetifyManifest.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/androidx/_AndroidXJetifyManifest.jetify
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/packaged_resources
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/src/com/travelers/travelers/R.java
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.armeabi-v7a.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.armeabi-v7a.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.arm64-v8a.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.arm64-v8a.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.armeabi-v7a.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.arm64-v8a.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/app_shared_libraries/armeabi-v7a/libxamarin-app.so
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/app_shared_libraries/arm64-v8a/libxamarin-app.so
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/bin/classes.dex
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_CleanIntermediateIfNuGetsChange.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_CompileToDalvik.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_ConvertCustomView.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_ConvertLibraryResourcesCases.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_ConvertResourcesCases.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_CopyIntermediateAssemblies.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_GenerateJavaStubs.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_GeneratePackageManagerJava.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/stamp/_ResolveLibraryProjectImports.stamp
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.x86.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.x86_64.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.x86.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.x86_64.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.x86.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.x86_64.s
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.x86.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.x86.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.jm.x86_64.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/typemap.mj.x86_64.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.x86.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/android/environment.x86_64.o
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/app_shared_libraries/x86/libxamarin-app.so
+/Users/macbookair/Projects/Copia de Carppi/Carppi/obj/Debug/app_shared_libraries/x86_64/libxamarin-app.so
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/bin/Debug/Carppi.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/bin/Debug/Carppi.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/bin/Debug/com.Carppi.Carppi_repartidor.apk
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/bin/Debug/com.Carppi.Carppi_repartidor.aab
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/bin/Debug/com.Carppi.Carppi_repartidor-Signed.aab
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/bin/Debug/com.Carppi.Carppi_repartidor-Signed.apk
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/MonoAndroid,Version=v10.0.AssemblyAttributes.cs
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/build.props
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/adb.props
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/googsvcsjson/values/goog_svcs_json.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/_VerifyXamarinAndroidSupportVersions.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_BuildLibraryImportsCache.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res.flag
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_AndroidXJetifyEmbeddedFiles.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/_AndroidXJetifyEmbeddedFiles.jetify
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/R.cs.flag
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/Carppi.csproj.CoreCompileInputs.cache
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/Carppi.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/Carppi.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/com.Carppi.Carppi_repartidor.apk
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/base.zip
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/com.Carppi.Carppi_repartidor.aab
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/com.Carppi.Carppi_repartidor.apks
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/layout/activity_main.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/values/colors.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/values/ic_launcher_background.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/values/strings.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/values/styles.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-anydpi-v26/ic_launcher_k.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-anydpi-v26/ic_launcher_round_k.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_foreground.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_round.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/ic_action_not_listed_location.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/nav_item_colors.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/layout/fragment1_webview.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/ic_action_account_circle.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/layout/loginlayout.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-mdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-hdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxxhdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xxhdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_round2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/mipmap-xhdpi/ic_launcher_square2.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/mybutton.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/rocket.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/iconforpushnotifs.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable/iconforpushnotifsjpeg.jpg
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/xml/file_paths.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/layout/alertwebview.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_action.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_dashboard.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_discuss.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_done.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_event.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_forum.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_headset.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_menu.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-hdpi/icon.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_action.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_dashboard.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_discuss.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_done.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_event.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_forum.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_headset.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_menu.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-mdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_action.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_dashboard.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_discuss.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_done.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_event.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_forum.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_headset.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_menu.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xhdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_action.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_dashboard.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_discuss.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_done.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_event.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_forum.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_headset.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_menu.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/drawable-xxhdpi/ic_menu_refresh.png
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/menu/nav_menu.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/layout/nav_header.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/layout/toolbar.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/res/menu/bottom_navigation_main.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/R.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/uploadflags.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/resolvedassemblies.hash
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Bolts.AppLinks.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Bolts.Tasks.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Carppi.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Carppi.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Google.ZXing.Core.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Java.Interop.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Microsoft.Azure.CognitiveServices.Vision.Face.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Microsoft.Rest.ClientRuntime.Azure.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Microsoft.Rest.ClientRuntime.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Mono.Android.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Mono.Android.Export.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Mono.Android.Export.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Mono.Android.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Mono.Security.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Mono.Security.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/mscorlib.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/mscorlib.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/netstandard.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Newtonsoft.Json.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Plugin.CurrentActivity.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Plugin.Geolocator.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Plugin.Media.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Plugin.Permissions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/SQLite-net.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/SQLitePCLRaw.batteries_green.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/SQLitePCLRaw.batteries_v2.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/SQLitePCLRaw.core.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/SQLitePCLRaw.lib.e_sqlite3.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/SQLitePCLRaw.provider.e_sqlite3.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Collections.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.ComponentModel.Composition.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.ComponentModel.Composition.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Core.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Core.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Data.DataSetExtensions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Data.DataSetExtensions.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Data.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Data.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Diagnostics.Debug.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Diagnostics.Tools.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Drawing.Common.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Drawing.Common.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Globalization.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.IO.Compression.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.IO.Compression.FileSystem.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.IO.Compression.FileSystem.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.IO.Compression.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.IO.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Linq.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Linq.Expressions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Net.Http.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Net.Http.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Net.Primitives.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Numerics.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Numerics.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Numerics.Vectors.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Numerics.Vectors.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Reflection.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Reflection.Extensions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Resources.ResourceManager.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Runtime.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Runtime.Extensions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Runtime.Serialization.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Runtime.Serialization.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Runtime.Serialization.Primitives.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.ServiceModel.Internals.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.ServiceModel.Internals.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Text.Encoding.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Text.RegularExpressions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Threading.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Threading.Tasks.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Transactions.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Transactions.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Web.Services.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Web.Services.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Xml.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Xml.Linq.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Xml.Linq.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Xml.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/System.Xml.ReaderWriter.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Core.Common.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Core.Runtime.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.Common.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.LiveData.Core.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.LiveData.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.Runtime.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Arch.Lifecycle.ViewModel.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Animated.Vector.Drawable.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Annotations.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.AsyncLayoutInflater.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Collections.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Compat.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Constraint.Layout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Constraint.Layout.Solver.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CoordinaterLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Core.UI.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Core.Utils.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CursorAdapter.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CustomTabs.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.CustomView.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Design.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.DocumentFile.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.DrawerLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Fragment.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Interpolator.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Loader.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.LocalBroadcastManager.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Media.Compat.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Print.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.SlidingPaneLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.SwipeRefreshLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Transition.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v4.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v7.AppCompat.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v7.CardView.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.v7.RecyclerView.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.Vector.Drawable.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.VersionedParcelable.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Android.Support.ViewPager.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Activity.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Activity.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Annotation.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Annotation.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.Resources.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AppCompat.Resources.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Common.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Common.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Runtime.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Arch.Core.Runtime.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AsyncLayoutInflater.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.AsyncLayoutInflater.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Browser.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Browser.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CardView.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CardView.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Collection.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Collection.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.Solver.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ConstraintLayout.Solver.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CoordinatorLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CoordinatorLayout.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Core.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Core.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CursorAdapter.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CursorAdapter.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CustomView.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.CustomView.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DocumentFile.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DocumentFile.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DrawerLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.DrawerLayout.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Fragment.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Fragment.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Interpolator.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Interpolator.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.UI.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.UI.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.Utils.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.Core.Utils.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.V4.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Legacy.Support.V4.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Common.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Common.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.Core.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.Core.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.LiveData.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Runtime.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.Runtime.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.ViewModel.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Lifecycle.ViewModel.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Loader.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Loader.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.LocalBroadcastManager.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.LocalBroadcastManager.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Media.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Media.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.MultiDex.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.MultiDex.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Print.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Print.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.RecyclerView.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.RecyclerView.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SavedState.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SavedState.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SlidingPaneLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SlidingPaneLayout.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SwipeRefreshLayout.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.SwipeRefreshLayout.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Transition.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.Transition.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.Animated.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.Animated.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VectorDrawable.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VersionedParcelable.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.VersionedParcelable.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ViewPager.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.AndroidX.ViewPager.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Essentials.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Essentials.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Facebook.Common.Android.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Facebook.Core.Android.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Facebook.Login.Android.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Common.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Iid.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Iid.Interop.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Measurement.Connector.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Firebase.Messaging.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Google.Android.Material.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Google.Android.Material.pdb
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.Google.AutoValue.Annotations.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Base.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Basement.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Stats.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/Xamarin.GooglePlayServices.Tasks.dll
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/1670e6b7-87f9-4ce4-b21d-67e62514dcdd.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/40e831eb-0ebd-4960-a5a0-c2c8c17a6ef4.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/48ad7668-1c1a-4aee-9ecc-597672cea269.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/5b127ba9-61c7-4dc5-ab38-e92e40387a5b.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/628a54d1-2bfd-4088-9d74-73166e9380f0.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/66b2d7e1-12f8-4d73-b3ce-aa94aa89aa9f.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/6818b5c2-f7d0-44d3-b18d-aaa80403ab59.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/8030b1a2-11a7-42cc-84d7-5ad699c24b70.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/82f5e7fe-6f18-4de9-b4fa-8325e51b795d.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/87f6e04d-6466-41d0-8b10-f8657b8878fc.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/a7fa4bda-6fa0-4e17-8b84-541cfbfb9dee.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/b263af8a-3ef9-4ea6-800d-95042904e157.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/d3c3e13f-4b54-42ab-b8ea-4ea3ece693d3.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/e6e728fd-8012-4266-b2e3-5c72bbb57bfd.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/proguard/e8d0a4d8-8843-43df-b3a5-8c07cf5335a8.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_AndroidXJetifyProguardRules.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/_AndroidXJetifyProguardRules.jetify
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_AndroidXCecilfy.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.jm.armeabi-v7a.s
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.jm.arm64-v8a.s
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.mj.armeabi-v7a.s
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.mj.arm64-v8a.s
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/AndroidManifest.xml
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/__environment__.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/MonoRuntimeProvider.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/assets/machine.config
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/mono.android.jar
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/static.flag
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/buildid.txt
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/environment.armeabi-v7a.s
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/environment.arm64-v8a.s
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/appcompat/app/AlertDialog_IDialogInterfaceOnCancelListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/appcompat/app/AlertDialog_IDialogInterfaceOnClickListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/appcompat/app/AlertDialog_IDialogInterfaceOnMultiChoiceClickListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/appcompat/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/appcompat/resources/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/appcompat/widget/Toolbar_NavigationOnClickEventDispatcher.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/browser/customtabs/CustomTabsClient_CustomTabsCallbackImpl.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/browser/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/cardview/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/constraintlayout/widget/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/coordinatorlayout/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/core/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/media/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/recyclerview/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/androidx/transition/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/facebook/common/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/facebook/login/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/google/android/gms/base/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/google/android/gms/common/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/google/android/material/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/google/android/material/snackbar/Snackbar_SnackbarActionClickImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/google/firebase/messaging/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6434af9c19aa01b597/GoogleApiClientConnectionCallbacksImpl.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6434af9c19aa01b597/GoogleApiClientOnConnectionFailedListenerImpl.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64396a3fe5f8138e3f/CustomTabsServiceConnectionImpl.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64396a3fe5f8138e3f/KeepAliveService.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64435a5ac349fa9fda/ActivityLifecycleContextListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6450e07d0e82e86181/AwaitableResultCallback_1.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6450e07d0e82e86181/ResultCallback_1.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc646925f37ba1198680/GraphRequestAsyncTask.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc646957603ea1820544/MediaPickerActivity.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/MainActivity.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/MainActivity_BottomCalback.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/MainActivity_facebookCallback.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64832a0daf8f501bd0/ShowTripOptionToRideSharer.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6494e69c2e1a5005e4/MyFirebaseIIDService.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6494e69c2e1a5005e4/MyFirebaseMessagingService.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc6495d4f5d63cc5c882/AwaitableTaskCompleteListener_1.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc649efb5bdbf2d8cfa5/GeolocationContinuousListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc649efb5bdbf2d8cfa5/GeolocationSingleListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/AccelerometerListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/BarometerListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/BatteryBroadcastReceiver.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/ClipboardChangeListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/ConnectivityBroadcastReceiver.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/EnergySaverBroadcastReceiver.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/GyroscopeListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/Listener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/MagnetometerListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/OrientationSensorListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/SensorListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/SingleLocationListener.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/TextToSpeechImplementation.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64a0e0a82d0db9a07d/WebAuthenticatorCallbackActivity.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/facebookCallback.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGrocery.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGroceryRequest.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGroceryRequestConversaciones.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentGrocery_GroceryWebClient.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_LocalWebView.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_LocalWebViewClient.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_NewWebClient.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_UtilityJavascriptInterface.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentMain_WebInterfaceMenuCarppi.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/FragmentProfile.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/GroceryRequestConversacionWebClient.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/GroceryRequestWebClient.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/GroceryUtilityResponseJavascriptInterface.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/MyProfileTracker.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/UtilityJavascriptInterfaceGrocery.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/UtilityJavascriptInterfaceProfile.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceFragmentGrocery.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceGroceryRequest.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceGroceryRequest_Conversaciones.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceGroceryRequest_LocalWebViewClient.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/crc64b4b369298e2739b2/WebInterfaceProfile.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/android/app/ApplicationRegistration.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/android/support/v4/media/session/MediaSessionCompat_OnActiveChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/app/ActionBar_OnMenuVisibilityListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/app/ActionBar_OnNavigationListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/app/ActionBar_TabListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ActionMenuView_OnMenuItemClickListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ContentFrameLayout_OnAttachListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/FitWindowsViewGroup_OnFitSystemWindowsListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/MenuItemHoverListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/PopupMenu_OnDismissListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/PopupMenu_OnMenuItemClickListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/SearchView_OnCloseListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/SearchView_OnQueryTextListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/SearchView_OnSuggestionListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ShareActionProvider_OnShareTargetSelectedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/Toolbar_OnMenuItemClickListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/appcompat/widget/ViewStubCompat_OnInflateListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/asynclayoutinflater/view/AsyncLayoutInflater_OnInflateFinishedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/app/SharedElementCallback_OnSharedElementsReadyListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/os/CancellationSignal_OnCancelListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/accessibility/AccessibilityManagerCompat_AccessibilityStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/accessibility/AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/ActionProvider_SubUiVisibilityListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/ActionProvider_VisibilityListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/DragStartHelper_OnDragStartListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/inputmethod/InputConnectionCompat_OnCommitContentListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/MenuItemCompat_OnActionExpandListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/OnApplyWindowInsetsListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/ViewPropertyAnimatorListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/view/ViewPropertyAnimatorUpdateListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/core/widget/NestedScrollView_OnScrollChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/drawerlayout/widget/DrawerLayout_DrawerListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/fragment/app/FragmentManager_OnBackStackChangedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/loader/content/Loader_OnLoadCanceledListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/loader/content/Loader_OnLoadCompleteListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/AsyncListDiffer_ListListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_ItemAnimator_ItemAnimatorFinishedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_OnChildAttachStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_OnItemTouchListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/recyclerview/widget/RecyclerView_RecyclerListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/slidingpanelayout/widget/SlidingPaneLayout_PanelSlideListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/swiperefreshlayout/widget/SwipeRefreshLayout_OnRefreshListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/transition/Transition_TransitionListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/viewpager/widget/ViewPager_OnAdapterChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/androidx/viewpager/widget/ViewPager_OnPageChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/facebook/internal/PlatformServiceClient_CompletedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/facebook/internal/WebDialog_OnCompleteListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/facebook/login/widget/ProfilePictureView_OnErrorListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/facebook/share/widget/LikeView_OnErrorListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/GoogleApiClient_OnConnectionFailedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/internal/BackgroundDetector_BackgroundStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/internal/SignInConnectionListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/api/PendingResult_StatusListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/common/images/ImageManager_OnImageLoadedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/dynamic/OnDelegateCreatedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/security/ProviderInstaller_ProviderInstallListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnCanceledListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnCompleteListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnFailureListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnSuccessListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/gms/tasks/OnTokenCanceledListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/appbar/AppBarLayout_OnOffsetChangedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/behavior/SwipeDismissBehavior_OnDismissListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/bottomnavigation/BottomNavigationView_OnNavigationItemReselectedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/bottomnavigation/BottomNavigationView_OnNavigationItemSelectedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/chip/ChipGroup_OnCheckedChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/navigation/NavigationView_OnNavigationItemSelectedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/android/material/tabs/TabLayout_BaseOnTabSelectedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/firebase/analytics/connector/AnalyticsConnector_AnalyticsConnectorListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseAppLifecycleListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseApp_BackgroundStateChangeListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseApp_IdTokenListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/com/google/firebase/FirebaseApp_IdTokenListenersCountChangedListenerImplementor.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/mono/MonoPackageManager_Resources.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/xamarin/essentials/fileProvider.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_AndroidXJetifyManifest.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/androidx/_AndroidXJetifyManifest.jetify
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/packaged_resources
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/src/com/carppi/carppi_repartidor/R.java
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.jm.armeabi-v7a.o
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.mj.armeabi-v7a.o
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.jm.arm64-v8a.o
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/typemap.mj.arm64-v8a.o
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/environment.armeabi-v7a.o
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/environment.arm64-v8a.o
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/app_shared_libraries/armeabi-v7a/libxamarin-app.so
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/app_shared_libraries/arm64-v8a/libxamarin-app.so
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/android/bin/classes.dex
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_CleanIntermediateIfNuGetsChange.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_CompileToDalvik.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_ConvertCustomView.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_CopyIntermediateAssemblies.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_GenerateJavaStubs.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_GeneratePackageManagerJava.stamp
+/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/Debug/stamp/_ResolveLibraryProjectImports.stamp
