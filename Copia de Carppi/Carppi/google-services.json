@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "871253028732",
+    "firebase_url": "https://carppi-6cd73.firebaseio.com",
+    "project_id": "carppi-6cd73",
+    "storage_bucket": "carppi-6cd73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871253028732:android:44b6ecb675f045ba503ef9",
+        "android_client_info": {
+          "package_name": "com.Travelers.Travelers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871253028732-i38gh9e9qjbsp7f7qulr18lu9lrl0pge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN9qRcf0yBYoaU2rJ7i3vy1uKplVKzdo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871253028732-i38gh9e9qjbsp7f7qulr18lu9lrl0pge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
