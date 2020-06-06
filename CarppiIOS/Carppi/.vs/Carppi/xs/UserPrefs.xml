@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{BA98570A-E165-41E1-953E-C5D499FBD88E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Main.storyboard">
+    <Files>
+      <File FileName="Carppi/Main.storyboard" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Carppi" expanded="True">
+            <Node name="Carppi" expanded="True">
+              <Node name="Main.storyboard" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Carppi PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1E1791F8-460A-471F-AF1D-73B251AEA7FD" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

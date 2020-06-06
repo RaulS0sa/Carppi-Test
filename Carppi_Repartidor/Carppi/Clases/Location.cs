@@ -36,7 +36,7 @@ namespace Carppi.Clases
                     return null;
                 }
 
-                position = await locator.GetPositionAsync(TimeSpan.FromSeconds(1), null, true);
+                position = await locator.GetPositionAsync(TimeSpan.FromSeconds(0.5), null, true);
 
             }
             catch (Exception ex)
@@ -60,13 +60,20 @@ namespace Carppi.Clases
 
         public static async Task StartListening()
         {
-            if (CrossGeolocator.Current.IsListening)
-                return;
+            try
+            {
+                if (CrossGeolocator.Current.IsListening)
+                    return;
 
-            await CrossGeolocator.Current.StartListeningAsync(TimeSpan.FromSeconds(5), 10, true);
+                await CrossGeolocator.Current.StartListeningAsync(TimeSpan.FromSeconds(2.5), 8, true);
 
-            CrossGeolocator.Current.PositionChanged += PositionChanged;
-           // CrossGeolocator.Current.PositionError += PositionError;
+                CrossGeolocator.Current.PositionChanged += PositionChanged;
+                // CrossGeolocator.Current.PositionError += PositionError;
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public static async void PositionChanged(object sender, PositionEventArgs e)
@@ -101,14 +108,20 @@ namespace Carppi.Clases
             //    Console.WriteLine(geocodeAddress);
             //}
            
-            UpdateLocation();
+            UpdateLocation(position);
+            var locator = CrossGeolocator.Current;
+            var kawaii = await locator.GetPositionAsync(TimeSpan.FromSeconds(0.5), null, true);
         }
 
-        public static async void UpdateLocation()
+        public static async void UpdateLocation(Position position)
         {
             try
             {
-                var MyLatLong = await Clases.Location.GetCurrentPosition();
+
+
+                var rnd = new Random();
+
+                //var MyLatLong = await Clases.Location.GetCurrentPosition();
                 //WhereoGo.LatitudeOrigen = Loc.Latitude;
                 //WhereoGo.LongitudOrigen = Loc.Longitude;
 
@@ -118,10 +131,11 @@ namespace Carppi.Clases
                 var db5 = new SQLiteConnection(databasePath5);
                 var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
 
-                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/TravelerCrossCityApi/ActualizaLocacion?" +
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRepartidorApi/ActualizaLocalizacion?" +
                     "user5=" + query.ProfileId
-                    + "&Latitud=" + MyLatLong.Latitude
-                     + "&Longitud=" + MyLatLong.Longitude
+                    + "&Latitud=" + (position.Latitude).ToString().Replace(",", ".")
+                     + "&Longitud=" + position.Longitude.ToString().Replace(",", ".")
+
 
                     ));
                 HttpResponseMessage response;

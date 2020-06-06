@@ -15,13 +15,14 @@ using Android.Widget;
 using Firebase.Iid;
 using SQLite;
 
-namespace App6
+namespace Carppi
 {
     [Service]
     [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseIIDService : FirebaseInstanceIdService
     {
         const string TAG = "MyFirebaseIIDService";
+        [Obsolete]
         public override void OnTokenRefresh()
         {
             var refreshedToken = FirebaseInstanceId.Instance.Token;

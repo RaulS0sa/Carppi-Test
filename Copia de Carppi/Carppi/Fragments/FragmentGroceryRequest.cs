@@ -640,7 +640,7 @@ namespace Carppi.Fragments
         public int ItemID;
         public int Quantity;
     }
-    public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded };
+    //public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded };
     public class CarppiGrocery_BuyOrders_AddType
     {
         public long ID { get; set; }
@@ -649,7 +649,7 @@ namespace Carppi.Fragments
         public string paymentIntent { get; set; }
         public double? Latitud { get; set; }
         public double? Longitud { get; set; }
-        public GroceryOrderState Stat { get; set; }
+        public FragmentRestaurantDetailedView.GroceryOrderState Stat { get; set; }
         public string ListaDeProductos { get; set; }
         public double? Latitud_Repartidor { get; set; }
         public double? Longitud_Repartidor { get; set; }

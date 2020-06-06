@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "92212278629",
+    "firebase_url": "https://carppi-restaurante.firebaseio.com",
+    "project_id": "carppi-restaurante",
+    "storage_bucket": "carppi-restaurante.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92212278629:android:287eee2bef945985d45d8c",
+        "android_client_info": {
+          "package_name": "com.Carppi.Carppi_Comercio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92212278629-li4utfpj71gbt9hckjv508j3jseumrjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7z3UV4wlHF-qm0SMt6jthd8PdJlj61U8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92212278629-li4utfpj71gbt9hckjv508j3jseumrjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

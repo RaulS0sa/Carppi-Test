@@ -1,0 +1,21 @@
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:fitsSystemWindows="true" xmlns:android="http://schemas.android.com/apk/res/android"><ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"><LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"><TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="60dp" android:layout_marginBottom="60dp" android:text="Carppi Comercio" android:gravity="center" android:textColor="#000" android:textSize="25dip" /><ImageView android:src="@drawable/storeicon" android:layout_width="wrap_content" android:layout_height="192dp" android:layout_marginBottom="8.0dp" android:layout_marginTop="20dp" android:layout_gravity="center_horizontal" /><TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:layout_marginTop="8dp" android:text="Gestiona tus pedidos \n Admiistra Repartidores \nHaz promociones \nY mas, Con Carppi!" android:gravity="center" android:textColor="#555" android:textSize="16dip" /><!--
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Tu Nombre"
+            android:id="@+id/MyNameLoginID"/>
+         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Tu Apellido"
+            android:id="@+id/MyLastNameLoginID"/>
+
+         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textWebEmailAddress"
+            android:hint="Tu Correo"
+            android:id="@+id/MyLoginEmailID"/>
+        --><com.facebook.login.widget.LoginButton android:id="@+id/fblogin" android:layout_width="315.0dp" android:layout_height="80.5dp" android:layout_marginTop="17.0dp" android:layout_marginBottom="24dp" android:padding="12dp" android:layout_gravity="center_horizontal" /><!--style="@style/FacebookLoginButton"--><TextView android:id="@+id/link_signup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp" android:text="Sin facebook? Crea una cuenta" android:gravity="center" android:textColor="#555" android:textSize="16dip" /></LinearLayout></ScrollView></LinearLayout>

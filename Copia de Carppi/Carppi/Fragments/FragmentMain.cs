@@ -455,7 +455,7 @@ namespace Carppi.Fragments
             {
                 aTimer = new System.Timers.Timer(4000);
                 // Hook up the Elapsed event for the timer. 
-                aTimer.Elapsed += OnTimedEvent;
+                //aTimer.Elapsed += OnTimedEvent;
                 aTimer.AutoReset = true;
                 aTimer.Enabled = true;
             }

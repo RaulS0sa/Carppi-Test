@@ -1,0 +1,21 @@
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:fitsSystemWindows="true" xmlns:android="http://schemas.android.com/apk/res/android"><ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"><LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"><ImageView android:src="@drawable/storeicon" android:layout_width="wrap_content" android:layout_height="192dp" android:layout_marginBottom="8.0dp" android:layout_marginTop="20dp" android:layout_gravity="center_horizontal" android:id="@+id/EcommerceImage" /><Button android:id="@+id/IageOfComerceButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#800080" android:textColor="@android:color/white" android:text="La Imagen de tu Comercio" android:layout_marginBottom="37.5dp" /><EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:hint="Nombre de tu negocio" android:id="@+id/Supaname" android:layout_marginBottom="11.0dp" /><EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress" android:hint="Tu Correo" android:id="@+id/SupaMail" android:layout_marginBottom="15.0dp" /><TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:layout_marginTop="8dp" android:layout_marginLeft="0dp" android:text="Que comercio tienes?" android:gravity="center" android:textColor="#555" android:textSize="16dip" /><Spinner android:id="@+id/planets_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="34.0dp" /><TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:layout_marginTop="8dp" android:layout_marginLeft="0dp" android:text="Selecciona La categoria principal de tu comercio" android:gravity="center" android:textColor="#555" android:textSize="16dip" /><Spinner android:id="@+id/Food_spinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="34.0dp" /><TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" android:layout_marginTop="8dp" android:layout_marginLeft="0dp" android:text="Añade una lista de categorias de tu negocio, separados por coma, eg. 'hamburguesas,burritos,tacos... '" android:gravity="center" android:textColor="#555" android:textSize="16dip" /><EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress" android:hint="hamburguesas,burritos,tacos" android:id="@+id/CateoryLisPostLogi" android:layout_marginBottom="15.0dp" /><Button android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#800080" android:textColor="@android:color/white" android:text="Siguiente Paso" android:layout_marginBottom="30dp" android:id="@+id/NextStep_PostLoginLayout" /><!--
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Tu Nombre"
+            android:id="@+id/MyNameLoginID"/>
+         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Tu Apellido"
+            android:id="@+id/MyLastNameLoginID"/>
+
+         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textWebEmailAddress"
+            android:hint="Tu Correo"
+            android:id="@+id/MyLoginEmailID"/>
+        --><!--style="@style/FacebookLoginButton"--></LinearLayout></ScrollView></LinearLayout>

@@ -529,6 +529,7 @@ namespace Carppi
                     break;
                 case Resource.Id.menu_home:
                     {
+                        
                         fragment = FragmentMain.NewInstance();
                         if(FragmentGrocery.aTimer != null)
                         {
@@ -540,6 +541,8 @@ namespace Carppi
                     break;
                 case Resource.Id.menu_video:
                     {
+                        fragment = FragmentSelectTypeOfPurchase.NewInstance();
+                        /*
                         fragment = FragmentGrocery.NewInstance();
 
                         if (FragmentMain.aTimer != null)
@@ -547,6 +550,7 @@ namespace Carppi
                             FragmentMain.aTimer.Enabled = false;
 
                         }
+                        */
                     }
                     break;
 
@@ -597,7 +601,8 @@ namespace Carppi
                     fragment = FragmentMain.NewInstance();
                     break;
                 case Resource.Id.menu_video:
-                    fragment = FragmentGrocery.NewInstance();
+                    fragment = FragmentSelectTypeOfPurchase.NewInstance();
+                    //fragment = FragmentGrocery.NewInstance();
                     break;
 
                 case Resource.Id.nav_GroceryRequest:
@@ -617,7 +622,7 @@ namespace Carppi
 
             if (fragment == null)
                 return;
-
+            //fragment = FragmentSelectTypeOfPurchase.NewInstance();
             MainActivity.static_FragmentMAnager.BeginTransaction()
                 .Replace(Resource.Id.content_frame, fragment)
                 .Commit();

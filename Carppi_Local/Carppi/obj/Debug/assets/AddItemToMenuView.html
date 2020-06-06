@@ -1,0 +1,635 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        body {
+            margin: 0;
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+            background-color: #f1f1f1;
+            padding: 30px;
+            text-align: center;
+        }
+
+        #navbar {
+            overflow: hidden;
+            background-color: #4B0082;
+        }
+
+            #navbar a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                #navbar a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                #navbar a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+        .content {
+            padding: 16px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+            .sticky + .content {
+                padding-top: 60px;
+            }
+    </style>
+    <style>
+
+
+
+
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+            .autocomplete-items div {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #fff;
+                border-bottom: 1px solid #d4d4d4;
+            }
+
+                /*when hovering an item:*/
+                .autocomplete-items div:hover {
+                    background-color: #e9e9e9;
+                }
+
+        /*when navigating through the items using the arrow keys:*/
+        .autocomplete-active {
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+    </style>
+    <style>
+
+
+
+        /* Progress Bar */
+        .progress {
+            position: relative;
+            height: 4px;
+            display: block;
+            width: 100%;
+            background-color: #9411a6;
+            border-radius: 2px;
+            background-clip: padding-box;
+            margin: 0.5rem 0 1rem 0;
+            overflow: hidden;
+        }
+
+            .progress .determinate {
+                position: absolute;
+                background-color: inherit;
+                top: 0;
+                bottom: 0;
+                background-color: #26a69a;
+                transition: width .3s linear;
+            }
+
+            .progress .indeterminate {
+                background-color: #e0a9e8;
+            }
+
+                .progress .indeterminate:before {
+                    content: '';
+                    position: absolute;
+                    background-color: inherit;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    will-change: left, right;
+                    -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+                    animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+                }
+
+                .progress .indeterminate:after {
+                    content: '';
+                    position: absolute;
+                    background-color: inherit;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    will-change: left, right;
+                    -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+                    animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+                    -webkit-animation-delay: 1.15s;
+                    animation-delay: 1.15s;
+                }
+
+        @-webkit-keyframes indeterminate {
+            0% {
+                left: -35%;
+                right: 100%;
+            }
+
+            60% {
+                left: 100%;
+                right: -90%;
+            }
+
+            100% {
+                left: 100%;
+                right: -90%;
+            }
+        }
+
+        @keyframes indeterminate {
+            0% {
+                left: -35%;
+                right: 100%;
+            }
+
+            60% {
+                left: 100%;
+                right: -90%;
+            }
+
+            100% {
+                left: 100%;
+                right: -90%;
+            }
+        }
+
+        @-webkit-keyframes indeterminate-short {
+            0% {
+                left: -200%;
+                right: 100%;
+            }
+
+            60% {
+                left: 107%;
+                right: -8%;
+            }
+
+            100% {
+                left: 107%;
+                right: -8%;
+            }
+        }
+
+        @keyframes indeterminate-short {
+            0% {
+                left: -200%;
+                right: 100%;
+            }
+
+            60% {
+                left: 107%;
+                right: -8%;
+            }
+
+            100% {
+                left: 107%;
+                right: -8%;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+
+    <div id="navbar">
+        <a href="javascript:void(0)" id="SuperTitle" style="font-size: 28px;"></a>
+    </div>
+
+    <div class="content">
+        <img alt="Holi" style="font-size:16px; max-height:300px" id="HoliImage" />
+
+
+        <button style="width:100%;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;background-color: #4B0082" onclick="window.Android.SelecImage_HomeWork();" id="ImageOfHomework">
+            Selecciona Una imagen de tu producto
+        </button>
+        <p>
+            <input style="        width: 100%;
+        margin-top: 5%;
+        border: none;
+        border-bottom: 2px solid purple;
+        font-size: 20px;" type="text" placeholder="Nombre del Producto" id="TitleFormater" onkeyup="document.getElementById('SuperTitle').innerHTML = document.getElementById('TitleFormater').value;" />
+        </p>
+
+
+
+
+
+        <textarea style="width: 100%;
+        margin-top: 5%;
+        border: none;
+        border-bottom: 2px solid purple;
+        font-size: 20px;" type="tel" placeholder="Descripción" id="DescriptionOfHomework"></textarea>
+
+        <select style="width: 100%;
+        margin-top: 5%;
+        border: none;
+        border-bottom: 2px solid purple;
+        font-size: 20px;" id="cars">
+            <option value="none">Selecciona tu Categoria</option>
+            <option value="Hamburguesa">Hamburguesa</option>
+            <option value="Guajolote">Guajolote</option>
+            <option value="Postre">Postre/Resposteria</option>
+            <option value="Pollo">Pollo</option>
+            <option value="India">Comida India</option>
+            <option value="Americana">Americana</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Saludable">Ensaladas/Saludable</option>
+            <option value="Vegetariano">Vegetariano</option>
+            <option value="Chino">Chino</option>
+            <option value="Continental">Continental</option>
+            <option value="Pastes">Pastes y empanadas</option>
+            <option value="Tacos">Tacos</option>
+            <option value="Antojitos">Antojitos</option>
+            <option value="ComidaCorrida">Comida Mexicana</option>
+            <option value="SushiYJapones">Sushi/Comida Japonesa</option>
+            <option value="BebidasSinAlcohol">Bebidas Sin Alcohol</option>
+            <option value="BebidasConAlcohol">Bebidas Alcoholicas</option>
+            <option value="Desayunos">Desayuno</option>
+            <option value="Chilaquiles">Chilaquiles</option>
+            <option value="Papas">Papas</option>
+            <option value="Helado">Helado</option>
+            <option value="Crepas">Crepas</option>
+            <option value="Waffles">Waffles</option>
+        </select>
+
+        <input style="        width: 100%;
+        margin-top: 5%;
+        border: none;
+        border-bottom: 2px solid purple;
+        font-size: 20px;" type="number" placeholder="Precio" id="PrecioDeLATarea" />
+
+
+        <!--
+
+     <button style="width:100%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;background-color: #4B0082" onclick="window.Android.SelectFilesForAddingHomeWork();" id="FileSellectButton">
+        Selecciona el Archivo de tu Tarea
+    </button>
+
+    <div class="autocomplete" style="z-index:50">
+        <input id="TagToBeSearchedModal" style="padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;font-size: 20px;width:43%;margin-top:5%;border:none;border-bottom: 2px solid purple;margin-bottom:30px;" type="text" placeholder="Tags" onkeyup="window.Android.SearchForTheTagsInModal(document.getElementById('TagToBeSearchedModal').value);" />
+
+        <button style="width:35%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;background-color:#4B0082" onclick="AddTagToPage(document.getElementById('TagToBeSearchedModal').value, document.getElementById('ContainerOfMytags'))">
+            Agregar
+        </button>
+
+    </div>
+    -->
+
+
+        <div id="ContainerOfMytags">
+
+
+        </div>
+
+
+        <button style="width:100%;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 5%;
+        font-size: 16px;background-color: #0F0F0F" onclick="FetchAllTehData();" id="FetcherButton">
+            Añadir Producto
+        </button>
+    </div>
+
+    <script>
+window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+        function UpdateTextInFileSelectionOfButton(Text) {
+            document.getElementById('FileSellectButton').innerHTML = Text;
+        }
+        function UpdateTextInPhotoSelectionOfButton(Text, Image)
+        {
+            document.getElementById('ImageOfHomework').innerHTML = Text;
+            document.getElementById('HoliImage').src = "data:image/png;base64, " + (Image);
+
+        }
+
+        function FetchAllTehData() {
+            //DescriptionOfHomework
+            //PrecioDeLATarea
+            document.getElementById("FetcherButton").disabled = true;
+            document.getElementById('FetcherButton').innerHTML = 'Guardando <div class="progress" style="padding-top:0;padding-bottom:0;"><div class="indeterminate" style="padding-top:0;padding-bottom:0;"></div></div>';
+
+
+            var title = document.getElementById('TitleFormater').value;
+            var PrecioDeLATarea = document.getElementById('PrecioDeLATarea').value;
+            var DescriptionOfHomework = document.getElementById('DescriptionOfHomework').value;
+            var EmptyArr = "";// = [];
+            var Container = document.getElementById('ContainerOfMytags');
+            for (var i = 0; i < Container.childNodes.length; i++) {
+                if (Container.childNodes[i].ValueToAdd != '' && Container.childNodes[i].ValueToAdd != 'undefined') {
+                    //EmptyArr.push(Container.childNodes[i].ValueToAdd);
+
+                    EmptyArr += Container.childNodes[i].ValueToAdd;
+                    if (i < (Container.childNodes.length-1)) {
+                        EmptyArr += ",";
+                    }
+                }
+            }
+
+            var elementoSeleccionado = document.getElementById("cars").selectedIndex;
+            window.Android.FetchAllTehData(title, DescriptionOfHomework, PrecioDeLATarea, EmptyArr.toString(), elementoSeleccionado );
+        }
+
+
+        function StopFetcherButton() {
+            document.getElementById('FetcherButton').innerHTML = 'Error!';
+            document.getElementById('FetcherButton').style.backgroundColor = '#800080';
+            setTimeout(function () {
+                document.getElementById('FetcherButton').style.backgroundColor = '#0F0F0F';
+                try {
+                    document.getElementById('FetcherButton').innerHTML = 'Añadir Producto';
+                   
+                }
+                catch (err) {
+
+                }
+            }, 2000);
+        }
+        function StopFetcherButtonAndReload() {
+            document.getElementById('FetcherButton').innerHTML = 'Guardado';
+            document.getElementById('FetcherButton').style.backgroundColor = '#800080';
+            setTimeout(function () {
+                document.getElementById('FetcherButton').style.backgroundColor = '#0F0F0F';
+                try {
+                    window.Android.ReloadUpdateProduct();
+                }
+                catch (err) {
+
+                }
+            }, 2000);
+        }
+
+
+        function AddTagToPage(ValueToAdd, SpaceToFill) {
+            if (false == SeeIfTagIsAlreadyInList(SpaceToFill, ValueToAdd)) {
+                var newbutton = document.createElement('button');
+                // newbutton.type = "button";
+
+                newbutton.innerHTML = "<i class='fas fa-times-circle'></i>  " + ValueToAdd;
+                newbutton.style.cssText = "  background-color: #f44336;  border: none;  color: white;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;font-size: 16px; margin: 3px 3px 3px 3px;";
+                newbutton.ValueToAdd = ValueToAdd;
+                newbutton.ReferenceToParent = SpaceToFill;
+                newbutton.addEventListener('click', function () {
+                    //window.Android.RemoveTagFromUserProfile(this.ValueToAdd);
+                    this.ReferenceToParent.removeChild(this);
+                });
+
+                SpaceToFill.appendChild(newbutton);
+               // window.Android.AddTagFromUserProfile(ValueToAdd);
+            }
+        }
+
+        function SeeIfTagIsAlreadyInList(Container, Tag) {
+
+            for (var i = 0; i < Container.children.length; i++) {
+                if (Container.children[i].ValueToAdd == Tag) {
+                    return true;
+                }
+
+                //AddTagToPage(Data.Tags[i].Categoria, ContainerOfTags);
+            }
+            return false;
+        }
+
+        function UpdateArrayOfWords(NewArr) {
+            // ArrayOfWords = NewArr;
+            autocomplete(document.getElementById("TagToBeSearchedModal"), NewArr);
+
+        }
+
+        function autocomplete(inp, arr) {
+            /*the autocomplete function takes two arguments,
+            the text field element and an array of possible autocompleted values:*/
+            var currentFocus;
+            /*execute a function when someone writes in the text field:*/
+            inp.addEventListener("input", function (e) {
+                var a, b, i, val = this.value;
+                /*close any already open lists of autocompleted values*/
+                closeAllLists();
+                if (!val) { return false; }
+                currentFocus = -1;
+                /*create a DIV element that will contain the items (values):*/
+                a = document.createElement("DIV");
+                a.setAttribute("id", this.id + "autocomplete-list");
+                a.setAttribute("class", "autocomplete-items");
+                /*append the DIV element as a child of the autocomplete container:*/
+                this.parentNode.appendChild(a);
+                /*for each item in the array...*/
+                for (i = 0; i < arr.length; i++) {
+                    /*check if the item starts with the same letters as the text field value:*/
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                        /*create a DIV element for each matching element:*/
+                        b = document.createElement("DIV");
+                        /*make the matching letters bold:*/
+                        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                        b.innerHTML += arr[i].substr(val.length);
+                        /*insert a input field that will hold the current array item's value:*/
+                        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        /*execute a function when someone clicks on the item value (DIV element):*/
+                        b.addEventListener("click", function (e) {
+                            /*insert the value for the autocomplete text field:*/
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            /*close the list of autocompleted values,
+                            (or any other open lists of autocompleted values:*/
+                            closeAllLists();
+                        });
+                        a.appendChild(b);
+                    }
+                }
+            });
+            /*execute a function presses a key on the keyboard:*/
+            inp.addEventListener("keydown", function (e) {
+                var x = document.getElementById(this.id + "autocomplete-list");
+                if (x) x = x.getElementsByTagName("div");
+                if (e.keyCode == 40) {
+                    /*If the arrow DOWN key is pressed,
+                    increase the currentFocus variable:*/
+                    currentFocus++;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                } else if (e.keyCode == 38) { //up
+                    /*If the arrow UP key is pressed,
+                    decrease the currentFocus variable:*/
+                    currentFocus--;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                } else if (e.keyCode == 13) {
+                    /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                    e.preventDefault();
+                    if (currentFocus > -1) {
+                        /*and simulate a click on the "active" item:*/
+                        if (x) x[currentFocus].click();
+                    }
+                }
+            });
+            function addActive(x) {
+                /*a function to classify an item as "active":*/
+                if (!x) return false;
+                /*start by removing the "active" class on all items:*/
+                removeActive(x);
+                if (currentFocus >= x.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = (x.length - 1);
+                /*add class "autocomplete-active":*/
+                x[currentFocus].classList.add("autocomplete-active");
+            }
+            function removeActive(x) {
+                /*a function to remove the "active" class from all autocomplete items:*/
+                for (var i = 0; i < x.length; i++) {
+                    x[i].classList.remove("autocomplete-active");
+                }
+            }
+            function closeAllLists(elmnt) {
+                /*close all autocomplete lists in the document,
+                except the one passed as an argument:*/
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != inp) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+            /*execute a function when someone clicks in the document:*/
+            document.addEventListener("click", function (e) {
+                closeAllLists(e.target);
+            });
+        }
+
+
+
+
+        function base64ArrayBuffer(arrayBuffer) {
+            try {
+                var base64 = '';
+                var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+
+                var bytes = new Uint8Array(arrayBuffer);
+                var byteLength = bytes.byteLength;
+                var byteRemainder = byteLength % 3;
+                var mainLength = byteLength - byteRemainder;
+
+                var a, b, c, d;
+                var chunk;
+
+                // Main loop deals with bytes in chunks of 3
+                for (var i = 0; i < mainLength; i = i + 3) {
+                    // Combine the three bytes into a single integer
+                    chunk = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
+
+                    // Use bitmasks to extract 6-bit segments from the triplet
+                    a = (chunk & 16515072) >> 18; // 16515072 = (2^6 - 1) << 18
+                    b = (chunk & 258048) >> 12; // 258048   = (2^6 - 1) << 12
+                    c = (chunk & 4032) >> 6;// 4032     = (2^6 - 1) << 6
+                    d = chunk & 63;              // 63       = 2^6 - 1
+
+                    // Convert the raw binary segments to the appropriate ASCII encoding
+                    base64 += encodings[a] + encodings[b] + encodings[c] + encodings[d];
+                }
+
+                // Deal with the remaining bytes and padding
+                if (byteRemainder == 1) {
+                    chunk = bytes[mainLength];
+
+                    a = (chunk & 252) >> 2; // 252 = (2^6 - 1) << 2
+
+                    // Set the 4 least significant bits to zero
+                    b = (chunk & 3) << 4; // 3   = 2^2 - 1
+
+                    base64 += encodings[a] + encodings[b] + '==';
+                } else if (byteRemainder == 2) {
+                    chunk = (bytes[mainLength] << 8) | bytes[mainLength + 1];
+
+                    a = (chunk & 64512) >> 10;// 64512 = (2^6 - 1) << 10
+                    b = (chunk & 1008) >> 4; // 1008  = (2^6 - 1) << 4
+
+                    // Set the 2 least significant bits to zero
+                    c = (chunk & 15) << 2; // 15    = 2^4 - 1
+
+                    base64 += encodings[a] + encodings[b] + encodings[c] + '=';
+                }
+
+                return base64
+            }
+            catch (err) {
+
+                return err
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
+

@@ -5785,14 +5785,15 @@ font-size: 19px; width:100%; display:none">
                             text: "Orden: " + Markers[i].ID,
                             color: "green",
                             fontWeight: "bold",
-                            fontSize: "16px"
+                            fontSize: "18px"
                         }
 
                     });
                     marker.MetaData = Markers[i].ID;
+                    marker.OrderState = Markers[i].EstadoDeOrden
                     marker.setMap(Secondmap);
                     marker.addListener('click', function () {
-                        window.Android.OrderExtraData(this.MetaData);
+                        window.Android.OrderExtraData(this.MetaData, this.OrderState);
                         //map.setZoom(8);
                         //map.setCenter(marker.getPosition());
                     });

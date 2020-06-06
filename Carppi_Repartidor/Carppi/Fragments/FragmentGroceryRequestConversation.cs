@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 using Android.App;
@@ -315,7 +316,7 @@ namespace Carppi.Fragments
                     var OrderList = JsonConvert.DeserializeObject<List<DeliveryOrderQuery>>(S_Ressult.Response);
                     foreach(var Order in OrderList)
                     {
-                        var placemarks = await Geocoding.GetPlacemarksAsync(Convert.ToDouble(Order.Orden.Latitud), Convert.ToDouble(Order.Orden.Longitud));
+                        var placemarks = await Geocoding.GetPlacemarksAsync(Convert.ToDouble(Order.Orden.LatitudPeticion), Convert.ToDouble(Order.Orden.LongitudPeticion));
 
                         var placemark = placemarks?.FirstOrDefault();
 
@@ -471,6 +472,101 @@ namespace Carppi.Fragments
             mContext = Act;
             webi = web;
         }
+        [JavascriptInterface]
+        [Export("SendMessageRestaurantToDeliverMan")]
+        public async void SendMessageRestaurantToDeliverMan(string message, string deliverman)
+        {
+
+            HttpClient client = new HttpClient();
+            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+            var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+            var db5 = new SQLiteConnection(databasePath5);
+            var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+            //var HAsh = Regex.Unescape(query.CarppiHash.Replace("\"", ""));
+
+            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantRequestApi/PostMessageInRestauranDeliver?" +
+                "FaceID_speaker=" + query.ProfileId +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                "&DeliverRequest=" + deliverman +
+                "&Message=" + message
+
+                ));
+
+            var pppsa = uri.ToString();
+            HttpResponseMessage response;
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            response = await client.GetAsync(uri);
+
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            {
+                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+          {
+                '"'
+          });
+            }
+
+            // Action Toatsaction = () =>
+            // {
+            //     Toast.MakeText(mContext, ss, ToastLength.Short).Show();
+            // };
+            //  ((Activity)mContext).RunOnUiThread(Toatsaction);
+        }
+
+        [JavascriptInterface]
+        [Export("GetAllMessagesRestaurantDeliverMan")]
+        public async void GetAllMessagesRestaurantDeliverMan(string deliverman)
+        {
+
+            HttpClient client = new HttpClient();
+            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+            var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+            var db5 = new SQLiteConnection(databasePath5);
+            var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+            //var HAsh = Regex.Unescape(query.CarppiHash.Replace("\"", ""));
+
+            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantRequestApi/GetAlMessagesFromConversationRestauranDeliver?" +
+                "FaceID_Interest=" + query.ProfileId +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                "&DeliverRequest=" + deliverman
+
+                ));
+            HttpResponseMessage response;
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            response = await client.GetAsync(uri);
+
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            {
+                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+          {
+                '"'
+          });
+
+                Action action = () =>
+                {
+                    //var jsr = new JavascriptResult();
+                    var script = "UpdateConversationLayout(" + response.Content.ReadAsStringAsync().Result + ")";
+                    webi.EvaluateJavascript(script, null);
+
+
+                };
+
+                // Create a task but do not start it.
+                // Task t1 = new Task(action, "alpha");
+
+                webi.Post(action);
+            }
+            // Action Toatsaction = () =>
+            // {
+            //     Toast.MakeText(mContext, ss, ToastLength.Short).Show();
+            // };
+            //  ((Activity)mContext).RunOnUiThread(Toatsaction);
+        }
+
+
 
 
         [JavascriptInterface]
@@ -572,7 +668,7 @@ namespace Carppi.Fragments
                 }
                 //
                 //public HttpResponseMessage SetOrderStatus(string FaceIDHash_DeliveryBoy, GroceryOrderState Estado, Int32 OrderID)
-                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/SetOrderStatus?" +
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantRequestApi/SetOrderStatus?" +
                     "FaceIDHash_DeliveryBoy=" + FaceID +
                     "&Estado=" + GroceryOrderState.RequestEnded +
                     "&OrderID=" + RequestID

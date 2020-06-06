@@ -277,7 +277,7 @@
 
                 <div class="w3-container w3-white w3-margin w3-padding-large">
                     <div class="w3-center">
-                        <h5>conversacion </h5>
+                        <h5>conversacion con el restaurante</h5>
                     </div>
 
                     <div class="w3-justify">
@@ -468,35 +468,38 @@
 
             </div>
             <hr>
-            <div class="w3-col l12 s12">
-                <div class="w3-white w3-margin w3-container w3-padding ">
-                    <div class="w3-container w3-black ">
-                        <h4>Comentarios</h4>
-                    </div>
-                    <div class="w3-row-padding w3-white">
-                        <h4>Sin comentarios por el momento</h4>
-                        <!--
-                <img src="https://www.w3schools.com/w3images/avatar_smoke.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-                <p><span class="w3-large w3-text-black w3-margin-right">Chandler Bing.</span> Web Designer.</p>
-                <p>Jane Doe is just awesome. I am so happy to have met her!</p><br>
+            <!--
+    <div class="w3-col l12 s12">
+        <div class="w3-white w3-margin w3-container w3-padding ">
+            <div class="w3-container w3-black ">
+                <h4>Comentarios</h4>
+            </div>
+            <div class="w3-row-padding w3-white">
+                <h4>Sin comentarios por el momento</h4>
 
-                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-                <p><span class="w3-large w3-text-black w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-                <p>Jane Doe saved us from a web disaster.</p><br>
+        <img src="https://www.w3schools.com/w3images/avatar_smoke.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+        <p><span class="w3-large w3-text-black w3-margin-right">Chandler Bing.</span> Web Designer.</p>
+        <p>Jane Doe is just awesome. I am so happy to have met her!</p><br>
 
-                <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-                <p><span class="w3-large w3-text-black w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-                <p>No one is better than Jane Doe.</p><br>
-                    -->
-                    </div>
+        <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+        <p><span class="w3-large w3-text-black w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
+        <p>Jane Doe saved us from a web disaster.</p><br>
+
+        <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+        <p><span class="w3-large w3-text-black w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
+        <p>No one is better than Jane Doe.</p><br>
+
+        </div>
                 </div>
             </div>
+                -->
 
             <hr>
             <div class="w3-col l12 s12">
                 <div class="w3-white w3-margin w3-container w3-padding ">
-                   
+
                     <div class="w3-row-padding w3-white">
+                        <hr />
                         <button style=" width:100%; background-color: #800080; /* Green */
   border: none;
   color: white;
@@ -504,19 +507,8 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;">
-                            Finalizar Viaje
-                        </button>
-                        <hr>
-                        <button style=" width:100%; background-color: #7F0000; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;" onclick="CancelTrip();">
-                            Cancelar Viaje
+  font-size: 16px;" onclick="window.Android_BottomModal.DissmissBottomModal();">
+                            Cerrar Dialogo
                         </button>
 
                     </div>
@@ -635,24 +627,22 @@
         //}
         var enumRoleInCoversation = { Sender: 0, Receiver: 1};
 
-        window.TripID = SustituteTripID;
+        //window.TripID = SustituteTripID;
         var Inter = setInterval(function () {
             try {
-                window.Android_BottomModal.GetAllMessagesFromConversation(window.TripID);
+                window.Android_BottomModal.GetAllMessagesRestaurantClient();
             }
             catch (err) {
 
             }
         }, 1000);
 
-        function CancelTrip() {
-            window.Android_BottomModal.DriverIsCancelingTrip(window.TripID);
-        }
+       
 
         function Send_message()
         {
             var TextToSend = document.getElementById('test_message_data').value;
-            window.Android_BottomModal.SendMessageInRideshare(TextToSend, window.TripID);
+            window.Android_BottomModal.SendMessageRestaurantToclient(TextToSend);
             document.getElementById('test_message_data').value =  '';
         }
 

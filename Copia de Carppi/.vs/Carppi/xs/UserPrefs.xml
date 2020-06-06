@@ -1,40 +1,47 @@
 ﻿<Properties StartupConfiguration="{04BD9E0E-F953-4786-A9FC-205D6231B9A1}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Fragments/FragmentSelectTypeOfPurchase.cs">
     <Files>
-      <File FileName="Carppi/Assets/ShoppingOptions.html" Line="123" Column="23" />
+      <File FileName="Carppi/Assets/ShoppingOptions.html" Line="115" Column="38" />
       <File FileName="Carppi/Resources/menu/bottom_navigation_main.xml" />
       <File FileName="Carppi/Resources/values/strings.xml" />
-      <File FileName="Carppi/MainActivity.cs" Line="33" Column="20" />
+      <File FileName="Carppi/MainActivity.cs" />
       <File FileName="Carppi/Resources/menu/nav_menu.xml" />
-      <File FileName="Carppi/Fragments/FragmentGrocery.cs" Line="1434" Column="1" />
+      <File FileName="Carppi/Fragments/FragmentGrocery.cs" />
       <File FileName="Carppi/Fragments/FragmentProfile.cs" />
       <File FileName="Carppi/Assets/DrivingNotFound.html" />
-      <File FileName="Carppi/Fragments/FragmentMain.cs" Line="691" Column="1" />
-      <File FileName="Carppi/Assets/Fragment1_NewIcons.html" Line="18" Column="89" />
-      <File FileName="Carppi/Assets/ShoppingKart.html" Line="941" Column="180" />
+      <File FileName="Carppi/Fragments/FragmentMain.cs" />
+      <File FileName="Carppi/Assets/Fragment1_NewIcons.html" />
       <File FileName="Carppi/Assets/ShoppingCatalog.html" />
       <File FileName="Carppi/Assets/PassengerExtraData.html" />
-      <File FileName="Carppi/Clases/Location.cs" Line="21" Column="1" />
+      <File FileName="Carppi/Clases/Location.cs" />
       <File FileName="Carppi/Assets/TripTypeSelect.html" />
       <File FileName="Carppi/Assets/FragmentGrocery_Map.html" />
       <File FileName="Carppi/Fragments/FragmentGroceryRequest.cs" />
       <File FileName="Carppi/Assets/GroceryRequestList.html" />
       <File FileName="Carppi/Assets/GroceryCatalog.html" />
-      <File FileName="../../Library/Caches/VisualStudio/8.0/Symbols/mono/mono/fd9f379d294e8208a63dd3f63d104057180c9789/mcs/class/referencesource/mscorlib/system/runtime/exceptionservices/exceptionservicescommon.cs" />
       <File FileName="Carppi/Assets/GroceryRequestExtra.html" />
       <File FileName="Carppi/Fragments/FragmentGroceryRequestConversation.cs" />
       <File FileName="Carppi/Assets/DriverExtraData.html" />
       <File FileName="Carppi/Resources/values/styles.xml" />
-      <File FileName="../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Aapt2.targets" />
       <File FileName="Carppi/Clases/GeneralAssignmentProblem.cs" />
       <File FileName="Carppi/Assets/GroceryCatalog_2.html" />
       <File FileName="Carppi/Assets/GroceryCatalog_3.html" />
-      <File FileName="Carppi/Assets/GroceryCatalog_4.html" Line="2908" Column="8" />
       <File FileName="Carppi/DatabaseTypes/Log_info.cs" />
       <File FileName="Carppi/DatabaseTypes/CarppiRegiones.cs" />
       <File FileName="Carppi/Resources/layout/activity_main.xml" />
       <File FileName="Carppi/MyFirebaseIIDService.cs" />
-      <File FileName="Carppi/Properties/AndroidManifest.xml" Line="40" Column="12" />
+      <File FileName="Carppi/Assets/GroceryCatalog_4.html" />
+      <File FileName="Carppi/Assets/CarppiDeliveryDashBoard.html" />
+      <File FileName="Carppi/Fragments/FragmentSelectTypeOfPurchase.cs" Line="341" Column="31" />
+      <File FileName="Carppi/Fragments/FragmentRestaurantDetailedView.cs" />
+      <File FileName="Carppi/Assets/CarppiDeliveryRestaurantDetailedView.html" />
+      <File FileName="Carppi/Assets/ShoppingKart2.html" />
+      <File FileName="Carppi/Resources/Resource.designer.cs" />
+      <File FileName="Carppi/Resources/drawable/ic_action_account_circle.png" />
+      <File FileName="Carppi/Assets/DelivermanExtraData.html" />
+      <File FileName="Carppi/Assets/RateFoodDeliverMan.html" />
+      <File FileName="Carppi/Fragments/FragmentRateDElivery.cs" />
+      <File FileName="Carppi/Properties/AndroidManifest.xml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -45,14 +52,22 @@
               <Node name="Assets" expanded="True" />
               <Node name="Clases" expanded="True" />
               <Node name="DatabaseTypes" expanded="True" />
-              <Node name="Fragments" expanded="True" />
-              <Node name="Properties" expanded="True">
-                <Node name="AndroidManifest.xml" selected="True" />
+              <Node name="Fragments" expanded="True">
+                <Node name="FragmentSelectTypeOfPurchase.cs" selected="True" />
               </Node>
+              <Node name="Properties" expanded="True" />
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
+                <Node name="drawable-hdpi" expanded="True" />
+                <Node name="drawable-mdpi" expanded="True" />
                 <Node name="layout" expanded="True" />
                 <Node name="menu" expanded="True" />
+                <Node name="mipmap-anydpi-v26" expanded="True" />
+                <Node name="mipmap-hdpi" expanded="True" />
+                <Node name="mipmap-mdpi" expanded="True" />
+                <Node name="mipmap-xhdpi" expanded="True" />
+                <Node name="mipmap-xxhdpi" expanded="True" />
+                <Node name="mipmap-xxxhdpi" expanded="True" />
                 <Node name="values" expanded="True" />
                 <Node name="xml" expanded="True" />
               </Node>
@@ -62,10 +77,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Carppi AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.pixel_2_pie_9_0_api_28" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="../../../Carppi/Fragments/FragmentGrocery.cs" line="1488" column="40" endLine="1495" endColumn="42" offsetX="-1" offsetY="-1" expression="uri" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.Carppi AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <Debugger.DebugSourceFolders>
     <String>/Users/macbookair/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/fd9f379d294e8208a63dd3f63d104057180c9789</String>

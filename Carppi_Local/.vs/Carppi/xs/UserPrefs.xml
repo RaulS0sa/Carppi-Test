@@ -1,0 +1,66 @@
+﻿<Properties StartupConfiguration="{04BD9E0E-F953-4786-A9FC-205D6231B9A1}|Default">
+  <MonoDevelop.Ide.ItemProperties.Carppi__Comercio AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Carppi/Fragments/FragmentMain.cs" Line="56" Column="20" />
+      <File FileName="Carppi/Assets/GroceryRequestExtra.html" />
+      <File FileName="Carppi/Fragments/FragmentGroceryRequestConversation.cs" />
+      <File FileName="Carppi/Fragments/FragmentGroceryRequest.cs" />
+      <File FileName="Carppi/Fragments/FragmentGrocery.cs" />
+      <File FileName="Carppi/PostLoginActivityActivity.cs" />
+      <File FileName="Carppi/ValidateAccountActivity.cs" />
+      <File FileName="Carppi/MainActivity.cs" Line="29" Column="23" />
+      <File FileName="Carppi/Fragments/FragmentMenu.cs" />
+      <File FileName="Carppi/Assets/ListOfOrders.html" Line="13218" Column="1" />
+      <File FileName="Carppi/MyFirebaseIIDService.cs" />
+      <File FileName="Carppi/MyFirebaseMessagingService.cs" />
+      <File FileName="Carppi/Fragments/FragmentRepartidorView.cs" />
+      <File FileName="Carppi/Assets/DeliverManRequestExtra.html" />
+      <File FileName="Carppi/Assets/ListOfDeliveryBoys.html" />
+      <File FileName="Carppi/Fragments/FragmentProfile.cs" />
+      <File FileName="Carppi/Fragments/FragmentAddElement.cs" />
+      <File FileName="Carppi/Assets/AddItemToMenuView.html" />
+      <File FileName="Carppi/Resources/values/strings.xml" />
+      <File FileName="Carppi/LoginActivity.cs" />
+      <File FileName="Carppi/Clases/Location.cs" />
+      <File FileName="Carppi/Assets/RestaurantDetailedView.html" />
+      <File FileName="Carppi/Resources/layout/LoginLayout.axml" Line="90" Column="16" />
+      <File FileName="Carppi/Resources/layout/PostLoginLayout.axml" Line="134" Column="6" />
+      <File FileName="Carppi/Resources/layout/ValidateMailLayout.axml" Line="14" Column="11" />
+      <File FileName="Carppi/Properties/AndroidManifest.xml" Line="17" Column="118" />
+      <File FileName="Carppi/Assets/newListOfOrders.html" Line="44677" Column="16" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Option id="ShowAllFiles" value="True" />
+          <Node name="Carppi" expanded="True">
+            <Node name="Carppi_Comercio" expanded="True">
+              <Node name="Assets" expanded="True" />
+              <Node name="Clases" expanded="True" />
+              <Node name="DatabaseTypes" expanded="True" />
+              <Node name="Fragments" expanded="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="AndroidManifest.xml" selected="True" />
+              </Node>
+              <Node name="Resources" expanded="True">
+                <Node name="layout" expanded="True" />
+                <Node name="values" expanded="True" />
+                <Node name="xml" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <Debugger.DebugSourceFolders>
+    <String>/Users/macbookair/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/fd9f379d294e8208a63dd3f63d104057180c9789</String>
+  </Debugger.DebugSourceFolders>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

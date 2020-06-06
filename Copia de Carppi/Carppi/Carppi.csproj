@@ -78,6 +78,9 @@
     <Compile Include="Fragments\FragmentGroceryRequest.cs" />
     <Compile Include="Fragments\FragmentGroceryRequestConversation.cs" />
     <Compile Include="Clases\GeneralAssignmentProblem.cs" />
+    <Compile Include="Fragments\FragmentRestaurantDetailedView.cs" />
+    <Compile Include="Fragments\FragmentRateDElivery.cs" />
+    <Compile Include="Fragments\FragmentSelectTypeOfPurchase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -93,7 +96,7 @@
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round_ask_.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
@@ -357,6 +360,38 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\cupcake.jpg">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\cupcakezobie.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher_Round.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_square.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_square.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_square.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_square.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_square.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -454,6 +489,11 @@
     <AndroidAsset Include="Assets\GroceryCatalog_2.html" />
     <AndroidAsset Include="Assets\GroceryCatalog_3.html" />
     <AndroidAsset Include="Assets\GroceryCatalog_4.html" />
+    <AndroidAsset Include="Assets\CarppiDeliveryDashBoard.html" />
+    <AndroidAsset Include="Assets\CarppiDeliveryRestaurantDetailedView.html" />
+    <AndroidAsset Include="Assets\ShoppingKart2.html" />
+    <AndroidAsset Include="Assets\DelivermanExtraData.html" />
+    <AndroidAsset Include="Assets\RateFoodDeliverMan.html" />
   </ItemGroup>
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />

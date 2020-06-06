@@ -13,7 +13,7 @@ public class WebInterfaceGroceryRequest
 			"n_ShowPopUpStateToDeliveryboy:()V:__export__\n" +
 			"n_RejectBuyOrder:(I)V:__export__\n" +
 			"n_AcceptBuyOrder:(I)V:__export__\n" +
-			"n_OrderExtraData:(I)V:__export__\n" +
+			"n_OrderExtraData:(II)V:__export__\n" +
 			"n_DisplayOptionsToGroceryBuyOrder:(I)V:__export__\n" +
 			"";
 		mono.android.Runtime.register ("Carppi.Fragments.WebInterfaceGroceryRequest, Carppi", WebInterfaceGroceryRequest.class, __md_methods);
@@ -63,12 +63,12 @@ public class WebInterfaceGroceryRequest
 
 	@android.webkit.JavascriptInterface
 
-	public void OrderExtraData (int p0)
+	public void OrderExtraData (int p0, int p1)
 	{
-		n_OrderExtraData (p0);
+		n_OrderExtraData (p0, p1);
 	}
 
-	private native void n_OrderExtraData (int p0);
+	private native void n_OrderExtraData (int p0, int p1);
 
 	@android.webkit.JavascriptInterface
 

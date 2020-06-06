@@ -5228,7 +5228,10 @@ namespace Carppi
 			public const int ic_launcher_round_k = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int ic_launcher_square2 = 2130903046;
+			public const int ic_launcher_square = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int ic_launcher_square2 = 2130903047;
 			
 			static Mipmap()
 			{

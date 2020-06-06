@@ -5200,7 +5200,7 @@ bottom:0">
                                 </div>
                                 <div id="SearchProgressBar" style="display:ReplaceForDeliveryBoy_Searching">
 
-                                    <h5>Estamos buscando a tu repartidor</h5>
+                                    <h5>Estamos Contactando con el comercio</h5>
                                     <div class="progress" style="padding-top:0;padding-bottom:0;"><div class="indeterminate" style="padding-top:0;padding-bottom:0;"></div></div>
 
 
@@ -5366,7 +5366,7 @@ font-size: 19px; width:100%; display:none">
 
                                 <div id="DeliverRequestAccepted" style="display:ReplaceForDeliveryBoy_Acepted">
 
-                                    <h5 id="TextAssistance_TripNotFound">Hemos Encontrado a Tu repartidor!</h5>
+                                    <h5 id="TextAssistance_TripNotFound">Aceptaron tu orden!</h5>
 
 
 
@@ -5375,7 +5375,7 @@ font-size: 19px; width:100%; display:none">
 
                                   
                                     <div style="float: left;width: 75%;display: inline-block;text-align:left;padding-left:8%;">
-                                        <h5 id="TextAssistance_TripNotFound">El repartidor esta atendiendo tu orden, las ordenes salen cada hora a partir de las 11:30am</h5>
+                                        <h5 id="TextAssistance_TripNotFound">El Comercio esta atendiendo tu orden</h5>
                                         <input id="IniciarViajeButton_NotBeingUsed" type="button" value="Iniciar viaje" style="  background-color:black; /* Green */
                                     border: none;
                                     color: white;
@@ -5527,7 +5527,7 @@ font-size: 19px; width:100%; display:none">
 
                                     </div>
                                     <div class="chat_ib" style="width:25%;display: inline-block; display: flex;
-  flex-direction: column;  justify-content: center;text-align:center;vertical-align:middle;display:table-cell;" onclick="window.Android.ShowExtraOptionsOnGroceryAwait();">
+  flex-direction: column;  justify-content: center;text-align:center;vertical-align:middle;display:table-cell;" onclick="window.Android.ShowExtraOptionsOnDeliverManAwait();">
                                         <i class="fa fa-bars">
                                         </i>
 
@@ -5832,18 +5832,18 @@ font-size: 19px; width:100%; display:none">
                     document.getElementById('DeliverRequestEnded').style.display = 'none';
                     //DistanceBetweenPointsDialog_GroceryDeliveryDialog
                     //TimeBetweenPointsDialog_GroceryDeliveryDialog
-                    var Distance = Math.abs(OrderData.Latitud - OrderData.Latitud_Repartidor) + Math.abs(OrderData.Longitud - OrderData.Longitud_Repartidor);
+                    var Distance = Math.abs(OrderData.LatitudPeticion - OrderData.LatitudRepartidor) + Math.abs(OrderData.LongitudPeticion - OrderData.LongitudRepartidor);
                     document.getElementById('DistanceBetweenPointsDialog_GroceryDeliveryDialog').innerHTML = "Distancia: " + (Math.round((Distance / 0.009009) * 100)) / 100 + "km";
                     document.getElementById('TimeBetweenPointsDialog_GroceryDeliveryDialog').innerHTML = "Tiempo: " + (Math.round(((Distance / 0.009009) * 17.2) * 100)) / 100 + " min aprox";
 
 
                     var Data = new Object();
-                    Data.MyLatitud = OrderData.Latitud;
-                    Data.MyLongitud = OrderData.Longitud;
-                    Data.PassengerLatitude = OrderData.Latitud
-                    Data.PassengerLongitude = OrderData.Longitud;
-                    Data.LatitudConductor = OrderData.Latitud_Repartidor;
-                    Data.LongitudConductor = OrderData.Longitud_Repartidor;
+                    Data.MyLatitud = OrderData.LatitudPeticion;
+                    Data.MyLongitud = OrderData.LongitudPeticion;
+                    Data.PassengerLatitude = OrderData.LatitudPeticion
+                    Data.PassengerLongitude = OrderData.LongitudPeticion;
+                    Data.LatitudConductor = OrderData.LatitudRepartidor;
+                    Data.LongitudConductor = OrderData.LongitudRepartidor;
                     
 
                     ShowRouteToGoal_Driver(Data)

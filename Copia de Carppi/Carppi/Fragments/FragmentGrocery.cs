@@ -1282,7 +1282,7 @@ namespace Carppi.Fragments
                     Static_Webi.Post(action2);
                     //Map
                     //An Order Is Pending
-                    if (Order.Stat == GroceryOrderState.RequestEnded)
+                    if (Order.Stat == FragmentRestaurantDetailedView.GroceryOrderState.RequestEnded)
                     {
                         await Task.Delay(5000).ContinueWith(lol =>
                          { UdapteLayoutOnrequestFinish(); });
@@ -1299,7 +1299,7 @@ namespace Carppi.Fragments
                         Action action2 = () =>
                         {
                         //var jsr = new JavascriptResult();
-                        var script = "ShowStatusOfGroceryOrder(" + ((int)GroceryOrderState.RequestEnded) + "," + S_Ressult.Response + ")";
+                        var script = "ShowStatusOfGroceryOrder(" + ((int)FragmentRestaurantDetailedView.GroceryOrderState.RequestEnded) + "," + S_Ressult.Response + ")";
                             Static_Webi.EvaluateJavascript(script, null);
 
 
@@ -1339,7 +1339,7 @@ namespace Carppi.Fragments
             public string paymentIntent { get; set; }
             public double? Latitud { get; set; }
             public double? Longitud { get; set; }
-            public GroceryOrderState Stat { get; set; }
+            public FragmentRestaurantDetailedView.GroceryOrderState Stat { get; set; }
             public string ListaDeProductos { get; set; }
             public double? Latitud_Repartidor { get; set; }
             public double? Longitud_Repartidor { get; set; }
@@ -1675,6 +1675,36 @@ namespace Carppi.Fragments
             // };
             //  ((Activity)mContext).RunOnUiThread(Toatsaction);
         }
+
+
+        [JavascriptInterface]
+        [Export("UpdateProductList")]
+        public static void UpdateProductList(int ProductHash, int quantity)
+        {
+
+            var micopia = ListaDeProductos;
+            // var casde = Base64Decode(ProductHash);
+            //var Cadena = JsonConvert.DeserializeObject<CarppiGroceryProductos>((ProductHash));
+            var sss = ListaDeProductos.Where(X => X.ID == ProductHash).FirstOrDefault();
+            if (sss == null)
+            {
+                var producto = new CarppiGroceryProductos();
+                producto.ID = ProductHash;
+                producto.Cantidad = 1;
+                ///ListaDeProductos.Add(producto);
+            }
+            else
+            {
+                sss.Cantidad = quantity;
+                if (quantity == 0)
+                {
+                    ListaDeProductos.Remove(sss);
+                }
+
+            }
+        }
+
+
 
 
 
@@ -2130,32 +2160,6 @@ namespace Carppi.Fragments
         }
 
 
-        [JavascriptInterface]
-        [Export("UpdateProductList")]
-        public static void UpdateProductList(int ProductHash, int quantity)
-        {
-
-            var micopia = ListaDeProductos;
-            // var casde = Base64Decode(ProductHash);
-            //var Cadena = JsonConvert.DeserializeObject<CarppiGroceryProductos>((ProductHash));
-            var sss = ListaDeProductos.Where(X => X.ID == ProductHash).FirstOrDefault();
-            if (sss == null)
-            {
-                var producto = new CarppiGroceryProductos();
-                producto.ID = ProductHash;
-                producto.Cantidad = 1;
-                ListaDeProductos.Add(producto);
-            }
-            else
-            {
-                sss.Cantidad = quantity;
-                if(quantity == 0)
-                {
-                    ListaDeProductos.Remove(sss);
-                }
-               
-            }
-        }
 
 
 

@@ -5,4 +5,4 @@
       android:icon="@drawable/ic_action_not_listed_location"
       android:title="@string/tab2_title"
       app:showAsAction="ifRoom" />
-    --><item android:id="@+id/menu_video" android:enabled="true" android:icon="@drawable/ic_action_account_circle" android:title="@string/tab3_title" app:showAsAction="ifRoom" android:background="@color/colorPrimary" app:itemIconTint="@drawable/nav_item_colors" app:itemTextColor="@drawable/nav_item_colors" /></menu>
+    --><item android:id="@+id/menu_video" android:enabled="true" android:icon="@drawable/cupcakezobie" android:title="Restaurantes" app:showAsAction="ifRoom" android:background="@color/colorPrimary" app:itemIconTint="@drawable/nav_item_colors" app:itemTextColor="@drawable/nav_item_colors" /></menu>

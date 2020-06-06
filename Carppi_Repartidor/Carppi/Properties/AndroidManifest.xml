@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.Carppi.Carppi_repartidor" android:installLocation="auto" android:versionCode="9" android:versionName="9" android:debuggable="false">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.Carppi.Carppi_repartidor" android:installLocation="auto" android:versionCode="13" android:versionName="13" android:debuggable="false">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -10,7 +10,7 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<!-- <user-permission android:name="com.googlemap.googlemap.permission.MAPS_RECEIVE" android:protectionLevel="signature" />-->
 	<!-- <uses-feature android:name="android.hardware.camera" android:required="false" />-->
-	<application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:label="Carppi Repartidor" android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme">
+	<application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:label="Carppi Repartidor" android:icon="@mipmap/ic_launcher_square" android:theme="@style/AppTheme">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBOK1P_QtvC1E9vJWUVZOhVbF8REF_Mzr8" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 		<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
@@ -36,5 +36,12 @@
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
+		<!--
+		<service android:name=".service.MyFirebaseMessagingService" android:stopWithTask="false">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+			</intent-filter>
+		</service>
+        -->
 	</application>
 </manifest>

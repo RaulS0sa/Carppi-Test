@@ -18,6 +18,7 @@ using Android.Util;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
+using Firebase.Iid;
 using Java.Interop;
 using Newtonsoft.Json;
 using SQLite;
@@ -331,11 +332,11 @@ namespace Carppi.Fragments
                                 newDarta.Cost = (sumup + 30).ToString();
                                 newDarta.NameOfRequester = Order.Orden.NombreDelUsuario;
                                 newDarta.tipodePago = Order.Orden.TipoDePago == enumTipoDePago.Efectivo ? "Efectivo" : "Tarjeta";
-                                var placemarks = await Geocoding.GetPlacemarksAsync(Convert.ToDouble(Order.Orden.Latitud), Convert.ToDouble(Order.Orden.Longitud));
+                                var placemarks = await Geocoding.GetPlacemarksAsync(Convert.ToDouble(Order.Orden.LatitudPeticion), Convert.ToDouble(Order.Orden.LongitudPeticion));
                                 var placemark = placemarks?.FirstOrDefault();
                                 newDarta.Direccion = "Colonia: " + placemark.SubLocality + "| Calle: " + placemark.Thoroughfare + "| Numero: " + placemark.SubThoroughfare;
 
-                                var distance = Math.Sqrt(Math.Pow(Convert.ToDouble(Order.Orden.Latitud) - MyLatLong.Latitude, 2) + Math.Pow(Convert.ToDouble(Order.Orden.Longitud) - MyLatLong.Longitude, 2));
+                                var distance = Math.Sqrt(Math.Pow(Convert.ToDouble(Order.Orden.LatitudPeticion) - MyLatLong.Latitude, 2) + Math.Pow(Convert.ToDouble(Order.Orden.LongitudPeticion) - MyLatLong.Longitude, 2));
 
                                 newDarta.Distance = (distance * (1 / 0.0090909)).ToString();
                                 var script = "ShowRequestOptions(" + JsonConvert.SerializeObject(newDarta) + ");";
@@ -355,11 +356,25 @@ namespace Carppi.Fragments
                         }
                         else
                         {
-                            var Coordenada = new CoordenadasDeOrdenes();
-                            Coordenada.Latitud = Convert.ToDouble(Order.Orden.Latitud);
-                            Coordenada.Longitud = Convert.ToDouble(Order.Orden.Longitud);
-                            Coordenada.ID = Order.Orden.ID;
-                            ListaCoordenadas.Add(Coordenada);
+                            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+                            if (Order.Orden.Stat == Fragments.GroceryOrderState.RequestBeingAttended)
+                            {
+                                var Coordenada = new CoordenadasDeOrdenes();
+                                Coordenada.Latitud = Convert.ToDouble(Order.Orden.LatitudRestaurante, culture);
+                                Coordenada.Longitud = Convert.ToDouble(Order.Orden.LongitudRestaurante, culture);
+                                Coordenada.ID = Order.Orden.ID;
+                                Coordenada.EstadoDeOrden = (int)Fragments.GroceryOrderState.RequestBeingAttended;
+                                ListaCoordenadas.Add(Coordenada);
+                            }
+                            else if (Order.Orden.Stat == Fragments.GroceryOrderState.RequestGoingToClient)
+                            {
+                                var Coordenada = new CoordenadasDeOrdenes();
+                                Coordenada.Latitud = Convert.ToDouble(Order.Orden.LatitudPeticion, culture);
+                                Coordenada.Longitud = Convert.ToDouble(Order.Orden.LongitudPeticion, culture);
+                                Coordenada.EstadoDeOrden = (int)Fragments.GroceryOrderState.RequestGoingToClient;
+                                Coordenada.ID = Order.Orden.ID;
+                                ListaCoordenadas.Add(Coordenada);
+                            }
 
                         }
                         /*
@@ -538,7 +553,139 @@ namespace Carppi.Fragments
         //OrderExtraData
         [JavascriptInterface]
         [Export("OrderExtraData")]
-        public async void OrderExtraData(Int32 RequestID)
+        public async void OrderExtraData(Int32 RequestID, GroceryOrderState EstadoDeLaOrden)
+        {
+           if(EstadoDeLaOrden == GroceryOrderState.RequestBeingAttended)
+            {
+                RestaurantExtraData(RequestID);
+            }
+            else
+            {
+                PassengerExtraData(RequestID);
+            }
+          
+        }
+        void RestaurantExtraData(Int32 RequestID)
+        {
+            try
+            {
+
+
+
+                HttpClient client = new HttpClient();
+
+                string FaceID = null;
+                var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                var db5 = new SQLiteConnection(databasePath5);
+                //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                try
+                {
+
+                    var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                    FaceID = query.ProfileId;
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRepartidorApi/GetRestaurantDetailedData?" +
+                    "FaceIDHash_DeliveryMan=" + FaceID +
+                    "&OrderID_Restaurant=" + RequestID
+
+
+                    ));
+                // HttpResponseMessage response;
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //  var  response =  client.GetAsync(uri).Result;
+                var t = Task.Run(() => GetResponseFromURI(uri));
+                t.Wait();
+                var S_Ressult = t.Result;
+                //DeliveryContext
+                var ContextualData = JsonConvert.DeserializeObject<DeliveryContext>(S_Ressult.Response);
+                var OrderList = ContextualData.deliveryOrderQuery;//JsonConvert.DeserializeObject<List<DeliveryOrderQuery>>(S_Ressult.Response);
+                var Order = OrderList.FirstOrDefault();
+                Action action_WhowAlert = () =>
+                {
+                    var sss = ((Activity)mContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
+                    sss.Settings.JavaScriptEnabled = true;
+
+                    sss.Settings.DomStorageEnabled = true;
+                    sss.Settings.LoadWithOverviewMode = true;
+                    sss.Settings.UseWideViewPort = true;
+                    sss.Settings.BuiltInZoomControls = true;
+                    sss.Settings.DisplayZoomControls = false;
+                    sss.Settings.SetSupportZoom(true);
+                    sss.Settings.JavaScriptEnabled = true;
+
+                    AssetManager assets = ((Activity)mContext).Assets;
+                    string content;
+                    var Viewww = new GroceryUtilityResponseJavascriptInterface(mContext, sss);
+                    sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
+                    using (StreamReader sr = new StreamReader(assets.Open("RestaurantExtraData.html")))
+                    {
+                        content = sr.ReadToEnd();
+                        content = content.Replace("SustituteTripID", RequestID.ToString());
+                        //<h4>ListaDeMercancias</h4>
+                        var DecodedJsonArray = Base64Decode(Order.Orden.ListaDeProductos);
+
+                        var ListaDeserializada = JsonConvert.DeserializeObject<List<ShopItem>>(DecodedJsonArray);
+
+                        List<ProducListOptions> ListaNombres_Productos = new List<ProducListOptions>();
+
+                        var CadenadeMercancias = "";
+                        var CostoParcial = 0.0;
+                        foreach (var producto in ContextualData.deliveryOrderQuery)
+                        {
+                            CadenadeMercancias += "<h4>"+ "Orden: " + producto.Orden.ID + "</h4>";
+                            var listadeelementos = JsonConvert.DeserializeObject<List<ShopItem>>(Base64Decode(producto.Orden.ListaDeProductos));
+                            foreach (var item in listadeelementos)
+                            {
+                                if (item.Quantity != 0)
+                                {
+                                    ProducListOptions produc = new ProducListOptions();
+                                    produc.Cantidat = item.Quantity;
+                                    produc.ProductName = Order.Productos.Where(x => x.ID == item.ItemID).FirstOrDefault().Nombre;
+                                    ListaNombres_Productos.Add(produc);
+                                    CadenadeMercancias += "<h6>" + produc.ProductName + ": " + produc.Cantidat + "</h6>";
+
+
+                                }
+                            }
+                        }
+                        Order.ListaNombres_Productos = ListaNombres_Productos;
+
+                        content = content.Replace("<h4>ListaDeMercancias</h4>", CadenadeMercancias);
+                        content = content.Replace("<h4>CostoDeLaOrden</h4>", "Costo de la orden: " + (ContextualData.CostoTotal).ToString());
+                        content = content.Replace("<h4>NombreDelCliente</h4>", "Restaurante: " + ContextualData.cliente);
+                        sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
+
+                    }
+                    sss.SetWebViewClient(new LocalWebViewClient());
+
+
+
+                };
+
+                ((Activity)mContext).RunOnUiThread(action_WhowAlert);
+
+                MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateExpanded;
+
+
+
+
+            }
+
+            catch (Exception Ex)
+            {
+
+            }
+            // Console.WriteLine(RequestID);
+
+        }
+        void PassengerExtraData(Int32 RequestID)
         {
             try
             {
@@ -563,7 +710,7 @@ namespace Carppi.Fragments
                 }
 
                 var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRepartidorApi/GetOrderProductList?" +
-                    "FaceIDHash_DeliveryBoy=" + FaceID + 
+                    "FaceIDHash_DeliveryBoy=" + FaceID +
                     "&OrderID=" + RequestID
 
 
@@ -579,7 +726,7 @@ namespace Carppi.Fragments
                 //DeliveryContext
                 var ContextualData = JsonConvert.DeserializeObject<DeliveryContext>(S_Ressult.Response);
                 var OrderList = ContextualData.deliveryOrderQuery;//JsonConvert.DeserializeObject<List<DeliveryOrderQuery>>(S_Ressult.Response);
-                    var Order = OrderList.FirstOrDefault();
+                var Order = OrderList.FirstOrDefault();
                 Action action_WhowAlert = () =>
                 {
                     var sss = ((Activity)mContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
@@ -616,18 +763,18 @@ namespace Carppi.Fragments
                             {
                                 ProducListOptions produc = new ProducListOptions();
                                 produc.Cantidat = producto.Quantity;
-                                produc.ProductName = Order.Productos.Where(x => x.ID == producto.ItemID).FirstOrDefault().Producto;
+                                produc.ProductName = Order.Productos.Where(x => x.ID == producto.ItemID).FirstOrDefault().Nombre;
                                 ListaNombres_Productos.Add(produc);
-                                CadenadeMercancias += "<h5>"+ produc.ProductName  + ": " + produc.Cantidat  +"</h5>";
-                                
+                                CadenadeMercancias += "<h5>" + produc.ProductName + ": " + produc.Cantidat + "</h5>";
+
 
                             }
                         }
                         Order.ListaNombres_Productos = ListaNombres_Productos;
 
                         content = content.Replace("<h4>ListaDeMercancias</h4>", CadenadeMercancias);
-                        content = content.Replace("<h4>CostoDeLaOrden</h4>","Costo: " +  (ContextualData.CostoTotal + 30).ToString());
-                        content = content.Replace("<h4>NombreDelCliente</h4>","Cliente: " +  ContextualData.cliente);
+                        content = content.Replace("<h4>CostoDeLaOrden</h4>", "Costo: " + (ContextualData.CostoTotal + ContextualData.TarifaDelEnvio).ToString());
+                        content = content.Replace("<h4>NombreDelCliente</h4>", "Cliente: " + ContextualData.cliente);
                         sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
 
                     }
@@ -651,13 +798,15 @@ namespace Carppi.Fragments
 
             }
             // Console.WriteLine(RequestID);
-          
+
         }
+
         class DeliveryContext
         {
             public List<DeliveryOrderQuery> deliveryOrderQuery;
             public double CostoTotal;
             public string cliente;
+            public double TarifaDelEnvio;
         }
 
         public static string Base64Decode(string base64EncodedData)
@@ -945,14 +1094,16 @@ namespace Carppi.Fragments
         }
 
         public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded };
-        public override void OnPageFinished(WebView view, string url)
+        public override async void OnPageFinished(WebView view, string url)
         {
             base.OnPageFinished(view, url);
             sView = view;
-
+            UpdateLocation();
+            PendingGroceryRequest(sView);
+            await Clases.Location.StartListening();
             if (aTimer == null)
             {
-                aTimer = new System.Timers.Timer(10000);
+                aTimer = new System.Timers.Timer(5000);
 
                 // Hook up the Elapsed event for the timer. 
                 aTimer.Elapsed += OnTimedEvent;
@@ -971,11 +1122,25 @@ namespace Carppi.Fragments
 
 
 
+        class CompleteLestener : Java.Lang.Object, Android.Gms.Tasks.IOnSuccessListener
+        {
 
+
+            public void OnSuccess(Java.Lang.Object result)
+            {
+                var token = result.Class.GetMethod("getToken").Invoke(result).ToString();
+                GroceryRequestWebClient.SuperToken = token;
+            }
+        }
+        public static string SuperToken { get; set; }
         public static async void UpdateLocation()
         {
             try
             {
+
+                
+
+
                 var MyLatLong = await Clases.Location.GetCurrentPosition();
                 //WhereoGo.LatitudeOrigen = Loc.Latitude;
                 //WhereoGo.LongitudOrigen = Loc.Longitude;
@@ -986,12 +1151,16 @@ namespace Carppi.Fragments
                 var db5 = new SQLiteConnection(databasePath5);
                 var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
 
-                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRepartidorApi/ActualizaLocacion?" +
-                    "user5=" + query.ProfileId
-                    + "&Latitud=" + MyLatLong.Latitude
-                     + "&Longitud=" + MyLatLong.Longitude
+                FirebaseInstanceId.Instance.GetInstanceId().AddOnSuccessListener(new CompleteLestener());
+                var TokeNData = GroceryRequestWebClient.SuperToken == null ? query.FirebaseID : GroceryRequestWebClient.SuperToken;
 
-                    ));
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRepartidorApi/ActualizaLocalizacionYToken?" +
+                    "user5=" + query.ProfileId
+                    + "&Latitud=" + MyLatLong.Latitude.ToString().Replace(",", ".")
+                     + "&Longitud=" + MyLatLong.Longitude.ToString().Replace(",", ".")
+                     + "&token=" + TokeNData
+
+                    )) ;
                 HttpResponseMessage response;
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -1082,11 +1251,11 @@ namespace Carppi.Fragments
                                 newDarta.NameOfRequester = Order.Orden.NombreDelUsuario;
                                 newDarta.tipodePago = Order.Orden.TipoDePago == enumTipoDePago.Efectivo ? "Efectivo" : "Tarjeta";
 
-                                var placemarks = await Geocoding.GetPlacemarksAsync(Convert.ToDouble(Order.Orden.Latitud), Convert.ToDouble(Order.Orden.Longitud));
+                                var placemarks = await Geocoding.GetPlacemarksAsync(Convert.ToDouble(Order.Orden.LatitudPeticion), Convert.ToDouble(Order.Orden.LongitudPeticion));
                                 var placemark = placemarks?.FirstOrDefault();
                                 newDarta.Direccion = "Colonia: " + placemark.SubLocality + "| Calle: " + placemark.Thoroughfare + "| Numero: " + placemark.SubThoroughfare;
 
-                                var distance = Math.Sqrt(Math.Pow(Convert.ToDouble(Order.Orden.Latitud )- MyLatLong.Latitude, 2) + Math.Pow(Convert.ToDouble(Order.Orden.Longitud )- MyLatLong.Longitude, 2));
+                                var distance = Math.Sqrt(Math.Pow(Convert.ToDouble(Order.Orden.LatitudPeticion) - MyLatLong.Latitude, 2) + Math.Pow(Convert.ToDouble(Order.Orden.LongitudPeticion) - MyLatLong.Longitude, 2));
 
                                 newDarta.Distance = (distance * (1/0.0090909)).ToString();
                                 var script = "ShowRequestOptions(" + JsonConvert.SerializeObject(newDarta) + ");";
@@ -1106,11 +1275,25 @@ namespace Carppi.Fragments
                         }
                         else
                         {
-                            var Coordenada = new CoordenadasDeOrdenes();
-                            Coordenada.Latitud = Convert.ToDouble(Order.Orden.Latitud);
-                            Coordenada.Longitud = Convert.ToDouble(Order.Orden.Longitud);
-                            Coordenada.ID = Order.Orden.ID;
-                            ListaCoordenadas.Add(Coordenada);
+                            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+                            if (Order.Orden.Stat == Fragments.GroceryOrderState.RequestBeingAttended)
+                            {
+                                var Coordenada = new CoordenadasDeOrdenes();
+                                Coordenada.Latitud = Convert.ToDouble(Order.Orden.LatitudRestaurante, culture);
+                                Coordenada.Longitud = Convert.ToDouble(Order.Orden.LongitudRestaurante, culture);
+                                Coordenada.ID = Order.Orden.ID;
+                                Coordenada.EstadoDeOrden = (int)Fragments.GroceryOrderState.RequestBeingAttended;
+                                ListaCoordenadas.Add(Coordenada);
+                            }
+                            else if (Order.Orden.Stat == Fragments.GroceryOrderState.RequestGoingToClient)
+                            {
+                                var Coordenada = new CoordenadasDeOrdenes();
+                                Coordenada.Latitud = Convert.ToDouble(Order.Orden.LatitudPeticion, culture);
+                                Coordenada.Longitud = Convert.ToDouble(Order.Orden.LongitudPeticion, culture);
+                                Coordenada.EstadoDeOrden = (int)Fragments.GroceryOrderState.RequestGoingToClient;
+                                Coordenada.ID = Order.Orden.ID;
+                                ListaCoordenadas.Add(Coordenada);
+                            }
 
                         }
                         /*
@@ -1143,7 +1326,9 @@ namespace Carppi.Fragments
                     }
                     Action SetMarkerAcction = async () =>
                     {
+                        var rnd = new Random();
                         var MyLatLong = await Clases.Location.GetCurrentPosition();
+                        //MyLatLong.Latitude = MyLatLong.Latitude + (rnd.NextDouble() - 0.5);
                         var script = "SetAllPlaceMarkers(" + JsonConvert.SerializeObject(ListaCoordenadas) +"," + JsonConvert.SerializeObject(MyLatLong) +  ");";
                         Action action = () =>
                         {
@@ -1260,18 +1445,24 @@ namespace Carppi.Fragments
         public long? RegionID { get; set; }
         public string UserID { get; set; }
         public string paymentIntent { get; set; }
-        public double? Latitud { get; set; }
-        public double? Longitud { get; set; }
+        public double? LatitudPeticion { get; set; }
+        public double? LongitudPeticion { get; set; }
+        public double? LatitudRestaurante { get; set; }
+        public double? LongitudRestaurante { get; set; }
         public GroceryOrderState Stat { get; set; }
         public string ListaDeProductos { get; set; }
-        public double? Latitud_Repartidor { get; set; }
-        public double? Longitud_Repartidor { get; set; }
+        public double? LatitudRepartidor { get; set; }
+        public double? LongitudRepartidor { get; set; }
+        public double? Precio { get; set; }
         public double? FaceIDRepartidor_Repartidor { get; set; }
         public string FaceIDRepartidor_RepartidorCadena { get; set; }
+        public string RestaurantHash { get; set; }
+        public string NombreDelRestaurante { get; set; }
+        public string NombreDelUsuario { get; set; }
         public List<ShopItem> ListaDeItems { get; set; }
 
         public string Direccion { get; set; }
-        public string NombreDelUsuario { get; set; }
+        
         public enumTipoDePago TipoDePago { get; set; }
 
 
@@ -1297,6 +1488,8 @@ namespace Carppi.Fragments
         public long ID { get; set; }
         public long? RegionID { get; set; }
         public string Producto { get; set; }
+        public string IDdRestaurante { get; set; }
+        public string Nombre { get; set; }
         public double? Costo { get; set; }
         public byte[] Foto { get; set; }
     }
@@ -1305,6 +1498,7 @@ namespace Carppi.Fragments
         public double Latitud;
         public double Longitud;
         public long ID;
+        public int EstadoDeOrden;
     }
     class NewOrderData
     {

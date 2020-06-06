@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.Carppi.Carppi_repartidor" android:installLocation="auto" android:versionCode="8" android:versionName="8" android:debuggable="true">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.Carppi.Carppi_repartidor" android:installLocation="auto" android:versionCode="12" android:versionName="12" android:debuggable="true">
   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29" />
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,7 +14,7 @@
   <uses-feature android:name="android.hardware.location.network" />
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-  <application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:label="Carppi Repartidor" android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme" android:debuggable="true" android:name="android.app.Application">
+  <application android:allowBackup="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:label="Carppi Repartidor" android:icon="@mipmap/ic_launcher_square" android:theme="@style/AppTheme" android:debuggable="true" android:name="android.app.Application">
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBOK1P_QtvC1E9vJWUVZOhVbF8REF_Mzr8" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
@@ -40,22 +40,29 @@
     <provider android:name="androidx.core.content.FileProvider" android:authorities="com.Carppi.Carppi_repartidor.fileprovider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
     </provider>
-    <service android:name="crc6494e69c2e1a5005e4.MyFirebaseIIDService">
-      <intent-filter>
-        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-      </intent-filter>
-    </service>
-    <service android:name="crc6494e69c2e1a5005e4.MyFirebaseMessagingService">
-      <intent-filter>
-        <action android:name="com.google.firebase.MESSAGING_EVENT" />
-      </intent-filter>
-    </service>
+    <!--
+		<service android:name=".service.MyFirebaseMessagingService" android:stopWithTask="false">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+			</intent-filter>
+		</service>
+        -->
     <activity android:label="@string/app_name" android:theme="@style/AppTheme" android:name="crc64832a0daf8f501bd0.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <service android:name="crc64832a0daf8f501bd0.MyFirebaseIIDService">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <service android:name="crc64832a0daf8f501bd0.MyFirebaseMessagingService">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
     <activity android:label="ShowTripOptionToRideSharer" android:name="crc64832a0daf8f501bd0.ShowTripOptionToRideSharer" />
     <activity android:configChanges="orientation|screenSize" android:name="crc646957603ea1820544.MediaPickerActivity" />
     <service android:name="crc64396a3fe5f8138e3f.KeepAliveService" />

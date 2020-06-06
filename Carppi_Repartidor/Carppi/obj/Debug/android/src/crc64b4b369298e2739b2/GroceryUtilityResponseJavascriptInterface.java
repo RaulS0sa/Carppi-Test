@@ -10,6 +10,8 @@ public class GroceryUtilityResponseJavascriptInterface
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_SendMessageRestaurantToDeliverMan:(Ljava/lang/String;Ljava/lang/String;)V:__export__\n" +
+			"n_GetAllMessagesRestaurantDeliverMan:(Ljava/lang/String;)V:__export__\n" +
 			"n_GoToClientOrder:(J)V:__export__\n" +
 			"n_EnderOrden:(J)V:__export__\n" +
 			"n_SendMessageInRideshare:(Ljava/lang/String;J)V:__export__\n" +
@@ -34,6 +36,24 @@ public class GroceryUtilityResponseJavascriptInterface
 		if (getClass () == GroceryUtilityResponseJavascriptInterface.class)
 			mono.android.TypeManager.Activate ("Carppi.Fragments.GroceryUtilityResponseJavascriptInterface, Carppi", "Android.Content.Context, Mono.Android:Android.Webkit.WebView, Mono.Android", this, new java.lang.Object[] { p0, p1 });
 	}
+
+	@android.webkit.JavascriptInterface
+
+	public void SendMessageRestaurantToDeliverMan (java.lang.String p0, java.lang.String p1)
+	{
+		n_SendMessageRestaurantToDeliverMan (p0, p1);
+	}
+
+	private native void n_SendMessageRestaurantToDeliverMan (java.lang.String p0, java.lang.String p1);
+
+	@android.webkit.JavascriptInterface
+
+	public void GetAllMessagesRestaurantDeliverMan (java.lang.String p0)
+	{
+		n_GetAllMessagesRestaurantDeliverMan (p0);
+	}
+
+	private native void n_GetAllMessagesRestaurantDeliverMan (java.lang.String p0);
 
 	@android.webkit.JavascriptInterface
 

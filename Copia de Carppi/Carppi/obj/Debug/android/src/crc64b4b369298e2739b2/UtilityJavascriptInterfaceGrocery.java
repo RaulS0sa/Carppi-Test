@@ -11,9 +11,9 @@ public class UtilityJavascriptInterfaceGrocery
 	static {
 		__md_methods = 
 			"n_SendMessageInRideshare:(Ljava/lang/String;J)V:__export__\n" +
+			"n_UpdateProductList:(II)V:__export__\n" +
 			"n_GetAllMessagesFromConversation:(J)V:__export__\n" +
 			"n_GeneretaGroceryOrder:()V:__export__\n" +
-			"n_UpdateProductList:(II)V:__export__\n" +
 			"n_DissmissBottomModal:()V:__export__\n" +
 			"n_UpdateConectedIDStripe:(Ljava/lang/String;)V:__export__\n" +
 			"";
@@ -46,6 +46,15 @@ public class UtilityJavascriptInterfaceGrocery
 
 	@android.webkit.JavascriptInterface
 
+	public static void UpdateProductList (int p0, int p1)
+	{
+		n_UpdateProductList (p0, p1);
+	}
+
+	private static native void n_UpdateProductList (int p0, int p1);
+
+	@android.webkit.JavascriptInterface
+
 	public void GetAllMessagesFromConversation (long p0)
 	{
 		n_GetAllMessagesFromConversation (p0);
@@ -61,15 +70,6 @@ public class UtilityJavascriptInterfaceGrocery
 	}
 
 	private native void n_GeneretaGroceryOrder ();
-
-	@android.webkit.JavascriptInterface
-
-	public static void UpdateProductList (int p0, int p1)
-	{
-		n_UpdateProductList (p0, p1);
-	}
-
-	private static native void n_UpdateProductList (int p0, int p1);
 
 	@android.webkit.JavascriptInterface
 
