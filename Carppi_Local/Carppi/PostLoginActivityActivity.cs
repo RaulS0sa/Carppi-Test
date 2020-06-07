@@ -27,7 +27,7 @@ namespace Carppi
         public static byte[] EcommercePhoto { get; set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            
+            //Yolo
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.PostLoginLayout);
