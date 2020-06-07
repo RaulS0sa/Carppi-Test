@@ -58,27 +58,20 @@ namespace Carppi
             Static_Activity = this;
             static_FragmentMAnager = SupportFragmentManager;
 
-            // Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new System.String[] { Manifest.Permission.Camera, Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet }, 1);
+            
             Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new System.String[] {  Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet, }, 1);
-            // Set our view from the "main" layout resource
+            
             SetContentView(Resource.Layout.activity_main);
             configureBackdrop();
 
-            //  base.OnCreate(bundle);
-            //SetContentView(Resource.Layout.main);
-            //var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            //if (toolbar != null)
-            //{
-            //    SetSupportActionBar(toolbar);
-            //    SupportActionBar.SetDisplayHomeAsUpEnabled(false);
-            //    SupportActionBar.SetHomeButtonEnabled(false);
-            // }
+           /*
+            * To comeback when there are more rows
 
             bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation);
 
             bottomNavigation.NavigationItemSelected += BottomNavigation_NavigationItemSelected;
-            //FragmentGrocery
-            // Load the first fragment on creation
+            */
+            
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
@@ -93,7 +86,8 @@ namespace Carppi
 
                 navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
                 setupDrawerContent(navigationView);
-                LoadFragment(Resource.Id.nav_home);
+                //LoadFragment(Resource.Id.nav_home);
+                LoadFragment(Resource.Id.menu_video);
 
 
                 IsPlayServicesAvailable();
@@ -527,6 +521,8 @@ namespace Carppi
                     ShowFacebookLogButton();
                     
                     break;
+                    /*
+                     * CarpoolTocomeback
                 case Resource.Id.menu_home:
                     {
                         
@@ -539,6 +535,7 @@ namespace Carppi
 
                     }
                     break;
+                    */
                 case Resource.Id.menu_video:
                     {
                         fragment = FragmentSelectTypeOfPurchase.NewInstance();
@@ -597,9 +594,12 @@ namespace Carppi
                     ShowFacebookLogButton();
 
                     break;
+                    /*
+                     * Carppol ToComeback
                 case Resource.Id.menu_home:
                     fragment = FragmentMain.NewInstance();
                     break;
+                    */
                 case Resource.Id.menu_video:
                     fragment = FragmentSelectTypeOfPurchase.NewInstance();
                     //fragment = FragmentGrocery.NewInstance();

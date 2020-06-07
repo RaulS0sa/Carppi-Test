@@ -4455,10 +4455,7 @@ namespace Carppi
 			public const int media_actions = 2131624210;
 			
 			// aapt resource value: 0x7f0e0128
-			public const int menu_home = 2131624232;
-			
-			// aapt resource value: 0x7f0e0129
-			public const int menu_video = 2131624233;
+			public const int menu_video = 2131624232;
 			
 			// aapt resource value: 0x7f0e00e1
 			public const int message = 2131624161;
@@ -4478,35 +4475,35 @@ namespace Carppi
 			// aapt resource value: 0x7f0e0077
 			public const int multiply = 2131624055;
 			
-			// aapt resource value: 0x7f0e012f
-			public const int nav_Balance = 2131624239;
-			
 			// aapt resource value: 0x7f0e012e
-			public const int nav_Clabe = 2131624238;
-			
-			// aapt resource value: 0x7f0e0133
-			public const int nav_GroceryConversation = 2131624243;
-			
-			// aapt resource value: 0x7f0e0132
-			public const int nav_GroceryRequest = 2131624242;
-			
-			// aapt resource value: 0x7f0e0131
-			public const int nav_LogOutButton = 2131624241;
-			
-			// aapt resource value: 0x7f0e0130
-			public const int nav_LoginButton = 2131624240;
+			public const int nav_Balance = 2131624238;
 			
 			// aapt resource value: 0x7f0e012d
-			public const int nav_discussion = 2131624237;
+			public const int nav_Clabe = 2131624237;
+			
+			// aapt resource value: 0x7f0e0132
+			public const int nav_GroceryConversation = 2131624242;
+			
+			// aapt resource value: 0x7f0e0131
+			public const int nav_GroceryRequest = 2131624241;
+			
+			// aapt resource value: 0x7f0e0130
+			public const int nav_LogOutButton = 2131624240;
+			
+			// aapt resource value: 0x7f0e012f
+			public const int nav_LoginButton = 2131624239;
 			
 			// aapt resource value: 0x7f0e012c
-			public const int nav_friends = 2131624236;
-			
-			// aapt resource value: 0x7f0e012a
-			public const int nav_home = 2131624234;
+			public const int nav_discussion = 2131624236;
 			
 			// aapt resource value: 0x7f0e012b
-			public const int nav_messages = 2131624235;
+			public const int nav_friends = 2131624235;
+			
+			// aapt resource value: 0x7f0e0129
+			public const int nav_home = 2131624233;
+			
+			// aapt resource value: 0x7f0e012a
+			public const int nav_messages = 2131624234;
 			
 			// aapt resource value: 0x7f0e00e7
 			public const int nav_view = 2131624167;

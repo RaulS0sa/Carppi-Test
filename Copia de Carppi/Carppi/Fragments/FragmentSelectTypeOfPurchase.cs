@@ -21,6 +21,7 @@ using Android.Widget;
 using Java.Interop;
 using Newtonsoft.Json;
 using SQLite;
+using Xamarin.Facebook;
 using static Carppi.Fragments.LocalWebViewClient_RestaurantDetailedView;
 using Fragment = Android.Support.V4.App.Fragment;
 
@@ -180,6 +181,8 @@ namespace Carppi.Fragments
 
             return view1;
         }
+
+        
         public static void ShowRateDeliverManRestaurant(Activity Esta)
         {
             try
@@ -249,6 +252,8 @@ namespace Carppi.Fragments
                 try
                 {
                     LoadAvailableProductsStartUp();
+                    var navigationView = ((Activity)mContext).FindViewById<NavigationView>(Resource.Id.nav_view);
+                    HideOptionsInMenu(navigationView);
 
                     if (stateOfRequest == stateOfRequest.ShowwingMap)
                     {
@@ -266,6 +271,118 @@ namespace Carppi.Fragments
 
 
             }
+               public bool isLoggedIn()
+            {
+
+                AccessToken accessToken = AccessToken.CurrentAccessToken;//AccessToken.getCurrentAccessToken();
+                return accessToken != null;
+                //return false;
+            }
+            public async void HideOptionsInMenu(NavigationView mNavigationView)
+            {
+                try
+                {
+                    // var Mnu = FindViewById<IMenu>(Resource.Id.MuttaMenu);
+                    var menuNav = mNavigationView.Menu;
+                    menuNav.FindItem(Resource.Id.nav_GroceryRequest).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_GroceryConversation).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_home).SetVisible(false);
+                    if (isLoggedIn() == false)
+                    {
+                        var aca = menuNav.FindItem(Resource.Id.nav_messages).SetVisible(false);
+
+                        menuNav.FindItem(Resource.Id.nav_friends).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_discussion).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+                        //Resource.Id.nav_GroceryRequest:
+                        
+
+                    }
+                    else
+                    {
+                        var aca = menuNav.FindItem(Resource.Id.nav_messages).SetVisible(false);
+
+                        menuNav.FindItem(Resource.Id.nav_friends).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_LoginButton).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_friends).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_discussion).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                       // menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+                        try
+                        {
+                            HttpClient client = new HttpClient();
+                            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                            var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                            var db5 = new SQLiteConnection(databasePath5);
+                            var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
+                            if(query.ProfileId == "849994702134646")
+                            {
+                                menuNav.FindItem(Resource.Id.nav_GroceryRequest).SetVisible(true);
+                                menuNav.FindItem(Resource.Id.nav_GroceryConversation).SetVisible(true);
+                            }
+
+                            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/TravelerCrossCityApi/GEetOwnProfile?" +
+                                "user10_Hijo=" + query.ProfileId
+                                ));
+                            HttpResponseMessage response;
+
+                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                           // response = await client.GetAsync(uri);
+                            menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                            menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                            menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                            menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                            /*
+
+                            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                            {
+                                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+                          {
+                '"'
+                          });
+                                var Profile = JsonConvert.DeserializeObject<Traveler_Perfil>(errorMessage1);
+                                var RealRole = Profile.IsUserADriver;
+                                if (RealRole == true)//UserIsADriver
+                                {
+                                    menuNav.FindItem(Resource.Id.nav_discussion).SetVisible(false);
+                                    if (Profile.StripeDriverID == null)
+                                    {
+                                        menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+
+                                    }
+                                    else
+                                    {
+                                        menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+
+                                    }
+                                }
+                                else
+                                {
+                                    menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                                    menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                                    // menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+
+                                }
+
+                                //  MainActivity.LoadFragmentStatic(Resource.Id.menu_video);
+
+
+                            }
+                            */
+                        }
+                        catch (System.Exception) { }
+
+                    }
+                
+                }
+                catch (Exception)
+                { }
+            }
+
             private static void OnTimedEvent(Object source, ElapsedEventArgs e)
             {
                 try
@@ -385,8 +502,8 @@ namespace Carppi.Fragments
 
                       ));
                     */
-                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDeterminationTest?" +
-                      "CadenadelUsuarioRestaurant_TOTEst=" + FaceID
+                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
+                      "CadenadelUsuarioRestaurant=" + FaceID
 
 
                       ));

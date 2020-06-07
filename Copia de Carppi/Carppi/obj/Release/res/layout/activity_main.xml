@@ -1,4 +1,16 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/ParentCoordinatorLayout" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/activity_main" xmlns:android="http://schemas.android.com/apk/res/android"><androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout" android:layout_height="match_parent" android:layout_width="fill_parent" android:fitsSystemWindows="true" xmlns:app="http://schemas.android.com/apk/res-auto"><RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"><include layout="@layout/toolbar" /><FrameLayout android:id="@+id/content_frame" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/bottom_navigation" /><com.google.android.material.bottomnavigation.BottomNavigationView android:id="@+id/bottom_navigation" android:layout_width="match_parent" android:layout_height="56dp" android:layout_gravity="start" android:layout_alignParentBottom="true" android:background="@android:color/white" app:elevation="16dp" app:itemIconTint="#4B0082" app:itemTextColor="#4B0082" app:menu="@menu/bottom_navigation_main" /></RelativeLayout><!--
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/ParentCoordinatorLayout" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/activity_main" xmlns:android="http://schemas.android.com/apk/res/android"><androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout" android:layout_height="match_parent" android:layout_width="fill_parent" android:fitsSystemWindows="true" xmlns:app="http://schemas.android.com/apk/res-auto"><RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"><include layout="@layout/toolbar" /><FrameLayout android:id="@+id/content_frame" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/bottom_navigation" /><!--
+                  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottom_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="56dp"
+      android:layout_gravity="start"
+      android:layout_alignParentBottom="true"
+      android:background="@android:color/white"
+      app:elevation="16dp"
+      app:itemIconTint="#4B0082"
+      app:itemTextColor="#4B0082"
+      app:menu="@menu/bottom_navigation_main" />
+                --></RelativeLayout><!--
             <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

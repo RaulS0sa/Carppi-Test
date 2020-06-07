@@ -17,6 +17,7 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 			"n_GetAllMessagesFromConversationDeliverManToClient:()V:__export__\n" +
 			"n_SendMessageRestaurantToclient:(Ljava/lang/String;)V:__export__\n" +
 			"n_GetAllMessagesRestaurantClient:()V:__export__\n" +
+			"n_GeneretaGroceryOrder_WithComments:(Ljava/lang/String;)V:__export__\n" +
 			"n_GeneretaGroceryOrder:()V:__export__\n" +
 			"n_GetProductSelection:(J)V:__export__\n" +
 			"n_ReturnToRestaurantView:()V:__export__\n" +
@@ -105,6 +106,15 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 	}
 
 	private native void n_GetAllMessagesRestaurantClient ();
+
+	@android.webkit.JavascriptInterface
+
+	public void GeneretaGroceryOrder_WithComments (java.lang.String p0)
+	{
+		n_GeneretaGroceryOrder_WithComments (p0);
+	}
+
+	private native void n_GeneretaGroceryOrder_WithComments (java.lang.String p0);
 
 	@android.webkit.JavascriptInterface
 

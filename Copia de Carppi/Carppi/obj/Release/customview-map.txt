@@ -25,7 +25,6 @@ color;obj/Release/res/values/colors.xml
 color;obj/Release/res/values/ic_launcher_background.xml
 com.facebook.login.widget.LoginButton;obj/Release/res/layout/loginlayout.xml
 com.google.android.material.appbar.AppBarLayout;obj/Release/res/layout/toolbar.xml
-com.google.android.material.bottomnavigation.BottomNavigationView;obj/Release/res/layout/activity_main.xml
 com.google.android.material.bottomsheet.BottomSheetBehavior;obj/Release/res/layout/activity_main.xml
 com.google.android.material.navigation.NavigationView;obj/Release/res/layout/activity_main.xml
 corners;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/55/jl/res/drawable/com_facebook_auth_dialog_background.xml

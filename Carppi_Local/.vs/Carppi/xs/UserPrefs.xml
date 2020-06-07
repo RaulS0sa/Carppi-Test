@@ -1,53 +1,18 @@
 ﻿<Properties StartupConfiguration="{04BD9E0E-F953-4786-A9FC-205D6231B9A1}|Default">
-  <MonoDevelop.Ide.ItemProperties.Carppi__Comercio AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Fragments/FragmentMain.cs">
+  <MonoDevelop.Ide.ItemProperties.Carppi__Comercio AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.b0ac96340505" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Assets/newListOfOrders.html">
     <Files>
-      <File FileName="Carppi/Fragments/FragmentMain.cs" Line="58" Column="25" />
-      <File FileName="Carppi/Assets/GroceryRequestExtra.html" />
-      <File FileName="Carppi/Fragments/FragmentGroceryRequestConversation.cs" />
-      <File FileName="Carppi/Fragments/FragmentGroceryRequest.cs" />
-      <File FileName="Carppi/Fragments/FragmentGrocery.cs" />
-      <File FileName="Carppi/PostLoginActivityActivity.cs" />
-      <File FileName="Carppi/ValidateAccountActivity.cs" />
-      <File FileName="Carppi/MainActivity.cs" />
-      <File FileName="Carppi/Fragments/FragmentMenu.cs" />
-      <File FileName="Carppi/Assets/ListOfOrders.html" />
-      <File FileName="Carppi/MyFirebaseIIDService.cs" />
-      <File FileName="Carppi/MyFirebaseMessagingService.cs" />
-      <File FileName="Carppi/Fragments/FragmentRepartidorView.cs" />
-      <File FileName="Carppi/Assets/DeliverManRequestExtra.html" />
-      <File FileName="Carppi/Assets/ListOfDeliveryBoys.html" />
-      <File FileName="Carppi/Fragments/FragmentProfile.cs" />
-      <File FileName="Carppi/Fragments/FragmentAddElement.cs" />
-      <File FileName="Carppi/Assets/AddItemToMenuView.html" />
-      <File FileName="Carppi/Resources/values/strings.xml" />
-      <File FileName="Carppi/LoginActivity.cs" />
-      <File FileName="Carppi/Clases/Location.cs" />
-      <File FileName="Carppi/Assets/RestaurantDetailedView.html" />
-      <File FileName="Carppi/Resources/layout/LoginLayout.axml" />
-      <File FileName="Carppi/Resources/layout/PostLoginLayout.axml" />
-      <File FileName="Carppi/Resources/layout/ValidateMailLayout.axml" />
-      <File FileName="Carppi/Properties/AndroidManifest.xml" />
-      <File FileName="Carppi/Assets/newListOfOrders.html" />
+      <File FileName="Carppi/Assets/newListOfOrders.html" Line="15" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Option id="ShowAllFiles" value="True" />
           <Node name="Carppi" expanded="True">
             <Node name="Carppi_Comercio" expanded="True">
-              <Node name="Assets" expanded="True" />
-              <Node name="Clases" expanded="True" />
-              <Node name="DatabaseTypes" expanded="True" />
-              <Node name="Fragments" expanded="True" />
-              <Node name="Properties" expanded="True">
-                <Node name="AndroidManifest.xml" selected="True" />
+              <Node name="Assets" expanded="True">
+                <Node name="newListOfOrders.html" selected="True" />
               </Node>
-              <Node name="Resources" expanded="True">
-                <Node name="layout" expanded="True" />
-                <Node name="values" expanded="True" />
-                <Node name="xml" expanded="True" />
-              </Node>
+              <Node name="Resources" expanded="True" />
             </Node>
           </Node>
         </State>

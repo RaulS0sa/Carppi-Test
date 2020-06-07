@@ -1,26 +1,52 @@
 ﻿<Properties StartupConfiguration="{04BD9E0E-F953-4786-A9FC-205D6231B9A1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Fragments/FragmentSelectTypeOfPurchase.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Carppi/Assets/ShoppingOptions.html" Line="115" Column="38" />
+      <File FileName="../Carppi_Local/Carppi/Assets/GroceryRequestExtra.html" Line="29" Column="25" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentGroceryRequestConversation.cs" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentGroceryRequest.cs" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentGrocery.cs" />
+      <File FileName="../Carppi_Local/Carppi/PostLoginActivityActivity.cs" />
+      <File FileName="../Carppi_Local/Carppi/ValidateAccountActivity.cs" />
+      <File FileName="../Carppi_Local/Carppi/MainActivity.cs" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentMenu.cs" />
+      <File FileName="../Carppi_Local/Carppi/Assets/ListOfOrders.html" />
+      <File FileName="../Carppi_Local/Carppi/MyFirebaseIIDService.cs" />
+      <File FileName="../Carppi_Local/Carppi/MyFirebaseMessagingService.cs" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentRepartidorView.cs" />
+      <File FileName="../Carppi_Local/Carppi/Assets/DeliverManRequestExtra.html" />
+      <File FileName="../Carppi_Local/Carppi/Assets/ListOfDeliveryBoys.html" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentProfile.cs" />
+      <File FileName="../Carppi_Local/Carppi/Fragments/FragmentAddElement.cs" />
+      <File FileName="../Carppi_Local/Carppi/Assets/AddItemToMenuView.html" />
+      <File FileName="../Carppi_Local/Carppi/Resources/values/strings.xml" />
+      <File FileName="../Carppi_Local/Carppi/LoginActivity.cs" />
+      <File FileName="../Carppi_Local/Carppi/Clases/Location.cs" />
+      <File FileName="../Carppi_Local/Carppi/Assets/RestaurantDetailedView.html" />
+      <File FileName="../Carppi_Local/Carppi/Resources/layout/LoginLayout.axml" />
+      <File FileName="../Carppi_Local/Carppi/Resources/layout/PostLoginLayout.axml" />
+      <File FileName="../Carppi_Local/Carppi/Resources/layout/ValidateMailLayout.axml" />
+      <File FileName="../Carppi_Local/Carppi/Properties/AndroidManifest.xml" />
+      <File FileName="../Carppi_Local/Carppi/Assets/newListOfOrders.html" />
+      <File FileName="Carppi/Assets/ShoppingOptions.html" />
       <File FileName="Carppi/Resources/menu/bottom_navigation_main.xml" />
       <File FileName="Carppi/Resources/values/strings.xml" />
-      <File FileName="Carppi/MainActivity.cs" />
-      <File FileName="Carppi/Resources/menu/nav_menu.xml" />
+      <File FileName="Carppi/MainActivity.cs" Line="23" Column="24" />
+      <File FileName="Carppi/Resources/menu/nav_menu.xml" Line="18" Column="31" />
       <File FileName="Carppi/Fragments/FragmentGrocery.cs" />
       <File FileName="Carppi/Fragments/FragmentProfile.cs" />
       <File FileName="Carppi/Assets/DrivingNotFound.html" />
-      <File FileName="Carppi/Fragments/FragmentMain.cs" />
+      <File FileName="Carppi/Fragments/FragmentMain.cs" Line="2630" Column="10" />
       <File FileName="Carppi/Assets/Fragment1_NewIcons.html" />
       <File FileName="Carppi/Assets/ShoppingCatalog.html" />
       <File FileName="Carppi/Assets/PassengerExtraData.html" />
       <File FileName="Carppi/Clases/Location.cs" />
       <File FileName="Carppi/Assets/TripTypeSelect.html" />
       <File FileName="Carppi/Assets/FragmentGrocery_Map.html" />
-      <File FileName="Carppi/Fragments/FragmentGroceryRequest.cs" />
+      <File FileName="Carppi/Fragments/FragmentGroceryRequest.cs" Line="1" Column="1" />
       <File FileName="Carppi/Assets/GroceryRequestList.html" />
       <File FileName="Carppi/Assets/GroceryCatalog.html" />
       <File FileName="Carppi/Assets/GroceryRequestExtra.html" />
-      <File FileName="Carppi/Fragments/FragmentGroceryRequestConversation.cs" />
+      <File FileName="Carppi/Fragments/FragmentGroceryRequestConversation.cs" Line="1" Column="1" />
       <File FileName="Carppi/Assets/DriverExtraData.html" />
       <File FileName="Carppi/Resources/values/styles.xml" />
       <File FileName="Carppi/Clases/GeneralAssignmentProblem.cs" />
@@ -28,20 +54,20 @@
       <File FileName="Carppi/Assets/GroceryCatalog_3.html" />
       <File FileName="Carppi/DatabaseTypes/Log_info.cs" />
       <File FileName="Carppi/DatabaseTypes/CarppiRegiones.cs" />
-      <File FileName="Carppi/Resources/layout/activity_main.xml" />
       <File FileName="Carppi/MyFirebaseIIDService.cs" />
       <File FileName="Carppi/Assets/GroceryCatalog_4.html" />
       <File FileName="Carppi/Assets/CarppiDeliveryDashBoard.html" />
-      <File FileName="Carppi/Fragments/FragmentSelectTypeOfPurchase.cs" Line="341" Column="31" />
-      <File FileName="Carppi/Fragments/FragmentRestaurantDetailedView.cs" />
-      <File FileName="Carppi/Assets/CarppiDeliveryRestaurantDetailedView.html" />
-      <File FileName="Carppi/Assets/ShoppingKart2.html" />
+      <File FileName="Carppi/Fragments/FragmentSelectTypeOfPurchase.cs" Line="507" Column="1" />
+      <File FileName="Carppi/Fragments/FragmentRestaurantDetailedView.cs" Line="49" Column="10" />
+      <File FileName="Carppi/Assets/CarppiDeliveryRestaurantDetailedView.html" Line="2256" Column="1" />
+      <File FileName="Carppi/Assets/ShoppingKart2.html" Line="480" Column="220" />
       <File FileName="Carppi/Resources/Resource.designer.cs" />
       <File FileName="Carppi/Resources/drawable/ic_action_account_circle.png" />
-      <File FileName="Carppi/Assets/DelivermanExtraData.html" />
+      <File FileName="Carppi/Assets/DelivermanExtraData.html" Line="1" Column="1" />
       <File FileName="Carppi/Assets/RateFoodDeliverMan.html" />
       <File FileName="Carppi/Fragments/FragmentRateDElivery.cs" />
-      <File FileName="Carppi/Properties/AndroidManifest.xml" />
+      <File FileName="Carppi/Resources/layout/activity_main.xml" />
+      <File FileName="Carppi/Properties/AndroidManifest.xml" Line="8" Column="76" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -49,13 +75,15 @@
           <Option id="ShowAllFiles" value="True" />
           <Node name="Carppi" expanded="True">
             <Node name="Carppi" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Packages" expanded="True" />
               <Node name="Assets" expanded="True" />
               <Node name="Clases" expanded="True" />
               <Node name="DatabaseTypes" expanded="True" />
-              <Node name="Fragments" expanded="True">
-                <Node name="FragmentSelectTypeOfPurchase.cs" selected="True" />
+              <Node name="Fragments" expanded="True" />
+              <Node name="Properties" expanded="True">
+                <Node name="AndroidManifest.xml" selected="True" />
               </Node>
-              <Node name="Properties" expanded="True" />
               <Node name="Resources" expanded="True">
                 <Node name="drawable" expanded="True" />
                 <Node name="drawable-hdpi" expanded="True" />
@@ -84,7 +112,10 @@
     <String>/Users/macbookair/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/fd9f379d294e8208a63dd3f63d104057180c9789</String>
   </Debugger.DebugSourceFolders>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/Fragments/FragmentRestaurantDetailedView.cs" relfile="Carppi/Fragments/FragmentRestaurantDetailedView.cs" line="345" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/Fragments/FragmentRestaurantDetailedView.cs" relfile="Carppi/Fragments/FragmentRestaurantDetailedView.cs" line="1132" column="8" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
