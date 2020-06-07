@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{04BD9E0E-F953-4786-A9FC-205D6231B9A1}|Default">
-  <MonoDevelop.Ide.ItemProperties.Carppi__Comercio AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.b0ac96340505" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Assets/newListOfOrders.html">
+  <MonoDevelop.Ide.ItemProperties.Carppi__Comercio AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Carppi/Assets/newListOfOrders.html" Line="15" Column="5" />
+      <File FileName="Carppi/Assets/newListOfOrders.html" Line="48948" Column="48" />
+      <File FileName="Carppi/Fragments/FragmentMenu.cs" Line="244" Column="18" />
+      <File FileName="Carppi/Assets/RestaurantDetailedView.html" Line="3345" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Carppi" expanded="True">
-            <Node name="Carppi_Comercio" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="newListOfOrders.html" selected="True" />
-              </Node>
-              <Node name="Resources" expanded="True" />
+            <Node name="Carppi_Comercio" expanded="True" selected="True">
+              <Node name="Assets" expanded="True" />
+              <Node name="Fragments" expanded="True" />
             </Node>
           </Node>
         </State>

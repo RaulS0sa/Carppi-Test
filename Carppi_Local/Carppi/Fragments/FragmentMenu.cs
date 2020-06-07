@@ -37,6 +37,7 @@ using System.Timers;
 using Xamarin.Facebook;
 using static Carppi.Fragments.WebInterfaceProfile;
 using System.Text.RegularExpressions;
+using System.IO.Compression;
 
 namespace Carppi.Fragments
 {
@@ -262,7 +263,12 @@ namespace Carppi.Fragments
                 Action action = () =>
                 {
                     //var jsr = new JavascriptResult();
-                    var script = "UpdateProductGrid(" + S_Response.Response + ")";
+                    var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
+                    // var asas = new SevenZip.Compression.LZMA.Decoder();
+
+                    Respuesta.Foto = Decompress(Respuesta.Foto);
+                    var script = "UpdateProductGrid(" + JsonConvert.SerializeObject(Respuesta) + ")";
+                   // var script = "UpdateProductGrid(" + S_Response.Response + ")";
                     s_Webview.EvaluateJavascript(script, null);
 
 
@@ -271,7 +277,28 @@ namespace Carppi.Fragments
 
                 s_Webview.Post(action);
             }
-
+            public static byte[] Decompress(byte[] data)
+            {
+                MemoryStream input = new MemoryStream(data);
+                MemoryStream output = new MemoryStream();
+                using (DeflateStream dstream = new DeflateStream(input, CompressionMode.Decompress))
+                {
+                    dstream.CopyTo(output);
+                }
+                return output.ToArray();
+            }
+            public partial class Carppi_ProductosPorRestaurantes
+            {
+                public long ID { get; set; }
+                public string IDdRestaurante { get; set; }
+                public string Nombre { get; set; }
+                public string Descripcion { get; set; }
+                public byte[] Foto { get; set; }
+                public double? Costo { get; set; }
+                public long? Categoria { get; set; }
+                public bool Disponibilidad { get; set; }
+                public long ComprasDelProducto { get; set; }
+            }
             public void RestaurantCatalogLoad()
             {
                 try
@@ -298,8 +325,13 @@ namespace Carppi.Fragments
                         //var Myob = JsonConvert.DeserializeObject<List<CarppiRestaurant_BuyOrders>>(S_Ressult.Response);
                         Action action2 = () =>
                         {
-                        //var jsr = new JavascriptResult();
-                        var script = "UpdateProductGrid_Iterative(" + S_Ressult.Response + ")";
+                            //var jsr = new JavascriptResult();
+                            var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Ressult.Response);
+                            // var asas = new SevenZip.Compression.LZMA.Decoder();
+
+                            Respuesta.Foto = Decompress(Respuesta.Foto);
+                            var script = "UpdateProductGrid_Iterative(" + JsonConvert.SerializeObject(Respuesta) + ")";
+                          //  var script = "UpdateProductGrid_Iterative(" + S_Ressult.Response + ")";
                             s_Webview.EvaluateJavascript(script, null);
 
 

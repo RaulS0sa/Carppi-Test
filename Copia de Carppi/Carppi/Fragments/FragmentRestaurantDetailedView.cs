@@ -39,7 +39,7 @@ namespace Carppi.Fragments
         public static String ImagenStatica { get; set; } = "";
         public static String NombreStatico { get; set; } = "";
         public static bool? AbiertoEstatico { get; set; } = false;
-        public static long TimeToWait = 7500;
+        public static long TimeToWait = 35000;
         //NombreStatico = NombreDelRestaurante;
         //AbiertoEstatico = EstaAbierto;
 
