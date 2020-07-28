@@ -48977,6 +48977,11 @@ display:inline-block;
                         TExtDiv += "</div>";
                         insides += TExtDiv;
                     }
+                    //Comentario
+                    if (ListOfOrders[i].Orden.Comentario != null) {
+                        insides += "<div class='widget-subheading'>" + "<h5>" + "Comentarios:" + "</h5>" + "</div>";
+                        insides += "<div class='widget-subheading'>" + "<h4 style='color: #000;'>" + ListOfOrders[i].Orden.Comentario + "</h4>" + "</div>";
+                    }
                     insides += "</div></div><div class='divider m-0 d-md-none d-sm-block'></div></div ></div>";
                     div_gutters.innerHTML = insides;
                     div1.appendChild(div_gutters);

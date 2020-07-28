@@ -34,7 +34,7 @@
       android:icon="@drawable/ic_forum"
       android:title="Log Out"
             />
-        --><item android:id="@+id/nav_GroceryRequest" android:icon="@drawable/ic_forum" android:title="Peticiones de canasta" /><!--      <item
+        --><item android:id="@+id/nav_GroceryRequest" android:icon="@drawable/ic_forum" android:title="Mapa" /><item android:id="@+id/nav_DeliveryList" android:icon="@drawable/ic_forum" android:title="Lista de Pedidos" /><!--      <item
       android:id="@+id/nav_GroceryConversation"
       android:icon="@drawable/ic_forum"
       android:title="Peticiones de canasta (Conversaciones)"

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+card_view:cardCornerRadius="5dp"
+card_view:cardUseCompatPadding="true">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:orientation="horizontal"
+		android:background="#500080"
+		android:layout_height="match_parent"
+		android:id="@+id/NotifcationLinearLayout">
+
+		<ImageView
+			
+			android:layout_width="50dp"
+			android:layout_height="match_parent"
+			android:padding="10dp"
+			android:layout_marginLeft="5dp"
+			android:background="@null"
+			android:layout_gravity="center_vertical|center_horizontal"
+			android:scaleType="centerCrop"
+			android:id="@+id/ImageNotifcationLinearLayout"  />
+		<TextView
+			android:id="@+id/titleNotifcationLinearLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:minHeight="48dp"
+			android:paddingBottom="16dp"
+			android:paddingLeft="16dp"
+			android:paddingRight="16dp"
+			android:paddingTop="16dp"
+			android:textSize="19dp"
+			android:textColor="@android:color/white"
+			tools:text="Test"
+			android:background="@null"/>
+	</LinearLayout>
+</LinearLayout>

@@ -47,5 +47,12 @@ namespace Carppi.DatabaseTypes
         //FirebaseID
         public string FirebaseID { get; set; }
 
+        public Int32? PagoPreferido { get; set; }
+
+        public Int32? UbicacionPreferida { get; set; }
+        public string DireccionPreferida { get; set; }
+        public double? LatitudPreferida { get; set; }
+        public double? LongitudPreferida { get; set; }
+
     }
 }

@@ -2,15 +2,15 @@
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/bin/iPhoneSimulator/Debug/Carppi.pdb
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/bin/iPhoneSimulator/Debug/Xamarin.Essentials.dll
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/bin/iPhoneSimulator/Debug/Xamarin.Essentials.pdb
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/ibtool/_BundleResourceWithLogicalName.items
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/actool/_PartialAppManifest.items
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/actool/_BundleResourceWithLogicalName.items
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/coremlc/_PartialAppManifest.items
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/coremlc/_BundleResourceWithLogicalName.items
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/optimized/Entitlements.plist
-/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.2/optimized/
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/Carppi.csprojAssemblyReference.cache
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/Carppi.csproj.CoreCompileInputs.cache
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/Carppi.csproj.CopyComplete
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/Carppi.exe
 /Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/Carppi.pdb
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/coremlc/_PartialAppManifest.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/coremlc/_BundleResourceWithLogicalName.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/optimized/Entitlements.plist
+/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiIOS/Carppi/Carppi/obj/iPhoneSimulator/Debug/optimized/

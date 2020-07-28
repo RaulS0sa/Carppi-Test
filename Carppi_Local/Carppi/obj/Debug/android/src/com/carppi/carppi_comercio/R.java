@@ -5789,8 +5789,10 @@ containing a value of this type.
         public static final int mtrl_child_content_container=0x7f0f0000;
         public static final int mtrl_internal_children_alpha_tag=0x7f0f0001;
         public static final int multiply=0x7f0f0077;
+        public static final int nav_AddCard=0x7f0f013a;
         public static final int nav_GroceryRequest=0x7f0f0139;
         public static final int nav_LoginButton=0x7f0f0138;
+        public static final int nav_Transfer=0x7f0f013b;
         public static final int nav_view=0x7f0f00e7;
         public static final int navheader_username=0x7f0f010c;
         public static final int navigation_header_container=0x7f0f0104;

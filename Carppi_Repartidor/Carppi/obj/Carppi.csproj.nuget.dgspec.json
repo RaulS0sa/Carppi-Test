@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/macbookair/Projects/Carppi_Repartidor/Carppi/Carppi.csproj": {}
+    "/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Repartidor/Carppi/Carppi.csproj": {}
   },
   "projects": {
-    "/Users/macbookair/Projects/Carppi_Repartidor/Carppi/Carppi.csproj": {
+    "/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Repartidor/Carppi/Carppi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/macbookair/Projects/Carppi_Repartidor/Carppi/Carppi.csproj",
+        "projectUniqueName": "/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Repartidor/Carppi/Carppi.csproj",
         "projectName": "Carppi",
-        "projectPath": "/Users/macbookair/Projects/Carppi_Repartidor/Carppi/Carppi.csproj",
+        "projectPath": "/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Repartidor/Carppi/Carppi.csproj",
         "packagesPath": "/Users/macbookair/.nuget/packages/",
-        "outputPath": "/Users/macbookair/Projects/Carppi_Repartidor/Carppi/obj/",
+        "outputPath": "/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Repartidor/Carppi/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "/Users/macbookair/Downloads": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

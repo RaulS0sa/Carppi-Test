@@ -166,7 +166,7 @@ namespace Carppi
 
             var notificationManager = NotificationManagerCompat.From(this);
             //notificationManager.Notify(Activity1.NOTIFICATION_ID, notificationBuilder.Build());
-            if (Android.OS.Build.VERSION.SdkInt >= Build.VERSION_CODES.Lollipop)
+            if (Android.OS.Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)// Build.VERSION_CODES.Lollipop)
             {
                 
               //  notification.setSmallIcon(R.drawable.icon_transperent);

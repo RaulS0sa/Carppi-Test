@@ -48899,6 +48899,7 @@ display:inline-block;
             RequestRejected: 5
         };
         //public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded, RequestRejected };
+
         function UpdateListOfOrders(ListOfOrders) {
             //console.log('hola');
 
@@ -48952,14 +48953,26 @@ display:inline-block;
 
 
                     }
-
+                    //console.log("Tipodepago" + ListOfOrders[i].Orden.TipoDePago);
+                    var TipoDePagoTexto = parseInt(ListOfOrders[i].Orden.TipoDePago) == 0 ? "<h6 style='color:#FF0000'>Pago en efectivo</h6>" : "<h6 style='color:#228B22'>Pago con Tarjeta</h6>";
+                    //console.log(TipoDePagoTexto);
                     var insides = "<div class='col-sm-6 col-md-4 col-xl-4'>" +
                         "<div class='card no-shadow rm-border bg-transparent widget-chart text-left'>" +
                         "<div class='icon-wrapper rounded-circle'>" +
                         "<div class='icon-wrapper-bg opacity-10 " + colorBola + "'></div>" +
                         //"<i class='lnr-laptop-phone text-dark opacity-8'></i>" +
                         "</div>" + "<div class='widget-chart-content'>" +
-                        "<div class='widget-subheading'>" + "u/" + ListOfOrders[i].Orden.NombreDelUsuario + "</div>"+
+                       // try {
+                        "<div class='widget-subheading'>" + "u/" + ListOfOrders[i].Orden.NombreDelUsuario + "</div>" +
+                      //          }
+                      //  catch (err) {
+
+                    // }
+                        "<div class='widget-subheading'><hr></div>" +
+                    "<div class='widget-subheading'>" + TipoDePagoTexto + "</div>" +
+                       // "<div class='widget-subheading'><h6 style='color:" + ListOfOrders[i].Orden.TipoDePago == 0 ? "red" : "green" + "'>" + "T.Pago/" + ListOfOrders[i].Orden.TipoDePago == 0 ? "Efectivo" : "Tarjeta" + "</h6></div>" +
+
+                        "<div class='widget-subheading'><hr></div>" +
                         "<div class='widget-subheading'>" + "Costo/" + ListOfOrders[i].Costo + "  " + "Orden/" + ListOfOrders[i].Orden.ID + "</div>" +
                         "<div class='widget-subheading'>" + "<h5>" + "Productos:" + "</h5>"+ "</div>" ;
                     //div_gutters.innerHTML = insides;
@@ -48976,6 +48989,11 @@ display:inline-block;
                         TExtDiv += "<h4 style='color: #000;'>" + Chain + "</h4>";
                         TExtDiv += "</div>";
                         insides += TExtDiv;
+                    }
+                    //Comentario
+                    if (ListOfOrders[i].Orden.Comentario != null) {
+                        insides += "<div class='widget-subheading'>" + "<h5>" + "Comentarios:" + "</h5>" + "</div>";
+                        insides += "<div class='widget-subheading'>" + "<h4 style='color: #000;'>" + ListOfOrders[i].Orden.Comentario + "</h4>" + "</div>";
                     }
                     insides += "</div></div><div class='divider m-0 d-md-none d-sm-block'></div></div ></div>";
                     div_gutters.innerHTML = insides;

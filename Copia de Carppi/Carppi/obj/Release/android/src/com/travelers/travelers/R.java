@@ -6021,8 +6021,8 @@ containing a value of this type.
         public static final int ic_launcher_square2=0x7f030006;
     }
     public static final class string {
-        public static final int ApplicationName=0x7f0f0066;
-        public static final int Hello=0x7f0f0065;
+        public static final int ApplicationName=0x7f0f0067;
+        public static final int Hello=0x7f0f0066;
         public static final int abc_action_bar_home_description=0x7f0f000d;
         public static final int abc_action_bar_up_description=0x7f0f000e;
         public static final int abc_action_menu_overflow_description=0x7f0f000f;
@@ -6050,8 +6050,8 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with=0x7f0f0025;
         public static final int abc_shareactionprovider_share_with_application=0x7f0f0026;
         public static final int abc_toolbar_collapse_description=0x7f0f0027;
-        public static final int action_settings=0x7f0f005d;
-        public static final int app_name=0x7f0f005c;
+        public static final int action_settings=0x7f0f005e;
+        public static final int app_name=0x7f0f0055;
         public static final int appbar_scrolling_view_behavior=0x7f0f0000;
         public static final int bottom_sheet_behavior=0x7f0f0001;
         public static final int character_counter_content_description=0x7f0f0002;
@@ -6097,20 +6097,21 @@ containing a value of this type.
         public static final int common_open_on_phone=0x7f0f0039;
         public static final int common_signin_button_text=0x7f0f003a;
         public static final int common_signin_button_text_long=0x7f0f003b;
-        public static final int default_web_client_id=0x7f0f0056;
-        public static final int drawer_close=0x7f0f0064;
-        public static final int drawer_open=0x7f0f0063;
+        public static final int default_web_client_id=0x7f0f0058;
+        public static final int drawer_close=0x7f0f0065;
+        public static final int drawer_open=0x7f0f0064;
         public static final int fab_transformation_scrim_behavior=0x7f0f0004;
         public static final int fab_transformation_sheet_behavior=0x7f0f0005;
-        public static final int facebook_app_id=0x7f0f0061;
-        public static final int fb_login_protocol_scheme=0x7f0f0062;
+        public static final int facebook_app_id=0x7f0f0062;
+        public static final int fb_login_protocol_scheme=0x7f0f0063;
         public static final int fcm_fallback_notification_channel_label=0x7f0f003c;
-        public static final int firebase_database_url=0x7f0f0057;
-        public static final int gcm_defaultSenderId=0x7f0f0054;
-        public static final int google_api_key=0x7f0f0058;
-        public static final int google_app_id=0x7f0f0055;
-        public static final int google_crash_reporting_api_key=0x7f0f0059;
-        public static final int google_storage_bucket=0x7f0f005a;
+        public static final int firebase_database_url=0x7f0f0059;
+        public static final int gcm_defaultSenderId=0x7f0f0056;
+        public static final int google_api_key=0x7f0f005a;
+        public static final int google_app_id=0x7f0f0057;
+        public static final int google_crash_reporting_api_key=0x7f0f005b;
+        public static final int google_storage_bucket=0x7f0f005c;
+        public static final int hello=0x7f0f0054;
         public static final int hide_bottom_view_on_scroll_behavior=0x7f0f0006;
         public static final int mtrl_chip_close_icon_content_description=0x7f0f0007;
         public static final int password_toggle_content_description=0x7f0f0008;
@@ -6118,12 +6119,12 @@ containing a value of this type.
         public static final int path_password_eye_mask_strike_through=0x7f0f000a;
         public static final int path_password_eye_mask_visible=0x7f0f000b;
         public static final int path_password_strike_through=0x7f0f000c;
-        public static final int project_id=0x7f0f005b;
+        public static final int project_id=0x7f0f005d;
         public static final int search_menu_title=0x7f0f0028;
         public static final int status_bar_notification_info_overflow=0x7f0f0029;
-        public static final int tab1_title=0x7f0f005e;
-        public static final int tab2_title=0x7f0f005f;
-        public static final int tab3_title=0x7f0f0060;
+        public static final int tab1_title=0x7f0f005f;
+        public static final int tab2_title=0x7f0f0060;
+        public static final int tab3_title=0x7f0f0061;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f090121;

@@ -1,6 +1,7 @@
 Bolts.AppLinks
 Bolts.Tasks
 Google.ZXing.Core
+ModernHttpClient
 Plugin.CurrentActivity
 Plugin.Geolocator
 Plugin.Media
@@ -10,6 +11,8 @@ SQLitePCLRaw.batteries_v2
 SQLitePCLRaw.core
 SQLitePCLRaw.lib.e_sqlite3
 SQLitePCLRaw.provider.e_sqlite3
+Square.OkHttp3
+Square.OkIO
 Xamarin.AndroidX.Activity
 Xamarin.AndroidX.Annotation
 Xamarin.AndroidX.AppCompat

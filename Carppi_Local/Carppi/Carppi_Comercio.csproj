@@ -85,6 +85,9 @@
     <Compile Include="DatabaseTypes\RestauratLoginTypes.cs" />
     <Compile Include="Fragments\FragmentMenu.cs" />
     <Compile Include="Fragments\FragmentRepartidorView.cs" />
+    <Compile Include="Fragments\FragmentAddCardConfirmMail.cs" />
+    <Compile Include="Fragments\FragmentAddCard.cs" />
+    <Compile Include="Fragments\FragmentTransfer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -479,6 +482,8 @@
     <AndroidAsset Include="Assets\ListOfDeliveryBoys.html" />
     <AndroidAsset Include="Assets\DeliverManRequestExtra.html" />
     <AndroidAsset Include="Assets\newListOfOrders.html" />
+    <AndroidAsset Include="Assets\6DigitTemplate.html" />
+    <AndroidAsset Include="Assets\MyFinancials.html" />
   </ItemGroup>
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />

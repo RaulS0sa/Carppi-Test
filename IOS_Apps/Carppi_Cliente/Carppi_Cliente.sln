@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carppi_Cliente", "Carppi_Cliente\Carppi_Cliente.csproj", "{6FFF4A97-DD77-43A5-80EB-D645770C80CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Release|iPhone.ActiveCfg = Release|iPhone
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Release|iPhone.Build.0 = Release|iPhone
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{6FFF4A97-DD77-43A5-80EB-D645770C80CE}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal

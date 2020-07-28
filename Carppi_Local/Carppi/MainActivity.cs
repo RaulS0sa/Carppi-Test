@@ -34,7 +34,7 @@ using Android.Content.PM;
 using Firebase.Iid;
 //using Plugin.CurrentActivity;
 
-[assembly: Application(Debuggable = false)]
+[assembly: Application(Debuggable = true)]
 
 namespace Carppi
 {
@@ -52,6 +52,7 @@ namespace Carppi
         public static Activity Static_Activity;
         public static Android.Support.V4.App.FragmentManager static_FragmentMAnager;
         public static bool SetDismisableModal { get; set; } = false;
+        public static bool StripeScreenNotSet { get; set; } = true;
         DrawerLayout drawerLayout;
         NavigationView navigationView;
        
@@ -59,6 +60,10 @@ namespace Carppi
         {
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
         }
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -115,8 +120,10 @@ namespace Carppi
 
                                     navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
                                     setupDrawerContent(navigationView);
-                                    LoadFragment(Resource.Id.menu_home);
-
+                            if (savedInstanceState == null && StripeScreenNotSet)
+                            {
+                                LoadFragment(Resource.Id.menu_home);
+                            }
 
                                     IsPlayServicesAvailable();
 
@@ -185,7 +192,10 @@ namespace Carppi
 
                                     navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
                                     setupDrawerContent(navigationView);
-                                    LoadFragment(Resource.Id.menu_home);
+                                    if (savedInstanceState == null && StripeScreenNotSet)
+                                    {
+                                        LoadFragment(Resource.Id.menu_home);
+                                    }
 
 
                                     IsPlayServicesAvailable();
@@ -658,6 +668,14 @@ namespace Carppi
                     break;
                 case Resource.Id.VistaREpartidorAdetalle:
                     fragment = FragmentRepartidorView.NewInstance();
+                    break;
+                case Resource.Id.nav_AddCard:
+                    fragment = FragmentAddCardConfirmMail.NewInstance();
+                    //fragment = FragmentAddCard.NewInstance();
+                    break;
+                case Resource.Id.nav_Transfer:
+                    fragment = FragmentTransfer.NewInstance();
+                    //fragment = FragmentAddCard.NewInstance();
                     break;
                     /*
                 case Resource.Id.nav_home:

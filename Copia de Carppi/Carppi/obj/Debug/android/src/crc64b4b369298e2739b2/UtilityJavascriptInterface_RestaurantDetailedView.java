@@ -10,6 +10,7 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_SearchByItsNameInDetailedView:(Ljava/lang/String;)V:__export__\n" +
 			"n_SearchByItsTagInDetailedView:(I)V:__export__\n" +
 			"n_SearchMostWanted:()V:__export__\n" +
 			"n_RateFoodDeliverMan:(ILjava/lang/String;)V:__export__\n" +
@@ -17,12 +18,14 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 			"n_GetAllMessagesFromConversationDeliverManToClient:()V:__export__\n" +
 			"n_SendMessageRestaurantToclient:(Ljava/lang/String;)V:__export__\n" +
 			"n_GetAllMessagesRestaurantClient:()V:__export__\n" +
-			"n_GeneretaGroceryOrder_WithComments:(Ljava/lang/String;)V:__export__\n" +
+			"n_GeneretaGroceryOrder_WithComments:(Ljava/lang/String;I)V:__export__\n" +
 			"n_GeneretaGroceryOrder:()V:__export__\n" +
 			"n_GetProductSelection:(J)V:__export__\n" +
 			"n_ReturnToRestaurantView:()V:__export__\n" +
 			"n_UpdateProductList:(Ljava/lang/String;I)V:__export__\n" +
 			"n_UpdateProductQuantity:(II)V:__export__\n" +
+			"n_SetCardDetails:()V:__export__\n" +
+			"n_SeeIfCardIsLogged:(I)V:__export__\n" +
 			"n_DisplayShopingKart:()V:__export__\n" +
 			"n_DissmissBottomModal:()V:__export__\n" +
 			"";
@@ -43,6 +46,15 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 		if (getClass () == UtilityJavascriptInterface_RestaurantDetailedView.class)
 			mono.android.TypeManager.Activate ("Carppi.Fragments.UtilityJavascriptInterface_RestaurantDetailedView, Carppi", "Android.App.Activity, Mono.Android:Android.Webkit.WebView, Mono.Android", this, new java.lang.Object[] { p0, p1 });
 	}
+
+	@android.webkit.JavascriptInterface
+
+	public void SearchByItsNameInDetailedView (java.lang.String p0)
+	{
+		n_SearchByItsNameInDetailedView (p0);
+	}
+
+	private native void n_SearchByItsNameInDetailedView (java.lang.String p0);
 
 	@android.webkit.JavascriptInterface
 
@@ -109,12 +121,12 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 
 	@android.webkit.JavascriptInterface
 
-	public void GeneretaGroceryOrder_WithComments (java.lang.String p0)
+	public void GeneretaGroceryOrder_WithComments (java.lang.String p0, int p1)
 	{
-		n_GeneretaGroceryOrder_WithComments (p0);
+		n_GeneretaGroceryOrder_WithComments (p0, p1);
 	}
 
-	private native void n_GeneretaGroceryOrder_WithComments (java.lang.String p0);
+	private native void n_GeneretaGroceryOrder_WithComments (java.lang.String p0, int p1);
 
 	@android.webkit.JavascriptInterface
 
@@ -160,6 +172,24 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 	}
 
 	private static native void n_UpdateProductQuantity (int p0, int p1);
+
+	@android.webkit.JavascriptInterface
+
+	public static void SetCardDetails ()
+	{
+		n_SetCardDetails ();
+	}
+
+	private static native void n_SetCardDetails ();
+
+	@android.webkit.JavascriptInterface
+
+	public static void SeeIfCardIsLogged (int p0)
+	{
+		n_SeeIfCardIsLogged (p0);
+	}
+
+	private static native void n_SeeIfCardIsLogged (int p0);
 
 	@android.webkit.JavascriptInterface
 

@@ -421,17 +421,18 @@
                                                 <div class="bg-white rounded shadow-sm p-4 osahan-payment">
                                                     <!--   <h4 class="mb-1">Choose payment method</h4>-->
                                                     <h6 class="mb-3 text-black-50">Recuerda que el pago es en efectivo</h6>
-                                                    <h6 class="mb-3 text-black-50">El costo de envio son $0000000000</h6>
+                                                    <h6 class="mb-3 text-black-50" id="CostoDelEnvioTag">El costo de envio son $0000000000</h6>
+                                                    <h6 class="mb-3 text-black-50" id="NotLogedTag">No has Logueado</h6>
                                                     <div class="row">
                                                         <div class="col-sm-4 pr-0">
                                                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                                 <!--
-                                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="icofont-credit-card"></i> Credit/Debit Cards</a>
-                                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="icofont-id-card"></i> Food Cards</a>
-                                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="icofont-card"></i> Credit</a>
-                                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="icofont-bank-alt"></i> Netbanking</a>
-                                                                    <a class="nav-link" id="v-pills-cash-tab" data-toggle="pill" href="#v-pills-cash" role="tab" aria-controls="v-pills-cash" aria-selected="false"><i class="icofont-money"></i> Pago en efectivo</a>
-                                                                    -->
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="icofont-credit-card"></i> Credit/Debit Cards</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="icofont-id-card"></i> Food Cards</a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="icofont-card"></i> Credit</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i class="icofont-bank-alt"></i> Netbanking</a>
+                                            <a class="nav-link" id="v-pills-cash-tab" data-toggle="pill" href="#v-pills-cash" role="tab" aria-controls="v-pills-cash" aria-selected="false"><i class="icofont-money"></i> Pago en efectivo</a>
+                                            -->
 
                                                             </div>
                                                         </div>
@@ -442,51 +443,51 @@
                                                                         <div class="form-row">
 
                                                                             <!--
-                                                    <div class="form-group col-md-12">
-                                                        <label for="inputPassword4">Card number</label>
-                                                        <div class="input-group">
-                                                            <input type="number" class="form-control" placeholder="Card number">
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="icofont-card"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group col-md-8">
-                                                        <label>
-                                                            Valid through(MM/YY)
-                                                        </label>
-                                                        <input type="number" class="form-control" placeholder="Enter Valid through(MM/YY)">
-                                                    </div>
-                                                    <div class="form-group col-md-4">
-                                                        <label>
-                                                            CVV
-                                                        </label>
-                                                        <input type="number" class="form-control" placeholder="Enter CVV Number">
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>
-                                                            Name on card
-                                                        </label>
-                                                        <input type="text" class="form-control" placeholder="Enter Card number">
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                                            <label class="custom-control-label" for="customCheck1">Securely save this card for a faster checkout next time.</label>
-                                                        </div>
-                                                    </div>
-                                                    -->
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Card number</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="Card number">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="icofont-card"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Valid through(MM/YY)
+                                </label>
+                                <input type="number" class="form-control" placeholder="Enter Valid through(MM/YY)">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>
+                                    CVV
+                                </label>
+                                <input type="number" class="form-control" placeholder="Enter CVV Number">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>
+                                    Name on card
+                                </label>
+                                <input type="text" class="form-control" placeholder="Enter Card number">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Securely save this card for a faster checkout next time.</label>
+                                </div>
+                            </div>
+                            -->
                                                                             <div class="form-group col-md-12 mb-0">
                                                                                 <div class="btn btn-success btn-block btn-lg" id="paymentButtonTotal" onclick="window.Android_BottomModal.GeneretaGroceryOrder_WithComments(document.getElementById('DetailsTExtArea').value)">
                                                                                     Pagar $1329
                                                                                     <i class="icofont-long-arrow-right"></i>
                                                                                 </div>
                                                                                 <!--
-    <div class="btn btn-success btn-block btn-lg" id="paymentButtonTotal" onclick="window.Android_BottomModal.GeneretaGroceryOrder()">
-        Pagar $1329
-        <i class="icofont-long-arrow-right"></i>
-    </div>
-        -->
+                                <div class="btn btn-success btn-block btn-lg" id="paymentButtonTotal" onclick="window.Android_BottomModal.GeneretaGroceryOrder()">
+                                    Pagar $1329
+                                    <i class="icofont-long-arrow-right"></i>
+                                </div>
+                                    -->
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -764,6 +765,19 @@
     <script src="js/custom.js"></script>
 
     <script>
+
+        function UpdateTrasportCodeInLogin(CostoTranspore, CostoComidaYTrasporte)
+        {
+            //paymentButtonTotal
+        /*   Pagar $1329<i class='icofont-long-arrow-right'></i>*/
+            //CostoDelEnvioTag
+            document.getElementById('CostoDelEnvioTag').innerHTML = "El costo de envio son $" + CostoTranspore ;
+            document.getElementById('paymentButtonTotal').innerHTML = " Pagar $" + CostoComidaYTrasporte + "<i class='icofont-long-arrow-right'></i>";
+            //NotLogedTag
+
+            document.getElementById('NotLogedTag').innerHTML = "Gracias por usar Carppi :D";
+
+        }
 
         function RemoveFromList(Index)
         {

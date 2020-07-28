@@ -74,6 +74,18 @@
           "lib/MonoAndroid10/_._": {}
         }
       },
+      "modernhttpclient-updated/3.4.3": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkHttp3": "3.12.6"
+        },
+        "compile": {
+          "lib/MonoAndroid/ModernHttpClient.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid/ModernHttpClient.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -217,6 +229,33 @@
         },
         "runtime": {
           "lib/MonoAndroid/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        }
+      },
+      "Square.OkHttp3/3.12.6": {
+        "type": "package",
+        "dependencies": {
+          "Square.OkIO": "1.17.4"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid44/Square.OkHttp3.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid44/Square.OkHttp3.dll": {}
+        }
+      },
+      "Square.OkIO/1.17.4": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid44/Square.OkIO.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid44/Square.OkIO.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -2743,6 +2782,23 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "modernhttpclient-updated/3.4.3": {
+      "sha512": "uWb0n2JSl239EXrzwumhvRjstKQhTwdSdm8LKLvMGfac96KB4Op/xyx6Pcc33preuKnOw7p68UtihnBjQx6XCw==",
+      "type": "package",
+      "path": "modernhttpclient-updated/3.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/ModernHttpClient.dll",
+        "lib/UAP10/ModernHttpClient.dll",
+        "lib/UAP10/ModernHttpClient.pri",
+        "lib/Xamarin.iOS10/ModernHttpClient.dll",
+        "lib/netstandard2.0/ModernHttpClient.dll",
+        "lib/portable-net45+win8+wpa81/ModernHttpClient.dll",
+        "modernhttpclient-updated.3.4.3.nupkg.sha512",
+        "modernhttpclient-updated.nuspec"
+      ]
+    },
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -2935,6 +2991,30 @@
         "lib/MonoAndroid/SQLitePCLRaw.provider.e_sqlite3.dll",
         "sqlitepclraw.provider.e_sqlite3.android.1.1.13.nupkg.sha512",
         "sqlitepclraw.provider.e_sqlite3.android.nuspec"
+      ]
+    },
+    "Square.OkHttp3/3.12.6": {
+      "sha512": "bQ71EPHck9eskFiG/tr97i+Ao+AdoKGMiE36WzV1YCXOTyIezYG8kVIG5rOCojyRzwo/1lxGLJNjv4p3+a01ew==",
+      "type": "package",
+      "path": "square.okhttp3/3.12.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid44/Square.OkHttp3.dll",
+        "square.okhttp3.3.12.6.nupkg.sha512",
+        "square.okhttp3.nuspec"
+      ]
+    },
+    "Square.OkIO/1.17.4": {
+      "sha512": "5yvgtYo52ZYThVjpfI2tZrCs1gmShrO3D+LNhmsYHT5a9hP6CUb/fxLgT0SW4hOcjgYcBwJEo5aaKrOSHv8Jeg==",
+      "type": "package",
+      "path": "square.okio/1.17.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid44/Square.OkIO.dll",
+        "square.okio.1.17.4.nupkg.sha512",
+        "square.okio.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -7452,6 +7532,7 @@
       "Xamarin.Facebook.Login.Android >= 5.11.2",
       "Xamarin.Firebase.Messaging >= 71.1740.0",
       "Xamarin.Google.Android.Material >= 1.0.0",
+      "modernhttpclient-updated >= 3.4.3",
       "sqlite-net-pcl >= 1.6.292"
     ]
   },
@@ -7574,6 +7655,10 @@
           "Xamarin.Google.Android.Material": {
             "target": "Package",
             "version": "[1.0.0, )"
+          },
+          "modernhttpclient-updated": {
+            "target": "Package",
+            "version": "[3.4.3, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",

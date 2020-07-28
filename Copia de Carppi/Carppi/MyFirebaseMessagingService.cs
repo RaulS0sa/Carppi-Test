@@ -85,18 +85,18 @@ namespace App6
 
             var notificationManager = NotificationManagerCompat.From(this);
             //notificationManager.Notify(Activity1.NOTIFICATION_ID, notificationBuilder.Build());
-            if (Android.OS.Build.VERSION.SdkInt >= Build.VERSION_CODES.Lollipop)
+            if (Android.OS.Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
                 
               //  notification.setSmallIcon(R.drawable.icon_transperent);
               //  notification.setColor(getResources().getColor(R.color.notification_color));
 
-                notificationBuilder.SetSmallIcon(Resource.Drawable.IconForPushNotifsJpeg);
+                notificationBuilder.SetSmallIcon(Resource.Drawable.rocket);
                 notificationBuilder.SetColor(Android.Graphics.Color.White);
             }
             else
             {
-                notificationBuilder.SetSmallIcon(Resource.Drawable.IconForPushNotifsJpeg);
+                notificationBuilder.SetSmallIcon(Resource.Drawable.rocket);
                 // notification.setSmallIcon(R.drawable.icon);
             }
             notificationManager.Notify(MainActivity.NOTIFICATION_ID, notificationBuilder.Build());

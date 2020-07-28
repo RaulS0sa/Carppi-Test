@@ -1,0 +1,320 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>404 HTML Tempalte by Colorlib</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="https://colorlib.com/etc/404/colorlib-error-404-10/css/style.css">
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+    <title>CodePen - 6 Digit Authorization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Montserrat:400,700');
+
+        * {
+            font-family: 'Lato';
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+            -webkit-font-smoothing: antialiased;
+            outline: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        input[type="date"],
+        textarea {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            border-radius: 0px;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        button:focus, input:focus {
+            outline: none;
+        }
+
+        .mm-number {
+            height: auto;
+            width: auto;
+            /*  height: 100vh;
+            width: 100vw;
+              */
+        }
+
+        .mm-number-container {
+            -ms-box-orient: horizontal;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            height: inherit;
+        }
+
+        .mm-number-input {
+            width: 500px;
+            max-width: 90%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mm-number-input-container {
+            -ms-box-orient: horizontal;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            height: inherit;
+        }
+
+        .mm-number-input-item {
+            width: 40px;
+            height: 40px;
+            margin: 10px 2px;
+        }
+
+            .mm-number-input-item input {
+                width: 100%;
+                height: inherit;
+                font-size: 20px;
+                font-weight: 300;
+                text-align: center;
+                border: 1px solid rgba(20,20,20,0.1);
+            }
+
+        .mm-number-input-submit {
+            text-align: center;
+            width: 80px;
+            height: 40px;
+            background: #f1f1f1;
+            color: #333;
+            border: none;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+            .mm-number-input-submit:focus, .mm-number-input-submit:hover {
+                background: #333;
+                color: #f1f1f1;
+                cursor: pointer;
+            }
+    </style>
+    <script>window.console = window.console || function (t) { };</script>
+    <script>if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }</script>
+
+
+</head>
+<body>
+    <div id="notfound">
+        <div class="notfound">
+            
+    <div class="notfound-404">
+        <!--<h2>Oops!</h2>-->
+    </div>
+    
+            <h2>Introduce tu Clave!</h2>
+            
+    <p>Esta clave es para evitar que alguien diferente al titular de la cuenta cambie la clabe interbancaria.</p>
+    
+            <p>
+                <div class="mm-number" style="padding-top:0px;padding-bottom:0px;margin-top:0px;margin-bottom:0px">
+                    <div class="mm-number-container">
+                        <div class="mm-number-input">
+                            <div class="mm-number-input-container animated">
+                                <div class="mm-number-input-item mm-number-input-item-1">
+                                    <input type="number" pattern="\d*" class="animated" maxlength="1" placeholder="X">
+                                </div>
+                                <div class="mm-number-input-item mm-number-input-item-2">
+                                    <input type="number" pattern="\d*" class="animated" maxlength="1" placeholder="X">
+                                </div>
+                                <div class="mm-number-input-item mm-number-input-item-3">
+                                    <input type="number" pattern="\d*" class="animated" maxlength="1" placeholder="X">
+                                </div>
+                                <div class="mm-number-input-item mm-number-input-item-4">
+                                    <input type="number" pattern="\d*" class="animated" maxlength="1" placeholder="X">
+                                </div>
+                                <div class="mm-number-input-item mm-number-input-item-5">
+                                    <input type="number" pattern="\d*" class="animated" maxlength="1" placeholder="X">
+                                </div>
+                                <div class="mm-number-input-item mm-number-input-item-6">
+                                    <input type="number" pattern="\d*" class="animated" maxlength="1" placeholder="X">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <!--
+            <a href="#" onclick="window.Android.ShowFacebookLogButton();//document.getElementById('id01').style.display = 'block';//window.Android.ShowFacebookLogButton();">Log in</a>
+            -->
+        </div>
+    </div>
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="text/javascript"></script>
+    <script type="text/javascript">window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');</script>
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script id="rendered-js">jQuery(document).ready(function () {
+
+            var password = 111111;
+            jQuery('.mm-number-input-item:nth-child(1) input').focus();
+
+            jQuery('.mm-number-input-item').each(function (index) {
+                var item, id, input;
+                item = jQuery(this);
+                id = index + 1;
+                input = item.children('input');
+                item.addClass('mm-number-input-item-' + id);
+                input.data('id', id);
+            });
+
+            jQuery('.mm-number-input-item input').on('keyup', function (e) {
+
+                var item, value, id, count, pass = [];
+                item = jQuery(this);
+                value = item.val();
+                id = item.data('id');
+                count = jQuery('.mm-number-input-item').length;
+
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    jQuery('.mm-number-input-item-' + id + ' input').val('');
+                } else {
+                    if (!value) {
+                        jQuery('.mm-number-input-item-' + id + ' input').focus().select();
+                    } else {
+                        if (id < count) {
+                            jQuery('.mm-number-input-item-' + (id + 1) + ' input').focus().select();
+                        } else {
+                            //
+                        }
+                    }
+
+                    jQuery('.mm-number-input-item input').each(function () {
+                        var x;
+                        x = jQuery(this);
+                        pass.push(x.val());
+                    });
+
+                    var number = pass.join("");
+                }
+
+                if (id === count) {
+                    window.Android.QueryChainedNumber(parseInt(number));
+                    /*
+                    if (parseInt(number) === password) {
+
+                        //QueryChainedNumber
+                        
+                        jQuery('.mm-number-input-container').addClass('bounceOutUp');
+                        setTimeout(function () {
+                            jQuery('.mm-number-input-container').removeClass('bounceOutUp').addClass('bounceInDown');
+                            setTimeout(function () {
+                                jQuery('.mm-number-input-container').removeClass('bounceInDown');
+                                jQuery('.mm-number-input-item input').val('');
+                                jQuery('.mm-number-input-item-1 input').focus();
+                            }, 500);
+                        }, 1500);
+                    }
+                    else {
+                        jQuery('.mm-number-input-item input').addClass('shake');
+                        setTimeout(function () {
+                            jQuery('.mm-number-input-item input').removeClass('shake');
+                            jQuery('.mm-number-input-item input').val('');
+                            jQuery('.mm-number-input-item-1 input').focus();
+                        }, 500);
+                    }
+                    */
+
+                } else {
+                    //
+                }
+
+            });
+
+});
+
+        function IsCodeCorrect(BooleanREturn)
+        {
+            if (BooleanREturn) {
+                setTimeout(function () {
+                    jQuery('.mm-number-input-container').removeClass('bounceOutUp').addClass('bounceInDown');
+                    setTimeout(function () {
+                        jQuery('.mm-number-input-container').removeClass('bounceInDown');
+                        jQuery('.mm-number-input-item input').val('');
+                        jQuery('.mm-number-input-item-1 input').focus();
+                    }, 500);
+                    window.Android.ChangeToStipeView();
+                }, 1500);
+                
+            }
+            else {
+                jQuery('.mm-number-input-item input').addClass('shake');
+                setTimeout(function () {
+                    jQuery('.mm-number-input-item input').removeClass('shake');
+                    jQuery('.mm-number-input-item input').val('');
+                    jQuery('.mm-number-input-item-1 input').focus();
+                }, 500);
+
+            }
+
+        }
+        //# sourceURL=pen.js</script>
+
+
+
+
+</body>
+</html>

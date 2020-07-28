@@ -11,8 +11,10 @@ public class WebInterfaceRestaurantOptions
 	static {
 		__md_methods = 
 			"n_ShowExtraOptionsOnDeliverManAwait:()V:__export__\n" +
+			"n_ShowOptionInOrderCreated:()V:__export__\n" +
 			"n_ShowExtraOptionsOnGroceryAwait:()V:__export__\n" +
 			"n_SearchByText:(Ljava/lang/String;)V:__export__\n" +
+			"n_SearchBackAllRestaurants:()V:__export__\n" +
 			"n_SearchFoodByBox:(J)V:__export__\n" +
 			"n_RestaurantDetailedView:(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V:__export__\n" +
 			"";
@@ -45,6 +47,15 @@ public class WebInterfaceRestaurantOptions
 
 	@android.webkit.JavascriptInterface
 
+	public void ShowOptionInOrderCreated ()
+	{
+		n_ShowOptionInOrderCreated ();
+	}
+
+	private native void n_ShowOptionInOrderCreated ();
+
+	@android.webkit.JavascriptInterface
+
 	public void ShowExtraOptionsOnGroceryAwait ()
 	{
 		n_ShowExtraOptionsOnGroceryAwait ();
@@ -60,6 +71,15 @@ public class WebInterfaceRestaurantOptions
 	}
 
 	private native void n_SearchByText (java.lang.String p0);
+
+	@android.webkit.JavascriptInterface
+
+	public void SearchBackAllRestaurants ()
+	{
+		n_SearchBackAllRestaurants ();
+	}
+
+	private native void n_SearchBackAllRestaurants ();
 
 	@android.webkit.JavascriptInterface
 

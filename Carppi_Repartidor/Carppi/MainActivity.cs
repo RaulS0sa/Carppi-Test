@@ -26,6 +26,12 @@ using System.Collections.Generic;
 using Xamarin.Facebook.Login.Widget;
 using Newtonsoft.Json;
 using static Carppi.Fragments.WebInterfaceProfile;
+using Android.Support.V4.App;
+using Android.Graphics;
+using Android.Content;
+using Xamarin.Essentials;
+using Carppi.Clases;
+
 [assembly: Application(Debuggable = false)]
 
 namespace Carppi
@@ -40,19 +46,99 @@ namespace Carppi
         BottomNavigationView bottomNavigation;
         public static BottomSheetBehavior mbottomSheetBehavior { get; set; }
         internal static readonly string CHANNEL_ID = "my_notification_channel";
+        internal static readonly string PersistenCHANNEL_ID = "myPersisten_notification_channel";
         internal static readonly int NOTIFICATION_ID = 100;
         public static Activity Static_Activity;
         public static Android.Support.V4.App.FragmentManager static_FragmentMAnager;
         public static bool SetDismisableModal { get; set; } = false;
         DrawerLayout drawerLayout;
         NavigationView navigationView;
-        
+        public static RemoteViews StaticnotificationLayout;
+        public static RemoteViews StaticnotificationLayoutExpanded;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Static_Activity = this;
+
             static_FragmentMAnager = SupportFragmentManager;
+            //---------------
+            var newbat = new BatteryTest();
+            
+            //---------------
+            var intent = new Intent(this, typeof(MainActivity));
+            var pendingIntent = PendingIntent.GetActivity(this,
+                                                         500,
+                                                         intent,
+                                                         PendingIntentFlags.OneShot);
+
+            var notificationLayout = new RemoteViews("com.Carppi.Carppi_repartidor", Resource.Layout.NotificationLayout);
+            var notificationLayoutExpanded =new RemoteViews("com.Carppi.Carppi_repartidor", Resource.Layout.NotificationLayout);
+
+            notificationLayout.SetTextViewText(Resource.Id.titleNotifcationLinearLayout, "Preparando...");
+            notificationLayoutExpanded.SetTextViewText(Resource.Id.titleNotifcationLinearLayout, "Preparando...");
+
+                StaticnotificationLayout = notificationLayout;
+        StaticnotificationLayoutExpanded= notificationLayoutExpanded;
+        // notificationLayout.SetTextViewTextSize(Resource.Id.titleNotifcationLinearLayout, 10, 10);
+        // notificationLayoutExpanded.SetTextViewTextSize(Resource.Id.titleNotifcationLinearLayout, 10, 10);
+
+        notificationLayoutExpanded.SetInt(Resource.Id.NotifcationLinearLayout, "setBackgroundColor", Android.Graphics.Color.DarkGray);
+            notificationLayout.SetInt(Resource.Id.NotifcationLinearLayout, "setBackgroundColor", Android.Graphics.Color.DarkGray);
+
+
+            notificationLayoutExpanded.SetImageViewBitmap(Resource.Id.ImageNotifcationLinearLayout, BitmapFactory.DecodeResource(Resources, Resource.Drawable.ic_launcher_Round_black));
+            notificationLayout.SetImageViewBitmap(Resource.Id.ImageNotifcationLinearLayout, BitmapFactory.DecodeResource(Resources, Resource.Drawable.ic_launcher_Round_black));
+
+
+
+
+            var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.PersistenCHANNEL_ID)
+                                      .SetSmallIcon(Resource.Drawable.rocket)
+                                      //.SetLargeIcon(BitmapFactory.DecodeResource(Resources, Resource.Drawable.IconForPushNotifsJpeg))
+                                      //.SetContentTitle("Persistenca")
+                                      //.SetContentText("Persistencia")
+                                      .SetAutoCancel(false)
+                                      .SetContentIntent(pendingIntent)
+                                      .SetOngoing(true)
+                                      .SetPriority((int)NotificationPriority.Default)
+                                      .SetCustomContentView(notificationLayout)
+                                      .SetCustomBigContentView(notificationLayoutExpanded)
+                                     // .SetDefaults((int)NotificationDefaults.Vibrate)
+                                      
+                                      //.SetStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                                      ;
+
+            
+            
+           // notification.vibrate = new long[] { -1 };
+            var notificationManager = NotificationManagerCompat.From(this);
+          //  notificationManager;
+            //notificationManager.Notify(Activity1.NOTIFICATION_ID, notificationBuilder.Build());
+            if (Android.OS.Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)// Build.VERSION_CODES.Lollipop)
+            {
+
+                //  notification.setSmallIcon(R.drawable.icon_transperent);
+                //  notification.setColor(getResources().getColor(R.color.notification_color));
+
+                notificationBuilder.SetSmallIcon(Resource.Drawable.rocket);
+                notificationBuilder.SetColor(Android.Graphics.Color.White);
+            }
+            else
+            {
+                notificationBuilder.SetSmallIcon(Resource.Drawable.rocket);
+                // notification.setSmallIcon(R.drawable.icon);
+            }
+
+
+
+           // Vibration.Cancel();
+            notificationManager.Notify(10, notificationBuilder.Build());
+            
+
+
+            //-----------------
 
             // Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new System.String[] { Manifest.Permission.Camera, Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet }, 1);
             Android.Support.V4.App.ActivityCompat.RequestPermissions(this, new System.String[] {  Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet, }, 1);
@@ -81,7 +167,7 @@ namespace Carppi
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
            // StaticfragmentActivity = SupportFragmentManager;
 
-            var drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, Resource.String.drawer_open, Resource.String.drawer_close);
+            var drawerToggle = new Android.Support.V7.App.ActionBarDrawerToggle(this, drawerLayout, toolbar, Resource.String.drawer_open, Resource.String.drawer_close);
             try
             {
                 drawerLayout.SetDrawerListener(drawerToggle);
@@ -109,7 +195,8 @@ namespace Carppi
           //  Task.Delay(1500).ContinueWith(t => HideOptionsInMenu(navigationView));
             
         }
-     
+      
+
         public bool isLoggedIn()
         {
 
@@ -237,6 +324,7 @@ namespace Carppi
 
         void CreateNotificationChannel()
         {
+            //myPersisten_notification_channel
             if (Build.VERSION.SdkInt < BuildVersionCodes.O)
             {
                 // Notification channels are new in API 26 (and not a part of the
@@ -253,8 +341,21 @@ namespace Carppi
                 Description = "Firebase Cloud Messages appear in this channel"
             };
 
+            var channelPersisntent = new NotificationChannel(PersistenCHANNEL_ID,
+                                                "State Notifications",
+                                                NotificationImportance.Default)
+            {
+
+                Description = "ShowsDriver its active/inactive state"
+            };
+            channelPersisntent.SetSound(null, null);
+            channelPersisntent.EnableVibration(false);
+            channelPersisntent.SetVibrationPattern(new long[] { 0,0});
+            
+
             var notificationManager = (NotificationManager)GetSystemService(Android.Content.Context.NotificationService);
             notificationManager.CreateNotificationChannel(channel);
+            notificationManager.CreateNotificationChannel(channelPersisntent);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
@@ -373,6 +474,9 @@ namespace Carppi
                 case Resource.Id.nav_GroceryRequest:
                     fragment = FragmentGroceryRequest.NewInstance();
                     break;
+                case Resource.Id.nav_DeliveryList:
+                    fragment = FragmentDeliveryList.NewInstance();
+                    break;
                     /*
                 case Resource.Id.nav_home:
                     fragment = FragmentMain.NewInstance();
@@ -395,7 +499,7 @@ namespace Carppi
                     throw new NotImplementedException();
                     break;
                     */
-              
+
             }
 
             if (fragment == null)
@@ -425,6 +529,9 @@ namespace Carppi
 
                 case Resource.Id.nav_GroceryRequest:
                     fragment = FragmentGroceryRequest.NewInstance();
+                    break;
+                case Resource.Id.nav_DeliveryList:
+                    fragment = FragmentDeliveryList.NewInstance();
                     break;
                     /*
                 case Resource.Id.nav_discussion://Quiero ser Conductor opcion
@@ -806,4 +913,7 @@ namespace Carppi
             // Add custom implementation, as needed.
         }
     }
+
+
+  
 }

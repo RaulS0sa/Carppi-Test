@@ -22,6 +22,7 @@
         ],
         "sources": {
           "/Users/macbookair/Downloads": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -120,6 +121,10 @@
             "Xamarin.Google.Android.Material": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "modernhttpclient-updated": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

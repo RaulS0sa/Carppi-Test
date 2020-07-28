@@ -15,7 +15,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Carppi PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1E1791F8-460A-471F-AF1D-73B251AEA7FD" />
+  <MonoDevelop.Ide.ItemProperties.Carppi PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget." />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

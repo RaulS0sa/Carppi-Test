@@ -1,20 +1,36 @@
 ﻿<Properties StartupConfiguration="{04BD9E0E-F953-4786-A9FC-205D6231B9A1}|Default">
   <MonoDevelop.Ide.ItemProperties.Carppi__Comercio AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/PostLoginActivityActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi/Assets/newListOfOrders.html">
     <Files>
-      <File FileName="Carppi/Assets/newListOfOrders.html" Line="48948" Column="48" />
-      <File FileName="Carppi/Fragments/FragmentMenu.cs" Line="244" Column="18" />
-      <File FileName="Carppi/Assets/RestaurantDetailedView.html" Line="3345" Column="1" />
-      <File FileName="Carppi/PostLoginActivityActivity.cs" Line="30" Column="19" />
+      <File FileName="Carppi/MyFirebaseMessagingService.cs" Line="178" Column="58" />
+      <File FileName="Carppi/Fragments/FragmentAddElement.cs" />
+      <File FileName="Carppi/Fragments/FragmentAddCard.cs" />
+      <File FileName="Carppi/Fragments/FragmentGrocery.cs" />
+      <File FileName="Carppi/Assets/6DigitTemplate.html" />
+      <File FileName="Carppi/Assets/LogNotFound.html" />
+      <File FileName="Carppi/Fragments/FragmentAddCardConfirmMail.cs" />
+      <File FileName="Carppi/MainActivity.cs" />
+      <File FileName="Carppi/Fragments/FragmentRepartidorView.cs" />
+      <File FileName="Carppi/Fragments/FragmentMain.cs" />
+      <File FileName="Carppi/Fragments/FragmentMenu.cs" />
+      <File FileName="Carppi/Assets/newListOfOrders.html" Line="48958" Column="32" />
+      <File FileName="Carppi/Fragments/FragmentTransfer.cs" />
+      <File FileName="Carppi/Resources/menu/nav_menu.xml" />
+      <File FileName="Carppi/ValidateAccountActivity.cs" />
+      <File FileName="Carppi/PostLoginActivityActivity.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Carppi" expanded="True">
             <Node name="Carppi_Comercio" expanded="True">
-              <Node name="Assets" expanded="True" />
+              <Node name="Assets" expanded="True">
+                <Node name="newListOfOrders.html" selected="True" />
+              </Node>
               <Node name="Fragments" expanded="True" />
-              <Node name="PostLoginActivityActivity.cs" selected="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="menu" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -22,12 +38,17 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <Debugger.DebugSourceFolders>
     <String>/Users/macbookair/Library/Caches/VisualStudio/8.0/Symbols/mono/mono/fd9f379d294e8208a63dd3f63d104057180c9789</String>
   </Debugger.DebugSourceFolders>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Local/Carppi/Fragments/FragmentAddCard.cs" relfile="Carppi/Fragments/FragmentAddCard.cs" line="385" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Local/Carppi/PostLoginActivityActivity.cs" relfile="Carppi/PostLoginActivityActivity.cs" line="111" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Local/Carppi/PostLoginActivityActivity.cs" relfile="Carppi/PostLoginActivityActivity.cs" line="288" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/Carppi_Local/Carppi/Fragments/FragmentAddCard.cs" relfile="Carppi/Fragments/FragmentAddCard.cs" line="196" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

@@ -11,9 +11,12 @@ using System.Timers;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
+using Android.Support.V4.App;
+//using Android.Support.V4.App;
 using Android.Util;
 using Android.Views;
 using Android.Webkit;
@@ -85,7 +88,7 @@ namespace Carppi.Fragments
                 webi.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
 
                 
-               webi.SetWebViewClient(new GroceryRequestWebClient(this.Activity));
+               webi.SetWebViewClient(new GroceryRequestWebClient(this.Activity, Resources));
                 // WebInterfaceProfile.RetriveProfile();
 
                 //wew.Get10LastHomeworks();
@@ -134,16 +137,35 @@ namespace Carppi.Fragments
                 {
                     try
                     {
-                        /*
-                         *
-                         *   public enum WorkState { StopWork, StartWork };
-        [HttpGet]
-        [ActionName("ApiByAction")]
-        public HttpResponseMessage ChangeDeliverymanJourney(string FaceIDHash_Deliveryman, WorkState workState )
+                        var level = Battery.ChargeLevel; // returns 0.0 to 1.0 or 1.0 when on AC or no battery.
 
-                         * */
+                        var state = Battery.State;
+
+                        if (level < 0.15 && (state == BatteryState.Discharging || state == BatteryState.NotCharging))
+                        {
+                            Action action = () =>
+                            {
+                                AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                                alert.SetTitle("Error");
+                                alert.SetMessage("No Puedes iniciar jornada con la pilla descargada");
+                                alert.SetNegativeButton("Aceptar", (senderAlert, args) =>
+                                {
+
+                                });
 
 
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+                            };
+                            ((Activity)mContext).RunOnUiThread(action);
+
+
+                        }
+
+                        else
+                        {
+
+                        
                         HttpClient client = new HttpClient();
 
                         string FaceID = null;
@@ -183,10 +205,14 @@ namespace Carppi.Fragments
                         {
 
                         }
-                     
+
+
 
                     }
 
+
+                   
+                }
                     catch (Exception Ex)
                     {
 
@@ -1087,10 +1113,12 @@ namespace Carppi.Fragments
         private static System.Timers.Timer aTimer =  null;
         private static WebView sView;
         private static Context sContext;
-        public GroceryRequestWebClient(Context contexto)
+        private static Resources sResources;
+        public GroceryRequestWebClient(Context contexto, Resources res)
         {
             mContext = contexto;
             sContext = contexto;
+            sResources = res;
         }
 
         public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded };
@@ -1118,6 +1146,8 @@ namespace Carppi.Fragments
         {
             UpdateLocation();
             PendingGroceryRequest(sView);
+            
+
         }
 
 
@@ -1210,8 +1240,8 @@ namespace Carppi.Fragments
 
                 }
 
-                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/GetListOfDeliveryBoyOrder?" +
-                    "FaceIDHash_DeliveryBoy=" + FaceID
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/GetListOfDeliveryBoyOrderAndStatus?" +
+                    "FaceIDHash_DeliveryBoyAndStatus=" + FaceID
 
 
                     ));
@@ -1225,8 +1255,10 @@ namespace Carppi.Fragments
                 var S_Ressult = t.Result;
                 if (S_Ressult.httpStatusCode == System.Net.HttpStatusCode.Accepted)
                 {
-
-                    var OrderList = JsonConvert.DeserializeObject<List<DeliveryOrderQuery>>(S_Ressult.Response);
+                    var Status = JsonConvert.DeserializeObject<DeliverManStatus>(S_Ressult.Response);
+                  
+                    var OrderList = Status.OrderList;//JsonConvert.DeserializeObject<List<DeliveryOrderQuery>>(S_Ressult.Response);
+                    SetDeliverManStatus(Status.DelivermanStatus, OrderList.Count(), view);
                     var ListaCoordenadas = new List<CoordenadasDeOrdenes>();
                     foreach (var Order in OrderList)
                     {
@@ -1378,8 +1410,103 @@ namespace Carppi.Fragments
 
             }
         }
-      
+        public static void SetDeliverManStatus(bool Stat, int Ordenes, WebView view)
+        {
+          
+            var intent = new Intent((Activity)sContext, typeof(MainActivity));
+            var pendingIntent = PendingIntent.GetActivity(sContext,
+                                                         500,
+                                                         intent,
+                                                         PendingIntentFlags.OneShot);
 
+            var notificationLayout = new RemoteViews("com.Carppi.Carppi_repartidor", Resource.Layout.NotificationLayout);
+            var notificationLayoutExpanded = new RemoteViews("com.Carppi.Carppi_repartidor", Resource.Layout.NotificationLayout);
+
+            notificationLayout.SetTextViewText(Resource.Id.titleNotifcationLinearLayout, Ordenes.ToString() +  " Ordenes Pendientes," + " Estado: " + (Stat == false ? "Inactivo": "Activo"));
+            notificationLayoutExpanded.SetTextViewText(Resource.Id.titleNotifcationLinearLayout, Ordenes.ToString() + " Ordenes Pendientes," + " Estado: " + (Stat == false ? "Inactivo" : "Activo"));
+
+            //  StaticnotificationLayout = notificationLayout;
+            //  StaticnotificationLayoutExpanded = notificationLayoutExpanded;
+            //  notificationLayout.SetTextViewTextSize(Resource.Id.titleNotifcationLinearLayout, 100, 100);
+            //  notificationLayoutExpanded.SetTextViewTextSize(Resource.Id.titleNotifcationLinearLayout, 100, 100);
+
+            notificationLayoutExpanded.SetInt(Resource.Id.NotifcationLinearLayout, "setBackgroundColor", Stat == false? Android.Graphics.Color.DarkRed : Color.DarkGreen);
+            notificationLayout.SetInt(Resource.Id.NotifcationLinearLayout, "setBackgroundColor", Stat == false ? Android.Graphics.Color.DarkRed : Color.DarkGreen);
+
+
+            notificationLayoutExpanded.SetImageViewBitmap(Resource.Id.ImageNotifcationLinearLayout, BitmapFactory.DecodeResource(sResources, Resource.Drawable.ic_launcher_Round_black));
+            notificationLayout.SetImageViewBitmap(Resource.Id.ImageNotifcationLinearLayout, BitmapFactory.DecodeResource(sResources, Resource.Drawable.ic_launcher_Round_black));
+            var notificationBuilder = new NotificationCompat.Builder(sContext, MainActivity.PersistenCHANNEL_ID)
+                                      .SetSmallIcon(Resource.Drawable.rocket)
+                                      //.SetLargeIcon(BitmapFactory.DecodeResource(Resources, Resource.Drawable.IconForPushNotifsJpeg))
+                                      //.SetContentTitle("Persistenca")
+                                      //.SetContentText("Persistencia")
+                                      .SetAutoCancel(false)
+                                      .SetContentIntent(pendingIntent)
+                                      .SetOngoing(true)
+                                      .SetPriority((int)NotificationPriority.Default)
+                                      .SetCustomContentView(notificationLayout)
+                                      .SetCustomBigContentView(notificationLayoutExpanded)
+                                      //.SetDefaults((int)NotificationDefaults.Vibrate)
+
+                                      //.SetStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                                      ;
+
+
+
+            //notificationChannel.vibr(false);
+            var notificationManager = NotificationManagerCompat.From(sContext);
+
+            //notificationManager.Notify(Activity1.NOTIFICATION_ID, notificationBuilder.Build());
+            if (Android.OS.Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)// Build.VERSION_CODES.Lollipop)
+            {
+
+                //  notification.setSmallIcon(R.drawable.icon_transperent);
+                //  notification.setColor(getResources().getColor(R.color.notification_color));
+
+                notificationBuilder.SetSmallIcon(Resource.Drawable.rocket);
+                notificationBuilder.SetColor(Android.Graphics.Color.White);
+            }
+            else
+            {
+                notificationBuilder.SetSmallIcon(Resource.Drawable.rocket);
+                // notification.setSmallIcon(R.drawable.icon);
+            }
+            // Vibration.Cancel();
+
+            notificationManager.Notify(10, notificationBuilder.Build());
+
+
+            //-------
+            //UpdateOprionsButton
+
+            Action SetMarkerAcction = async () =>
+            {
+                 var script = "UpdateOprionsButton(" +(Stat == false ? 0 :1).ToString()  + ");";
+                Action action = () =>
+                {
+                    view.EvaluateJavascript(script, null);
+
+                };
+                view.Post(action);
+
+
+
+            };
+
+            ((Activity)sContext).RunOnUiThread(SetMarkerAcction);
+
+
+
+            //    notificationLayout.SetTextViewText(Resource.Id.titleNotifcationLinearLayout, enterorandom);
+            //     notificationLayoutExpanded.SetTextViewText(Resource.Id.titleNotifcationLinearLayout, enterorandom);
+        }
+
+        class DeliverManStatus
+        {
+            public List<DeliveryOrderQuery> OrderList;
+            public bool DelivermanStatus;
+        }
       
         public static string Base64Decode(string base64EncodedData)
         {
@@ -1464,11 +1591,12 @@ namespace Carppi.Fragments
         public string Direccion { get; set; }
         
         public enumTipoDePago TipoDePago { get; set; }
+        public double TarifaDelServicio { get; set; }
 
 
     }
 
-    class DeliveryOrderQuery
+    public class DeliveryOrderQuery
     {
         public CarppiGrocery_BuyOrders_AddType Orden;
         public List<CarppiGrocery_Productos> Productos;
@@ -1476,7 +1604,7 @@ namespace Carppi.Fragments
 
 
     }
-    class ProducListOptions
+    public class ProducListOptions
     {
         public string ProductName;
         public int Cantidat;
@@ -1492,6 +1620,7 @@ namespace Carppi.Fragments
         public string Nombre { get; set; }
         public double? Costo { get; set; }
         public byte[] Foto { get; set; }
+        public int Cantidad { get; set; }
     }
     class CoordenadasDeOrdenes
     {

@@ -50,6 +50,16 @@
       android:icon="@drawable/ic_forum"
       android:title="Peticiones de canasta"
             />
+         <item
+      android:id="@+id/nav_AddCard"
+      android:icon="@drawable/ic_forum"
+      android:title="Añade Tu Tarjeta"
+            />
+            <item
+      android:id="@+id/nav_Transfer"
+      android:icon="@drawable/ic_forum"
+      android:title="Mis Finanzas"
+            />
     <!--      <item
       android:id="@+id/nav_GroceryConversation"
       android:icon="@drawable/ic_forum"

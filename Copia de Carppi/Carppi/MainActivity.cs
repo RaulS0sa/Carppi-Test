@@ -30,7 +30,7 @@ using Android.Support.V4.App;
 using Fragment = Android.Support.V4.App.Fragment;
 using ActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 
-[assembly: Application(Debuggable = false)]
+[assembly: Application(Debuggable = true)]
 
 namespace Carppi
 {
@@ -50,11 +50,15 @@ namespace Carppi
         public static bool SetDismisableModal { get; set; } = false;
         DrawerLayout drawerLayout;
         NavigationView navigationView;
-        
+        public enum PagoPreferido { Efectivo, Tarjeta};
+        public enum UbicacionPreferida { Actual, Custom };
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
+            Clases.ServicePointConfiguration.SetUp();
             Static_Activity = this;
             static_FragmentMAnager = SupportFragmentManager;
 
@@ -63,15 +67,16 @@ namespace Carppi
             
             SetContentView(Resource.Layout.activity_main);
             configureBackdrop();
+            CreateTables();
 
-           /*
-            * To comeback when there are more rows
+            /*
+             * To comeback when there are more rows
 
-            bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation);
+             bottomNavigation = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation);
 
-            bottomNavigation.NavigationItemSelected += BottomNavigation_NavigationItemSelected;
-            */
-            
+             bottomNavigation.NavigationItemSelected += BottomNavigation_NavigationItemSelected;
+             */
+
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
@@ -107,6 +112,26 @@ namespace Carppi
           //  Task.Delay(1500).ContinueWith(t => HideOptionsInMenu(navigationView));
             
         }
+
+        void CreateTables()
+        {
+            try
+            {
+                var databasePath10 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Productos.db");
+                var db10 = new SQLiteConnection(databasePath10);
+                // var query = db5.Table<DatabaseTypes.Log_Info>().Where(v => v.ID > 0).FirstOrDefault();
+                // var db5 = new SQLiteConnection(databasePath5);
+                //var query = db5.Table<App6.DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                db10.CreateTable<DatabaseTypes.Carppi_ProductosPorRestaurantes>();
+
+            }
+            catch(Exception)
+            {
+
+            }
+
+        }
+
         async void HideOptionsInMenu(NavigationView mNavigationView)
         {
             try { 
@@ -137,7 +162,7 @@ namespace Carppi
                     var db5 = new SQLiteConnection(databasePath5);
                     var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
 
-                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/TravelerCrossCityApi/GEetOwnProfile?" +
+                    var uri = new Uri(string.Format("https://geolocale.azurewebsites.net/api/TravelerCrossCityApi/GEetOwnProfile?" +
                         "user10_Hijo=" + query.ProfileId
                         ));
                     HttpResponseMessage response;
@@ -773,20 +798,22 @@ namespace Carppi
                                 // Photo = cadena,
                                 Viajesrelizados = "0",
                                 Calificacion = "0",
-                                ProfileId = e.mProfile.Id
-                                //NombreUsuaro = e.mProfile.FirstName,
-                                //ApellidoPaterno = e.mProfile.LastName,
-                                //Calificacion = 5.0,
-                                //FaceID = e.mProfile.Id,
-                                //IdentidadValidada = false,
-                                //EsPrimerUso = true,
-                                //Escuela = "",
-                                ////Foto = arra,
-                                //CostoPorHora = new decimal(0)
+                                ProfileId = e.mProfile.Id,
+                                PagoPreferido = (int)PagoPreferido.Efectivo,
+                                UbicacionPreferida = (int)UbicacionPreferida.Actual,
+                        //NombreUsuaro = e.mProfile.FirstName,
+                        //ApellidoPaterno = e.mProfile.LastName,
+                        //Calificacion = 5.0,
+                        //FaceID = e.mProfile.Id,
+                        //IdentidadValidada = false,
+                        //EsPrimerUso = true,
+                        //Escuela = "",
+                        ////Foto = arra,
+                        //CostoPorHora = new decimal(0)
 
 
 
-                            });
+                    });
                         }
                         else
                         {
@@ -797,20 +824,28 @@ namespace Carppi
                             query.Viajesrelizados = "0";
                             query.Calificacion = "0";
                             query.ProfileId = e.mProfile.Id;
+                            query.PagoPreferido = (int)PagoPreferido.Efectivo;
+                            query.UbicacionPreferida = (int)UbicacionPreferida.Actual;
                             db10.RunInTransaction(() =>
                             {
                                 db10.Update(query);
                             });
                         }
-
+                        
 
                         try
                         {
                             await LoggInWebTask();
                         }
                         catch (System.Exception) { }
+                        //RecaulculateCostOfTransport
+                        try
+                        {
+                            UtilityJavascriptInterface_RestaurantDetailedView.RecaulculateCostOfTransport();
+                        }
+                        catch (System.Exception) { }
 
-                       // MainActivity.LoadFragmentStatic(Resource.Id.nav_messages);
+                        // MainActivity.LoadFragmentStatic(Resource.Id.nav_messages);
 
                         //Intent i = new Intent(this, typeof(Activity1));
                         //  Intent i = new Intent(this, typeof(Activity_Informacion_Post_logueo));
@@ -830,14 +865,14 @@ namespace Carppi
                     {
                         //   LoginManager.Instance.LogOut();
                         // LoginManager.getInstance().logOut();
-                        var databasePath10_ = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
-                        var db10_ = new SQLiteConnection(databasePath10_);
+                        //var databasePath10_ = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                        //var db10_ = new SQLiteConnection(databasePath10_);
 
-                        db10_.RunInTransaction(() =>
-                        {
-                            db10_.DropTable<DatabaseTypes.Log_info>();
+                       // db10_.RunInTransaction(() =>
+                       // {
+                       //     db10_.DropTable<DatabaseTypes.Log_info>();
                             //db2.Delete(db2.Table<intento_todo_parte_2.Database_clases.Notificaciones>().Where(x => x.ID >0));
-                        });
+                       // });
 
                         //Todo: Exception trown at unlog
                         //TxtFirstName.Text = "First Name";

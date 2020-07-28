@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
@@ -25,6 +26,9 @@ using Java.Interop;
 using Newtonsoft.Json;
 using Plugin.Geolocator;
 using SQLite;
+using Xamarin.Facebook;
+using static Android.App.ActionBar;
+using static Carppi.Fragments.FragmentMain;
 using static Carppi.Fragments.LocalWebViewClient_RestaurantDetailedView;
 using Fragment = Android.Support.V4.App.Fragment;
 
@@ -45,6 +49,7 @@ namespace Carppi.Fragments
 
         public static List<CarppiGroceryProductos> ListaDeProductos = new List<CarppiGroceryProductos>();
         public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded, RequestRejected };
+        public enum TypeOfPayment { Efectivo, Tarjeta };
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -60,7 +65,14 @@ namespace Carppi.Fragments
             string content;
             AssetManager assets = this.Activity.Assets;
 
-            var Template = "CarppiDeliveryRestaurantDetailedView.html";
+
+            var colorEnv = new Carppi.Clases.Environment_Android();
+            var asss = colorEnv.GetOperatingSystemTheme();
+            var Template =false? "CarppiDeliveryRestaurantDetailedView.html" : "CarppiDeliveryRestaurantDetailedViewDarkMode.html";
+            //var Template = asss == UiMode.NightNo ? "CarppiDeliveryRestaurantDetailedView.html" : "CarppiDeliveryRestaurantDetailedViewDarkMode.html";
+
+            //var Template = "CarppiDeliveryRestaurantDetailedView.html";
+
             using (StreamReader sr = new StreamReader(assets.Open(Template)))
             {
                 content = sr.ReadToEnd();
@@ -480,13 +492,15 @@ namespace Carppi.Fragments
             //ChangeButtonTag
             //Console.WriteLine("The Elapsed event was raised at {0:HH:mm:ss.fff}",
             //                  e.SignalTime);
-            List<int> vs = new List<int>();
-            foreach(var product in FragmentRestaurantDetailedView.ListaDeProductos)
+            try
             {
-                vs.Add(product.ID);
-            }
+                List<int> vs = new List<int>();
+                foreach (var product in FragmentRestaurantDetailedView.ListaDeProductos)
+                {
+                    vs.Add(product.ID);
+                }
 
-           
+
                 Action action = () =>
                 {
                     //var jsr = new JavascriptResult();
@@ -498,6 +512,11 @@ namespace Carppi.Fragments
 
 
                 web_ViewLocal.Post(action);
+            }
+            catch(Exception)
+            {
+
+            }
 
 
 
@@ -509,8 +528,111 @@ namespace Carppi.Fragments
             DateTime dt1970 = new DateTime(1970, 1, 1);
             var ahora = (DateTime.Now - dt1970).TotalMilliseconds;
             var tiepo = ahora - inicio;
-            if (KeepQuering && ((ahora - inicio  )< FragmentRestaurantDetailedView.TimeToWait))
+            if (KeepQuering && ((ahora - inicio) < FragmentRestaurantDetailedView.TimeToWait))
             {
+
+
+                var databasePath10 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Productos.db");
+                var db10 = new SQLiteConnection(databasePath10);
+                var Productquery = new Carppi_ProductosPorRestaurantes();
+                try
+                {
+                    Productquery = db10.Table<DatabaseTypes.Carppi_ProductosPorRestaurantes>().Where(v => v.ID == Index).FirstOrDefault();
+                }
+                catch (Exception) { }
+                if (Productquery == null)
+                {
+                    HttpClient client = new HttpClient();
+
+                    string FaceID = null;
+                    var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                    var db5 = new SQLiteConnection(databasePath5);
+                    //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                    try
+                    {
+
+                        var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                        FaceID = query.ProfileId;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    // SearchForPassengerAreaByStateAndCountry(string Town, string Country, string State, string FacebookID_UpdateArea)
+                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiProductDetailedView_Compresed?" +
+                        "ProductDetailID_CompressedData=" + Index
+
+
+                        ));
+                    // HttpResponseMessage response;
+
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    if (KeepQuering && ((ahora - inicio) < FragmentRestaurantDetailedView.TimeToWait))
+                    {
+                        //  var  response =  client.GetAsync(uri).Result;
+                        var t = Task.Run(() => GetResponseFromURI(uri));
+                        //t.Wait();
+
+                        var S_Response = t.Result;
+                        //EraseContentGrid
+                        Action action = () =>
+                        {
+                            //var jsr = new JavascriptResult();
+                            var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
+                            var AddingProduct = db10.Insert(new DatabaseTypes.Carppi_ProductosPorRestaurantes()
+                            {
+                                ID = Respuesta.ID,
+                                IDdRestaurante = Respuesta.IDdRestaurante,
+                                Nombre = Respuesta.Nombre,
+                                Descripcion = Respuesta.Descripcion,
+                                Foto = Respuesta.Foto,
+                                Costo = Respuesta.Costo,
+                                Categoria = Respuesta.Categoria,
+                                Disponibilidad = Respuesta.Disponibilidad,
+                                ComprasDelProducto = Respuesta.ComprasDelProducto
+
+                            });
+                            // var asas = new SevenZip.Compression.LZMA.Decoder();
+
+                            Respuesta.Foto = Decompress(Respuesta.Foto);
+                            var script = "UpdateProductGrid(" + JsonConvert.SerializeObject(Respuesta) + ")";
+                            web_ViewLocal.EvaluateJavascript(script, null);
+
+
+                        };
+
+                        //UpdateProductGrid
+                        web_ViewLocal.Post(action);
+                    }
+                    else
+                    {
+                        taskController.Cancel();
+                        KeepQuering = false;
+                    }
+                }
+                else
+                {
+                    Action action = () =>
+                    {
+                        //var jsr = new JavascriptResult();
+                        // var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
+
+                        // var asas = new SevenZip.Compression.LZMA.Decoder();
+
+                        Productquery.Foto = Decompress(Productquery.Foto);
+                        var script = "UpdateProductGrid(" + JsonConvert.SerializeObject(Productquery) + ")";
+                        web_ViewLocal.EvaluateJavascript(script, null);
+
+
+                    };
+
+
+                    web_ViewLocal.Post(action);
+                }
+
+            }
+/*
+
 
                 HttpClient client = new HttpClient();
 
@@ -569,17 +691,28 @@ namespace Carppi.Fragments
                 KeepQuering = false;
 
             }
+
+                */
         }
         public static byte[] Decompress(byte[] data)
         {
-            MemoryStream input = new MemoryStream(data);
-            MemoryStream output = new MemoryStream();
-            using (DeflateStream dstream = new DeflateStream(input, CompressionMode.Decompress))
+            try
             {
-                dstream.CopyTo(output);
+                MemoryStream input = new MemoryStream(data);
+                MemoryStream output = new MemoryStream();
+                using (DeflateStream dstream = new DeflateStream(input, CompressionMode.Decompress))
+                {
+                    dstream.CopyTo(output);
+                }
+                return output.ToArray();
             }
-            return output.ToArray();
+
+            catch (Exception) {
+                return new byte[] { };
+
+            }
         }
+        /*
         public partial class Carppi_ProductosPorRestaurantes
         {
             public long ID { get; set; }
@@ -592,6 +725,7 @@ namespace Carppi.Fragments
             public bool Disponibilidad { get; set; }
             public long ComprasDelProducto { get; set; }
         }
+        */
         public static async Task<UriResponse> GetResponseFromURI(Uri u)
         {
             var response = "";
@@ -614,6 +748,39 @@ namespace Carppi.Fragments
             public System.Net.HttpStatusCode httpStatusCode;
         }
     }
+    public class UtilityJavascriptInterfacePaymentModal : Java.Lang.Object
+    {
+        Context mContext;
+        WebView webi;
+        public static WebView webi_static;
+        public static Context StaticContext;
+        //public static enumEstado_del_usuario EstadoPrevioDelUsuario = enumEstado_del_usuario.Sin_actividad;
+        public static double Costo_Global;
+        public static Dialog DialogReference;
+
+        //public static SearchLocationObject Static_WhereToGo;
+        public UtilityJavascriptInterfacePaymentModal(Activity Act, WebView web,ref Dialog Dialogref)
+        {
+            mContext = Act;
+            webi = web;
+            webi_static = web;
+            StaticContext = Act;
+            DialogReference = Dialogref;
+        }
+        //window.Android.SearchByItsTagInDetailedView(IntergerToquery);
+        [JavascriptInterface]
+        [Export("DismissPaymentModal")]
+        public async void DismissPaymentModal()
+        {
+            try
+            {
+                DialogReference.Dismiss();
+                DialogReference.Hide();
+            }
+            catch(Exception)
+            { }
+        }
+    }
     public class UtilityJavascriptInterface_RestaurantDetailedView : Java.Lang.Object
     {
         Context mContext;
@@ -632,6 +799,73 @@ namespace Carppi.Fragments
             StaticContext = Act;
         }
         //window.Android.SearchByItsTagInDetailedView(IntergerToquery);
+        [JavascriptInterface]
+        [Export("SearchByItsNameInDetailedView")]
+        public async void SearchByItsNameInDetailedView(string NameToQuery)
+        {
+            try
+            {
+                LocalWebViewClient_RestaurantDetailedView.KeepQuering = false;
+                // LocalWebViewClient_RestaurantDetailedView.GlobalQueryTask.Dispose();
+                // LocalWebViewClient_RestaurantDetailedView.taskController.Cancel();
+                // LocalWebViewClient_RestaurantDetailedView.GlobalQueryTask = null;
+                //  GlobalQueryTask
+            }
+            catch (Exception)
+            { }
+            HttpClient client = new HttpClient();
+
+            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/SearchInsideRestaurantProductsText?" +
+                "RestaurantDetailID_Regularseller=" + FragmentRestaurantDetailedView.RestID +
+                "&ProductToSearch=" + NameToQuery
+
+
+                ));
+            HttpResponseMessage response;
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            response = await client.GetAsync(uri);
+
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            {
+                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+          {
+                '"'
+          });
+
+
+                Action action = () =>
+                {
+                    //EraseContentGrid
+                    var script = "EraseContentGrid()";
+                    webi.EvaluateJavascript(script, null);
+                };
+                //UpdateProductGrid
+                webi.Post(action);
+
+
+                CancellationTokenSource taskController = new CancellationTokenSource();
+                CancellationToken token = taskController.Token;
+
+                // LocalWebViewClient_RestaurantDetailedView.KeepQuering = true;
+
+                var Lista = JsonConvert.DeserializeObject<List<long>>(errorMessage1);
+                foreach (var index in Lista)
+                {
+                    var t = Task.Run(() => QueryProductByProduct(index), token);
+
+                    // var t = Task.Run(() => QueryProductByProduct(index), token);
+                    // t.Wait();
+
+                }
+            }
+        }
+
+
+
+
         [JavascriptInterface]
         [Export("SearchByItsTagInDetailedView")]
         public async void SearchByItsTagInDetailedView(int IntergerToquery)
@@ -742,53 +976,99 @@ namespace Carppi.Fragments
 
         public void QueryProductByProduct(long Index)
         {
-            HttpClient client = new HttpClient();
-
-            string FaceID = null;
-            var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
-            var db5 = new SQLiteConnection(databasePath5);
-            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+            var databasePath10 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Productos.db");
+            var db10 = new SQLiteConnection(databasePath10);
+            var Productquery = new Carppi_ProductosPorRestaurantes();
             try
             {
-
-                var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
-                FaceID = query.ProfileId;
+                Productquery = db10.Table<DatabaseTypes.Carppi_ProductosPorRestaurantes>().Where(v => v.ID == Index).FirstOrDefault();
             }
-            catch (Exception ex)
+            catch (Exception) { }
+            if (Productquery == null)
             {
+                HttpClient client = new HttpClient();
 
+                string FaceID = null;
+                var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                var db5 = new SQLiteConnection(databasePath5);
+                //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                try
+                {
+
+                    var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                    FaceID = query.ProfileId;
+                }
+                catch (Exception ex)
+                {
+
+                }
+                // SearchForPassengerAreaByStateAndCountry(string Town, string Country, string State, string FacebookID_UpdateArea)
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiProductDetailedView_Compresed?" +
+                    "ProductDetailID_CompressedData=" + Index
+
+
+                    ));
+                // HttpResponseMessage response;
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //  var  response =  client.GetAsync(uri).Result;
+                var t = Task.Run(() => GetResponseFromURI(uri));
+                //t.Wait();
+
+                var S_Response = t.Result;
+                //EraseContentGrid
+                Action action = () =>
+                {
+                    //var jsr = new JavascriptResult();
+                    var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
+                    var AddingProduct = db10.Insert(new DatabaseTypes.Carppi_ProductosPorRestaurantes()
+                    {
+                         ID = Respuesta.ID,
+                        IDdRestaurante= Respuesta.IDdRestaurante,
+                        Nombre= Respuesta.Nombre,
+                        Descripcion  = Respuesta.Descripcion,
+                        Foto= Respuesta.Foto,
+                        Costo = Respuesta.Costo,
+                        Categoria= Respuesta.Categoria,
+                        Disponibilidad = Respuesta.Disponibilidad,
+                        ComprasDelProducto = Respuesta.ComprasDelProducto
+
+                    });
+                    // var asas = new SevenZip.Compression.LZMA.Decoder();
+
+                    Respuesta.Foto = Decompress(Respuesta.Foto);
+                    //EraseContentGrid
+                    var script = "UpdateProductGrid(" + JsonConvert.SerializeObject(Respuesta) + ")";
+                    webi.EvaluateJavascript(script, null);
+
+
+                };
+
+                //UpdateProductGrid
+                webi.Post(action);
             }
-            // SearchForPassengerAreaByStateAndCountry(string Town, string Country, string State, string FacebookID_UpdateArea)
-            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiProductDetailedView_Compresed?" +
-                "ProductDetailID_CompressedData=" + Index
-
-
-                ));
-            // HttpResponseMessage response;
-
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            //  var  response =  client.GetAsync(uri).Result;
-            var t = Task.Run(() => GetResponseFromURI(uri));
-            //t.Wait();
-
-            var S_Response = t.Result;
-            //EraseContentGrid
-            Action action = () =>
+            else
             {
-                //var jsr = new JavascriptResult();
-                var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
-                // var asas = new SevenZip.Compression.LZMA.Decoder();
+                Action action = () =>
+                {
+                    //var jsr = new JavascriptResult();
+                    // var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
 
-                Respuesta.Foto = Decompress(Respuesta.Foto);
-                var script = "UpdateProductGrid(" + JsonConvert.SerializeObject(Respuesta) + ")";
-                webi.EvaluateJavascript(script, null);
+                    // var asas = new SevenZip.Compression.LZMA.Decoder();
+
+                    Productquery.Foto = Decompress(Productquery.Foto);
+                    var script = "UpdateProductGrid(" + JsonConvert.SerializeObject(Productquery) + ")";
+                    webi.EvaluateJavascript(script, null);
 
 
-            };
+                };
 
 
-            webi.Post(action);
+                webi.Post(action);
+            }
+         
+         
         }
 
 
@@ -1040,11 +1320,91 @@ namespace Carppi.Fragments
             // };
             //  ((Activity)mContext).RunOnUiThread(Toatsaction);
         }
+
+
+
+        public static async void RecaulculateCostOfTransport()
+        {
+            var MyLatLong = await Clases.Location.GetCurrentPosition();
+
+
+
+            HttpClient client = new HttpClient();
+            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+
+            var query = new Log_info();
+            var Region = "";
+            var faceID = "";
+            var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+            try
+            {
+                var db5 = new SQLiteConnection(databasePath5);
+                query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
+                Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
+                faceID = (query.ProfileId == null ? null : (query.ProfileId).ToString());
+            }
+            catch (Exception)
+            {
+
+            }
+            //CarppiHash
+            /*
+            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTrip?" +
+                "Region_costo=" + Region +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                "&LatitudPedido=" + MyLatLong.Latitude +
+                "&LongitudPedido=" + MyLatLong.Longitude
+
+                ));
+            */
+            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTripWithRestaurant_AndLogDatat?" +
+            "RestaurantHash=" + FragmentRestaurantDetailedView.CarppiHash +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+            "&LatitudPedido=" + MyLatLong.Latitude.ToString().Replace(",", ".") +
+            "&LongitudPedido=" + MyLatLong.Longitude.ToString().Replace(",", ".") +
+            "&userTag_Log=" + faceID
+
+            ));
+            HttpResponseMessage response;
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            response = await client.GetAsync(uri);
+
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            {
+                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+         {
+                '"'
+         });
+                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+
+                var TransportCost = (int)Convert.ToDouble(errorMessage1, culture);
+                var CostoMercancia = CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)TransportCost);
+
+
+                Action action = () =>
+                {
+                    //var jsr = new JavascriptResult();
+                    var script = "UpdateTrasportCodeInLogin(" + TransportCost + "," + (CostoMercancia) + ")";
+                    webi_static.EvaluateJavascript(script, null);
+
+
+                };
+
+
+                webi_static.Post(action);
+            }
+
+        }
         [JavascriptInterface]
         [Export("GeneretaGroceryOrder_WithComments")]
-        public async void GeneretaGroceryOrder_WithComments(string Comentario)
+        public async void GeneretaGroceryOrder_WithComments(string Comentario, int Tipodepago)
         {
             //GeneratePurchaseOrder(string FaceIDOfBuyer, string BuyList, double Lat, double Log)
+            var navigationView = ((Activity)mContext).FindViewById<NavigationView>(Resource.Id.nav_view);
+
+            HideOptionsInMenu(navigationView);
+
             if (IsLocationAvailable())
             {
                 try
@@ -1107,13 +1467,13 @@ namespace Carppi.Fragments
                         }
                         if (query.ProfileId != null)
                         {
-                            Action action = async () =>
+                              Action action = async () =>
                             {
                                 AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
-                                alert.SetTitle("seleccion");
-                                alert.SetMessage("Selecciona un metodo de pago");
+                                alert.SetTitle("Seleccion");
+                                alert.SetMessage("Tu Orden Esta a punto de ser procesada, deseas Continuar?");
 
-                                alert.SetPositiveButton("Pago en efectivo", async (senderAlert, args) =>
+                                alert.SetPositiveButton("Continuar!", async (senderAlert, args) =>
                                 {
 
                                     HttpClient client = new HttpClient();
@@ -1124,7 +1484,7 @@ namespace Carppi.Fragments
                                         + "&Lat=" + MyLatLong.Latitude.ToString().Replace(",", ".")
                                         + "&Log=" + MyLatLong.Longitude.ToString().Replace(",", ".")
                                         + "&Region=" + Region
-                                        + "&tipoDePago=" + ((int)(TipoDePago.Efectivo))
+                                        + "&tipoDePago=" + Tipodepago
                                         + "&Comentario=" + Comentario
                                         ));
                                     HttpResponseMessage response;
@@ -1271,7 +1631,7 @@ namespace Carppi.Fragments
                                             {
                                                 MainActivity.LoadFragment_Static(Resource.Id.menu_video);
                                                 //fragment = FragmentSelectTypeOfPurchase.NewInstance();
-
+                                                MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
                                                 Action action_WhowAlert = () =>
                                                 {
                                                     var sss = ((Activity)mContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
@@ -1392,6 +1752,121 @@ namespace Carppi.Fragments
 
 
         }
+        public bool isLoggedIn()
+        {
+
+            AccessToken accessToken = AccessToken.CurrentAccessToken;//AccessToken.getCurrentAccessToken();
+            return accessToken != null;
+            //return false;
+        }
+
+
+        public async void HideOptionsInMenu(NavigationView mNavigationView)
+        {
+            try
+            {
+                // var Mnu = FindViewById<IMenu>(Resource.Id.MuttaMenu);
+                var menuNav = mNavigationView.Menu;
+                menuNav.FindItem(Resource.Id.nav_GroceryRequest).SetVisible(false);
+                menuNav.FindItem(Resource.Id.nav_GroceryConversation).SetVisible(false);
+                menuNav.FindItem(Resource.Id.nav_home).SetVisible(false);
+                menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+                if (isLoggedIn() == false)
+                {
+                    var aca = menuNav.FindItem(Resource.Id.nav_messages).SetVisible(false);
+
+                    menuNav.FindItem(Resource.Id.nav_friends).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_discussion).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+                    //Resource.Id.nav_GroceryRequest:
+
+
+                }
+                else
+                {
+                    var aca = menuNav.FindItem(Resource.Id.nav_messages).SetVisible(false);
+
+                    menuNav.FindItem(Resource.Id.nav_friends).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_LoginButton).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_friends).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_discussion).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                    // menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+                    try
+                    {
+                        HttpClient client = new HttpClient();
+                        //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                        var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                        var db5 = new SQLiteConnection(databasePath5);
+                        var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
+                        if (query.ProfileId == "849994702134646")
+                        {
+                            menuNav.FindItem(Resource.Id.nav_GroceryRequest).SetVisible(true);
+                            menuNav.FindItem(Resource.Id.nav_GroceryConversation).SetVisible(true);
+                        }
+
+                        var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/TravelerCrossCityApi/GEetOwnProfile?" +
+                            "user10_Hijo=" + query.ProfileId
+                            ));
+                        HttpResponseMessage response;
+
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                        // response = await client.GetAsync(uri);
+                        menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                        menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                        /*
+
+                        if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                        {
+                            var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+                      {
+            '"'
+                      });
+                            var Profile = JsonConvert.DeserializeObject<Traveler_Perfil>(errorMessage1);
+                            var RealRole = Profile.IsUserADriver;
+                            if (RealRole == true)//UserIsADriver
+                            {
+                                menuNav.FindItem(Resource.Id.nav_discussion).SetVisible(false);
+                                if (Profile.StripeDriverID == null)
+                                {
+                                    menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+
+                                }
+                                else
+                                {
+                                    menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+
+                                }
+                            }
+                            else
+                            {
+                                menuNav.FindItem(Resource.Id.nav_Clabe).SetVisible(false);
+                                menuNav.FindItem(Resource.Id.nav_Balance).SetVisible(false);
+                                // menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
+
+                            }
+
+                            //  MainActivity.LoadFragmentStatic(Resource.Id.menu_video);
+
+
+                        }
+                        */
+                    }
+                    catch (System.Exception) { }
+
+                }
+
+            }
+            catch (Exception)
+            { }
+        }
+
 
         [JavascriptInterface]
         [Export("GeneretaGroceryOrder")]
@@ -1750,12 +2225,23 @@ namespace Carppi.Fragments
             public int Quantity;
         }
 
-        public bool IsLocationAvailable()
+        public static bool IsLocationAvailable()
         {
             if (!CrossGeolocator.IsSupported)
                 return false;
 
             return CrossGeolocator.Current.IsGeolocationAvailable;
+        }
+
+        public static bool LocationPermitionGranted()
+        {
+            //  Android.Support.V4.App.ActivityCompat.RequestPermissions((Activity)StaticContext, new System.String[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet, }, 1);
+            var rt = (Android.Support.V4.App.ActivityCompat.CheckSelfPermission((Activity)StaticContext, Manifest.Permission.AccessFineLocation) == Android.Content.PM.Permission.Granted)
+           || (Android.Support.V4.App.ActivityCompat.CheckSelfPermission((Activity)StaticContext, Manifest.Permission.AccessCoarseLocation) == Android.Content.PM.Permission.Granted);
+
+            return rt;
+
+
         }
 
         public static string Base64Encode(string plainText)
@@ -1886,20 +2372,10 @@ namespace Carppi.Fragments
             FragmentRestaurantDetailedView.ListaDeProductos = micopia;
         }
 
-
         [JavascriptInterface]
-        [Export("DisplayShopingKart")]
-        public async static void DisplayShopingKart()
+        [Export("SetCardDetails")]
+        public async static void SetCardDetails()
         {
-            //0000000000
-            //CalculateCostOfTrip(Int32 Region_costo, double LatitudPedido, double LongitudPedido)
-            var MyLatLong = await Clases.Location.GetCurrentPosition();
-
-
-
-            HttpClient client = new HttpClient();
-            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
-
             var query = new Log_info();
             var Region = "";
             var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
@@ -1907,93 +2383,698 @@ namespace Carppi.Fragments
             {
                 var db5 = new SQLiteConnection(databasePath5);
                 query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
-                Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
+                Region = (query.Region_Delivery == null ? 2.ToString() : (query.Region_Delivery).ToString());
             }
             catch (Exception)
             {
 
             }
-            //CarppiHash
-            /*
-            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTrip?" +
-                "Region_costo=" + Region +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
-                "&LatitudPedido=" + MyLatLong.Latitude +
-                "&LongitudPedido=" + MyLatLong.Longitude
-
-                ));
-            */
-            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTripWithRestaurant?" +
-               "RestaurantHash=" + FragmentRestaurantDetailedView.CarppiHash +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
-               "&LatitudPedido=" + MyLatLong.Latitude.ToString().Replace(",", ".") +
-               "&LongitudPedido=" + MyLatLong.Longitude.ToString().Replace(",", ".")
-
-               ));
-            HttpResponseMessage response;
-
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            response = await client.GetAsync(uri);
-
-
-            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+            if (query.ProfileId != null)
             {
-                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
-          {
-                '"'
-          });
-                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-
-                var TransportCost = (int)Convert.ToDouble(errorMessage1, culture);
-                Action action_WhowAlert = () =>
+                Action action = async () =>
                 {
-
-                    var sss = ((Activity)StaticContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
-                    sss.Settings.JavaScriptEnabled = true;
-
-                    sss.Settings.DomStorageEnabled = true;
-                    sss.Settings.LoadWithOverviewMode = true;
-                    sss.Settings.UseWideViewPort = true;
-                    sss.Settings.BuiltInZoomControls = true;
-                    sss.Settings.DisplayZoomControls = false;
-                    sss.Settings.SetSupportZoom(true);
-                    sss.Settings.JavaScriptEnabled = true;
-
-                    AssetManager assets = ((Activity)StaticContext).Assets;
-                    string content;
-                    var Viewww = new UtilityJavascriptInterface_RestaurantDetailedView((Activity)StaticContext, sss);
-                    sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
-                    //using (StreamReader sr = new StreamReader(assets.Open("ShoppingKart.html")))
-                    using (StreamReader sr = new StreamReader(assets.Open("ShoppingKart2.html")))
+                    try
                     {
-                        content = sr.ReadToEnd();
-                        // var cadea = GenerateRowsForCheckOutModal(FragmentRestaurantDetailedView.ListaDeProductos);
-                        var ccc = Shoppingkart2List(FragmentRestaurantDetailedView.ListaDeProductos);
-                        //content = content.Replace("<!--ReplaceProductFromTheList-->", cadea);
-                        content = content.Replace("<div id=\"OrderItems\"></div>", ccc);
-                        content = content.Replace("0000000000", TransportCost.ToString());
-                        content = content.Replace("CompleCostOFGroceryy", CompleteCostOFGrocery(FragmentRestaurantDetailedView.ListaDeProductos));
-                        //GroceryCostPlusFee
-                        content = content.Replace("1329", CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)TransportCost));
-                        sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
+                        var popupDialog = new Dialog((Activity)StaticContext);
+                        popupDialog.SetContentView(Resource.Layout.AlertWebView);
+                        popupDialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+                        popupDialog.Show();
+
+                        // Some Time Layout width not fit with windows size  
+                        // but Below lines are not necessery  
+                        popupDialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.WrapContent);
+                        popupDialog.Window.SetBackgroundDrawableResource(Android.Resource.Color.Transparent);
+                        WebView sss = popupDialog.FindViewById<WebView>(Resource.Id.webView_);
+                        sss.Settings.JavaScriptEnabled = true;
+
+                        sss.Settings.DomStorageEnabled = true;
+                        sss.Settings.LoadWithOverviewMode = true;
+                        sss.Settings.UseWideViewPort = true;
+                        sss.Settings.BuiltInZoomControls = true;
+                        sss.Settings.DisplayZoomControls = false;
+                        sss.Settings.SetSupportZoom(true);
+                        sss.Settings.JavaScriptEnabled = true;
+                        var Viewww = new UtilityJavascriptInterfacePaymentModal((Activity)StaticContext, sss, ref popupDialog);
+                        //var wew = new UtilityJavascriptInterface((Activity)StaticContext, sss);
+                        sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
+
+                        // ;
+                        //sss.AddJavascriptInterface(wew, "Android_BottomModal");
+                        //    int TutorHalfAnHourCalculator = (int)(((double)16 * 100) / 2);
+                        //public ActionResult Index(double Amount, string User, Int32 ServiceArea, double LatitudObjectivo, double LongitudObjetivo, string NombreDestino, enumGender Gender, double LatitudOrigen, double LongitudOrigen)
+                        // Static_WhereToGo.RegularTripCost = 10;
+                        // sss.LoadUrl("https://geolocale.azurewebsites.net/CarppiAddCard/Index?Amount=" + Static_WhereToGo.RegularTripCost + "&User=" + query.ProfileId + "&ServiceArea=" + 1 + "&LatitudObjectivo=" + Static_WhereToGo.LatitudDestino + "&LongitudObjetivo=" + Static_WhereToGo.LongitudDestino + "&NombreDestino=" + Static_WhereToGo.Arrival + "&Gender=" + (int)Gender.Female + "&LatitudOrigen=" + Static_WhereToGo.LatitudeOrigen + "&LongitudOrigen=" + Static_WhereToGo.LongitudOrigen);
+                        sss.LoadUrl("https://geolocale.azurewebsites.net/CarppiDeliveryAddCard/Index?User=" + query.ProfileId);
+
+                        /*
+                        AlertDialog.Builder alert = new AlertDialog.Builder((Activity)StaticContext);
+                        //alertToShow.getWindow().setSoftInputMode(
+                        //WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                        //alert.
+                        //alert.SetTitle("Login");
+                        // alert.SetMessage("Do you want to add or substract?");
+                        var c_view = ((Activity)StaticContext).LayoutInflater.Inflate(Resource.Layout.AlertWebView, null, false);
+                        var sss =  c_view.FindViewById<WebView>(Resource.Id.webView_);
+                        // WebView sss = new WebView(mContext);
+                        // LocalWebView sss = new LocalWebView(StaticContext);
+
+                        // var sss = ((Activity)StaticContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
+                        sss.Settings.JavaScriptEnabled = true;
+
+                        sss.Settings.DomStorageEnabled = true;
+                        sss.Settings.LoadWithOverviewMode = true;
+                        sss.Settings.UseWideViewPort = true;
+                        sss.Settings.BuiltInZoomControls = true;
+                        sss.Settings.DisplayZoomControls = false;
+                        sss.Settings.SetSupportZoom(true);
+                        sss.Settings.JavaScriptEnabled = true;
+                        var Viewww = new UtilityJavascriptInterface_RestaurantDetailedView((Activity)StaticContext, sss);
+                        //var wew = new UtilityJavascriptInterface((Activity)StaticContext, sss);
+                        sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
+
+                        // ;
+                        //sss.AddJavascriptInterface(wew, "Android_BottomModal");
+                        //    int TutorHalfAnHourCalculator = (int)(((double)16 * 100) / 2);
+                        //public ActionResult Index(double Amount, string User, Int32 ServiceArea, double LatitudObjectivo, double LongitudObjetivo, string NombreDestino, enumGender Gender, double LatitudOrigen, double LongitudOrigen)
+                        // Static_WhereToGo.RegularTripCost = 10;
+                        // sss.LoadUrl("https://geolocale.azurewebsites.net/CarppiAddCard/Index?Amount=" + Static_WhereToGo.RegularTripCost + "&User=" + query.ProfileId + "&ServiceArea=" + 1 + "&LatitudObjectivo=" + Static_WhereToGo.LatitudDestino + "&LongitudObjetivo=" + Static_WhereToGo.LongitudDestino + "&NombreDestino=" + Static_WhereToGo.Arrival + "&Gender=" + (int)Gender.Female + "&LatitudOrigen=" + Static_WhereToGo.LatitudeOrigen + "&LongitudOrigen=" + Static_WhereToGo.LongitudOrigen);
+                        sss.LoadUrl("https://geolocale.azurewebsites.net/CarppiDeliveryAddCard/Index?User=" + query.ProfileId);
+
+                        alert.SetView(sss);
+
+
+                        alert.SetPositiveButton("Cerrar", (senderAlert, args) =>
+                        {
+                        //count++;
+                        // button.Text = string.Format("{0} clicks!", count);
+                        });
+
+                        // alert.SetNegativeButton("Substract", (senderAlert, args) =>
+                        //  {
+                        // count--;
+                        // button.Text = string.Format("{0} clicks!", count);
+                        //  });
+
+
+
+                        //LoginManager.Instance.RegisterCallback(mFBCallManager, this);
+                        Dialog dialog = alert.Create();
+                        //  dialog.Window.fla
+                        dialog.Window.ClearFlags(WindowManagerFlags.NotFocusable | WindowManagerFlags.AltFocusableIm | WindowManagerFlags.LocalFocusMode);
+                        dialog.Window.SetSoftInputMode(SoftInput.StateVisible | SoftInput.StateAlwaysVisible);
+                        dialog.Show();
+                        */
+                    }
+                    catch (Exception ex)
+                    {
 
                     }
-                    sss.SetWebViewClient(new FragmentMain.LocalWebViewClient());
-
-                    //<span class="woocommerce-Price-currencySymbol">£</span>90.00</span>
-                    //CompleCostOFGroceryy
-
-
                 };
+                ((Activity)StaticContext).RunOnUiThread(action);
+            }
+            else
+            {
+                // jkhbk
+                Action action = () =>
+                {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(StaticContext);
+                    alert.SetTitle("Error");
+                    alert.SetMessage("Antes de pder añadir una tarjeta tienes que loguear, deseas hacerlo ahora?, presiona cerrar al terminar");
 
-                ((Activity)StaticContext).RunOnUiThread(action_WhowAlert);
+                    alert.SetPositiveButton("Loguear", (senderAlert, args) =>
+                    {
+                        MainActivity.LoadFragment_Static(Resource.Id.nav_LoginButton);
+                    });
 
-                MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateExpanded;
+                    alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
+                    {
+                        //  count--;
+                        //  button.Text = string.Format("{0} clicks!", count);
+                    });
 
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
 
+                    //CurrentDialogReference = dialog;
+                };
+                ((Activity)StaticContext).RunOnUiThread(action);
 
             }
+        }
 
 
+
+
+        [JavascriptInterface]
+        [Export("SeeIfCardIsLogged")]
+        public async static void SeeIfCardIsLogged(int paymentToQueryInDB)
+        {
+            if (IsLocationAvailable())
+            {
+                //
+                //0000000000
+                //CalculateCostOfTrip(Int32 Region_costo, double LatitudPedido, double LongitudPedido)
+                var MyLatLong = await Clases.Location.GetCurrentPosition();
+
+                if (MyLatLong == null)
+                {
+
+                    Action action = () =>
+                    {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(StaticContext);
+                        alert.SetTitle("Error");
+                        alert.SetMessage("No Puedes pedir si no activas la ubicacion en tu telefono");
+
+
+
+                        alert.SetNegativeButton("Aceptar", (senderAlert, args) =>
+                        {
+                            //  count--;
+                            //  button.Text = string.Format("{0} clicks!", count);
+                        });
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+
+                        //CurrentDialogReference = dialog;
+                    };
+                    ((Activity)StaticContext).RunOnUiThread(action);
+
+                    //Sin Log En la base de datos
+                }
+                else
+                {
+
+                    HttpClient client = new HttpClient();
+                    //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+
+                    var query = new Log_info();
+                    var Region = "";
+                    var faceID = "";
+                    var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                    try
+                    {
+                        var db5 = new SQLiteConnection(databasePath5);
+                        query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
+                        Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
+                        faceID = (query.ProfileId == null ? "" : (query.ProfileId).ToString());
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                   
+
+                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTripWithRestaurant_AndRestaurantDetailsAndPayment?" +
+                     "RestaurantHashCode=" + FragmentRestaurantDetailedView.CarppiHash +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                     "&LatitudP=" + MyLatLong.Latitude.ToString().Replace(",", ".") +
+                     "&LongitudP=" + MyLatLong.Longitude.ToString().Replace(",", ".") +
+                     "&userTag_Log=" + faceID +
+                     "&TypeOfPayment=" + paymentToQueryInDB
+
+                     //+TypeOfPayment
+
+                     ));
+
+                    HttpResponseMessage response;
+
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    response = await client.GetAsync(uri);
+
+
+                    if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                    {
+                        var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+                  {
+                '"'
+                  });
+                        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+                        var sets = new JsonSerializerSettings();
+                        sets.Culture = culture;
+
+                        var Res = JsonConvert.DeserializeObject<CostOfTripAndDetails>(errorMessage1, sets);
+                        var TransportCost = (int)Res.fee;
+
+
+                        if (paymentToQueryInDB == (int)FragmentRestaurantDetailedView.TypeOfPayment.Efectivo)
+                        {
+                            var TotalCost = CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)TransportCost);
+                            Action action = () =>
+                            {
+                                //var jsr = new JavascriptResult();
+                                var script = "UpdateButtonCost(" + TotalCost + ","+ "''" + "," + "0" + ")";
+                                UtilityJavascriptInterface_RestaurantDetailedView.webi_static.EvaluateJavascript(script, null);
+
+
+                            };
+
+
+                            UtilityJavascriptInterface_RestaurantDetailedView.webi_static.Post(action);
+
+                        }
+                        else
+                        {
+                            if(Res.UserLoggedCard == true)
+                            {
+                                var TotalCost = CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)TransportCost);
+                                TotalCost *= Res.ComisionPorPagoConTarjeta;
+                                TotalCost += Res.TarifaEstaticaStripe;
+                                Action action = () =>
+                                {
+                                    //var jsr = new JavascriptResult();
+                                    var script = "UpdateButtonCost(" + TotalCost + "," + "'El incremento en la tarifa se debe a la Comision por la transferencia bancaria'" + "," + "1" + ")";
+                                    UtilityJavascriptInterface_RestaurantDetailedView.webi_static.EvaluateJavascript(script, null);
+
+
+                                };
+
+
+                                UtilityJavascriptInterface_RestaurantDetailedView.webi_static.Post(action);
+
+                            }
+                            else
+                            {
+                                var TotalCost = CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)TransportCost);
+                                Action action = () =>
+                                {
+                                    //var jsr = new JavascriptResult();
+                                    var script = "UpdateButtonCost(" + TotalCost + "," + "''" + "," + "0" + ")";
+                                    UtilityJavascriptInterface_RestaurantDetailedView.webi_static.EvaluateJavascript(script, null);
+
+
+                                };
+
+
+                                UtilityJavascriptInterface_RestaurantDetailedView.webi_static.Post(action);
+                                SetCardDetails();
+                            }
+                                 //Convert.ToDouble(Res.fee, culture);
+                            
+                             
+                        }
+                       
+
+                    }
+                }
+
+            }
+            else
+            {
+                Action action = () =>
+                {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(StaticContext);
+                    alert.SetTitle("Error");
+                    alert.SetMessage("No Puedes pedir si no otorgas permisos a la app");
+                    alert.SetPositiveButton("Pedir permisos", (senderAlert, args) =>
+                    {
+                        Android.Support.V4.App.ActivityCompat.RequestPermissions((Activity)StaticContext, new System.String[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet, }, 1);
+                        //  count--;
+                        //  button.Text = string.Format("{0} clicks!", count);
+                    });
+
+
+                    alert.SetNegativeButton("Aceptar", (senderAlert, args) =>
+                    {
+                        //  count--;
+                        //  button.Text = string.Format("{0} clicks!", count);
+                    });
+
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
+
+                    //CurrentDialogReference = dialog;
+                };
+                ((Activity)StaticContext).RunOnUiThread(action);
+            }
+        }
+
+
+
+
+        [JavascriptInterface]
+        [Export("DisplayShopingKart")]
+        public async static void DisplayShopingKart()
+        {
+            var new_uri = "";
+            try
+            {
+                if (IsLocationAvailable() && LocationPermitionGranted())
+                {
+                    //
+                    //0000000000
+                    //CalculateCostOfTrip(Int32 Region_costo, double LatitudPedido, double LongitudPedido)
+                    var MyLatLong = await Clases.Location.GetCurrentPosition();
+
+                    if (MyLatLong == null)
+                    {
+
+                        Action action = () =>
+                        {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(StaticContext);
+                            alert.SetTitle("Error");
+                            alert.SetMessage("No Puedes pedir si no activas la ubicacion en tu telefono");
+
+
+
+                            alert.SetNegativeButton("Aceptar", (senderAlert, args) =>
+                            {
+                                //  count--;
+                                //  button.Text = string.Format("{0} clicks!", count);
+                            });
+
+                            Dialog dialog = alert.Create();
+                            dialog.Show();
+
+                            //CurrentDialogReference = dialog;
+                        };
+                        ((Activity)StaticContext).RunOnUiThread(action);
+
+                        //Sin Log En la base de datos
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Clases.Location.StartListening();
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+
+                        HttpClient client = new HttpClient();
+                        MyLatLong = await Clases.Location.GetCurrentPosition();
+                        //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+
+                        var query = new Log_info();
+                        var Region = "";
+                        var faceID = "";
+                        var NewLat = "";
+                        var NewLong = "";
+                        var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                        try
+                        {
+                            var db5 = new SQLiteConnection(databasePath5);
+                            query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                            Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
+                            faceID = (query.ProfileId == null ? "" : (query.ProfileId).ToString());
+                            NewLat = MyLatLong.Latitude.ToString().Replace(",", ".");
+                            NewLong = MyLatLong.Longitude.ToString().Replace(",", ".");
+                        }
+                        catch (Exception ex)
+                        {
+                            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+
+
+
+
+                            var uri = new Uri(string.Format("https://geolocale.azurewebsites.net/api/CarppiRestaurantApi/ErrorReport?" +
+                             "ErrorCode=" + "EsxceptionCode_" + ex.ToString()
+
+                             //+TypeOfPayment
+
+                             ));
+
+                            HttpResponseMessage response;
+
+                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                            response = await client.GetAsync(uri);
+
+
+                            if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                            {
+                               
+                            }
+                        }
+                        //CarppiHash
+                        /*
+                        var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTrip?" +
+                            "Region_costo=" + Region +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                            "&LatitudPedido=" + MyLatLong.Latitude +
+                            "&LongitudPedido=" + MyLatLong.Longitude
+
+                            ));
+
+                          var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTripWithRestaurant?" +
+                           "RestaurantHash=" + FragmentRestaurantDetailedView.CarppiHash +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                           "&LatitudPedido=" + MyLatLong.Latitude.ToString().Replace(",", ".") +
+                           "&LongitudPedido=" + MyLatLong.Longitude.ToString().Replace(",", ".")
+
+                           ));
+                        */
+                        if(!String.IsNullOrEmpty(NewLat) || !String.IsNullOrEmpty(NewLong))
+                        {
+                             new_uri = "http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTripWithRestaurant_AndRestaurantDetailsAndPayment?" +
+                             "RestaurantHashCode=" + FragmentRestaurantDetailedView.CarppiHash +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                             "&LatitudP=" + NewLat +
+                             "&LongitudP=" + NewLong +
+                             "&userTag_Log=" + faceID +
+                             "&TypeOfPayment=" + (((int)(FragmentRestaurantDetailedView.TypeOfPayment.Efectivo)).ToString());
+
+
+
+                            var uri = new Uri(new_uri);
+
+                            HttpResponseMessage response;
+
+                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                            // response = await client.GetAsync(uri);
+                            var tak = Task.Run(() => GetResponseFromURI(uri));
+                            tak.Wait();
+                            var SRes = tak.Result;
+                            //var SRes = GetResponseFromURI(uri).Result;
+                            if (SRes.httpStatusCode == System.Net.HttpStatusCode.Accepted)
+                            {
+                                /*
+                                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+                          {
+                    '"'
+                          });
+                                */
+                                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+                                var sets = new JsonSerializerSettings();
+                                sets.Culture = culture;
+
+                                var Res = JsonConvert.DeserializeObject<CostOfTripAndDetails>(SRes.Response, sets);
+
+                                var TransportCost = (int)Res.fee;//Convert.ToDouble(Res.fee, culture);
+                                Action action_WhowAlert = () =>
+                                {
+
+                                    var sss = ((Activity)StaticContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
+                                    sss.Settings.JavaScriptEnabled = true;
+
+                                    sss.Settings.DomStorageEnabled = true;
+                                    sss.Settings.LoadWithOverviewMode = true;
+                                    sss.Settings.UseWideViewPort = true;
+                                    sss.Settings.BuiltInZoomControls = true;
+                                    sss.Settings.DisplayZoomControls = false;
+                                    sss.Settings.SetSupportZoom(true);
+                                    sss.Settings.JavaScriptEnabled = true;
+
+                                    AssetManager assets = ((Activity)StaticContext).Assets;
+                                    string content;
+                                    var Viewww = new UtilityJavascriptInterface_RestaurantDetailedView((Activity)StaticContext, sss);
+                                    sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
+                                    //using (StreamReader sr = new StreamReader(assets.Open("ShoppingKart.html")))
+                                    var colorEnv = new Carppi.Clases.Environment_Android();
+                                    //  var asss = colorEnv.GetOperatingSystemTheme();
+                                    //var Template = asss == UiMode.NightNo ? "ShoppingKart2.html" : "ShoppingKart2DarkMode.html";
+                                    var Template = false ? "ShoppingKart2.html" : "ShoppingKart2DarkMode.html";
+                                    using (StreamReader sr = new StreamReader(assets.Open(Template)))
+                                    {
+                                        content = sr.ReadToEnd();
+                                        // var cadea = GenerateRowsForCheckOutModal(FragmentRestaurantDetailedView.ListaDeProductos);
+                                        var ccc = Shoppingkart2List(FragmentRestaurantDetailedView.ListaDeProductos);
+                                        //content = content.Replace("<!--ReplaceProductFromTheList-->", cadea);
+                                        content = content.Replace("<div id=\"OrderItems\"></div>", ccc);
+                                        content = content.Replace("0000000000", TransportCost.ToString());
+                                        content = content.Replace("CompleCostOFGroceryy", CompleteCostOFGrocery(FragmentRestaurantDetailedView.ListaDeProductos));
+
+                                        content = content.Replace("ViewOfCardPaymentSelect", Res.AcceptCardPayments == true ? "block" : "none");
+                                        content = content.Replace("DigitOfCardPaymentSelect", Res.AcceptCardPayments == true ? "1" : "0");
+                                        //LoggedCardVar
+                                        content = content.Replace("LoggedCardVar", Res.UserLoggedCard == true ? "1" : "0");
+                                        //<div id="CardNotLoggedAcknowladge"></div>
+                                        content = content.Replace("<div id='CardNotLoggedAcknowladge'></div>", Res.UserLoggedCard == true ? "" : "<h6 style='color:white'> Aun no se registra ninguna tarjeta, al clickear se te pedira</h6>");
+                                        //GroceryCostPlusFee
+                                        //No has Logueado
+                                        content = content.Replace("No has Logueado", faceID == null ? "No has logueado, no podemos darte promiciones si no te conocemos" : "Gracias por usar Carppi :D");
+                                        content = content.Replace("1329", CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)TransportCost).ToString());
+                                        sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
+
+                                    }
+                                    sss.SetWebViewClient(new FragmentMain.LocalWebViewClient());
+
+                                    //<span class="woocommerce-Price-currencySymbol">£</span>90.00</span>
+                                    //CompleCostOFGroceryy
+
+
+                                };
+
+                                ((Activity)StaticContext).RunOnUiThread(action_WhowAlert);
+
+                                MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateExpanded;
+
+
+
+                            }
+                            else
+                            {
+
+
+
+
+
+
+
+                                //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+
+
+
+
+                                uri = new Uri(string.Format("https://geolocale.azurewebsites.net/api/CarppiRestaurantApi/ErrorReport?" +
+                                "ErrorCode=" + "OtherResponseCode_" + SRes.Response
+
+                                //+TypeOfPayment
+
+                                ));
+
+                                // HttpResponseMessage response;
+
+                                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                                response = await client.GetAsync(uri);
+
+                            }
+
+
+                        }
+                        else
+                        {
+                            Action action = () =>
+                            {
+                                AlertDialog.Builder alert = new AlertDialog.Builder(StaticContext);
+                                alert.SetTitle("Error");
+                                alert.SetMessage("No pudimos obtener la ubicación de tu telefono, intenta mas tarde");
+
+
+
+                                alert.SetNegativeButton("Aceptar", (senderAlert, args) =>
+                                {
+                                    //  count--;
+                                    //  button.Text = string.Format("{0} clicks!", count);
+                                });
+
+                                Dialog dialog = alert.Create();
+                                dialog.Show();
+
+                                //CurrentDialogReference = dialog;
+                            };
+                            ((Activity)StaticContext).RunOnUiThread(action);
+                            var uri = new Uri(string.Format("https://geolocale.azurewebsites.net/api/CarppiRestaurantApi/ErrorReport?" +
+                                           "ErrorCode=" + "LatIsNull_" + string.Format("http://geolocale.azurewebsites.net/api/CarppiGroceryApi/CalculateCostOfTripWithRestaurant_AndRestaurantDetailsAndPayment?" +
+                             "RestaurantHashCode=" + FragmentRestaurantDetailedView.CarppiHash +//VistaHTMLProffesores.Grupo_Activo + Trip_Id
+                             "&LatitudP=" + NewLat +
+                             "&LongitudP=" + NewLong +
+                             "&userTag_Log=" + faceID +
+                             "&TypeOfPayment=" + (int)(FragmentRestaurantDetailedView.TypeOfPayment.Efectivo)
+
+                             //+TypeOfPayment
+
+                             )
+
+                                           //+TypeOfPayment
+
+                                           ));
+
+
+                            HttpResponseMessage response;
+
+                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                            // response = await client.GetAsync(uri);
+                            var tak = Task.Run(() => GetResponseFromURI(uri));
+                            tak.Wait();
+
+                        }
+                    }
+
+                }
+                else
+                {
+                    Action action = () =>
+                    {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(StaticContext);
+                        alert.SetTitle("Error");
+                        alert.SetMessage("No Puedes pedir si no otorgas permisos a la app");
+                        alert.SetPositiveButton("Pedir permisos", (senderAlert, args) =>
+                        {
+                            Android.Support.V4.App.ActivityCompat.RequestPermissions((Activity)StaticContext, new System.String[] { Manifest.Permission.AccessFineLocation, Manifest.Permission.AccessCoarseLocation, Manifest.Permission.LocationHardware, Manifest.Permission.Internet, }, 1);
+                        //  count--;
+                        //  button.Text = string.Format("{0} clicks!", count);
+                    });
+
+
+                        alert.SetNegativeButton("Aceptar", (senderAlert, args) =>
+                        {
+                        //  count--;
+                        //  button.Text = string.Format("{0} clicks!", count);
+                    });
+
+                        Dialog dialog = alert.Create();
+                        dialog.Show();
+
+                    //CurrentDialogReference = dialog;
+                };
+                    ((Activity)StaticContext).RunOnUiThread(action);
+                }
+            }
+            catch(Exception ex)
+            {
+
+                HttpClient client = new HttpClient();
+                //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+
+               
+
+
+                var uri = new Uri(string.Format("https://geolocale.azurewebsites.net/api/CarppiRestaurantApi/ErrorReport?" +
+                 "ErrorCode=" + new_uri + "EsxceptionCode_"+ ex.ToString()
+
+                 //+TypeOfPayment
+
+                 ));
+
+                HttpResponseMessage response;
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                response = await client.GetAsync(uri);
+
+
+                if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                {
+                    var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+              {
+                '"'
+              });
+                }
+            }
+
+        }
+        //"{\"fee\":15.0,\"AcceptCardPayments\":true,\"UserLoggedCard\":false,\"UserDontShowCashPayment\":false,\"ComisionPorPagoConTarjeta\":1.1}"
+        public class CostOfTripAndDetails
+        {
+            public double fee;
+            public bool AcceptCardPayments;
+            public bool UserLoggedCard;
+            public bool UserDontShowCashPayment;
+            public double ComisionPorPagoConTarjeta;
+            public double TarifaEstaticaStripe;
         }
 
 
@@ -2048,16 +3129,16 @@ namespace Carppi.Fragments
                 {
                     if (element.Foto != null)
                     {
-                        CharArrr += "<div id='TagForElement_" + element.ID + "' class='row'>";
-                        CharArrr += "<div class='col-md-6'>";
-                        CharArrr += "<div class='bg-white card addresses-item mb-4 border border-success'>";
+                        CharArrr += "<div id='TagForElement_" + element.ID + "' class='row' style='background-color:#303030'>";
+                        CharArrr += "<div class='col-md-6' style='background-color:#303030'>";
+                        CharArrr += "<div class='card addresses-item mb-4 border border-success' style='background-color:#303030'>";
                         CharArrr += "<div class='gold-members p-4'>";
                         CharArrr += "<div class='media'>";
                         CharArrr += "<div class='mr-3'><i class='icofont-ui-home icofont-3x'></i></div>";
                         CharArrr += "<div class='media-body'>";
-                        CharArrr += "<h6 class='mb-1 text-black'>"+ element.Producto + "</h6>";
-                        CharArrr += "<p class='text-black'>" + element.Descripcion  + "</p>";
-                        CharArrr += "<p class='text-black'>$" + element.Costo + "</p>";
+                        CharArrr += "<h6 class='mb-1' style='color:white'>"+ element.Producto + "</h6>";
+                        CharArrr += "<p>" + element.Descripcion  + "</p>";
+                        CharArrr += "<p style='color:white'>$" + element.Costo + "</p>";
                         CharArrr += "<p class='mb-0 text-black font-weight-bold'>";
                         CharArrr += "<div class='btn btn-sm btn-success mr-2' style='width:100%'>Cantidad: </div>";
                         CharArrr += "<div class='btn btn-sm btn-success mr-2' style='width:100%;display:inline-block'><div><button onclick='IncrementByID(" + element.ID + ",-1, " + element.Costo+ " );' class='btn btn-sm btn-success' style='width:29%'>-</button><button id='Counter_" + element.ID + "' class='btn btn-sm btn-success' style='width:29%' disabled />"+ element.Cantidad + "</button> <button onclick='IncrementByID(" + element.ID + ",1, " + element.Costo + " );' class='btn btn-sm btn-success' style='width:29%'>+</button></div></div>";
@@ -2113,7 +3194,7 @@ namespace Carppi.Fragments
             }
             return "<span class='woocommerce-Price-currencySymbol'>$</span>" + Cost.ToString() + "</span>";
         }
-        public static string CompleteCostOFGroceryPlusFee(List<CarppiGroceryProductos> carppiGroceryProductos, int CostOfTravel)
+        public static double CompleteCostOFGroceryPlusFee(List<CarppiGroceryProductos> carppiGroceryProductos, int CostOfTravel)
         {
             var Cost = 0.0;
             foreach (var element in carppiGroceryProductos)
@@ -2121,7 +3202,7 @@ namespace Carppi.Fragments
                 Cost += (element.Costo * element.Cantidad);
 
             }
-            return (Cost + CostOfTravel).ToString();
+            return (Cost + CostOfTravel);
             //return "<span class='woocommerce-Price-currencySymbol'>$</span>" + (Cost + CostOfTravel).ToString() + "</span>";
         }
 
@@ -2281,6 +3362,8 @@ namespace Carppi.Fragments
         public double? Longitud_Repartidor { get; set; }
         public double? FaceIDRepartidor_Repartidor { get; set; }
         public string FaceIDRepartidor_RepartidorCadena { get; set; }
+        public double? LatitudPeticion { get; set; }
+        public double? LongitudPeticion { get; set; }
     }
 
 

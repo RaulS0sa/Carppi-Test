@@ -1914,6 +1914,20 @@ Version: 1.0
             }
         }
     </style>
+    <style>
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: black;
+                
+            }
+
+            #IndexOfStartingRestaurants {
+                background-color: black;
+                
+            }
+        }
+    </style>
 </head>
 <body>
     <!--
@@ -2277,7 +2291,7 @@ Version: 1.0
         </div>
     </section>
 
-    <section class="section pt-5 pb-5 products-section">
+    <section class="section pt-5 pb-5 products-section" id="RestaurantSelecctionSection">
         <div class="container">
             <div class="section-header text-center">
                 <h2>Magnum Opus</h2>
@@ -2287,7 +2301,7 @@ Version: 1.0
             <div id="IndexOfStartingRestaurants">
                 
             </div>
-            <div id="SuperSearchBar" style="display:block">
+            <div id="SuperSearchBar" style="display:block;">
 
                 <h3>Cargando...</h3>
                 <div class="progress">
@@ -3030,6 +3044,16 @@ Version: 1.0
 
                 var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
                 restaurantContainer.innerHTML = "";
+                console.log("colormatch");
+                console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    //RestaurantSelecctionSection.style.backgroundColor = 'black';
+                    // dark mode
+                    //RestaurantSelecctionSection
+
+                    var RestaurantSelecctionSection = document.getElementById('RestaurantSelecctionSection');
+                    RestaurantSelecctionSection.style.backgroundColor = 'black';
+                }
                 for (var i = 0; i < StartUpData.PromotedProducts.length; i++)
                 {
                     //console.log(StartUpData.PromotedProducts[i].Foto);

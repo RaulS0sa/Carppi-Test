@@ -22,6 +22,7 @@
         ],
         "sources": {
           "/Users/macbookair/Downloads": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

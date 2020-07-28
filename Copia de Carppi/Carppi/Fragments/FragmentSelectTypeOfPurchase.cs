@@ -81,10 +81,23 @@ namespace Carppi.Fragments
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             //  var  response =  client.GetAsync(uri).Result;
-            var t = Task.Run(() => GetResponseFromURI(uri));
-            t.Wait();
+            var S_Response = new UriResponse();
+            S_Response.httpStatusCode = System.Net.HttpStatusCode.NotFound;
+           
+            try
+            {
 
-            var S_Response = t.Result;
+                var t = Task.Run(() => GetResponseFromURI(uri));
+                t.Wait();
+                
+                S_Response = t.Result;
+            }
+            catch(Exception)
+            {
+                //no internet Exceptior
+            }
+
+            
             if (S_Response.httpStatusCode == System.Net.HttpStatusCode.OK)
             {
 
@@ -93,7 +106,11 @@ namespace Carppi.Fragments
                 // act = this.Activity;
                 //   using (StreamReader sr = new StreamReader(assets.Open("Conversation2.html")))
 
-                var Template = "CarppiDeliveryDashBoard.html";
+
+                var colorEnv =new Carppi.Clases.Environment_Android();
+                var asss = colorEnv.GetOperatingSystemTheme();
+                //var Template = asss == UiMode.NightNo? "CarppiDeliveryDashBoard.html" : "CarppiDeliveryDashBoardDarkMode.html"; 
+                var Template = false? "CarppiDeliveryDashBoard.html" : "CarppiDeliveryDashBoardDarkMode.html"; 
                 using (StreamReader sr = new StreamReader(assets.Open(Template)))
                 {
                     content = sr.ReadToEnd();
@@ -118,7 +135,7 @@ namespace Carppi.Fragments
 
                     // webi.LoadData(content, "text/html", null);
                     webi.SetWebViewClient(new FragmentRestaurantView_WebClient(this.Activity, Resources, webi, stateOfRequest.ShowingRestaurants));
-                    WebInterfaceProfile.RetriveProfile();
+                   // WebInterfaceProfile.RetriveProfile();
 
 
                     //wew.Get10LastHomeworks();
@@ -160,7 +177,12 @@ namespace Carppi.Fragments
                 //string content;
                 var Viewww = new WebInterfaceRestaurantOptions(this.Activity, sss);
                 sss.AddJavascriptInterface(Viewww, "Android");
-                using (StreamReader sr = new StreamReader(assets.Open("FragmentGrocery_Map.html")))
+
+                    var colorEnv = new Carppi.Clases.Environment_Android();
+                    var asss = colorEnv.GetOperatingSystemTheme();
+                    //var Template = asss == UiMode.NightNo ? "FragmentGrocery_Map.html" : "FragmentGrocery_MapDarkMode.html";
+                    var Template = false ? "FragmentGrocery_Map.html" : "FragmentGrocery_MapDarkMode.html";
+                    using (StreamReader sr = new StreamReader(assets.Open(Template)))
                 {
                     content = sr.ReadToEnd();
                     //ReplaceForDeliveryBoy_Searching
@@ -287,6 +309,7 @@ namespace Carppi.Fragments
                     menuNav.FindItem(Resource.Id.nav_GroceryRequest).SetVisible(false);
                     menuNav.FindItem(Resource.Id.nav_GroceryConversation).SetVisible(false);
                     menuNav.FindItem(Resource.Id.nav_home).SetVisible(false);
+                    menuNav.FindItem(Resource.Id.nav_LogOutButton).SetVisible(false);
                     if (isLoggedIn() == false)
                     {
                         var aca = menuNav.FindItem(Resource.Id.nav_messages).SetVisible(false);
@@ -502,12 +525,27 @@ namespace Carppi.Fragments
 
                       ));
                     */
+                    /*
                     var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
                       "CadenadelUsuarioRestaurant=" + FaceID
 
 
                       ));
+                    */
 
+                    /*
+                    var uri = new Uri(string.Format("https://geolocale.azurewebsites.net/api/CarppiIOSRestaurantApi/CarppiRestaurantExistanceDeterminationTest?" +
+                         "CadenadelUsuarioRestaurant_TOTEst=" + FaceID
+
+
+                         ));
+                    */
+                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
+                     "CadenadelUsuarioRestaurant=" + FaceID
+
+
+                     ));
+                  
                     // HttpResponseMessage response;
 
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -637,6 +675,86 @@ namespace Carppi.Fragments
 
         }
 
+        //ShowExtraOptionsOnGroceryAwait
+        [JavascriptInterface]
+        [Export("ShowOptionInOrderCreated")]
+        public async void ShowOptionInOrderCreated()
+        {
+            try
+            {
+                Action action = () =>
+                {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                    alert.SetTitle("Opciones");
+                    alert.SetMessage("Que deseas hacer");
+
+                    alert.SetPositiveButton("Cerrar Dialogo", (senderAlert, args) =>
+                    {
+                        //  count--;
+                        //  button.Text = string.Format("{0} clicks!", count);
+                    });
+
+
+                    alert.SetNegativeButton("Cancelar Orden", async (senderAlert, args) =>
+                    {
+                        try
+                        {
+                            HttpClient client = new HttpClient();
+
+
+                            string FaceID = null;
+                            var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                            var db5 = new SQLiteConnection(databasePath5);
+                            //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                            try
+                            {
+
+                                var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                                FaceID = query.ProfileId;
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        
+
+                            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CancelOrder?" +
+                                "FaceIDOfBuyer=" + FaceID
+                                + "&IdfBuy=" + FragmentSelectTypeOfPurchase.OrderIDIfActive.ToString()
+
+
+                                ));
+                            // HttpResponseMessage response;
+
+                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                            //  var  response =  client.GetAsync(uri).Result;
+                            var t = Task.Run(() => GetResponseFromURI(uri));
+                            //t.Wait();
+
+                            var S_Response = t.Result;
+                            if(S_Response.httpStatusCode == System.Net.HttpStatusCode.OK)
+                            {
+                                MainActivity.LoadFragment_Static(Resource.Id.menu_video);
+                            }
+                         
+                        }
+                        catch (Exception)
+                        { }
+                    });
+
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
+
+                    //CurrentDialogReference = dialog;
+                };
+                ((Activity)mContext).RunOnUiThread(action);
+            }
+            catch (Exception)
+            { }
+
+
+        }
 
 
         //ShowExtraOptionsOnGroceryAwait
@@ -763,6 +881,95 @@ namespace Carppi.Fragments
             { }
            
         }
+        //SearchBackAllRestaurants
+
+        //SearchFoodByBox
+        [JavascriptInterface]
+        [Export("SearchBackAllRestaurants")]
+        public async void SearchBackAllRestaurants()
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+
+
+                string FaceID = null;
+                var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
+                var db5 = new SQLiteConnection(databasePath5);
+                //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                try
+                {
+
+                    var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                    FaceID = query.ProfileId;
+                }
+                catch (Exception ex)
+                {
+
+                }
+                // SearchForPassengerAreaByStateAndCountry(string Town, string Country, string State, string FacebookID_UpdateArea)
+                /*
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
+                    "CadenadelUsuarioRestaurant=" + FaceID
+
+
+                    ));
+
+                 var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDeterminationTest?" +
+                    "CadenadelUsuarioRestaurant_TOTEst=" + FaceID
+
+
+                    ));
+
+                 var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
+                    "CadenadelUsuarioRestaurant=" + FaceID
+
+
+                    ));
+
+                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
+                  "CadenadelUsuarioRestaurant=" + FaceID
+
+
+                  ));
+                */
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
+                  "CadenadelUsuarioRestaurant=" + FaceID
+
+
+                  ));
+
+
+                // HttpResponseMessage response;
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //  var  response =  client.GetAsync(uri).Result;
+                //var t = Task.Run(() => GetResponseFromURI(uri));
+                //t.Wait();
+                var aca = await GetResponseFromURI(uri);
+
+                var S_Response = aca;//.Result;
+                if (S_Response.httpStatusCode == System.Net.HttpStatusCode.OK)
+                {
+
+                    Action action = () =>
+                    {
+                        //var jsr = new JavascriptResult();
+                        var script = "SetStartupMenu(" + S_Response.Response + ")";
+                        webi.EvaluateJavascript(script, null);
+
+
+                    };
+
+
+                    webi.Post(action);
+                }
+            }
+            catch (Exception)
+            { }
+        }
+        
 
         //SearchFoodByBox
         [JavascriptInterface]

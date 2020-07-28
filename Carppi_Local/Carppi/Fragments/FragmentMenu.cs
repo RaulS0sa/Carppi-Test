@@ -245,8 +245,8 @@ namespace Carppi.Fragments
 
                 }
                 // SearchForPassengerAreaByStateAndCountry(string Town, string Country, string State, string FacebookID_UpdateArea)
-                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiProductDetailedView?" +
-                    "ProductDetailID=" + Index
+                var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiProductDetailedView_Compresed?" +
+                    "ProductDetailID_CompressedData=" + Index
 
 
                     ));
@@ -279,13 +279,21 @@ namespace Carppi.Fragments
             }
             public static byte[] Decompress(byte[] data)
             {
-                MemoryStream input = new MemoryStream(data);
-                MemoryStream output = new MemoryStream();
-                using (DeflateStream dstream = new DeflateStream(input, CompressionMode.Decompress))
+                try
                 {
-                    dstream.CopyTo(output);
+                    MemoryStream input = new MemoryStream(data);
+                    MemoryStream output = new MemoryStream();
+                    using (DeflateStream dstream = new DeflateStream(input, CompressionMode.Decompress))
+                    {
+                        dstream.CopyTo(output);
+                    }
+                    return output.ToArray();
                 }
-                return output.ToArray();
+
+                catch(Exception)
+                {
+                    return null;
+                }
             }
             public partial class Carppi_ProductosPorRestaurantes
             {

@@ -23,11 +23,11 @@ public class GroceryRequestWebClient
 			mono.android.TypeManager.Activate ("Carppi.Fragments.GroceryRequestWebClient, Carppi", "", this, new java.lang.Object[] {  });
 	}
 
-	public GroceryRequestWebClient (android.content.Context p0)
+	public GroceryRequestWebClient (android.content.Context p0, android.content.res.Resources p1)
 	{
 		super ();
 		if (getClass () == GroceryRequestWebClient.class)
-			mono.android.TypeManager.Activate ("Carppi.Fragments.GroceryRequestWebClient, Carppi", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("Carppi.Fragments.GroceryRequestWebClient, Carppi", "Android.Content.Context, Mono.Android:Android.Content.Res.Resources, Mono.Android", this, new java.lang.Object[] { p0, p1 });
 	}
 
 
