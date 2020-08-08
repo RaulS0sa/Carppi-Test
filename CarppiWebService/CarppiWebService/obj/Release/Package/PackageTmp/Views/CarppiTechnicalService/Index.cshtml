@@ -1,0 +1,1080 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html, body, h1, h2, h3, h4, h5 {
+        font-family: "Raleway", sans-serif
+    }
+</style>
+<body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+        <span class="w3-bar-item w3-right">Logo</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar">
+        <br>
+        <div class="w3-container w3-row">
+            <div class="w3-col s4">
+                <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+            </div>
+            <div class="w3-col s8 w3-bar">
+                <span>Welcome, <strong>Mike</strong></span><br>
+                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+            </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <h5>Dashboard</h5>
+        </div>
+        <div class="w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue" onclick="SelectEditScreen('EditDriver');" id="EditDriver_button"><i class="fa fa-users fa-fw"></i>  Editar Usuario</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding" onclick="SelectEditScreen('AddGroceryValues');" id="AddGroceryValues_button"><i class="fa fa-eye fa-fw"></i> Agregar Prductos disponibles</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding" onclick="SelectEditScreen('EditRestaurant');" id="EditRestaurant_button"><i class="fa fa-eye fa-fw"></i> Edita Restaurantes</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding" onclick="SelectEditScreen('NotificacionPusht_button');" id="NotificacionPusht_button"><i class="fa fa-eye fa-fw"></i> Envia notiicacion push</a>
+            @*<a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>*@
+            @*<a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>*@
+        </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;" id="EditDriverLayout">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> Buscar Usuario</b></h5>
+        </header>
+        <div class="w3-panel">
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="ID" style="width:100%;color:black;
+  border: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" id="TextInputProfileID" />
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="QueryThUSer();">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="w3-container" id="DriverPropertiesContainer" style="display:none">
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="ID" style="width:100%;color:black;
+  border: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" id="FirstNameID" />
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="UpdateRowOfDriver();">
+                        Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="ID" style="width:100%;color:black;
+  border: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" id="LastNameID" />
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="UpdateRowOfDriver();">
+                        Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <img src="https://arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/KZPWNLBMHZOFSWNJADD45AUHQ4.jpg" alt="Smiley face">
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <input type="file" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" value="Actualizar" onchange="UpdateCarPhoto();" id="CarPhotoSelect" />
+
+
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <img src="https://arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/KZPWNLBMHZOFSWNJADD45AUHQ4.jpg" alt="Smiley face">
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <input type="file" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" value="Actualizar" onchange="UpdateDriverPhoto();" id="DriverPhotoSelect" />
+
+
+                </div>
+            </div>
+
+        </div>
+        <!--
+        <div class="w3-row-padding w3-margin-bottom">
+            <div class="w3-quarter">
+                <div class="w3-container w3-red w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>52</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Messages</h4>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-container w3-blue w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>99</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Views</h4>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-container w3-teal w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>23</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Shares</h4>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-container w3-orange w3-text-white w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+                        <h3>50</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Users</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-panel">
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-third">
+                    <h5>Regions</h5>
+                    <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
+                </div>
+                <div class="w3-twothird">
+                    <h5>Feeds</h5>
+                    <table class="w3-table w3-striped w3-white">
+                        <tr>
+                            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+                            <td>New record, over 90 views.</td>
+                            <td><i>10 mins</i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                            <td>Database error.</td>
+                            <td><i>15 mins</i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+                            <td>New record, over 40 users.</td>
+                            <td><i>17 mins</i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+                            <td>New comments.</td>
+                            <td><i>25 mins</i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+                            <td>Check transactions.</td>
+                            <td><i>28 mins</i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+                            <td>CPU overload.</td>
+                            <td><i>35 mins</i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+                            <td>New shares.</td>
+                            <td><i>39 mins</i></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <h5>General Stats</h5>
+            <p>New Visitors</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+            </div>
+
+            <p>New Users</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+            </div>
+
+            <p>Bounce Rate</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="w3-container">
+            <h5>Countries</h5>
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                <tr>
+                    <td>United States</td>
+                    <td>65%</td>
+                </tr>
+                <tr>
+                    <td>UK</td>
+                    <td>15.7%</td>
+                </tr>
+                <tr>
+                    <td>Russia</td>
+                    <td>5.6%</td>
+                </tr>
+                <tr>
+                    <td>Spain</td>
+                    <td>2.1%</td>
+                </tr>
+                <tr>
+                    <td>India</td>
+                    <td>1.9%</td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>1.5%</td>
+                </tr>
+            </table><br>
+            <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <h5>Recent Users</h5>
+            <ul class="w3-ul w3-card-4 w3-white">
+                <li class="w3-padding-16">
+                    <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                    <span class="w3-xlarge">Mike</span><br>
+                </li>
+                <li class="w3-padding-16">
+                    <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                    <span class="w3-xlarge">Jill</span><br>
+                </li>
+                <li class="w3-padding-16">
+                    <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+                    <span class="w3-xlarge">Jane</span><br>
+                </li>
+            </ul>
+        </div>
+        <hr>
+
+        <div class="w3-container">
+            <h5>Recent Comments</h5>
+            <div class="w3-row">
+                <div class="w3-col m2 text-center">
+                    <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+                </div>
+                <div class="w3-col m10 w3-container">
+                    <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+                    <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col m2 text-center">
+                    <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+                </div>
+                <div class="w3-col m10 w3-container">
+                    <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="w3-container w3-dark-grey w3-padding-32">
+            <div class="w3-row">
+                <div class="w3-container w3-third">
+                    <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+                    <p>Language</p>
+                    <p>Country</p>
+                    <p>City</p>
+                </div>
+                <div class="w3-container w3-third">
+                    <h5 class="w3-bottombar w3-border-red">System</h5>
+                    <p>Browser</p>
+                    <p>OS</p>
+                    <p>More</p>
+                </div>
+                <div class="w3-container w3-third">
+                    <h5 class="w3-bottombar w3-border-orange">Target</h5>
+                    <p>Users</p>
+                    <p>Active</p>
+                    <p>Geo</p>
+                    <p>Interests</p>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+            <h4>FOOTER</h4>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+
+        -->
+    </div>
+
+    <!-- update GroceryValues  -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;display:none" id="AddGroceryProducts">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> Añade Productos basicos</b></h5>
+        </header>
+        <div class="w3-container" style="display:block">
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <img src="https://image.shutterstock.com/image-photo/red-apple-isolated-on-white-260nw-1498042211.jpg" alt="Smiley face" id="foodImagery" style="max-height:150px;max-width:150px;">
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <input type="file" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" value="Actualizar" id="ProductPhotoSelect" onchange="Update_foofImagery_picture();" />
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-container" style="display:block">
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="Nombre" style="width:100%;color:black;  border: none;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;" id="ProductNameID" />
+                </div>
+
+                <div class="w3-col" style="width:60%">
+                    <input type="number" placeholder="Costo" style="width:100%;color:black;  border: none;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;" id="ProductCostID" />
+                </div>
+
+                <div class="w3-col" style="width:60%">
+                    <!--
+                      var ProductSubset = { Verduras_hortalizas : 0, Frutas: 1, Carne_Embutidos_Atun :2, Queso:3, Tortillas_Pan:4, BotanasRefresco:5};
+                    -->
+                    <select id="Productos">
+                        <option value="Verduras_hortalizas">Verduras_hortalizas</option>
+                        <option value="Frutas">Frutas</option>
+                        <option value="Carne_Embutidos_Atun">Carne_Embutidos_Atun</option>
+                        <option value="Queso">Queso</option>
+                        <option value="Tortillas_Pan">Tortillas_Pan</option>
+                        <option value="BotanasRefresco">BotanasRefresco</option>
+                        <option value="Alcohol">Alcohol</option>
+                        <option value="ProductosDeLimpieza">ProductosDeLimpieza</option>
+                        <option value="Galletas">Galletas</option>
+                    </select>
+                </div>
+
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="UploadNewProduct();">
+                        Subir
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;" id="EditRestaurantBanner">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> Buscar Restaurante</b></h5>
+        </header>
+        <div class="w3-panel">
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="ID" style="width:100%;color:black;
+  border: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" id="TextInputProfileID" />
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="QueryThUSer();">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="w3-container" id="DriverPropertiesContainer" style="display:none">
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="ID" style="width:100%;color:black;
+  border: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" id="FirstNameID" />
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="UpdateRowOfDriver();">
+                        Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="ID" style="width:100%;color:black;
+  border: none;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" id="LastNameID" />
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="UpdateRowOfDriver();">
+                        Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <img src="https://arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/KZPWNLBMHZOFSWNJADD45AUHQ4.jpg" alt="Smiley face">
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <input type="file" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" value="Actualizar" onchange="UpdateCarPhoto();" id="CarPhotoSelect" />
+
+
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <img src="https://arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/KZPWNLBMHZOFSWNJADD45AUHQ4.jpg" alt="Smiley face">
+                </div>
+                <div class="w3-col" style="width:30%">
+                    <input type="file" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" value="Actualizar" onchange="UpdateDriverPhoto();" id="DriverPhotoSelect" />
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;display:none" id="EnviaNotificacionPushLayout">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> Envia una notificacion Push</b></h5>
+        </header>
+   
+
+        <div class="w3-container" style="display:block">
+
+            <div class="w3-row">
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="Titulo" style="width:100%;color:black;  border: none;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;" id="PushNotificationTitleID" />
+                </div>
+
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="Cuerpo mensaje" style="width:100%;color:black;  border: none;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;" id="PushNotificationMessageID" />
+                </div>
+                <div class="w3-col" style="width:60%">
+                    <input type="text" placeholder="Cliente" style="width:100%;color:black;  border: none;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;" id="PushNotificationClienteID" />
+                </div>
+
+
+
+                <div class="w3-col" style="width:30%">
+                    <button style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;" onclick="SendPushNotificaitionToclient();">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        function SelectEditScreen(Screen) {
+            //AddGroceryProducts
+            //EditDriverLayout
+            //EditRestaurantBanner
+            //w3-bar-item w3-button w3-padding w3-blue
+            //_button
+            switch (Screen) {
+                case 'EditDriver':
+                    {
+
+                        document.getElementById('AddGroceryProducts').style.display = 'none';
+                        document.getElementById('EditDriverLayout').style.display = 'block';
+                        document.getElementById('EditRestaurantBanner').style.display = 'none';
+                        document.getElementById('EditDriver_button').className = 'w3-bar-item w3-button w3-padding w3-blue';
+                        document.getElementById('AddGroceryValues_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('EditRestaurant_button').className = 'w3-bar-item w3-button w3-padding';
+
+
+                    }
+                    break;
+                case 'AddGroceryValues':
+                    {
+                        document.getElementById('AddGroceryProducts').style.display = 'block';
+                        document.getElementById('EditDriverLayout').style.display = 'none';
+                        document.getElementById('EditRestaurantBanner').style.display = 'none';
+                        document.getElementById('EditRestaurant_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('AddGroceryValues_button').className = 'w3-bar-item w3-button w3-padding w3-blue';
+                        document.getElementById('EditDriver_button').className = 'w3-bar-item w3-button w3-padding';
+                    }
+                    break;
+                case 'EditRestaurant':
+                    {
+                        //EditRestaurant_button
+                        document.getElementById('AddGroceryProducts').style.display = 'none';
+                        document.getElementById('EditDriverLayout').style.display = 'none';
+                        document.getElementById('EditRestaurantBanner').style.display = 'block';
+                        document.getElementById('AddGroceryValues_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('EditDriver_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('EditRestaurant_button').className = 'w3-bar-item w3-button w3-padding w3-blue';
+                    }
+                    break;
+                case 'NotificacionPusht_button':
+                    {
+                        document.getElementById('AddGroceryProducts').style.display = 'none';
+                        document.getElementById('EditDriverLayout').style.display = 'none';
+                        document.getElementById('EditRestaurantBanner').style.display = 'none';
+                        document.getElementById('EnviaNotificacionPushLayout').style.display = 'block';
+                        document.getElementById('AddGroceryValues_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('EditDriver_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('EditRestaurant_button').className = 'w3-bar-item w3-button w3-padding';
+                        document.getElementById('NotificacionPusht_button').className = 'w3-bar-item w3-button w3-padding w3-blue';
+                    }
+                    break;
+            }
+
+
+        }
+
+
+            function SendPushNotificaitionToclient() {
+          
+            var Titulo = document.getElementById('PushNotificationTitleID').value;
+            var Mensaje = document.getElementById('PushNotificationMessageID').value;;
+            var Cliente = document.getElementById('PushNotificationClienteID').value;
+          
+                $.ajax({
+                    type: "POST",
+                    url: "/CarppiTechnicalService/SendPushNotification?Tile=" + Titulo + "&Message=" + Mensaje + "&User=" + Cliente,
+                    data: {},
+                async: true,
+                beforeSend: function (request, xhr) {
+                    // request.setRequestHeader(csrf_headerName, csrf_paramValue);
+                    //Reset alert message and progress bar
+                    //    $('#alertMsg').text('');
+                    //  $('#progressBar').text('');
+                    //$('#progressBar').css('width', '0%');
+                },
+                processData: false,
+
+                contentType: false,
+                cache: false,
+                timeout: 6000000,
+                success: function (data) {
+
+                    setTimeout(function () {
+                        //document.getElementById("fileInput").value = "";
+                        //document.getElementById("dismiss_modal_progresso").click();
+                    }, 1000);
+                    // HideLoad();
+                },
+
+                xhr: function () {
+                    //Get XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr();
+                    //Set onprogress event handler
+                    xhr.upload.onprogress = function (data) {
+
+                        var perc = Math.round((data.loaded / data.total) * 100);
+                        //var barra = document.getElementById("progres_bar_subida");
+                        //barra.innerHTML = perc.toString() + '%';
+                        //barra.style.width = perc.toString() + '%';
+                        //barra.style["aria-valuenow"] = perc.toString();
+                        //barra.style["aria-valuemin"] = "0";
+                        //barra.style["aria-valuemin"] = "100";
+
+                        console.log(perc.toString() + '%');
+
+                        if (perc >= 99) {
+                            document.getElementById('ProductCostID').value = '';
+                            document.getElementById('ProductNameID').value = '';
+                            document.getElementById('ProductPhotoSelect').src = '';
+                            //    document.getElementById("dismiss_modal_progresso").click();
+                        }
+                        // $('#progressBar').text(perc + '%');
+                        // $('#progressBar').css('width', perc + '%');
+                    };
+                    return xhr;
+                },
+                error: function (e) {
+                    // HideLoad();
+                    console.log('Error has occurred while uploading the media file.');
+                }
+
+
+            });
+
+
+        }
+
+        var ProductSubset = { Verduras_hortalizas: 0, Frutas: 1, Carne_Embutidos_Atun: 2, Queso: 3, Tortillas_Pan: 4, BotanasRefresco: 5, Alcohol: 6, ProductosDeLimpieza: 7, Galletas: 8 };
+        ///public enum ProductSubset { Verduras_hortalizas, Frutas, Carne_Embutidos_Atun, Queso, Tortillas_Pan, BotanasRefresco, Alcohol, ProductosDeLimpieza, Galletas };
+        function UploadNewProduct() {
+            var e = document.getElementById("Productos");
+            var strUser = e.options[e.selectedIndex].value;
+
+            var Cost = document.getElementById('ProductCostID').value;
+            var Name = document.getElementById('ProductNameID').value;;
+            var PhotographInput = document.getElementById('ProductPhotoSelect');
+            var phothoData = new FormData(); //FormData object
+            phothoData.append(PhotographInput.files[0].name, PhotographInput.files[0]);
+            $.ajax({
+                type: "POST",
+                url: "/CarppiTechnicalService/AddBasicProduct?Name=" + Name + "&Cost=" + Cost + "&Categoria=" + strUser,
+                data: phothoData,
+                async: true,
+                beforeSend: function (request, xhr) {
+                    // request.setRequestHeader(csrf_headerName, csrf_paramValue);
+                    //Reset alert message and progress bar
+                    //    $('#alertMsg').text('');
+                    //  $('#progressBar').text('');
+                    //$('#progressBar').css('width', '0%');
+                },
+                processData: false,
+
+                contentType: false,
+                cache: false,
+                timeout: 6000000,
+                success: function (data) {
+
+                    setTimeout(function () {
+                        //document.getElementById("fileInput").value = "";
+                        //document.getElementById("dismiss_modal_progresso").click();
+                    }, 1000);
+                    // HideLoad();
+                },
+
+                xhr: function () {
+                    //Get XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr();
+                    //Set onprogress event handler
+                    xhr.upload.onprogress = function (data) {
+
+                        var perc = Math.round((data.loaded / data.total) * 100);
+                        //var barra = document.getElementById("progres_bar_subida");
+                        //barra.innerHTML = perc.toString() + '%';
+                        //barra.style.width = perc.toString() + '%';
+                        //barra.style["aria-valuenow"] = perc.toString();
+                        //barra.style["aria-valuemin"] = "0";
+                        //barra.style["aria-valuemin"] = "100";
+
+                        console.log(perc.toString() + '%');
+
+                        if (perc >= 99) {
+                            document.getElementById('ProductCostID').value = '';
+                            document.getElementById('ProductNameID').value = '';
+                            document.getElementById('ProductPhotoSelect').src = '';
+                            //    document.getElementById("dismiss_modal_progresso").click();
+                        }
+                        // $('#progressBar').text(perc + '%');
+                        // $('#progressBar').css('width', perc + '%');
+                    };
+                    return xhr;
+                },
+                error: function (e) {
+                    // HideLoad();
+                    console.log('Error has occurred while uploading the media file.');
+                }
+
+
+            });
+
+
+        }
+
+
+        function Update_foofImagery_picture() {
+            var file = document.getElementById('ProductPhotoSelect').files[0];
+            var preview = document.getElementById('foodImagery');
+            //foodImagery
+            //PhotographInput.files[0]
+
+
+            const reader = new FileReader();
+
+            reader.addEventListener("load", function () {
+                // convert image file to base64 string
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+
+            //console.log(base64);
+            //foodImagery
+            //data:image/png;base64,
+            // document.getElementById('foodImagery').src = "data:image/png;base64," + base64;
+        }
+
+        function uint8ToString(buf) {
+            var i, length, out = '';
+            for (i = 0, length = buf.length; i < length; i += 1) {
+                out += String.fromCharCode(buf[i]);
+            }
+            return out;
+        }
+
+
+        function QueryThUSer() {
+            var TExt_ToQuery = document.getElementById('TextInputProfileID').value;
+            $.ajax({
+                type: "POST",
+                url: "/CarppiTechnicalService/QueryTheDriverProfile",
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                data: '{ProfileID: "' + TExt_ToQuery + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response != null) {
+                        document.getElementById('DriverPropertiesContainer').style.display = 'block';
+                        //LastNameID
+                        //FirstNameID
+                        document.getElementById('LastNameID').value = response.LastName;
+                        document.getElementById('FirstNameID').value = response.FirstName;
+
+                    }
+
+
+
+                },
+                failure: function (response) {
+                    alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    alert(JSON.stringify(response));
+
+                }
+            });
+
+        }
+        function UpdateCarPhoto() {
+            var PhotographInput = document.getElementById('CarPhotoSelect');
+            var phothoData = new FormData(); //FormData object
+            phothoData.append(PhotographInput.files[0].name, PhotographInput.files[0]);
+            $.ajax({
+                type: "POST",
+                url: "/CarppiTechnicalService/UpdateCarPhoto",
+                data: phothoData,
+                async: true,
+                beforeSend: function (request, xhr) {
+                    // request.setRequestHeader(csrf_headerName, csrf_paramValue);
+                    //Reset alert message and progress bar
+                    //    $('#alertMsg').text('');
+                    //  $('#progressBar').text('');
+                    //$('#progressBar').css('width', '0%');
+                },
+                processData: false,
+
+                contentType: false,
+                cache: false,
+                timeout: 6000000,
+                success: function (data) {
+
+                    setTimeout(function () {
+                        //document.getElementById("fileInput").value = "";
+                        //document.getElementById("dismiss_modal_progresso").click();
+                    }, 1000);
+                    // HideLoad();
+                },
+
+                xhr: function () {
+                    //Get XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr();
+                    //Set onprogress event handler
+                    xhr.upload.onprogress = function (data) {
+
+                        var perc = Math.round((data.loaded / data.total) * 100);
+                        //var barra = document.getElementById("progres_bar_subida");
+                        //barra.innerHTML = perc.toString() + '%';
+                        //barra.style.width = perc.toString() + '%';
+                        //barra.style["aria-valuenow"] = perc.toString();
+                        //barra.style["aria-valuemin"] = "0";
+                        //barra.style["aria-valuemin"] = "100";
+
+                        console.log(perc.toString() + '%');
+
+                        if (perc >= 99) {
+                            //    document.getElementById("dismiss_modal_progresso").click();
+                        }
+                        // $('#progressBar').text(perc + '%');
+                        // $('#progressBar').css('width', perc + '%');
+                    };
+                    return xhr;
+                },
+                error: function (e) {
+                    // HideLoad();
+                    console.log('Error has occurred while uploading the media file.');
+                }
+
+
+            });
+        }
+
+
+        function UpdateDriverPhoto() {
+            var PhotographInput = document.getElementById('DriverPhotoSelect');
+            var phothoData = new FormData(); //FormData object
+            phothoData.append(PhotographInput.files[0].name, PhotographInput.files[0]);
+            $.ajax({
+                type: "POST",
+                url: "/CarppiTechnicalService/UpdateDriverPhoto",
+                data: phothoData,
+                async: true,
+                beforeSend: function (request, xhr) {
+                    // request.setRequestHeader(csrf_headerName, csrf_paramValue);
+                    //Reset alert message and progress bar
+                    //    $('#alertMsg').text('');
+                    //  $('#progressBar').text('');
+                    //$('#progressBar').css('width', '0%');
+                },
+                processData: false,
+
+                contentType: false,
+                cache: false,
+                timeout: 6000000,
+                success: function (data) {
+
+                    setTimeout(function () {
+                        //document.getElementById("fileInput").value = "";
+                        //document.getElementById("dismiss_modal_progresso").click();
+                    }, 1000);
+                    // HideLoad();
+                },
+
+                xhr: function () {
+                    //Get XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr();
+                    //Set onprogress event handler
+                    xhr.upload.onprogress = function (data) {
+
+                        var perc = Math.round((data.loaded / data.total) * 100);
+                        //var barra = document.getElementById("progres_bar_subida");
+                        //barra.innerHTML = perc.toString() + '%';
+                        //barra.style.width = perc.toString() + '%';
+                        //barra.style["aria-valuenow"] = perc.toString();
+                        //barra.style["aria-valuemin"] = "0";
+                        //barra.style["aria-valuemin"] = "100";
+
+                        console.log(perc.toString() + '%');
+
+                        if (perc >= 99) {
+                            //    document.getElementById("dismiss_modal_progresso").click();
+                        }
+                        // $('#progressBar').text(perc + '%');
+                        // $('#progressBar').css('width', perc + '%');
+                    };
+                    return xhr;
+                },
+                error: function (e) {
+                    // HideLoad();
+                    console.log('Error has occurred while uploading the media file.');
+                }
+
+
+            });
+        }
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+abrir rtc
+y poner el tiempo dedicado
+
+update generic no se que
+
+abrir sprint 14 o mystuff
+para ver tareas 
+encontrar el update generic o el units srs el personalization
+abrir el artifact
+
+revisar el srd para ver si las cosas de hmi aplican para personalization
+habra un equivalente de units
+
+srd es una funcionalidad
+
+encontrar documenrtos, comparar requerimientos entre srs y srd, y ver si se actualiza
+fijarse en los variants LX
+de srd a srs
+jamas al revez
+Jamas se modifica el srd
+Configuracion en la carpeta 3
+switches esta en carpeta 20 miscelaneos
+personalization carpeta 0 y 2
+
+
+buscar los srs de los demas task
+personalisation en el ford display units (en el uno(
+
+otro en el 2 (?)
+
+buscar requisitos no funcionales?
+todos los requisitos tienen las variables que nos define el documento (de requisitos funcionales)
+
+ya que nos aseguremos de que los contenidos son iguales, se van a habilitar los campos sobre los requisitos
+asegurarse de que todos los requisitoes esten como el documento, que esten ligados 
+
+viene en el documento word
+
+despues mandar a review
+
+7 horas de funcion y 2 de overhead
+
+//////////////////////////////////////////////
+
+La ruta para el units es Forf DI p702
+Carpeta 4
+Carpeta 16
+carpeta 1
+no olvidar show artifacts D:
+
+el srs tiene un open specification issues, el srd no
+
+el srs no tiene analysis tools
+el srs no tiene design checklist
+el srs no tiene peer review 
+el srs no tiene open specification issues
+
+el srs no incluye las tablas de generic requirement
+
