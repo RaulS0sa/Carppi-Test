@@ -17,10 +17,12 @@ attr;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/R
 attr;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/60/jl/res/values/values.xml
 background;obj/Release/res/mipmap-anydpi-v26/ic_launcher.xml
 background;obj/Release/res/mipmap-anydpi-v26/ic_launcher_round_ask_.xml
+bitmap;obj/Release/res/drawable/splash_screen.xml
 Button;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/58/jl/res/layout/com_facebook_device_auth_dialog_fragment.xml
 Button;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/58/jl/res/layout/com_facebook_smart_device_dialog_fragment.xml
 cache-path;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/57/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
 color;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/58/jl/res/values/values.xml
+color;obj/Release/res/drawable/splash_screen.xml
 color;obj/Release/res/values/colors.xml
 color;obj/Release/res/values/ic_launcher_background.xml
 com.facebook.login.widget.LoginButton;obj/Release/res/layout/loginlayout.xml
@@ -60,9 +62,11 @@ item;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/R
 item;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/60/jl/res/values/values.xml
 item;obj/Release/res/drawable/mybutton.xml
 item;obj/Release/res/drawable/nav_item_colors.xml
+item;obj/Release/res/drawable/splash_screen.xml
 item;obj/Release/res/menu/bottom_navigation_main.xml
 item;obj/Release/res/menu/nav_menu.xml
 item;obj/Release/res/values/styles.xml
+layer-list;obj/Release/res/drawable/splash_screen.xml
 LinearLayout;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/58/jl/res/layout/com_facebook_device_auth_dialog_fragment.xml
 LinearLayout;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Release/lp/58/jl/res/layout/com_facebook_smart_device_dialog_fragment.xml
 LinearLayout;obj/Release/res/layout/activity_main.xml

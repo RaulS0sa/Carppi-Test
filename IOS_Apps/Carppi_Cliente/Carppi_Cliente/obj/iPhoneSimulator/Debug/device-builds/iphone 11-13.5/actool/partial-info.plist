@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>CarppiIcon20x20</string>
+				<string>CarppiIcon29x29</string>
+				<string>CarppiIcon40x40</string>
+				<string>CarppiIcon60x60</string>
+			</array>
+			<key>CFBundleIconName</key>
+			<string>CarppiIcon</string>
+		</dict>
+	</dict>
+	<key>CFBundleIcons~ipad</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>CarppiIcon20x20</string>
+				<string>CarppiIcon29x29</string>
+				<string>CarppiIcon40x40</string>
+				<string>CarppiIcon60x60</string>
+				<string>CarppiIcon76x76</string>
+				<string>CarppiIcon83.5x83.5</string>
+			</array>
+			<key>CFBundleIconName</key>
+			<string>CarppiIcon</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

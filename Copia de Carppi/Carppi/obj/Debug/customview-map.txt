@@ -17,10 +17,12 @@ attr;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/D
 attr;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/60/jl/res/values/values.xml
 background;obj/Debug/res/mipmap-anydpi-v26/ic_launcher.xml
 background;obj/Debug/res/mipmap-anydpi-v26/ic_launcher_round_ask_.xml
+bitmap;obj/Debug/res/drawable/splash_screen.xml
 Button;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/58/jl/res/layout/com_facebook_device_auth_dialog_fragment.xml
 Button;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/58/jl/res/layout/com_facebook_smart_device_dialog_fragment.xml
 cache-path;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/57/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
 color;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/58/jl/res/values/values.xml
+color;obj/Debug/res/drawable/splash_screen.xml
 color;obj/Debug/res/values/colors.xml
 color;obj/Debug/res/values/ic_launcher_background.xml
 com.facebook.login.widget.LoginButton;obj/Debug/res/layout/loginlayout.xml
@@ -60,9 +62,11 @@ item;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/D
 item;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/60/jl/res/values/values.xml
 item;obj/Debug/res/drawable/mybutton.xml
 item;obj/Debug/res/drawable/nav_item_colors.xml
+item;obj/Debug/res/drawable/splash_screen.xml
 item;obj/Debug/res/menu/bottom_navigation_main.xml
 item;obj/Debug/res/menu/nav_menu.xml
 item;obj/Debug/res/values/styles.xml
+layer-list;obj/Debug/res/drawable/splash_screen.xml
 LinearLayout;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/58/jl/res/layout/com_facebook_device_auth_dialog_fragment.xml
 LinearLayout;/Users/macbookair/Documents/GitHub/Carppi-Test/Copia de Carppi/Carppi/obj/Debug/lp/58/jl/res/layout/com_facebook_smart_device_dialog_fragment.xml
 LinearLayout;obj/Debug/res/layout/activity_main.xml

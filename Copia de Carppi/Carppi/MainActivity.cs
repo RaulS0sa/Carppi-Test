@@ -29,13 +29,14 @@ using static Carppi.Fragments.WebInterfaceProfile;
 using Android.Support.V4.App;
 using Fragment = Android.Support.V4.App.Fragment;
 using ActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
+using Android.Content.PM;
 
-[assembly: Application(Debuggable = true)]
+[assembly: Application(Debuggable = false)]
 
 namespace Carppi
 {
     
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     [assembly: UsesFeature("android.hardware.camera", Required = false)]
     [assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
     public class MainActivity : AppCompatActivity
@@ -55,6 +56,7 @@ namespace Carppi
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Android.Webkit.WebView.SetWebContentsDebuggingEnabled(true);
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
@@ -112,6 +114,33 @@ namespace Carppi
           //  Task.Delay(1500).ContinueWith(t => HideOptionsInMenu(navigationView));
             
         }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            if (requestCode == 1)
+            {
+                // Received permission result for camera permission.
+             //   Log.Info(TAG, "Received response for Location permission request.");
+
+                // Check if the only required permission has been granted
+                if ( (grantResults[0] == Permission.Granted))
+                {
+                    MainActivity.LoadFragment_Static(Resource.Id.menu_video);
+                    // Location permission has been granted, okay to retrieve the location of the device.
+                    //  Log.Info(TAG, "Location permission has now been granted.");
+                    // Snackbar.Make(layout, Resource.String.permission_available_camera, Snackbar.LengthShort).Show();
+                }
+                else
+                {
+                   // Log.Info(TAG, "Location permission was NOT granted.");
+                   // Snackbar.Make(layout, Resource.String.permissions_not_granted, Snackbar.LengthShort).Show();
+                }
+            }
+            else
+            {
+                base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
+        }
 
         void CreateTables()
         {
@@ -119,10 +148,11 @@ namespace Carppi
             {
                 var databasePath10 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Productos.db");
                 var db10 = new SQLiteConnection(databasePath10);
-                // var query = db5.Table<DatabaseTypes.Log_Info>().Where(v => v.ID > 0).FirstOrDefault();
-                // var db5 = new SQLiteConnection(databasePath5);
-                //var query = db5.Table<App6.DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
                 db10.CreateTable<DatabaseTypes.Carppi_ProductosPorRestaurantes>();
+
+                var databasePath11 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Restaurantes.db");
+                var db11 = new SQLiteConnection(databasePath11);
+                db11.CreateTable<DatabaseTypes.Carppi_IndicesdeRestaurantes>();
 
             }
             catch(Exception)
@@ -401,12 +431,12 @@ namespace Carppi
             var notificationManager = (NotificationManager)GetSystemService(Android.Content.Context.NotificationService);
             notificationManager.CreateNotificationChannel(channel);
         }
-
+        /*
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
+        */
         private void configureBackdrop()
         {
             //uncoment This

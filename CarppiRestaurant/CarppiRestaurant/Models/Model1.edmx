@@ -1,0 +1,2383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PidgeonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Carppi_ComentariosHaciaElPerfil">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" />
+          <Property Name="FaceID_OfComentedFolk" Type="varchar" MaxLength="450" />
+          <Property Name="FaceID_OfRater" Type="varchar" MaxLength="450" />
+          <Property Name="Rate" Type="float" />
+        </EntityType>
+        <EntityType Name="Carppi_IndicesdeRestaurantes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="450" />
+          <Property Name="Estado" Type="varchar" MaxLength="450" />
+          <Property Name="Pais" Type="varchar" MaxLength="450" />
+          <Property Name="Nombre" Type="varchar" MaxLength="450" />
+          <Property Name="Region" Type="bigint" />
+          <Property Name="Latitud" Type="float" />
+          <Property Name="Longitud" Type="float" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="FacebookId" Type="varchar" MaxLength="200" />
+          <Property Name="FirebaseID" Type="varchar(max)" />
+          <Property Name="contextualVailidationNumber" Type="int" />
+          <Property Name="TypeOfStore" Type="int" />
+          <Property Name="CarppiHash" Type="varchar(max)" />
+          <Property Name="Correo" Type="varchar" MaxLength="200" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="200" />
+          <Property Name="VerificacionDecuenta" Type="bit" />
+          <Property Name="RegistroValidado" Type="bit" />
+          <Property Name="EstaAbierto" Type="bit" />
+          <Property Name="Categorias" Type="varchar(max)" />
+          <Property Name="Categoriasbitfield" Type="bigint" />
+          <Property Name="IsATestRestaurant" Type="bit" Nullable="false" />
+          <Property Name="TimeZoneID" Type="varchar(max)" Nullable="false" />
+          <Property Name="SaturdayOpenningSchedule" Type="varchar(max)" Nullable="false" />
+          <Property Name="MondayOpenningSchedule" Type="varchar(max)" />
+          <Property Name="TuesdayOpenningSchedule" Type="varchar(max)" />
+          <Property Name="WednesdayOpenningSchedule" Type="varchar(max)" />
+          <Property Name="ThursDayOpenningSchedule" Type="varchar(max)" />
+          <Property Name="FridayOpenningSchedule" Type="varchar(max)" />
+          <Property Name="SunDayOpenningSchedule" Type="varchar(max)" />
+          <Property Name="StripeAccount" Type="varchar(max)" />
+          <Property Name="StripeHash" Type="varchar(max)" />
+          <Property Name="DebtToRestaurant" Type="bigint" Nullable="false" />
+          <Property Name="WebsitePasword" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carppi_MensajesRideshare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+          <Property Name="FaceID_Sender" Type="varchar" MaxLength="450" />
+          <Property Name="RequestID" Type="bigint" />
+          <Property Name="DateInSeconds" Type="bigint" />
+          <Property Name="Entregado" Type="bit" Nullable="false" />
+          <Property Name="Leido" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carppi_ProductosPorRestaurantes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDdRestaurante" Type="varchar(max)" />
+          <Property Name="Nombre" Type="varchar" MaxLength="450" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Categoria" Type="bigint" />
+          <Property Name="Disponibilidad" Type="bit" Nullable="false" />
+          <Property Name="ComprasDelProducto" Type="bigint" Nullable="false" />
+          <Property Name="HasOptionsToSelect" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiConductoresRideShare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="450" />
+          <Property Name="ApellidoUsuario" Type="varchar" MaxLength="450" />
+          <Property Name="Telefono" Type="varchar" MaxLength="450" />
+          <Property Name="Correo" Type="varchar" MaxLength="450" />
+          <Property Name="FirebaseID" Type="varchar(max)" />
+          <Property Name="StripeDriverID" Type="varchar(max)" />
+          <Property Name="FaceBookProfileId" Type="varchar" MaxLength="450" />
+          <Property Name="Region" Type="bigint" />
+          <Property Name="Viajes" Type="bigint" />
+          <Property Name="TripID" Type="bigint" />
+          <Property Name="Disponible" Type="bit" />
+          <Property Name="Reseñas" Type="float" />
+          <Property Name="LatitudActual" Type="float" />
+          <Property Name="LongitudActual" Type="float" />
+          <Property Name="LatitudObjetivo" Type="float" />
+          <Property Name="LongitudObjetivo" Type="float" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_BuyOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionID" Type="bigint" />
+          <Property Name="UserID" Type="varchar" MaxLength="200" />
+          <Property Name="paymentIntent" Type="varchar" MaxLength="200" />
+          <Property Name="Latitud" Type="float" />
+          <Property Name="Longitud" Type="float" />
+          <Property Name="Stat" Type="int" />
+          <Property Name="ListaDeProductos" Type="varchar(max)" />
+          <Property Name="Latitud_Repartidor" Type="float" />
+          <Property Name="Longitud_Repartidor" Type="float" />
+          <Property Name="FaceIDRepartidor_Repartidor" Type="float" />
+          <Property Name="FaceIDRepartidor_RepartidorCadena" Type="varchar" MaxLength="200" />
+          <Property Name="NombreDelUsuario" Type="varchar" MaxLength="200" />
+          <Property Name="TipoDePago" Type="int" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Mensajes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+          <Property Name="FaceID_Sender" Type="varchar" MaxLength="450" />
+          <Property Name="BuyOrderID" Type="bigint" />
+          <Property Name="DateInSeconds" Type="bigint" />
+          <Property Name="Entregado" Type="bit" Nullable="false" />
+          <Property Name="Leido" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Productos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionID" Type="bigint" />
+          <Property Name="Producto" Type="varchar" MaxLength="200" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="Categoria" Type="int" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Regiones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="200" />
+          <Property Name="Estado" Type="varchar" MaxLength="200" />
+          <Property Name="Pais" Type="varchar" MaxLength="200" />
+          <Property Name="Latitud" Type="float" Nullable="false" />
+          <Property Name="Longitud" Type="float" Nullable="false" />
+          <Property Name="Moneda" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Repartidores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaceID_Repartidor" Type="varchar" MaxLength="450" />
+          <Property Name="Latitud" Type="float" />
+          <Property Name="Longitud" Type="float" />
+          <Property Name="BuyOrderID" Type="bigint" />
+          <Property Name="Nombre" Type="varchar" MaxLength="450" />
+          <Property Name="Apellido" Type="varchar" MaxLength="450" />
+          <Property Name="FirebaseID" Type="varchar(max)" />
+          <Property Name="StripeDeliverID" Type="varchar" MaxLength="450" />
+          <Property Name="Foto_repartidor" Type="varbinary(max)" />
+          <Property Name="Correo" Type="varchar" MaxLength="200" />
+          <Property Name="Telefono" Type="varchar" MaxLength="200" />
+          <Property Name="IsAvailableForDeliver" Type="bit" Nullable="false" />
+          <Property Name="Region" Type="bigint" />
+          <Property Name="Rating_double" Type="float" />
+          <Property Name="Marca_Vehiculo" Type="varchar" MaxLength="200" />
+          <Property Name="Modelo_Vehiculo" Type="varchar" MaxLength="200" />
+          <Property Name="Placa" Type="varchar" MaxLength="200" />
+          <Property Name="FotoDelVehiculo_ByteArray" Type="varbinary(max)" />
+          <Property Name="UltimoComentario" Type="varchar(max)" />
+          <Property Name="DebtToDeliverMan" Type="bigint" Nullable="false" />
+          <Property Name="LastTimeOfLogin" Type="bigint" Nullable="false" />
+          <Property Name="MonetMadeByDeliverMan" Type="float" Nullable="false" />
+          <Property Name="StripeHash" Type="varchar(max)" />
+          <Property Name="FleetManagerHash" Type="varchar(max)" />
+          <Property Name="ValidationCode" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CarppiRegiones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="450" />
+          <Property Name="Estado" Type="varchar" MaxLength="450" />
+          <Property Name="LatitudCentroide" Type="float" />
+          <Property Name="LongitudCentroide" Type="float" />
+          <Property Name="ServicioRegional" Type="bigint" />
+          <Property Name="Radio" Type="float" />
+          <Property Name="Pais" Type="varchar" MaxLength="200" />
+          <Property Name="CountryCoin" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CarppiRequestForDrive">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FaceIDDriver" Type="varchar" MaxLength="450" />
+          <Property Name="FaceIDPassenger" Type="varchar" MaxLength="450" />
+          <Property Name="Cost" Type="float" />
+          <Property Name="Stat" Type="int" />
+          <Property Name="LatitudViajePendiente" Type="float" />
+          <Property Name="LongitudViajePendiente" Type="float" />
+          <Property Name="Distance" Type="varchar(max)" />
+          <Property Name="NameOfRequester" Type="varchar(max)" />
+          <Property Name="NameOfPlace" Type="varchar(max)" />
+          <Property Name="PaymentIntentID" Type="varchar(max)" />
+          <Property Name="IsRequestNotTimedOut" Type="bit" />
+          <Property Name="Accepted" Type="bit" Nullable="false" />
+          <Property Name="CreationTime" Type="bigint" />
+          <Property Name="OriginOfRequest_Latitude" Type="float" />
+          <Property Name="OriginOfRequest_Longitude" Type="float" />
+          <Property Name="GenderSearch" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiRestaurant_BuyOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionID" Type="bigint" />
+          <Property Name="UserID" Type="varchar" MaxLength="200" />
+          <Property Name="paymentIntent" Type="varchar" MaxLength="200" />
+          <Property Name="LatitudPeticion" Type="float" />
+          <Property Name="LongitudPeticion" Type="float" />
+          <Property Name="LatitudRestaurante" Type="float" />
+          <Property Name="LongitudRestaurante" Type="float" />
+          <Property Name="LatitudRepartidor" Type="float" />
+          <Property Name="LongitudRepartidor" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="Stat" Type="int" />
+          <Property Name="RestaurantHash" Type="varchar(max)" />
+          <Property Name="NombreDelRestaurante" Type="varchar(max)" />
+          <Property Name="NombreDelUsuario" Type="varchar(max)" />
+          <Property Name="ListaDeProductos" Type="varchar(max)" />
+          <Property Name="FaceIDRepartidor_RepartidorCadena" Type="varchar(max)" />
+          <Property Name="TipoDePago" Type="int" />
+          <Property Name="RestaurantToDisplayOrders" Type="bit" Nullable="false" />
+          <Property Name="ReparidorEnElAreaDelRestaurante" Type="bit" Nullable="false" />
+          <Property Name="ReparidorEnElAreaDelCliente" Type="bit" Nullable="false" />
+          <Property Name="CostoDeTransporte" Type="float" Nullable="false" />
+          <Property Name="TarifaDelServicio" Type="float" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" />
+          <Property Name="TimeOfCreation" Type="bigint" Nullable="false" />
+          <Property Name="StripeChargeID" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CarppiREstaurant_MensajesClienteRestaurante">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+          <Property Name="FaceID_Sender" Type="varchar" MaxLength="450" />
+          <Property Name="BuyOrderID" Type="bigint" />
+          <Property Name="DateInSeconds" Type="bigint" />
+          <Property Name="Entregado" Type="bit" Nullable="false" />
+          <Property Name="Leido" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiRestaurant_MensajesRepartidorCliente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+          <Property Name="FaceID_Sender" Type="varchar" MaxLength="450" />
+          <Property Name="BuyOrderID" Type="bigint" />
+          <Property Name="DateInSeconds" Type="bigint" />
+          <Property Name="Entregado" Type="bit" Nullable="false" />
+          <Property Name="Leido" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiRestaurant_MensajesRepartidorRestaurante">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+          <Property Name="FaceID_Sender" Type="varchar" MaxLength="450" />
+          <Property Name="BuyOrderID" Type="bigint" />
+          <Property Name="DateInSeconds" Type="bigint" />
+          <Property Name="Entregado" Type="bit" Nullable="false" />
+          <Property Name="Leido" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coches_en_renta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="255" />
+          <Property Name="Latitud" Type="float" />
+          <Property Name="Longitud" Type="float" />
+          <Property Name="Arrendatario" Type="varchar" MaxLength="255" />
+          <Property Name="Costo" Type="varchar" MaxLength="255" />
+          <Property Name="Disponibilidad" Type="int" />
+          <Property Name="Relacion_base_fotografias" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Dispositivos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dispositivo" Type="varchar" MaxLength="255" />
+          <Property Name="Latitud" Type="varchar" MaxLength="255" />
+          <Property Name="Longitud" Type="varchar" MaxLength="255" />
+          <Property Name="Hora" Type="varchar" MaxLength="255" />
+          <Property Name="Fecha_Activacion" Type="datetime" />
+          <Property Name="Fecha_Fin_Contrato" Type="datetime" />
+          <Property Name="Saldo" Type="varchar" MaxLength="255" />
+          <Property Name="Vigente" Type="bit" />
+          <Property Name="Velocidad" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Fotos_de_coches">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_de_publicacion" Type="varchar" MaxLength="255" />
+          <Property Name="Foto" Type="nvarchar(max)" />
+          <Property Name="Indicie_de_foto" Type="int" />
+          <Property Name="indice_de_foto_temporal" Type="int" />
+          <Property Name="cadena_de_foto_temporal" Type="int" />
+        </EntityType>
+        <EntityType Name="GenInstruccionesAccesos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cuenta" Type="varchar" MaxLength="255" />
+          <Property Name="dispositivo" Type="varchar" MaxLength="255" />
+          <Property Name="instruccion" Type="varchar" MaxLength="255" />
+          <Property Name="leido" Type="bit" />
+        </EntityType>
+        <EntityType Name="Lease_FotosPublicacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_de_la_publicacion" Type="int" />
+          <Property Name="Foto" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Lease_Interrutores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Casa" Type="varchar(max)" />
+          <Property Name="Habitacion" Type="varchar(max)" />
+          <Property Name="Indice" Type="varchar(max)" />
+          <Property Name="Alias" Type="varchar(max)" />
+          <Property Name="Usuario" Type="varchar" MaxLength="200" />
+          <Property Name="Instruccion" Type="bit" />
+          <Property Name="Es_Dimmer" Type="bit" />
+          <Property Name="Porcentaje_dimming" Type="int" />
+        </EntityType>
+        <EntityType Name="Lease_Publicaciones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" />
+          <Property Name="Direccion" Type="varchar(max)" />
+          <Property Name="Latitud" Type="varchar(max)" />
+          <Property Name="Longitud" Type="varchar(max)" />
+          <Property Name="Precio" Type="varchar(max)" />
+          <Property Name="Cuartos" Type="varchar(max)" />
+          <Property Name="Banos" Type="varchar(max)" />
+          <Property Name="Ocupacion" Type="bit" />
+          <Property Name="Perfil_de_publicacion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Local_">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tendero" Type="varchar" MaxLength="500" />
+          <Property Name="Indice_de_local" Type="int" />
+          <Property Name="Tienda" Type="varchar" MaxLength="500" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ObligatoriOptionsList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDdelProducto" Type="bigint" Nullable="false" />
+          <Property Name="NombreDelConjunto" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="OpcionalOptionsList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDdelProducto" Type="bigint" Nullable="false" />
+          <Property Name="NombreDelConjunto" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="OptionalChoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDdelProducto" Type="bigint" Nullable="false" />
+          <Property Name="IDdelConjunto" Type="bigint" Nullable="false" />
+          <Property Name="EsPersonal" Type="int" Nullable="false" />
+          <Property Name="OptionHash" Type="varchar(max)" />
+          <Property Name="CostoExtra" Type="float" />
+          <Property Name="Disponible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pos_Fotos_productos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_de_producto" Type="int" />
+          <Property Name="Foto_de_Producto" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="PosUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="500" />
+          <Property Name="Pass" Type="varchar" MaxLength="255" />
+          <Property Name="Tienda" Type="varchar" MaxLength="500" />
+          <Property Name="Rol" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Prestamos_Monedas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Moneda" Type="varchar(max)" />
+          <Property Name="Billetera" Type="varchar(max)" />
+          <Property Name="Disponible" Type="bit" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_de_producto" Type="varchar" MaxLength="500" />
+          <Property Name="Existencias" Type="int" />
+          <Property Name="Foto" Type="varbinary" MaxLength="1" />
+          <Property Name="Tienda" Type="varchar" MaxLength="500" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Id_de_la_tienda" Type="varchar" MaxLength="500" />
+          <Property Name="Costo" Type="float" />
+        </EntityType>
+        <EntityType Name="Traveler_Perfil">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_usuario" Type="varchar" MaxLength="255" />
+          <Property Name="Numero_de_telefono" Type="varchar" MaxLength="255" />
+          <Property Name="Correo" Type="varchar" MaxLength="255" />
+          <Property Name="Resenas" Type="varchar" MaxLength="255" />
+          <Property Name="Edad" Type="varchar" MaxLength="255" />
+          <Property Name="Telefono_verificado" Type="bit" />
+          <Property Name="Stripe_id" Type="varchar" MaxLength="255" />
+          <Property Name="Facebook_profile_id" Type="varchar" MaxLength="255" />
+          <Property Name="Rol" Type="int" />
+          <Property Name="Viaje_asociado" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Latitud" Type="varchar" MaxLength="150" />
+          <Property Name="Longitud" Type="varchar" MaxLength="150" />
+          <Property Name="pidiendo_viaje" Type="int" />
+          <Property Name="Latitud_un_decimal" Type="varchar" MaxLength="15" />
+          <Property Name="Longitud_un_decimal" Type="varchar" MaxLength="15" />
+          <Property Name="TarjetaValidada" Type="bit" />
+          <Property Name="IdentidadComprobada" Type="bit" />
+          <Property Name="Telefono" Type="varchar(max)" />
+          <Property Name="Foto" Type="varchar(max)" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="FirebaseID" Type="varchar(max)" />
+          <Property Name="StripeClientID" Type="varchar(max)" />
+          <Property Name="StripeDriverID" Type="varchar(max)" />
+          <Property Name="BusquedaGuardada_Latitud_salida" Type="varchar" MaxLength="200" />
+          <Property Name="BusquedaGuardada_Longitud_salida" Type="varchar" MaxLength="200" />
+          <Property Name="BusquedaGuardada_Latitud_Llegada" Type="varchar" MaxLength="200" />
+          <Property Name="BusquedaGuardada_Longitud_Llegada" Type="varchar" MaxLength="200" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Rating_double" Type="float" Nullable="false" />
+          <Property Name="Region" Type="bigint" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="LatitudObjetivoRideSharer" Type="float" />
+          <Property Name="LongitudObjetivoRideSharer" Type="float" />
+          <Property Name="StripeLastPaymentIntent" Type="float" />
+          <Property Name="StripeLastPaymentIntent_ID" Type="varchar(max)" />
+          <Property Name="Foto_ByteArray" Type="varbinary(max)" />
+          <Property Name="FotoDelVehiculo_ByteArray" Type="varbinary(max)" />
+          <Property Name="Placa" Type="varchar" MaxLength="100" />
+          <Property Name="Modelo_Vehiculo" Type="varchar" MaxLength="100" />
+          <Property Name="Marca_Vehiculo" Type="varchar" MaxLength="100" />
+          <Property Name="Color_Vehiculo" Type="varchar" MaxLength="100" />
+          <Property Name="hasConfirmedGender" Type="bit" Nullable="false" />
+          <Property Name="PaymentMethod" Type="varchar(max)" />
+          <Property Name="IsUserADriver" Type="bit" Nullable="false" />
+          <Property Name="Region_ReparticionDeAlimentos" Type="bigint" />
+          <Property Name="IsFirstOrder" Type="bit" Nullable="false" />
+          <Property Name="IsUserAJoker" Type="bit" Nullable="false" />
+          <Property Name="AmountOfJoke" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Traveler_SolicitudDeViajeTemporal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Face_id_solicitante" Type="varchar" MaxLength="250" />
+          <Property Name="Estado_De_solicitud" Type="int" />
+          <Property Name="Id_del_viaje" Type="int" />
+          <Property Name="TipoDePago" Type="int" />
+          <Property Name="MoneyOwnedToDriver" Type="varchar(max)" />
+          <Property Name="PaymentIntentID" Type="varchar(max)" />
+          <Property Name="StripeCharge" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Traveler_Viajes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inicio" Type="varchar" MaxLength="255" />
+          <Property Name="Destino" Type="varchar" MaxLength="255" />
+          <Property Name="Kilometros" Type="varchar" MaxLength="255" />
+          <Property Name="Tiempo_estimado" Type="varchar" MaxLength="255" />
+          <Property Name="Vehiculo" Type="varchar" MaxLength="255" />
+          <Property Name="Fecha_y_hora" Type="datetime" />
+          <Property Name="asientos_disponibles" Type="varchar" MaxLength="255" />
+          <Property Name="Disponible" Type="bit" />
+          <Property Name="En_curso" Type="bit" />
+          <Property Name="Latitud" Type="varchar" MaxLength="100" />
+          <Property Name="Longitud" Type="varchar" MaxLength="100" />
+          <Property Name="Estado_del_viaje" Type="int" />
+          <Property Name="FaceIdDelConductor" Type="varchar" MaxLength="150" />
+          <Property Name="Latitud_destino" Type="varchar(max)" />
+          <Property Name="Longitud_destino" Type="varchar(max)" />
+          <Property Name="TimeData" Type="varchar(max)" />
+          <Property Name="Costo_po_Usuario" Type="varchar(max)" />
+          <Property Name="Viaje_Periodico" Type="varchar(max)" />
+          <Property Name="Asientos_Totales" Type="varchar(max)" />
+          <Property Name="Conductor_a_asociado_su_tarjeta" Type="bit" />
+          <Property Name="PaisOrigen" Type="varchar(max)" />
+          <Property Name="PaisDestino" Type="varchar(max)" />
+          <Property Name="Visible" Type="bit" />
+          <Property Name="Privado" Type="bit" />
+          <Property Name="TipoDePago" Type="int" />
+          <Property Name="DiaDeViaje" Type="int" />
+          <Property Name="MesDeViaje" Type="int" />
+          <Property Name="AnoDeViaje" Type="int" />
+        </EntityType>
+        <EntityType Name="Traveler_Viajes_historial">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inicio" Type="varchar" MaxLength="255" />
+          <Property Name="Destino" Type="varchar" MaxLength="255" />
+          <Property Name="Kilometros" Type="varchar" MaxLength="255" />
+          <Property Name="Tiempo_estimado" Type="varchar" MaxLength="255" />
+          <Property Name="Fecha_y_hora" Type="datetime" />
+          <Property Name="Pasajeros_numero" Type="varchar" MaxLength="255" />
+          <Property Name="Pasajeros_IDS" Type="varchar(max)" />
+          <Property Name="FaceIdDelConductor" Type="varchar" MaxLength="255" />
+          <Property Name="TimeData" Type="varchar" MaxLength="255" />
+          <Property Name="Costo_por_Usuario" Type="varchar" MaxLength="255" />
+          <Property Name="CobroPorPasajero" Type="varchar" MaxLength="255" />
+          <Property Name="GananciaConductor" Type="varchar" MaxLength="255" />
+          <Property Name="GananciaCarppi" Type="varchar" MaxLength="255" />
+          <Property Name="ComicionMotorPago" Type="varchar" MaxLength="255" />
+          <Property Name="PasajerosQuePagaronConTarjeta" Type="int" />
+        </EntityType>
+        <EntityType Name="Travelers_Grupos_de_Conversacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AliasConversacion" Type="varchar" MaxLength="500" />
+          <Property Name="FaceIdDeConductor" Type="varchar" MaxLength="500" />
+          <Property Name="FaceIdDePasajero" Type="varchar" MaxLength="500" />
+          <Property Name="IsGroupConversation" Type="bit" />
+          <Property Name="HasDriverSeenIt" Type="bit" />
+          <Property Name="HaspassengerSeenIt" Type="bit" />
+        </EntityType>
+        <EntityType Name="Travelers_Integrantes_Grupos_de_Conversacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_de_conversacion" Type="varchar" MaxLength="500" />
+          <Property Name="FaceIdDeIntegrante" Type="varchar" MaxLength="500" />
+          <Property Name="IsGroupAdministrator" Type="bit" />
+          <Property Name="HasSeenMesageInGroup" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Travelers_Mensajes_Grupos_de_Conversacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_de_conversacion" Type="varchar" MaxLength="500" />
+          <Property Name="FaceIdDeConductor" Type="varchar" MaxLength="500" />
+          <Property Name="FaceIdDePasajero" Type="varchar" MaxLength="500" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+          <Property Name="MensajeGrupal" Type="bit" />
+          <Property Name="Entregado" Type="bit" />
+          <Property Name="Leido" Type="bit" />
+          <Property Name="NameOfSender" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Trayectorias_geoloc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Latitud" Type="varchar" MaxLength="255" />
+          <Property Name="Longitud" Type="varchar" MaxLength="255" />
+          <Property Name="Dispositivo" Type="varchar" MaxLength="255" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UrbanCabDrivers">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="StripeID" Type="varchar(max)" />
+          <Property Name="OpenPayID" Type="varchar(max)" />
+          <Property Name="Latitud" Type="varchar(max)" />
+          <Property Name="Longitud" Type="varchar(max)" />
+          <Property Name="Estado" Type="int" />
+          <Property Name="Correo" Type="varchar(max)" />
+          <Property Name="Telefono" Type="varchar(max)" />
+          <Property Name="Calificacion" Type="varchar" MaxLength="10" />
+          <Property Name="clabe" Type="varchar(max)" />
+          <Property Name="ClienteID" Type="varchar(max)" />
+          <Property Name="Identidad_validada" Type="bit" Nullable="false" />
+          <Property Name="Numero_validado" Type="bit" Nullable="false" />
+          <Property Name="Correo_validado" Type="bit" Nullable="false" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="Matricula" Type="varchar" MaxLength="200" />
+          <Property Name="Modelo" Type="varchar" MaxLength="200" />
+          <Property Name="Marca" Type="varchar" MaxLength="200" />
+          <Property Name="FaceID" Type="varchar(max)" />
+          <Property Name="AvailableToDrive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UrbanCabNewTrip">
+          <Key>
+            <PropertyRef Name="TripRequestNumberID" />
+          </Key>
+          <Property Name="TripRequestNumberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverID" Type="varchar(max)" />
+          <Property Name="ClientID" Type="varchar(max)" />
+          <Property Name="Latitud_Origen" Type="varchar(max)" />
+          <Property Name="Longitud_Origen" Type="varchar(max)" />
+          <Property Name="Latitud_Actual" Type="varchar(max)" />
+          <Property Name="Longitud_Actual" Type="varchar(max)" />
+          <Property Name="Latitud_Destino" Type="varchar(max)" />
+          <Property Name="Longitud_Destino" Type="varchar(max)" />
+          <Property Name="PrecioSugerido" Type="varchar(max)" />
+          <Property Name="Distancia" Type="varchar(max)" />
+          <Property Name="Tiempo" Type="varchar(max)" />
+          <Property Name="Precio" Type="varchar(max)" />
+          <Property Name="Aceptado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UrbanCabPassengers">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="StripeID" Type="varchar(max)" />
+          <Property Name="OpenPayID" Type="varchar(max)" />
+          <Property Name="Latitud" Type="varchar(max)" />
+          <Property Name="Longitud" Type="varchar(max)" />
+          <Property Name="Estado" Type="int" />
+          <Property Name="Correo" Type="varchar(max)" />
+          <Property Name="Telefono" Type="varchar(max)" />
+          <Property Name="Calificacion" Type="varchar" MaxLength="10" />
+          <Property Name="clabe" Type="varchar(max)" />
+          <Property Name="ClienteID" Type="varchar(max)" />
+          <Property Name="Identidad_validada" Type="bit" Nullable="false" />
+          <Property Name="Numero_validado" Type="bit" Nullable="false" />
+          <Property Name="Correo_validado" Type="bit" Nullable="false" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="FaceID" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="UrbanCabTripRequest">
+          <Key>
+            <PropertyRef Name="TripRequestNumberID" />
+          </Key>
+          <Property Name="TripRequestNumberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverID" Type="varchar(max)" />
+          <Property Name="ClientID" Type="varchar(max)" />
+          <Property Name="Latitud_Origen" Type="varchar(max)" />
+          <Property Name="Longitud_Origen" Type="varchar(max)" />
+          <Property Name="Latitud_Destino" Type="varchar(max)" />
+          <Property Name="Longitud_Destino" Type="varchar(max)" />
+          <Property Name="PrecioSugerido" Type="varchar(max)" />
+          <Property Name="Precio" Type="varchar(max)" />
+          <Property Name="Aceptado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero_de_telefono" Type="varchar" MaxLength="30" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="foto" Type="varchar(max)" />
+          <Property Name="firebase_token" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tendero" Type="varchar" MaxLength="500" />
+          <Property Name="Tienda" Type="varchar" MaxLength="500" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="Fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Ventas_lista">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Indicie_recibo" Type="int" />
+          <Property Name="Tienda" Type="varchar" MaxLength="500" />
+          <Property Name="articulo" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="PidgeonModelStoreContainer">
+          <EntitySet Name="Carppi_ComentariosHaciaElPerfil" EntityType="Self.Carppi_ComentariosHaciaElPerfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carppi_IndicesdeRestaurantes" EntityType="Self.Carppi_IndicesdeRestaurantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carppi_MensajesRideshare" EntityType="Self.Carppi_MensajesRideshare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carppi_ProductosPorRestaurantes" EntityType="Self.Carppi_ProductosPorRestaurantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiConductoresRideShare" EntityType="Self.CarppiConductoresRideShare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiGrocery_BuyOrders" EntityType="Self.CarppiGrocery_BuyOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiGrocery_Mensajes" EntityType="Self.CarppiGrocery_Mensajes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiGrocery_Productos" EntityType="Self.CarppiGrocery_Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiGrocery_Regiones" EntityType="Self.CarppiGrocery_Regiones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiGrocery_Repartidores" EntityType="Self.CarppiGrocery_Repartidores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiRegiones" EntityType="Self.CarppiRegiones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiRequestForDrive" EntityType="Self.CarppiRequestForDrive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiRestaurant_BuyOrders" EntityType="Self.CarppiRestaurant_BuyOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiREstaurant_MensajesClienteRestaurante" EntityType="Self.CarppiREstaurant_MensajesClienteRestaurante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiRestaurant_MensajesRepartidorCliente" EntityType="Self.CarppiRestaurant_MensajesRepartidorCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarppiRestaurant_MensajesRepartidorRestaurante" EntityType="Self.CarppiRestaurant_MensajesRepartidorRestaurante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coches_en_renta" EntityType="Self.Coches_en_renta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dispositivos" EntityType="Self.Dispositivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fotos_de_coches" EntityType="Self.Fotos_de_coches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenInstruccionesAccesos" EntityType="Self.GenInstruccionesAccesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lease_FotosPublicacion" EntityType="Self.Lease_FotosPublicacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lease_Interrutores" EntityType="Self.Lease_Interrutores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lease_Publicaciones" EntityType="Self.Lease_Publicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Local_" EntityType="Self.Local_" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ObligatoriOptionsList" EntityType="Self.ObligatoriOptionsList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpcionalOptionsList" EntityType="Self.OpcionalOptionsList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OptionalChoice" EntityType="Self.OptionalChoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pos_Fotos_productos" EntityType="Self.Pos_Fotos_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosUsers" EntityType="Self.PosUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prestamos_Monedas" EntityType="Self.Prestamos_Monedas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traveler_Perfil" EntityType="Self.Traveler_Perfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traveler_SolicitudDeViajeTemporal" EntityType="Self.Traveler_SolicitudDeViajeTemporal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traveler_Viajes" EntityType="Self.Traveler_Viajes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traveler_Viajes_historial" EntityType="Self.Traveler_Viajes_historial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Travelers_Grupos_de_Conversacion" EntityType="Self.Travelers_Grupos_de_Conversacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Travelers_Integrantes_Grupos_de_Conversacion" EntityType="Self.Travelers_Integrantes_Grupos_de_Conversacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Travelers_Mensajes_Grupos_de_Conversacion" EntityType="Self.Travelers_Mensajes_Grupos_de_Conversacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trayectorias_geoloc" EntityType="Self.Trayectorias_geoloc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrbanCabDrivers" EntityType="Self.UrbanCabDrivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrbanCabNewTrip" EntityType="Self.UrbanCabNewTrip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrbanCabPassengers" EntityType="Self.UrbanCabPassengers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrbanCabTripRequest" EntityType="Self.UrbanCabTripRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas_lista" EntityType="Self.Ventas_lista" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PidgeonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Carppi_ComentariosHaciaElPerfil">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_OfComentedFolk" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_OfRater" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Double" />
+        </EntityType>
+        <EntityType Name="Carppi_IndicesdeRestaurantes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ciudad" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="Int64" />
+          <Property Name="Latitud" Type="Double" />
+          <Property Name="Longitud" Type="Double" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FacebookId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FirebaseID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contextualVailidationNumber" Type="Int32" />
+          <Property Name="TypeOfStore" Type="Int32" />
+          <Property Name="CarppiHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VerificacionDecuenta" Type="Boolean" />
+          <Property Name="RegistroValidado" Type="Boolean" />
+          <Property Name="EstaAbierto" Type="Boolean" />
+          <Property Name="Categorias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Categoriasbitfield" Type="Int64" />
+          <Property Name="IsATestRestaurant" Type="Boolean" Nullable="false" />
+          <Property Name="TimeZoneID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SaturdayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MondayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TuesdayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WednesdayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ThursDayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FridayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SunDayOpenningSchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DebtToRestaurant" Type="Int64" Nullable="false" />
+          <Property Name="WebsitePasword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carppi_MensajesRideshare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_Sender" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="RequestID" Type="Int64" />
+          <Property Name="DateInSeconds" Type="Int64" />
+          <Property Name="Entregado" Type="Boolean" Nullable="false" />
+          <Property Name="Leido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carppi_ProductosPorRestaurantes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDdRestaurante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Categoria" Type="Int64" />
+          <Property Name="Disponibilidad" Type="Boolean" Nullable="false" />
+          <Property Name="ComprasDelProducto" Type="Int64" Nullable="false" />
+          <Property Name="HasOptionsToSelect" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiConductoresRideShare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoUsuario" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="FirebaseID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeDriverID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceBookProfileId" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="Int64" />
+          <Property Name="Viajes" Type="Int64" />
+          <Property Name="TripID" Type="Int64" />
+          <Property Name="Disponible" Type="Boolean" />
+          <Property Name="Reseñas" Type="Double" />
+          <Property Name="LatitudActual" Type="Double" />
+          <Property Name="LongitudActual" Type="Double" />
+          <Property Name="LatitudObjetivo" Type="Double" />
+          <Property Name="LongitudObjetivo" Type="Double" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_BuyOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionID" Type="Int64" />
+          <Property Name="UserID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="paymentIntent" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="Double" />
+          <Property Name="Longitud" Type="Double" />
+          <Property Name="Stat" Type="Int32" />
+          <Property Name="ListaDeProductos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_Repartidor" Type="Double" />
+          <Property Name="Longitud_Repartidor" Type="Double" />
+          <Property Name="FaceIDRepartidor_Repartidor" Type="Double" />
+          <Property Name="FaceIDRepartidor_RepartidorCadena" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NombreDelUsuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TipoDePago" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Mensajes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_Sender" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="BuyOrderID" Type="Int64" />
+          <Property Name="DateInSeconds" Type="Int64" />
+          <Property Name="Entregado" Type="Boolean" Nullable="false" />
+          <Property Name="Leido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Productos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionID" Type="Int64" />
+          <Property Name="Producto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Categoria" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Regiones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ciudad" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="Double" Nullable="false" />
+          <Property Name="Longitud" Type="Double" Nullable="false" />
+          <Property Name="Moneda" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CarppiGrocery_Repartidores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaceID_Repartidor" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="Double" />
+          <Property Name="Longitud" Type="Double" />
+          <Property Name="BuyOrderID" Type="Int64" />
+          <Property Name="Nombre" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="FirebaseID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeDeliverID" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Foto_repartidor" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsAvailableForDeliver" Type="Boolean" Nullable="false" />
+          <Property Name="Region" Type="Int64" />
+          <Property Name="Rating_double" Type="Double" />
+          <Property Name="Marca_Vehiculo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo_Vehiculo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FotoDelVehiculo_ByteArray" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UltimoComentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DebtToDeliverMan" Type="Int64" Nullable="false" />
+          <Property Name="LastTimeOfLogin" Type="Int64" Nullable="false" />
+          <Property Name="MonetMadeByDeliverMan" Type="Double" Nullable="false" />
+          <Property Name="StripeHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FleetManagerHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ValidationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CarppiRegiones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ciudad" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="LatitudCentroide" Type="Double" />
+          <Property Name="LongitudCentroide" Type="Double" />
+          <Property Name="ServicioRegional" Type="Int64" />
+          <Property Name="Radio" Type="Double" />
+          <Property Name="Pais" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCoin" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CarppiRequestForDrive">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FaceIDDriver" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIDPassenger" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="Stat" Type="Int32" />
+          <Property Name="LatitudViajePendiente" Type="Double" />
+          <Property Name="LongitudViajePendiente" Type="Double" />
+          <Property Name="Distance" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NameOfRequester" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NameOfPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentIntentID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsRequestNotTimedOut" Type="Boolean" />
+          <Property Name="Accepted" Type="Boolean" Nullable="false" />
+          <Property Name="CreationTime" Type="Int64" />
+          <Property Name="OriginOfRequest_Latitude" Type="Double" />
+          <Property Name="OriginOfRequest_Longitude" Type="Double" />
+          <Property Name="GenderSearch" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiRestaurant_BuyOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionID" Type="Int64" />
+          <Property Name="UserID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="paymentIntent" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LatitudPeticion" Type="Double" />
+          <Property Name="LongitudPeticion" Type="Double" />
+          <Property Name="LatitudRestaurante" Type="Double" />
+          <Property Name="LongitudRestaurante" Type="Double" />
+          <Property Name="LatitudRepartidor" Type="Double" />
+          <Property Name="LongitudRepartidor" Type="Double" />
+          <Property Name="Precio" Type="Double" />
+          <Property Name="Stat" Type="Int32" />
+          <Property Name="RestaurantHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NombreDelRestaurante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NombreDelUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ListaDeProductos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIDRepartidor_RepartidorCadena" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TipoDePago" Type="Int32" />
+          <Property Name="RestaurantToDisplayOrders" Type="Boolean" Nullable="false" />
+          <Property Name="ReparidorEnElAreaDelRestaurante" Type="Boolean" Nullable="false" />
+          <Property Name="ReparidorEnElAreaDelCliente" Type="Boolean" Nullable="false" />
+          <Property Name="CostoDeTransporte" Type="Double" Nullable="false" />
+          <Property Name="TarifaDelServicio" Type="Double" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TimeOfCreation" Type="Int64" Nullable="false" />
+          <Property Name="StripeChargeID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CarppiREstaurant_MensajesClienteRestaurante">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_Sender" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="BuyOrderID" Type="Int64" />
+          <Property Name="DateInSeconds" Type="Int64" />
+          <Property Name="Entregado" Type="Boolean" Nullable="false" />
+          <Property Name="Leido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiRestaurant_MensajesRepartidorCliente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_Sender" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="BuyOrderID" Type="Int64" />
+          <Property Name="DateInSeconds" Type="Int64" />
+          <Property Name="Entregado" Type="Boolean" Nullable="false" />
+          <Property Name="Leido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarppiRestaurant_MensajesRepartidorRestaurante">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID_Sender" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="BuyOrderID" Type="Int64" />
+          <Property Name="DateInSeconds" Type="Int64" />
+          <Property Name="Entregado" Type="Boolean" Nullable="false" />
+          <Property Name="Leido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coches_en_renta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="Double" />
+          <Property Name="Longitud" Type="Double" />
+          <Property Name="Arrendatario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Costo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Disponibilidad" Type="Int32" />
+          <Property Name="Relacion_base_fotografias" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Dispositivos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dispositivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Hora" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Activacion" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Fin_Contrato" Type="DateTime" Precision="3" />
+          <Property Name="Saldo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Vigente" Type="Boolean" />
+          <Property Name="Velocidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Fotos_de_coches">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_de_publicacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Indicie_de_foto" Type="Int32" />
+          <Property Name="indice_de_foto_temporal" Type="Int32" />
+          <Property Name="cadena_de_foto_temporal" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GenInstruccionesAccesos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cuenta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dispositivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="instruccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="leido" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Lease_FotosPublicacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_de_la_publicacion" Type="Int32" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Lease_Interrutores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Casa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Habitacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Indice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Instruccion" Type="Boolean" />
+          <Property Name="Es_Dimmer" Type="Boolean" />
+          <Property Name="Porcentaje_dimming" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Lease_Publicaciones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cuartos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Banos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Ocupacion" Type="Boolean" />
+          <Property Name="Perfil_de_publicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Local_">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tendero" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Indice_de_local" Type="Int32" />
+          <Property Name="Tienda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ObligatoriOptionsList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDdelProducto" Type="Int64" Nullable="false" />
+          <Property Name="NombreDelConjunto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OpcionalOptionsList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDdelProducto" Type="Int64" Nullable="false" />
+          <Property Name="NombreDelConjunto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OptionalChoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDdelProducto" Type="Int64" Nullable="false" />
+          <Property Name="IDdelConjunto" Type="Int64" Nullable="false" />
+          <Property Name="EsPersonal" Type="Int32" Nullable="false" />
+          <Property Name="OptionHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CostoExtra" Type="Double" />
+          <Property Name="Disponible" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pos_Fotos_productos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_de_producto" Type="Int32" />
+          <Property Name="Foto_de_Producto" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PosUsers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Pass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tienda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Prestamos_Monedas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Moneda" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Billetera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Disponible" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_de_producto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Existencias" Type="Int32" />
+          <Property Name="Foto" Type="Binary" MaxLength="1" FixedLength="false" />
+          <Property Name="Tienda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Id_de_la_tienda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Costo" Type="Double" />
+        </EntityType>
+        <EntityType Name="Traveler_Perfil">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_de_telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Resenas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_verificado" Type="Boolean" />
+          <Property Name="Stripe_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook_profile_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="Int32" />
+          <Property Name="Viaje_asociado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Latitud" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="pidiendo_viaje" Type="Int32" />
+          <Property Name="Latitud_un_decimal" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_un_decimal" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TarjetaValidada" Type="Boolean" />
+          <Property Name="IdentidadComprobada" Type="Boolean" />
+          <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirebaseID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeClientID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeDriverID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BusquedaGuardada_Latitud_salida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BusquedaGuardada_Longitud_salida" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BusquedaGuardada_Latitud_Llegada" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BusquedaGuardada_Longitud_Llegada" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Rating_double" Type="Double" Nullable="false" />
+          <Property Name="Region" Type="Int64" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="LatitudObjetivoRideSharer" Type="Double" />
+          <Property Name="LongitudObjetivoRideSharer" Type="Double" />
+          <Property Name="StripeLastPaymentIntent" Type="Double" />
+          <Property Name="StripeLastPaymentIntent_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Foto_ByteArray" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FotoDelVehiculo_ByteArray" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Placa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo_Vehiculo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Marca_Vehiculo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Color_Vehiculo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="hasConfirmedGender" Type="Boolean" Nullable="false" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsUserADriver" Type="Boolean" Nullable="false" />
+          <Property Name="Region_ReparticionDeAlimentos" Type="Int64" />
+          <Property Name="IsFirstOrder" Type="Boolean" Nullable="false" />
+          <Property Name="IsUserAJoker" Type="Boolean" Nullable="false" />
+          <Property Name="AmountOfJoke" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Traveler_SolicitudDeViajeTemporal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Face_id_solicitante" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_De_solicitud" Type="Int32" />
+          <Property Name="Id_del_viaje" Type="Int32" />
+          <Property Name="TipoDePago" Type="Int32" />
+          <Property Name="MoneyOwnedToDriver" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentIntentID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StripeCharge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Traveler_Viajes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inicio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Destino" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometros" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tiempo_estimado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Vehiculo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_y_hora" Type="DateTime" Precision="3" />
+          <Property Name="asientos_disponibles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Disponible" Type="Boolean" />
+          <Property Name="En_curso" Type="Boolean" />
+          <Property Name="Latitud" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_del_viaje" Type="Int32" />
+          <Property Name="FaceIdDelConductor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TimeData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Costo_po_Usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Viaje_Periodico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Asientos_Totales" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Conductor_a_asociado_su_tarjeta" Type="Boolean" />
+          <Property Name="PaisOrigen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PaisDestino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Visible" Type="Boolean" />
+          <Property Name="Privado" Type="Boolean" />
+          <Property Name="TipoDePago" Type="Int32" />
+          <Property Name="DiaDeViaje" Type="Int32" />
+          <Property Name="MesDeViaje" Type="Int32" />
+          <Property Name="AnoDeViaje" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Traveler_Viajes_historial">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inicio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Destino" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Kilometros" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tiempo_estimado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_y_hora" Type="DateTime" Precision="3" />
+          <Property Name="Pasajeros_numero" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Pasajeros_IDS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIdDelConductor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TimeData" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Costo_por_Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CobroPorPasajero" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GananciaConductor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GananciaCarppi" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ComicionMotorPago" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PasajerosQuePagaronConTarjeta" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Travelers_Grupos_de_Conversacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AliasConversacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIdDeConductor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIdDePasajero" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsGroupConversation" Type="Boolean" />
+          <Property Name="HasDriverSeenIt" Type="Boolean" />
+          <Property Name="HaspassengerSeenIt" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Travelers_Integrantes_Grupos_de_Conversacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_de_conversacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIdDeIntegrante" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsGroupAdministrator" Type="Boolean" />
+          <Property Name="HasSeenMesageInGroup" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Travelers_Mensajes_Grupos_de_Conversacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_de_conversacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIdDeConductor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FaceIdDePasajero" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MensajeGrupal" Type="Boolean" />
+          <Property Name="Entregado" Type="Boolean" />
+          <Property Name="Leido" Type="Boolean" />
+          <Property Name="NameOfSender" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Trayectorias_geoloc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Latitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Dispositivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UrbanCabDrivers">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StripeID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OpenPayID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Calificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="clabe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClienteID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Identidad_validada" Type="Boolean" Nullable="false" />
+          <Property Name="Numero_validado" Type="Boolean" Nullable="false" />
+          <Property Name="Correo_validado" Type="Boolean" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Matricula" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Marca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FaceID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AvailableToDrive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UrbanCabNewTrip">
+          <Key>
+            <PropertyRef Name="TripRequestNumberID" />
+          </Key>
+          <Property Name="TripRequestNumberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClientID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_Origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_Origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_Actual" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_Actual" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_Destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_Destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioSugerido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Distancia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tiempo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Aceptado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UrbanCabPassengers">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StripeID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OpenPayID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Calificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="clabe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClienteID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Identidad_validada" Type="Boolean" Nullable="false" />
+          <Property Name="Numero_validado" Type="Boolean" Nullable="false" />
+          <Property Name="Correo_validado" Type="Boolean" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FaceID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UrbanCabTripRequest">
+          <Key>
+            <PropertyRef Name="TripRequestNumberID" />
+          </Key>
+          <Property Name="TripRequestNumberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ClientID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_Origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_Origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Latitud_Destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud_Destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioSugerido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Aceptado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero_de_telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="firebase_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tendero" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Tienda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Ventas_lista">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Indicie_recibo" Type="Int32" />
+          <Property Name="Tienda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="articulo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PidgeonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Carppi_ComentariosHaciaElPerfil" EntityType="Self.Carppi_ComentariosHaciaElPerfil" />
+          <EntitySet Name="Carppi_IndicesdeRestaurantes" EntityType="Self.Carppi_IndicesdeRestaurantes" />
+          <EntitySet Name="Carppi_MensajesRideshare" EntityType="Self.Carppi_MensajesRideshare" />
+          <EntitySet Name="Carppi_ProductosPorRestaurantes" EntityType="Self.Carppi_ProductosPorRestaurantes" />
+          <EntitySet Name="CarppiConductoresRideShare" EntityType="Self.CarppiConductoresRideShare" />
+          <EntitySet Name="CarppiGrocery_BuyOrders" EntityType="Self.CarppiGrocery_BuyOrders" />
+          <EntitySet Name="CarppiGrocery_Mensajes" EntityType="Self.CarppiGrocery_Mensajes" />
+          <EntitySet Name="CarppiGrocery_Productos" EntityType="Self.CarppiGrocery_Productos" />
+          <EntitySet Name="CarppiGrocery_Regiones" EntityType="Self.CarppiGrocery_Regiones" />
+          <EntitySet Name="CarppiGrocery_Repartidores" EntityType="Self.CarppiGrocery_Repartidores" />
+          <EntitySet Name="CarppiRegiones" EntityType="Self.CarppiRegiones" />
+          <EntitySet Name="CarppiRequestForDrive" EntityType="Self.CarppiRequestForDrive" />
+          <EntitySet Name="CarppiRestaurant_BuyOrders" EntityType="Self.CarppiRestaurant_BuyOrders" />
+          <EntitySet Name="CarppiREstaurant_MensajesClienteRestaurante" EntityType="Self.CarppiREstaurant_MensajesClienteRestaurante" />
+          <EntitySet Name="CarppiRestaurant_MensajesRepartidorCliente" EntityType="Self.CarppiRestaurant_MensajesRepartidorCliente" />
+          <EntitySet Name="CarppiRestaurant_MensajesRepartidorRestaurante" EntityType="Self.CarppiRestaurant_MensajesRepartidorRestaurante" />
+          <EntitySet Name="Coches_en_renta" EntityType="Self.Coches_en_renta" />
+          <EntitySet Name="Dispositivos" EntityType="Self.Dispositivos" />
+          <EntitySet Name="Fotos_de_coches" EntityType="Self.Fotos_de_coches" />
+          <EntitySet Name="GenInstruccionesAccesos" EntityType="Self.GenInstruccionesAccesos" />
+          <EntitySet Name="Lease_FotosPublicacion" EntityType="Self.Lease_FotosPublicacion" />
+          <EntitySet Name="Lease_Interrutores" EntityType="Self.Lease_Interrutores" />
+          <EntitySet Name="Lease_Publicaciones" EntityType="Self.Lease_Publicaciones" />
+          <EntitySet Name="Local_" EntityType="Self.Local_" />
+          <EntitySet Name="ObligatoriOptionsList" EntityType="Self.ObligatoriOptionsList" />
+          <EntitySet Name="OpcionalOptionsList" EntityType="Self.OpcionalOptionsList" />
+          <EntitySet Name="OptionalChoice" EntityType="Self.OptionalChoice" />
+          <EntitySet Name="Pos_Fotos_productos" EntityType="Self.Pos_Fotos_productos" />
+          <EntitySet Name="PosUsers" EntityType="Self.PosUsers" />
+          <EntitySet Name="Prestamos_Monedas" EntityType="Self.Prestamos_Monedas" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="Traveler_Perfil" EntityType="Self.Traveler_Perfil" />
+          <EntitySet Name="Traveler_SolicitudDeViajeTemporal" EntityType="Self.Traveler_SolicitudDeViajeTemporal" />
+          <EntitySet Name="Traveler_Viajes" EntityType="Self.Traveler_Viajes" />
+          <EntitySet Name="Traveler_Viajes_historial" EntityType="Self.Traveler_Viajes_historial" />
+          <EntitySet Name="Travelers_Grupos_de_Conversacion" EntityType="Self.Travelers_Grupos_de_Conversacion" />
+          <EntitySet Name="Travelers_Integrantes_Grupos_de_Conversacion" EntityType="Self.Travelers_Integrantes_Grupos_de_Conversacion" />
+          <EntitySet Name="Travelers_Mensajes_Grupos_de_Conversacion" EntityType="Self.Travelers_Mensajes_Grupos_de_Conversacion" />
+          <EntitySet Name="Trayectorias_geoloc" EntityType="Self.Trayectorias_geoloc" />
+          <EntitySet Name="UrbanCabDrivers" EntityType="Self.UrbanCabDrivers" />
+          <EntitySet Name="UrbanCabNewTrip" EntityType="Self.UrbanCabNewTrip" />
+          <EntitySet Name="UrbanCabPassengers" EntityType="Self.UrbanCabPassengers" />
+          <EntitySet Name="UrbanCabTripRequest" EntityType="Self.UrbanCabTripRequest" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" />
+          <EntitySet Name="Ventas_lista" EntityType="Self.Ventas_lista" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PidgeonModelStoreContainer" CdmEntityContainer="PidgeonEntities">
+          <EntitySetMapping Name="Carppi_ComentariosHaciaElPerfil">
+            <EntityTypeMapping TypeName="PidgeonModel.Carppi_ComentariosHaciaElPerfil">
+              <MappingFragment StoreEntitySet="Carppi_ComentariosHaciaElPerfil">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="FaceID_OfComentedFolk" ColumnName="FaceID_OfComentedFolk" />
+                <ScalarProperty Name="FaceID_OfRater" ColumnName="FaceID_OfRater" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carppi_IndicesdeRestaurantes">
+            <EntityTypeMapping TypeName="PidgeonModel.Carppi_IndicesdeRestaurantes">
+              <MappingFragment StoreEntitySet="Carppi_IndicesdeRestaurantes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+                <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+                <ScalarProperty Name="contextualVailidationNumber" ColumnName="contextualVailidationNumber" />
+                <ScalarProperty Name="TypeOfStore" ColumnName="TypeOfStore" />
+                <ScalarProperty Name="CarppiHash" ColumnName="CarppiHash" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="VerificacionDecuenta" ColumnName="VerificacionDecuenta" />
+                <ScalarProperty Name="RegistroValidado" ColumnName="RegistroValidado" />
+                <ScalarProperty Name="EstaAbierto" ColumnName="EstaAbierto" />
+                <ScalarProperty Name="Categorias" ColumnName="Categorias" />
+                <ScalarProperty Name="Categoriasbitfield" ColumnName="Categoriasbitfield" />
+                <ScalarProperty Name="IsATestRestaurant" ColumnName="IsATestRestaurant" />
+                <ScalarProperty Name="TimeZoneID" ColumnName="TimeZoneID" />
+                <ScalarProperty Name="SaturdayOpenningSchedule" ColumnName="SaturdayOpenningSchedule" />
+                <ScalarProperty Name="MondayOpenningSchedule" ColumnName="MondayOpenningSchedule" />
+                <ScalarProperty Name="TuesdayOpenningSchedule" ColumnName="TuesdayOpenningSchedule" />
+                <ScalarProperty Name="WednesdayOpenningSchedule" ColumnName="WednesdayOpenningSchedule" />
+                <ScalarProperty Name="ThursDayOpenningSchedule" ColumnName="ThursDayOpenningSchedule" />
+                <ScalarProperty Name="FridayOpenningSchedule" ColumnName="FridayOpenningSchedule" />
+                <ScalarProperty Name="SunDayOpenningSchedule" ColumnName="SunDayOpenningSchedule" />
+                <ScalarProperty Name="StripeAccount" ColumnName="StripeAccount" />
+                <ScalarProperty Name="StripeHash" ColumnName="StripeHash" />
+                <ScalarProperty Name="DebtToRestaurant" ColumnName="DebtToRestaurant" />
+                <ScalarProperty Name="WebsitePasword" ColumnName="WebsitePasword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carppi_MensajesRideshare">
+            <EntityTypeMapping TypeName="PidgeonModel.Carppi_MensajesRideshare">
+              <MappingFragment StoreEntitySet="Carppi_MensajesRideshare">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+                <ScalarProperty Name="Leido" ColumnName="Leido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carppi_ProductosPorRestaurantes">
+            <EntityTypeMapping TypeName="PidgeonModel.Carppi_ProductosPorRestaurantes">
+              <MappingFragment StoreEntitySet="Carppi_ProductosPorRestaurantes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDdRestaurante" ColumnName="IDdRestaurante" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+                <ScalarProperty Name="ComprasDelProducto" ColumnName="ComprasDelProducto" />
+                <ScalarProperty Name="HasOptionsToSelect" ColumnName="HasOptionsToSelect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiConductoresRideShare">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiConductoresRideShare">
+              <MappingFragment StoreEntitySet="CarppiConductoresRideShare">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="ApellidoUsuario" ColumnName="ApellidoUsuario" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+                <ScalarProperty Name="StripeDriverID" ColumnName="StripeDriverID" />
+                <ScalarProperty Name="FaceBookProfileId" ColumnName="FaceBookProfileId" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Viajes" ColumnName="Viajes" />
+                <ScalarProperty Name="TripID" ColumnName="TripID" />
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+                <ScalarProperty Name="Reseñas" ColumnName="Reseñas" />
+                <ScalarProperty Name="LatitudActual" ColumnName="LatitudActual" />
+                <ScalarProperty Name="LongitudActual" ColumnName="LongitudActual" />
+                <ScalarProperty Name="LatitudObjetivo" ColumnName="LatitudObjetivo" />
+                <ScalarProperty Name="LongitudObjetivo" ColumnName="LongitudObjetivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiGrocery_BuyOrders">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiGrocery_BuyOrders">
+              <MappingFragment StoreEntitySet="CarppiGrocery_BuyOrders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="paymentIntent" ColumnName="paymentIntent" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Stat" ColumnName="Stat" />
+                <ScalarProperty Name="ListaDeProductos" ColumnName="ListaDeProductos" />
+                <ScalarProperty Name="Latitud_Repartidor" ColumnName="Latitud_Repartidor" />
+                <ScalarProperty Name="Longitud_Repartidor" ColumnName="Longitud_Repartidor" />
+                <ScalarProperty Name="FaceIDRepartidor_Repartidor" ColumnName="FaceIDRepartidor_Repartidor" />
+                <ScalarProperty Name="FaceIDRepartidor_RepartidorCadena" ColumnName="FaceIDRepartidor_RepartidorCadena" />
+                <ScalarProperty Name="NombreDelUsuario" ColumnName="NombreDelUsuario" />
+                <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiGrocery_Mensajes">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiGrocery_Mensajes">
+              <MappingFragment StoreEntitySet="CarppiGrocery_Mensajes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+                <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+                <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+                <ScalarProperty Name="Leido" ColumnName="Leido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiGrocery_Productos">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiGrocery_Productos">
+              <MappingFragment StoreEntitySet="CarppiGrocery_Productos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiGrocery_Regiones">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiGrocery_Regiones">
+              <MappingFragment StoreEntitySet="CarppiGrocery_Regiones">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiGrocery_Repartidores">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiGrocery_Repartidores">
+              <MappingFragment StoreEntitySet="CarppiGrocery_Repartidores">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FaceID_Repartidor" ColumnName="FaceID_Repartidor" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+                <ScalarProperty Name="StripeDeliverID" ColumnName="StripeDeliverID" />
+                <ScalarProperty Name="Foto_repartidor" ColumnName="Foto_repartidor" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="IsAvailableForDeliver" ColumnName="IsAvailableForDeliver" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Rating_double" ColumnName="Rating_double" />
+                <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca_Vehiculo" />
+                <ScalarProperty Name="Modelo_Vehiculo" ColumnName="Modelo_Vehiculo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="FotoDelVehiculo_ByteArray" ColumnName="FotoDelVehiculo_ByteArray" />
+                <ScalarProperty Name="UltimoComentario" ColumnName="UltimoComentario" />
+                <ScalarProperty Name="DebtToDeliverMan" ColumnName="DebtToDeliverMan" />
+                <ScalarProperty Name="LastTimeOfLogin" ColumnName="LastTimeOfLogin" />
+                <ScalarProperty Name="MonetMadeByDeliverMan" ColumnName="MonetMadeByDeliverMan" />
+                <ScalarProperty Name="StripeHash" ColumnName="StripeHash" />
+                <ScalarProperty Name="FleetManagerHash" ColumnName="FleetManagerHash" />
+                <ScalarProperty Name="ValidationCode" ColumnName="ValidationCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiRegiones">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiRegiones">
+              <MappingFragment StoreEntitySet="CarppiRegiones">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="LatitudCentroide" ColumnName="LatitudCentroide" />
+                <ScalarProperty Name="LongitudCentroide" ColumnName="LongitudCentroide" />
+                <ScalarProperty Name="ServicioRegional" ColumnName="ServicioRegional" />
+                <ScalarProperty Name="Radio" ColumnName="Radio" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="CountryCoin" ColumnName="CountryCoin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiRequestForDrive">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiRequestForDrive">
+              <MappingFragment StoreEntitySet="CarppiRequestForDrive">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FaceIDDriver" ColumnName="FaceIDDriver" />
+                <ScalarProperty Name="FaceIDPassenger" ColumnName="FaceIDPassenger" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Stat" ColumnName="Stat" />
+                <ScalarProperty Name="LatitudViajePendiente" ColumnName="LatitudViajePendiente" />
+                <ScalarProperty Name="LongitudViajePendiente" ColumnName="LongitudViajePendiente" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="NameOfRequester" ColumnName="NameOfRequester" />
+                <ScalarProperty Name="NameOfPlace" ColumnName="NameOfPlace" />
+                <ScalarProperty Name="PaymentIntentID" ColumnName="PaymentIntentID" />
+                <ScalarProperty Name="IsRequestNotTimedOut" ColumnName="IsRequestNotTimedOut" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="OriginOfRequest_Latitude" ColumnName="OriginOfRequest_Latitude" />
+                <ScalarProperty Name="OriginOfRequest_Longitude" ColumnName="OriginOfRequest_Longitude" />
+                <ScalarProperty Name="GenderSearch" ColumnName="GenderSearch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiRestaurant_BuyOrders">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiRestaurant_BuyOrders">
+              <MappingFragment StoreEntitySet="CarppiRestaurant_BuyOrders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="paymentIntent" ColumnName="paymentIntent" />
+                <ScalarProperty Name="LatitudPeticion" ColumnName="LatitudPeticion" />
+                <ScalarProperty Name="LongitudPeticion" ColumnName="LongitudPeticion" />
+                <ScalarProperty Name="LatitudRestaurante" ColumnName="LatitudRestaurante" />
+                <ScalarProperty Name="LongitudRestaurante" ColumnName="LongitudRestaurante" />
+                <ScalarProperty Name="LatitudRepartidor" ColumnName="LatitudRepartidor" />
+                <ScalarProperty Name="LongitudRepartidor" ColumnName="LongitudRepartidor" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Stat" ColumnName="Stat" />
+                <ScalarProperty Name="RestaurantHash" ColumnName="RestaurantHash" />
+                <ScalarProperty Name="NombreDelRestaurante" ColumnName="NombreDelRestaurante" />
+                <ScalarProperty Name="NombreDelUsuario" ColumnName="NombreDelUsuario" />
+                <ScalarProperty Name="ListaDeProductos" ColumnName="ListaDeProductos" />
+                <ScalarProperty Name="FaceIDRepartidor_RepartidorCadena" ColumnName="FaceIDRepartidor_RepartidorCadena" />
+                <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+                <ScalarProperty Name="RestaurantToDisplayOrders" ColumnName="RestaurantToDisplayOrders" />
+                <ScalarProperty Name="ReparidorEnElAreaDelRestaurante" ColumnName="ReparidorEnElAreaDelRestaurante" />
+                <ScalarProperty Name="ReparidorEnElAreaDelCliente" ColumnName="ReparidorEnElAreaDelCliente" />
+                <ScalarProperty Name="CostoDeTransporte" ColumnName="CostoDeTransporte" />
+                <ScalarProperty Name="TarifaDelServicio" ColumnName="TarifaDelServicio" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="TimeOfCreation" ColumnName="TimeOfCreation" />
+                <ScalarProperty Name="StripeChargeID" ColumnName="StripeChargeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiREstaurant_MensajesClienteRestaurante">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiREstaurant_MensajesClienteRestaurante">
+              <MappingFragment StoreEntitySet="CarppiREstaurant_MensajesClienteRestaurante">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+                <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+                <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+                <ScalarProperty Name="Leido" ColumnName="Leido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiRestaurant_MensajesRepartidorCliente">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiRestaurant_MensajesRepartidorCliente">
+              <MappingFragment StoreEntitySet="CarppiRestaurant_MensajesRepartidorCliente">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+                <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+                <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+                <ScalarProperty Name="Leido" ColumnName="Leido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarppiRestaurant_MensajesRepartidorRestaurante">
+            <EntityTypeMapping TypeName="PidgeonModel.CarppiRestaurant_MensajesRepartidorRestaurante">
+              <MappingFragment StoreEntitySet="CarppiRestaurant_MensajesRepartidorRestaurante">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+                <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+                <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+                <ScalarProperty Name="Leido" ColumnName="Leido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coches_en_renta">
+            <EntityTypeMapping TypeName="PidgeonModel.Coches_en_renta">
+              <MappingFragment StoreEntitySet="Coches_en_renta">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Arrendatario" ColumnName="Arrendatario" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+                <ScalarProperty Name="Relacion_base_fotografias" ColumnName="Relacion_base_fotografias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dispositivos">
+            <EntityTypeMapping TypeName="PidgeonModel.Dispositivos">
+              <MappingFragment StoreEntitySet="Dispositivos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Fecha_Activacion" ColumnName="Fecha_Activacion" />
+                <ScalarProperty Name="Fecha_Fin_Contrato" ColumnName="Fecha_Fin_Contrato" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Vigente" ColumnName="Vigente" />
+                <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fotos_de_coches">
+            <EntityTypeMapping TypeName="PidgeonModel.Fotos_de_coches">
+              <MappingFragment StoreEntitySet="Fotos_de_coches">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id_de_publicacion" ColumnName="Id_de_publicacion" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Indicie_de_foto" ColumnName="Indicie_de_foto" />
+                <ScalarProperty Name="indice_de_foto_temporal" ColumnName="indice_de_foto_temporal" />
+                <ScalarProperty Name="cadena_de_foto_temporal" ColumnName="cadena_de_foto_temporal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenInstruccionesAccesos">
+            <EntityTypeMapping TypeName="PidgeonModel.GenInstruccionesAccesos">
+              <MappingFragment StoreEntitySet="GenInstruccionesAccesos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+                <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+                <ScalarProperty Name="instruccion" ColumnName="instruccion" />
+                <ScalarProperty Name="leido" ColumnName="leido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lease_FotosPublicacion">
+            <EntityTypeMapping TypeName="PidgeonModel.Lease_FotosPublicacion">
+              <MappingFragment StoreEntitySet="Lease_FotosPublicacion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id_de_la_publicacion" ColumnName="Id_de_la_publicacion" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lease_Interrutores">
+            <EntityTypeMapping TypeName="PidgeonModel.Lease_Interrutores">
+              <MappingFragment StoreEntitySet="Lease_Interrutores">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Casa" ColumnName="Casa" />
+                <ScalarProperty Name="Habitacion" ColumnName="Habitacion" />
+                <ScalarProperty Name="Indice" ColumnName="Indice" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Instruccion" ColumnName="Instruccion" />
+                <ScalarProperty Name="Es_Dimmer" ColumnName="Es_Dimmer" />
+                <ScalarProperty Name="Porcentaje_dimming" ColumnName="Porcentaje_dimming" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lease_Publicaciones">
+            <EntityTypeMapping TypeName="PidgeonModel.Lease_Publicaciones">
+              <MappingFragment StoreEntitySet="Lease_Publicaciones">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Cuartos" ColumnName="Cuartos" />
+                <ScalarProperty Name="Banos" ColumnName="Banos" />
+                <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+                <ScalarProperty Name="Perfil_de_publicacion" ColumnName="Perfil_de_publicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Local_">
+            <EntityTypeMapping TypeName="PidgeonModel.Local_">
+              <MappingFragment StoreEntitySet="Local_">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tendero" ColumnName="Tendero" />
+                <ScalarProperty Name="Indice_de_local" ColumnName="Indice_de_local" />
+                <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObligatoriOptionsList">
+            <EntityTypeMapping TypeName="PidgeonModel.ObligatoriOptionsList">
+              <MappingFragment StoreEntitySet="ObligatoriOptionsList">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDdelProducto" ColumnName="IDdelProducto" />
+                <ScalarProperty Name="NombreDelConjunto" ColumnName="NombreDelConjunto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpcionalOptionsList">
+            <EntityTypeMapping TypeName="PidgeonModel.OpcionalOptionsList">
+              <MappingFragment StoreEntitySet="OpcionalOptionsList">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDdelProducto" ColumnName="IDdelProducto" />
+                <ScalarProperty Name="NombreDelConjunto" ColumnName="NombreDelConjunto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OptionalChoice">
+            <EntityTypeMapping TypeName="PidgeonModel.OptionalChoice">
+              <MappingFragment StoreEntitySet="OptionalChoice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDdelProducto" ColumnName="IDdelProducto" />
+                <ScalarProperty Name="IDdelConjunto" ColumnName="IDdelConjunto" />
+                <ScalarProperty Name="EsPersonal" ColumnName="EsPersonal" />
+                <ScalarProperty Name="OptionHash" ColumnName="OptionHash" />
+                <ScalarProperty Name="CostoExtra" ColumnName="CostoExtra" />
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pos_Fotos_productos">
+            <EntityTypeMapping TypeName="PidgeonModel.Pos_Fotos_productos">
+              <MappingFragment StoreEntitySet="Pos_Fotos_productos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_de_producto" ColumnName="ID_de_producto" />
+                <ScalarProperty Name="Foto_de_Producto" ColumnName="Foto_de_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosUsers">
+            <EntityTypeMapping TypeName="PidgeonModel.PosUsers">
+              <MappingFragment StoreEntitySet="PosUsers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prestamos_Monedas">
+            <EntityTypeMapping TypeName="PidgeonModel.Prestamos_Monedas">
+              <MappingFragment StoreEntitySet="Prestamos_Monedas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+                <ScalarProperty Name="Billetera" ColumnName="Billetera" />
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="PidgeonModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre_de_producto" ColumnName="Nombre_de_producto" />
+                <ScalarProperty Name="Existencias" ColumnName="Existencias" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_de_la_tienda" ColumnName="Id_de_la_tienda" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traveler_Perfil">
+            <EntityTypeMapping TypeName="PidgeonModel.Traveler_Perfil">
+              <MappingFragment StoreEntitySet="Traveler_Perfil">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre_usuario" ColumnName="Nombre_usuario" />
+                <ScalarProperty Name="Numero_de_telefono" ColumnName="Numero_de_telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Resenas" ColumnName="Resenas" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Telefono_verificado" ColumnName="Telefono_verificado" />
+                <ScalarProperty Name="Stripe_id" ColumnName="Stripe_id" />
+                <ScalarProperty Name="Facebook_profile_id" ColumnName="Facebook_profile_id" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Viaje_asociado" ColumnName="Viaje_asociado" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="pidiendo_viaje" ColumnName="pidiendo_viaje" />
+                <ScalarProperty Name="Latitud_un_decimal" ColumnName="Latitud_un_decimal" />
+                <ScalarProperty Name="Longitud_un_decimal" ColumnName="Longitud_un_decimal" />
+                <ScalarProperty Name="TarjetaValidada" ColumnName="TarjetaValidada" />
+                <ScalarProperty Name="IdentidadComprobada" ColumnName="IdentidadComprobada" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+                <ScalarProperty Name="StripeClientID" ColumnName="StripeClientID" />
+                <ScalarProperty Name="StripeDriverID" ColumnName="StripeDriverID" />
+                <ScalarProperty Name="BusquedaGuardada_Latitud_salida" ColumnName="BusquedaGuardada_Latitud_salida" />
+                <ScalarProperty Name="BusquedaGuardada_Longitud_salida" ColumnName="BusquedaGuardada_Longitud_salida" />
+                <ScalarProperty Name="BusquedaGuardada_Latitud_Llegada" ColumnName="BusquedaGuardada_Latitud_Llegada" />
+                <ScalarProperty Name="BusquedaGuardada_Longitud_Llegada" ColumnName="BusquedaGuardada_Longitud_Llegada" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Rating_double" ColumnName="Rating_double" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LatitudObjetivoRideSharer" ColumnName="LatitudObjetivoRideSharer" />
+                <ScalarProperty Name="LongitudObjetivoRideSharer" ColumnName="LongitudObjetivoRideSharer" />
+                <ScalarProperty Name="StripeLastPaymentIntent" ColumnName="StripeLastPaymentIntent" />
+                <ScalarProperty Name="StripeLastPaymentIntent_ID" ColumnName="StripeLastPaymentIntent_ID" />
+                <ScalarProperty Name="Foto_ByteArray" ColumnName="Foto_ByteArray" />
+                <ScalarProperty Name="FotoDelVehiculo_ByteArray" ColumnName="FotoDelVehiculo_ByteArray" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Modelo_Vehiculo" ColumnName="Modelo_Vehiculo" />
+                <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca_Vehiculo" />
+                <ScalarProperty Name="Color_Vehiculo" ColumnName="Color_Vehiculo" />
+                <ScalarProperty Name="hasConfirmedGender" ColumnName="hasConfirmedGender" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="IsUserADriver" ColumnName="IsUserADriver" />
+                <ScalarProperty Name="Region_ReparticionDeAlimentos" ColumnName="Region_ReparticionDeAlimentos" />
+                <ScalarProperty Name="IsFirstOrder" ColumnName="IsFirstOrder" />
+                <ScalarProperty Name="IsUserAJoker" ColumnName="IsUserAJoker" />
+                <ScalarProperty Name="AmountOfJoke" ColumnName="AmountOfJoke" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traveler_SolicitudDeViajeTemporal">
+            <EntityTypeMapping TypeName="PidgeonModel.Traveler_SolicitudDeViajeTemporal">
+              <MappingFragment StoreEntitySet="Traveler_SolicitudDeViajeTemporal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Face_id_solicitante" ColumnName="Face_id_solicitante" />
+                <ScalarProperty Name="Estado_De_solicitud" ColumnName="Estado_De_solicitud" />
+                <ScalarProperty Name="Id_del_viaje" ColumnName="Id_del_viaje" />
+                <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+                <ScalarProperty Name="MoneyOwnedToDriver" ColumnName="MoneyOwnedToDriver" />
+                <ScalarProperty Name="PaymentIntentID" ColumnName="PaymentIntentID" />
+                <ScalarProperty Name="StripeCharge" ColumnName="StripeCharge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traveler_Viajes">
+            <EntityTypeMapping TypeName="PidgeonModel.Traveler_Viajes">
+              <MappingFragment StoreEntitySet="Traveler_Viajes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+                <ScalarProperty Name="Destino" ColumnName="Destino" />
+                <ScalarProperty Name="Kilometros" ColumnName="Kilometros" />
+                <ScalarProperty Name="Tiempo_estimado" ColumnName="Tiempo_estimado" />
+                <ScalarProperty Name="Vehiculo" ColumnName="Vehiculo" />
+                <ScalarProperty Name="Fecha_y_hora" ColumnName="Fecha_y_hora" />
+                <ScalarProperty Name="asientos_disponibles" ColumnName="asientos_disponibles" />
+                <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+                <ScalarProperty Name="En_curso" ColumnName="En_curso" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Estado_del_viaje" ColumnName="Estado_del_viaje" />
+                <ScalarProperty Name="FaceIdDelConductor" ColumnName="FaceIdDelConductor" />
+                <ScalarProperty Name="Latitud_destino" ColumnName="Latitud_destino" />
+                <ScalarProperty Name="Longitud_destino" ColumnName="Longitud_destino" />
+                <ScalarProperty Name="TimeData" ColumnName="TimeData" />
+                <ScalarProperty Name="Costo_po_Usuario" ColumnName="Costo_po_Usuario" />
+                <ScalarProperty Name="Viaje_Periodico" ColumnName="Viaje_Periodico" />
+                <ScalarProperty Name="Asientos_Totales" ColumnName="Asientos_Totales" />
+                <ScalarProperty Name="Conductor_a_asociado_su_tarjeta" ColumnName="Conductor_a_asociado_su_tarjeta" />
+                <ScalarProperty Name="PaisOrigen" ColumnName="PaisOrigen" />
+                <ScalarProperty Name="PaisDestino" ColumnName="PaisDestino" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="Privado" ColumnName="Privado" />
+                <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+                <ScalarProperty Name="DiaDeViaje" ColumnName="DiaDeViaje" />
+                <ScalarProperty Name="MesDeViaje" ColumnName="MesDeViaje" />
+                <ScalarProperty Name="AnoDeViaje" ColumnName="AnoDeViaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traveler_Viajes_historial">
+            <EntityTypeMapping TypeName="PidgeonModel.Traveler_Viajes_historial">
+              <MappingFragment StoreEntitySet="Traveler_Viajes_historial">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+                <ScalarProperty Name="Destino" ColumnName="Destino" />
+                <ScalarProperty Name="Kilometros" ColumnName="Kilometros" />
+                <ScalarProperty Name="Tiempo_estimado" ColumnName="Tiempo_estimado" />
+                <ScalarProperty Name="Fecha_y_hora" ColumnName="Fecha_y_hora" />
+                <ScalarProperty Name="Pasajeros_numero" ColumnName="Pasajeros_numero" />
+                <ScalarProperty Name="Pasajeros_IDS" ColumnName="Pasajeros_IDS" />
+                <ScalarProperty Name="FaceIdDelConductor" ColumnName="FaceIdDelConductor" />
+                <ScalarProperty Name="TimeData" ColumnName="TimeData" />
+                <ScalarProperty Name="Costo_por_Usuario" ColumnName="Costo_por_Usuario" />
+                <ScalarProperty Name="CobroPorPasajero" ColumnName="CobroPorPasajero" />
+                <ScalarProperty Name="GananciaConductor" ColumnName="GananciaConductor" />
+                <ScalarProperty Name="GananciaCarppi" ColumnName="GananciaCarppi" />
+                <ScalarProperty Name="ComicionMotorPago" ColumnName="ComicionMotorPago" />
+                <ScalarProperty Name="PasajerosQuePagaronConTarjeta" ColumnName="PasajerosQuePagaronConTarjeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Travelers_Grupos_de_Conversacion">
+            <EntityTypeMapping TypeName="PidgeonModel.Travelers_Grupos_de_Conversacion">
+              <MappingFragment StoreEntitySet="Travelers_Grupos_de_Conversacion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AliasConversacion" ColumnName="AliasConversacion" />
+                <ScalarProperty Name="FaceIdDeConductor" ColumnName="FaceIdDeConductor" />
+                <ScalarProperty Name="FaceIdDePasajero" ColumnName="FaceIdDePasajero" />
+                <ScalarProperty Name="IsGroupConversation" ColumnName="IsGroupConversation" />
+                <ScalarProperty Name="HasDriverSeenIt" ColumnName="HasDriverSeenIt" />
+                <ScalarProperty Name="HaspassengerSeenIt" ColumnName="HaspassengerSeenIt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Travelers_Integrantes_Grupos_de_Conversacion">
+            <EntityTypeMapping TypeName="PidgeonModel.Travelers_Integrantes_Grupos_de_Conversacion">
+              <MappingFragment StoreEntitySet="Travelers_Integrantes_Grupos_de_Conversacion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id_de_conversacion" ColumnName="Id_de_conversacion" />
+                <ScalarProperty Name="FaceIdDeIntegrante" ColumnName="FaceIdDeIntegrante" />
+                <ScalarProperty Name="IsGroupAdministrator" ColumnName="IsGroupAdministrator" />
+                <ScalarProperty Name="HasSeenMesageInGroup" ColumnName="HasSeenMesageInGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Travelers_Mensajes_Grupos_de_Conversacion">
+            <EntityTypeMapping TypeName="PidgeonModel.Travelers_Mensajes_Grupos_de_Conversacion">
+              <MappingFragment StoreEntitySet="Travelers_Mensajes_Grupos_de_Conversacion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id_de_conversacion" ColumnName="Id_de_conversacion" />
+                <ScalarProperty Name="FaceIdDeConductor" ColumnName="FaceIdDeConductor" />
+                <ScalarProperty Name="FaceIdDePasajero" ColumnName="FaceIdDePasajero" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="MensajeGrupal" ColumnName="MensajeGrupal" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+                <ScalarProperty Name="Leido" ColumnName="Leido" />
+                <ScalarProperty Name="NameOfSender" ColumnName="NameOfSender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trayectorias_geoloc">
+            <EntityTypeMapping TypeName="PidgeonModel.Trayectorias_geoloc">
+              <MappingFragment StoreEntitySet="Trayectorias_geoloc">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrbanCabDrivers">
+            <EntityTypeMapping TypeName="PidgeonModel.UrbanCabDrivers">
+              <MappingFragment StoreEntitySet="UrbanCabDrivers">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="StripeID" ColumnName="StripeID" />
+                <ScalarProperty Name="OpenPayID" ColumnName="OpenPayID" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="clabe" ColumnName="clabe" />
+                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+                <ScalarProperty Name="Identidad_validada" ColumnName="Identidad_validada" />
+                <ScalarProperty Name="Numero_validado" ColumnName="Numero_validado" />
+                <ScalarProperty Name="Correo_validado" ColumnName="Correo_validado" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="FaceID" ColumnName="FaceID" />
+                <ScalarProperty Name="AvailableToDrive" ColumnName="AvailableToDrive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrbanCabNewTrip">
+            <EntityTypeMapping TypeName="PidgeonModel.UrbanCabNewTrip">
+              <MappingFragment StoreEntitySet="UrbanCabNewTrip">
+                <ScalarProperty Name="TripRequestNumberID" ColumnName="TripRequestNumberID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Latitud_Origen" ColumnName="Latitud_Origen" />
+                <ScalarProperty Name="Longitud_Origen" ColumnName="Longitud_Origen" />
+                <ScalarProperty Name="Latitud_Actual" ColumnName="Latitud_Actual" />
+                <ScalarProperty Name="Longitud_Actual" ColumnName="Longitud_Actual" />
+                <ScalarProperty Name="Latitud_Destino" ColumnName="Latitud_Destino" />
+                <ScalarProperty Name="Longitud_Destino" ColumnName="Longitud_Destino" />
+                <ScalarProperty Name="PrecioSugerido" ColumnName="PrecioSugerido" />
+                <ScalarProperty Name="Distancia" ColumnName="Distancia" />
+                <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Aceptado" ColumnName="Aceptado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrbanCabPassengers">
+            <EntityTypeMapping TypeName="PidgeonModel.UrbanCabPassengers">
+              <MappingFragment StoreEntitySet="UrbanCabPassengers">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="StripeID" ColumnName="StripeID" />
+                <ScalarProperty Name="OpenPayID" ColumnName="OpenPayID" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="clabe" ColumnName="clabe" />
+                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+                <ScalarProperty Name="Identidad_validada" ColumnName="Identidad_validada" />
+                <ScalarProperty Name="Numero_validado" ColumnName="Numero_validado" />
+                <ScalarProperty Name="Correo_validado" ColumnName="Correo_validado" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="FaceID" ColumnName="FaceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrbanCabTripRequest">
+            <EntityTypeMapping TypeName="PidgeonModel.UrbanCabTripRequest">
+              <MappingFragment StoreEntitySet="UrbanCabTripRequest">
+                <ScalarProperty Name="TripRequestNumberID" ColumnName="TripRequestNumberID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="Latitud_Origen" ColumnName="Latitud_Origen" />
+                <ScalarProperty Name="Longitud_Origen" ColumnName="Longitud_Origen" />
+                <ScalarProperty Name="Latitud_Destino" ColumnName="Latitud_Destino" />
+                <ScalarProperty Name="Longitud_Destino" ColumnName="Longitud_Destino" />
+                <ScalarProperty Name="PrecioSugerido" ColumnName="PrecioSugerido" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Aceptado" ColumnName="Aceptado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="PidgeonModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Numero_de_telefono" ColumnName="Numero_de_telefono" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="firebase_token" ColumnName="firebase_token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="PidgeonModel.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tendero" ColumnName="Tendero" />
+                <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas_lista">
+            <EntityTypeMapping TypeName="PidgeonModel.Ventas_lista">
+              <MappingFragment StoreEntitySet="Ventas_lista">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Indicie_recibo" ColumnName="Indicie_recibo" />
+                <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+                <ScalarProperty Name="articulo" ColumnName="articulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

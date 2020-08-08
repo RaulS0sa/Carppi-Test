@@ -10,6 +10,7 @@ public class WebInterfaceRestaurantOptions
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_RequestPermissions:()V:__export__\n" +
 			"n_ShowExtraOptionsOnDeliverManAwait:()V:__export__\n" +
 			"n_ShowOptionInOrderCreated:()V:__export__\n" +
 			"n_ShowExtraOptionsOnGroceryAwait:()V:__export__\n" +
@@ -35,6 +36,15 @@ public class WebInterfaceRestaurantOptions
 		if (getClass () == WebInterfaceRestaurantOptions.class)
 			mono.android.TypeManager.Activate ("Carppi.Fragments.WebInterfaceRestaurantOptions, Carppi", "Android.App.Activity, Mono.Android:Android.Webkit.WebView, Mono.Android", this, new java.lang.Object[] { p0, p1 });
 	}
+
+	@android.webkit.JavascriptInterface
+
+	public void RequestPermissions ()
+	{
+		n_RequestPermissions ();
+	}
+
+	private native void n_RequestPermissions ();
 
 	@android.webkit.JavascriptInterface
 

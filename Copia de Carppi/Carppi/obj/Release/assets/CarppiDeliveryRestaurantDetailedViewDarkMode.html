@@ -2242,15 +2242,50 @@
         </div>
 
     </section>
-    <seccion class="offer-dedicated-nav bg-white border-top-0 shadow-sm" style="background-color:#303030">
-        <div class="container" style="background-color:#303030">
-            <div class="row" style="background-color:#303030">
-                <div class="col-md-12" style="background-color:#303030">
-                    <div class="offer-dedicated-body-left" style="background-color:#303030">
-                        <div class="tab-content" style="background-color:#303030">
-                            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-order-online-tab" style="background-color:#303030">
-                                <div class="row rounded shadow-sm p-4 mb-4 explore-outlets" style="background-color:#303030">
-                                    <h6 class="DelizameTag" style="color:#999999">Deslizame!</h6>
+    <seccion class="offer-dedicated-nav bg-white border-top-0 shadow-sm" style="background-color:#303030;padding-bottom:0%">
+        <div class="container" style="background-color:#303030;padding-bottom:0%">
+            <div class="row" style="background-color:#303030;padding-bottom:0%">
+                <div class="col-md-9 col-sm-9" style="background-color:#303030;width:67%; padding-top:1%">
+                    <div class="explore-outlets-search mb-4" style="left:0px;width:100%">
+                        <div class="input-group">
+                            <input type="text" placeholder="Busca tu platillo!" class="form-control" id="DishToSearch">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-link">
+                                    <i class="icofont-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color:#303030;width:31%;left:0px;padding-top:1%">
+                    <!--
+                    <div class="col-lg-3 col-md-3 col-sm-3 form-group" style="width:100%">
+                        <div onclick="FullfillMainViewWithSearchBar();;  setTimeout(function () {
+                window.Android.SearchByText(document.getElementById('TextToSearch').value);
+            }, 1000);" class="btn btn-primary btn-block btn-lg btn-gradient">Buscar</div>
+                    
+                    </div>
+                    -->
+
+                    
+                    <div style="left:0px">
+                        <button class="btn btn-primary btn-block btn-lg btn-gradient" onclick="window.Android.SearchByItsNameInDetailedView(document.getElementById('DishToSearch').value)">Buscar</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </seccion>
+    <seccion class="offer-dedicated-nav bg-white border-top-0 shadow-sm" style="background-color:#303030;padding-top:0%">
+        <div class="container" style="background-color:#303030;padding-top:0%">
+            <div class="row" style="background-color:#303030;padding-top:0%">
+                <div class="col-md-12" style="background-color:#303030;padding-top:0%">
+                    <div class="offer-dedicated-body-left" style="background-color:#303030;padding-top:0%">
+                        <div class="tab-content" style="background-color:#303030;padding-top:0%">
+                            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-order-online-tab" style="background-color:#303030;padding-top:0%">
+                                <div class="row rounded shadow-sm p-4 mb-4 explore-outlets" style="background-color:#303030;padding-top:0%">
+
+                                    <h6 class="DelizameTag" style="color:#999999;padding-top:0%">Deslizame!</h6>
                                     <p style="background-color:#303030"></p>
                                     <div class="scrollmenu" style="background-color:#303030">
 
@@ -2490,7 +2525,7 @@
                 </div>
             </div>
         </div>
-        
+
 
     </seccion>
     <section class="offer-dedicated-nav bg-white border-top-0 shadow-sm" style="display:none;background-color:#303030">
@@ -3515,12 +3550,19 @@
                 for (var i = 0; i < botones.length; i++) {
 
 
-                    if (!ProductList.includes(botones[i].ExtraData.ID)) {
-                        // isExisting = true;
-
+                    if (!ProductList.includes(parseInt(botones[i].ButtonID))) {
+                        // isExisting = true
+                        botones[i].style.backgroundColor = "#FFF";
                         botones[i].innerHTML = "Añadir";
+                        botones[i].style.color = "#000";
 
 
+                    }
+                    else
+                    {
+                        botones[i].style.color = "#FFF";
+                        botones[i].style.backgroundColor = "#309950";
+                        botones[i].innerHTML = "Opciones";
                     }
 
 
@@ -3545,35 +3587,30 @@
 
                     var Container = document.getElementById('ProductDetailsID');
 
-
                     var Div_1 = document.createElement('div');
-                    //303030
-                    Div_1.style.cssText = "display:inline-block;min-width:" + (screen.availWidth * 0.4) + "px;max-width:" + (screen.availWidth * 0.9999) + "px;";
-
-
-                    Div_1.className = "col-md-4 col-sm-6 mb-4";
+                    Div_1.className = "mb-3";
+                    Div_1.style.backgroundColor = "#303030";
                     var Div_2 = document.createElement('div');
-                    Div_2.className = "list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm";
-                    Div_2.style.backgroundColor = "#303030"; 
+                    //Div_2.className = "list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm";
+                    Div_2.className = "shadow-sm";
+                    Div_2.style.backgroundColor = "#303030!important";
+                    Div_2.style.cssText = "overflow: hidden;margin: auto;box-shadow: 0 4px 8px 0 rgba(30,30,30,0.2);;background-color:#303030;margin: auto;width: " + (screen.width * 0.99) +"px;";
+
+
 
                     var Div_3 = document.createElement('div');
-                    Div_3.className = "list-card-image";
-                    Div_3.style.backgroundColor = "#303030"; 
-
-                    var Div_4 = document.createElement('div');
-                    Div_4.className = "member-plan position-absolute";
-                    Div_4.innerHTML = '<span class="badge badge-dark">Promocion</span>';
-                    Div_4.style.backgroundColor = "#303030"; 
-
+                    Div_3.style.backgroundColor = "#303030";
                     var img_1 = document.createElement('img');
                     img_1.className = "img-fluid item-img";
-                    img_1.style.cssText = 'width:auto;height:250px;min-width:99%';
-                    console.log(ProductData.Foto);
+                    Div_3.style.cssText = 'float: left;width:' + (screen.width * 0.30) +';min-width:' + (screen.width * 0.30) + 'px;max-width:' + (screen.width * 0.30) + 'px;min-height:' + (screen.width * 0.30) + 'px;max-height:' + (screen.width * 0.30) + 'px;';
+                    img_1.style.cssText = 'width:auto;min-width:' + (screen.width * 0.30) + 'px;max-width:' + (screen.width * 0.30) + 'px;min-height:' + (screen.width * 0.30) + 'px;max-height:' + (screen.width * 0.30) + 'px;';
+                    //console.log(ProductData.Foto);
                     img_1.src = "data:image/png;base64," + ProductData.Foto;
-                    img_1.style.backgroundColor = "#303030"; 
-
-                    Div_3.appendChild(Div_4);
+                    img_1.style.backgroundColor = "#303030";
                     Div_3.appendChild(img_1);
+
+
+                    //------------------------------------------------------
 
 
 
@@ -3581,12 +3618,14 @@
 
                     var Div_2_Data = document.createElement('div');
                     Div_2_Data.className = "p-3 position-relative";
-                    Div_2_Data.style.backgroundColor = "#303030"; 
-                    //Div_2_Data.innerHTML = '<span class="badge badge-dark">Promocion</span>';
+                    Div_2_Data.style.backgroundColor = "#303030";
+                    Div_2_Data.style.cssText = 'float: left;width:' + (screen.width * 0.6) +';min-width:' + (screen.width * 0.6) + 'px;max-width:' + (screen.width * 0.6) + 'px';
+
 
                     var Div_3_Data = document.createElement('div');
-                    Div_3_Data.className = "list-card-body";
-                    Div_3_Data.style.backgroundColor = "#303030"; 
+                   // Div_3_Data.className = "list-card-body";
+
+                    Div_3_Data.style.backgroundColor = "#303030";
 
                     var h6_Data = document.createElement('h6');
                     h6_Data.className = "mb-1";
@@ -3600,8 +3639,8 @@
 
                     var p2_Data = document.createElement('p');
                     p2_Data.className = "text-gray time mb-0";
-                    p2_Data.style.backgroundColor = "#303030"; 
-                    //p1_Data.innerHTML = ProductData.Nombre;
+                    p2_Data.style.backgroundColor = "#303030";
+
 
                     var Text_1_Data = document.createElement('div');
                     Text_1_Data.className = "btn btn-link btn-sm pl-0 text-black pr-0";
@@ -3611,7 +3650,113 @@
                     var Span_1_Data = document.createElement('span');
                     Span_1_Data.className = "float-right";
                     console.log(ProductData.ID);
-                    //Span_1_Data.innerHTML = '<div id="ItemID_' + ProductData.ID + '" class="btn btn-outline-secondary btn-sm" >Añadir</div>';
+
+
+                    var buttonDiv = document.createElement('div');
+                    buttonDiv.setAttribute("name", "ProductButton");
+                    buttonDiv.id = "ItemID_" + ProductData.ID;
+                    buttonDiv.className = "btn btn-outline-secondary btn-sm";
+                    buttonDiv.innerHTML = "Añadir";
+                    buttonDiv.ExtraData = ProductData;
+                    buttonDiv.ButtonID = ProductData.ID;
+                    buttonDiv.style.color = "black";
+                    buttonDiv.style.backgroundColor = "white";
+
+                    buttonDiv.addEventListener('click', function () {
+
+                        AddItemToShopingKart(this.ExtraData);
+                    });
+
+
+                    Span_1_Data.appendChild(buttonDiv);
+
+
+                    Span_1_Data.ExtraData = ProductData;
+
+                    Span_1_Data.ProductExtraData = ProductData;
+
+
+                    p2_Data.appendChild(Text_1_Data);
+                    p2_Data.appendChild(Span_1_Data);
+
+                    Div_3_Data.appendChild(h6_Data);
+                    Div_3_Data.appendChild(p1_Data);
+                    Div_3_Data.appendChild(p2_Data);
+                    Div_2_Data.appendChild(Div_3_Data);
+                    //-----------------------------------------------
+
+
+
+
+                    Div_2.appendChild(Div_3);
+                    Div_2.appendChild(Div_2_Data);
+                    Div_1.appendChild(Div_2);
+
+                    /*
+
+                    var Div_1 = document.createElement('div');
+                  
+                    Div_1.className = "col-md-4 col-sm-6 mb-4";
+                    var Div_2 = document.createElement('div');
+                    Div_2.className = "list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm";
+                    Div_2.style.backgroundColor = "#303030";
+
+                    var Div_3 = document.createElement('div');
+                    Div_3.className = "list-card-image";
+                    Div_3.style.backgroundColor = "#303030";
+
+                    var Div_4 = document.createElement('div');
+                    Div_4.className = "member-plan position-absolute";
+                    Div_4.innerHTML = '<span class="badge badge-dark">Promocion</span>';
+                    Div_4.style.backgroundColor = "#303030";
+
+                    var img_1 = document.createElement('img');
+                    img_1.className = "img-fluid item-img";
+                    img_1.style.cssText = 'width:auto;height:250px;min-width:99%';
+                    console.log(ProductData.Foto);
+                    img_1.src = "data:image/png;base64," + ProductData.Foto;
+                    img_1.style.backgroundColor = "#303030";
+
+                    Div_3.appendChild(Div_4);
+                    Div_3.appendChild(img_1);
+
+
+
+
+
+                    var Div_2_Data = document.createElement('div');
+                    Div_2_Data.className = "p-3 position-relative";
+                    Div_2_Data.style.backgroundColor = "#303030";
+                 
+
+                    var Div_3_Data = document.createElement('div');
+                    Div_3_Data.className = "list-card-body";
+                    Div_3_Data.style.backgroundColor = "#303030";
+
+                    var h6_Data = document.createElement('h6');
+                    h6_Data.className = "mb-1";
+                    h6_Data.innerHTML = ProductData.Nombre;
+                    h6_Data.style.color = "white";
+
+                    var p1_Data = document.createElement('p');
+                    p1_Data.className = "text-gray mb-2";
+                    p1_Data.innerHTML = ProductData.Descripcion;
+
+
+                    var p2_Data = document.createElement('p');
+                    p2_Data.className = "text-gray time mb-0";
+                    p2_Data.style.backgroundColor = "#303030";
+                 
+
+                    var Text_1_Data = document.createElement('div');
+                    Text_1_Data.className = "btn btn-link btn-sm pl-0 text-black pr-0";
+                    Text_1_Data.innerHTML = "$" + ProductData.Costo;
+                    Text_1_Data.style.color = "white";
+
+                    var Span_1_Data = document.createElement('span');
+                    Span_1_Data.className = "float-right";
+                    console.log(ProductData.ID);
+                 
 
                     var buttonDiv = document.createElement('div');
                     buttonDiv.setAttribute("name", "ProductButton");
@@ -3632,10 +3777,7 @@
 
 
                     Span_1_Data.ExtraData = ProductData;
-                    //Span_1_Data.nodeName = "ProductButton";
-                    //Span_1_Data.setAttribute("name", "ProductButton");
-
-
+                  
                     Span_1_Data.ProductExtraData = ProductData;
 
 
@@ -3657,9 +3799,10 @@
                     Div_2.appendChild(Div_2_Data);
 
                     Div_1.appendChild(Div_2);
+                    */
 
                     Container.appendChild(Div_1);
-                    // Container.appendChild(Div_2_Data);
+                   
 
                 }
             }
@@ -3702,6 +3845,15 @@
             //console.log(JSON.stringify(Data));
 
             try {
+                var button = document.getElementById("ItemID_" + Data.ID);
+                if (button.innerHTML == "Añadir") {
+                    window.Android.UpdateProductList(JSON.stringify(Data), 0);
+                }
+                else {
+                    window.Android.UpdateProductList(JSON.stringify(Data), 1);
+                }
+               
+                /*
                 var TExtCounter = document.getElementById('ShopingKartCounter');
                 var button = document.getElementById("ItemID_" + Data.ID);
                 console.log(Data.ID);
@@ -3716,6 +3868,7 @@
                     window.Android.UpdateProductList(JSON.stringify(Data), -1);
                 }
                 TExtCounter.innerHTML = " " + window.GlobalCounter;
+                */
             }
             catch (err) {
                 console.log(err);

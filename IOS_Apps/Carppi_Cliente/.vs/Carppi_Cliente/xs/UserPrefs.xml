@@ -1,61 +1,16 @@
 ﻿<Properties StartupConfiguration="{6FFF4A97-DD77-43A5-80EB-D645770C80CE}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Carppi_Cliente/MainViewJavasciptInterface/MAinViewJavascriptHandler.cs">
-    <Files>
-      <File FileName="../../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.iOS.Common.targets" Line="728" Column="3" />
-      <File FileName="Carppi_Cliente/Entitlements.plist" />
-      <File FileName="Carppi_Cliente/Views/RazorView.cshtml" />
-      <File FileName="Carppi_Cliente/Main.cs" />
-      <File FileName="Carppi_Cliente/WebViewController.cs" />
-      <File FileName="Carppi_Cliente/SceneDelegate.cs" />
-      <File FileName="Carppi_Cliente/Models/Model1.cs" />
-      <File FileName="Carppi_Cliente/Views/RazorView.cs" />
-      <File FileName="Carppi_Cliente/Main.storyboard" />
-      <File FileName="Carppi_Cliente/WebViewController.designer.cs" />
-      <File FileName="Carppi_Cliente/AppDelegate.cs" />
-      <File FileName="Carppi_Cliente/DatabaseTypes/Log_info.cs" />
-      <File FileName="Carppi_Cliente/AidViews/ShoppingKartViewController.cs" />
-      <File FileName="Carppi_Cliente/AidViews/ShoppingKartViewController.xib" />
-      <File FileName="Carppi_Cliente/MainViewJavasciptInterface/MAinViewJavascriptHandler.cs" Line="540" Column="44" />
-      <File FileName="Carppi_Cliente/Views/CarppiDeliveryRestaurantDetailedView.html" />
-      <File FileName="Carppi_Cliente/MainViewJavasciptInterface/DetailedViewJavascriptHandler.cs" />
-      <File FileName="Carppi_Cliente/MainViewJavasciptInterface/DetailedViewavascriptInterface.cs" />
-      <File FileName="Carppi_Cliente/Views/ShoppingKart2.html" />
-      <File FileName="Carppi_Cliente/Clases/Location.cs" />
-      <File FileName="../../../../../.nuget/packages/xam.plugin.geolocator/4.5.0.6/readme.txt" />
-      <File FileName="Carppi_Cliente/LoginViewController.cs" />
-      <File FileName="Carppi_Cliente/Views/FragmentGrocery_Map.html" />
-      <File FileName="Carppi_Cliente/Views/RateFoodDeliverMan.html" />
-      <File FileName="Carppi_Cliente/PendingRequestToRestaurant/RestaurantPendingRequestViewController.cs" />
-      <File FileName="Carppi_Cliente/Views/PassengerExtraData.html" />
-      <File FileName="Carppi_Cliente/PendingRequestToDeliverMan/DeliverManExtraOptionsViewController.cs" />
-      <File FileName="Carppi_Cliente/Views/DelivermanExtraData.html" />
-      <File FileName="Carppi_Cliente/Views/MainView.html" />
-      <File FileName="Carppi_Cliente/GoogleService-Info.plist" />
-      <File FileName="Carppi_Cliente/Info.plist" />
-      <File FileName="Carppi_Cliente/Views/CurriculumVitae.html" />
-      <File FileName="Carppi_Cliente/Views/CurriculumVitaeIngles.html" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Carppi_Cliente" expanded="True">
-            <Node name="Carppi_Cliente" expanded="True">
-              <Node name="AidViews" expanded="True" />
-              <Node name="MainViewJavasciptInterface" expanded="True">
-                <Node name="MAinViewJavascriptHandler.cs" selected="True" />
-              </Node>
-              <Node name="PendingRequestToDeliverMan" expanded="True" />
-              <Node name="PendingRequestToRestaurant" expanded="True" />
-              <Node name="Views" expanded="True" />
-            </Node>
-          </Node>
+          <Node name="Carppi_Cliente" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Carppi__Cliente automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.ItemProperties.Carppi__Cliente automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.45537A7A-747E-4DEB-8855-8094DE38DD9B" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

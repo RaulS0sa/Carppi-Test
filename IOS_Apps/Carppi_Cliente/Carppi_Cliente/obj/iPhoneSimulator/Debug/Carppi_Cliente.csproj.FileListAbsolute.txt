@@ -1,0 +1,30 @@
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Carppi_Cliente.exe
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Carppi_Cliente.pdb
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Plugin.Permissions.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/SQLite-net.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_v2.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/SQLitePCLRaw.nativelibrary.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/System.Runtime.CompilerServices.Unsafe.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Plugin.Geolocator.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Xamarin.Auth.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Xamarin.Auth.pdb
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Firebase.Analytics.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Firebase.CloudMessaging.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Firebase.Core.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Firebase.Installations.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/bin/iPhoneSimulator/Debug/Firebase.InstanceID.dll
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/ibtool/_BundleResourceWithLogicalName.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/actool/_PartialAppManifest.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/actool/_BundleResourceWithLogicalName.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/coremlc/_PartialAppManifest.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/coremlc/_BundleResourceWithLogicalName.items
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/optimized/GoogleService-Info.plist
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.5/optimized/
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/Carppi_Cliente.csprojAssemblyReference.cache
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/Carppi_Cliente.csproj.CoreCompileInputs.cache
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/Carppi_Cliente.csproj.CopyComplete
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/Carppi_Cliente.exe
+/Users/macbookair/Documents/GitHub/Carppi-Test/IOS_Apps/Carppi_Cliente/Carppi_Cliente/obj/iPhoneSimulator/Debug/Carppi_Cliente.pdb

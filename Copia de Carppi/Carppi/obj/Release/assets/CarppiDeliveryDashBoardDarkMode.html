@@ -1775,9 +1775,13 @@ Version: 1.0
 
 
 
+
+
         div.scrollmenu {
             overflow: auto;
             white-space: nowrap;
+           /*position: fixed;
+            background-color: #252525;*/
         }
 
             div.scrollmenu .ScrollElement {
@@ -2037,11 +2041,11 @@ Version: 1.0
                     </div>
                 </div>
                 -->
-                                <div class="col-lg-8 col-md-8 col-sm-12 form-group">
-                                    <input id="TextToSearch" type="text" placeholder="Hamburguesas, papas..." class="form-control form-control-lg">
+                                <div class="col-lg-8 col-md-8 col-sm-8 form-group" style="width:67%">
+                                    <input id="TextToSearch" type="text" placeholder="..." class="form-control form-control-lg">
                                     <!-- <a class="locate-me" href="#"><i class="icofont-ui-pointer"></i> Locate Me</a>-->
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 form-group" onclick="">
+                                <div class="col-lg-4 col-md-4 col-sm-4 form-group" onclick="" style="width:30%;float:right">
                                     <div onclick="FullfillMainViewWithSearchBar();;  setTimeout(function () {
                 window.Android.SearchByText(document.getElementById('TextToSearch').value);
             }, 1000);" class="btn btn-primary btn-block btn-lg btn-gradient">Buscar</div>
@@ -2050,7 +2054,7 @@ Version: 1.0
                             </div>
                         </div>
                     </div>
-                    <h6 class="mt-4 text-shadow font-weight-normal" style="color:white">Deslizame!</h6>
+                    <!--<h6 class="mt-4 text-shadow font-weight-normal" style="color:white">Deslizame!</h6>-->
                     <!--<div class="owl-carousel owl-carousel-category owl-theme owl-loaded owl-drag">-->
                     <div class="scrollmenu">
 
@@ -2251,68 +2255,70 @@ Version: 1.0
 
                         </div>
                     </div>
-                <!-- Promos -->
-                <!--
-                <div class="col-md-4">
-                    <div class="osahan-slider pl-4 pt-3">
-                        <div class="owl-carousel homepage-ad owl-theme owl-loaded owl-drag">
+                    <!-- Promos -->
+                    <!--
+    <div class="col-md-4">
+        <div class="osahan-slider pl-4 pt-3">
+            <div class="owl-carousel homepage-ad owl-theme owl-loaded owl-drag">
 
 
 
-                            <div class="owl-stage-outer">
-                                <div class="owl-stage" style="transform: translate3d(-529px, 0px, 0px); transition: all 1s ease 0s; width: 1855px;">
-                                    <div class="owl-item cloned" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider1.png"></a>
-                                        </div>
-                                    </div><div class="owl-item cloned" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
-                                        </div>
-                                    </div><div class="owl-item active" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
-                                        </div>
-                                    </div><div class="owl-item" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider1.png"></a>
-                                        </div>
-                                    </div><div class="owl-item" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
-                                        </div>
-                                    </div><div class="owl-item cloned" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
-                                        </div>
-                                    </div><div class="owl-item cloned" style="width: 264.984px;">
-                                        <div class="item">
-                                            <a href="listing.html"><img class="img-fluid rounded" src="img/slider1.png"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-chevron-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-chevron-right"></i></button></div><div class="owl-dots disabled"></div>
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-529px, 0px, 0px); transition: all 1s ease 0s; width: 1855px;">
+                        <div class="owl-item cloned" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider1.png"></a>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
+                            </div>
+                        </div><div class="owl-item active" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
+                            </div>
+                        </div><div class="owl-item" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider1.png"></a>
+                            </div>
+                        </div><div class="owl-item" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider.png"></a>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 264.984px;">
+                            <div class="item">
+                                <a href="listing.html"><img class="img-fluid rounded" src="img/slider1.png"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                -->
+                </div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-chevron-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-chevron-right"></i></button></div><div class="owl-dots disabled"></div>
             </div>
+        </div>
+    </div>
+    -->
+                </div>
         </div>
         </div>
     </section>
 
     <section class="section pt-5 pb-5 products-section" id="RestaurantSelecctionSection" style="background-color:#000000">
         <div class="container">
-            <div class="section-header text-center">
-                 <h2 style="color:#F0F0F0" id="LoadingText">Cargando...</h2>
-        <!--
-    <p>Cada uno de nuestros platillos es una obra maestra</p>
+            <!--     <div class="section-header text-center">
 
-    -->
-                <span class="line"></span>
-            </div>
+
+
+        <h2 style="color:#F0F0F0" id="LoadingText">Cargando...</h2>
+    <p>Cada uno de nuestros platillos es una obra maestra</p>
+                      <span class="line"></span>
+
+
+        </div>-->
             <div id="IndexOfStartingRestaurants">
-                
+
             </div>
             <div id="SuperSearchBar" style="display:block;">
 
@@ -2323,88 +2329,88 @@ Version: 1.0
             </div>
             <!--
 
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                        <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
-                        <div class="member-plan position-absolute"><span class="badge badge-danger">Promoted</span></div>
-                        <a href="detail.html">
-                            <img src="https://askbootstrap.com/preview/osahan-eat/img/list/6.png" class="img-fluid item-img">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="detail.html" class="text-black">
-                                    The osahan Restaurant
-                                </a>
-                            </h6>
-                            <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-danger">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                        <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
-                        <div class="member-plan position-absolute"><span class="badge badge-danger">Promoted</span></div>
-                        <a href="detail.html">
-                            <img src="https://askbootstrap.com/preview/osahan-eat/img/list/6.png" class="img-fluid item-img">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="detail.html" class="text-black">
-                                    The osahan Restaurant
-                                </a>
-                            </h6>
-                            <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-danger">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
-                        <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
-                        <div class="member-plan position-absolute"><span class="badge badge-danger">Promoted</span></div>
-                        <a href="detail.html">
-                            <img src="https://askbootstrap.com/preview/osahan-eat/img/list/6.png" class="img-fluid item-img">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="detail.html" class="text-black">
-                                    The osahan Restaurant
-                                </a>
-                            </h6>
-                            <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                            <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-danger">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
-                        </div>
-                    </div>
-                </div>
-
-            -->
+        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+            <div class="list-card-image">
+                <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
+                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
+                <div class="member-plan position-absolute"><span class="badge badge-danger">Promoted</span></div>
+                <a href="detail.html">
+                    <img src="https://askbootstrap.com/preview/osahan-eat/img/list/6.png" class="img-fluid item-img">
+                </a>
             </div>
+            <div class="p-3 position-relative">
+                <div class="list-card-body">
+                    <h6 class="mb-1">
+                        <a href="detail.html" class="text-black">
+                            The osahan Restaurant
+                        </a>
+                    </h6>
+                    <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
+                    <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
+                </div>
+                <div class="list-card-badge">
+                    <span class="badge badge-danger">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+            <div class="list-card-image">
+                <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
+                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
+                <div class="member-plan position-absolute"><span class="badge badge-danger">Promoted</span></div>
+                <a href="detail.html">
+                    <img src="https://askbootstrap.com/preview/osahan-eat/img/list/6.png" class="img-fluid item-img">
+                </a>
+            </div>
+            <div class="p-3 position-relative">
+                <div class="list-card-body">
+                    <h6 class="mb-1">
+                        <a href="detail.html" class="text-black">
+                            The osahan Restaurant
+                        </a>
+                    </h6>
+                    <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
+                    <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
+                </div>
+                <div class="list-card-badge">
+                    <span class="badge badge-danger">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+            <div class="list-card-image">
+                <div class="star position-absolute"><span class="badge badge-success"><i class="icofont-star"></i> 3.1 (300+)</span></div>
+                <div class="favourite-heart text-danger position-absolute"><a href="detail.html"><i class="icofont-heart"></i></a></div>
+                <div class="member-plan position-absolute"><span class="badge badge-danger">Promoted</span></div>
+                <a href="detail.html">
+                    <img src="https://askbootstrap.com/preview/osahan-eat/img/list/6.png" class="img-fluid item-img">
+                </a>
+            </div>
+            <div class="p-3 position-relative">
+                <div class="list-card-body">
+                    <h6 class="mb-1">
+                        <a href="detail.html" class="text-black">
+                            The osahan Restaurant
+                        </a>
+                    </h6>
+                    <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
+                    <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="icofont-wall-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
+                </div>
+                <div class="list-card-badge">
+                    <span class="badge badge-danger">OFFER</span> <small>65% off | Use Coupon OSAHAN50</small>
+                </div>
+            </div>
+        </div>
+
+    -->
+        </div>
             <div class="row">
                 <div class="col-md-12">
 
@@ -2917,7 +2923,8 @@ Version: 1.0
             }
         });
         function FullfillMainViewWithSearchBar() {
-            document.getElementById('LoadingText').style.display = 'block'
+           // document.getElementById('LoadingText').style.display = 'block'
+
             var bar = document.getElementById('SuperSearchBar');
             bar.style.display = 'block';
             var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
@@ -2932,7 +2939,7 @@ Version: 1.0
         }
 
         function ComeBackHome() {
-            document.getElementById('LoadingText').style.display = 'block'
+           // document.getElementById('LoadingText').style.display = 'block'
 
             var bar = document.getElementById('SuperSearchBar');
             bar.style.display = 'block';
@@ -2971,7 +2978,8 @@ Version: 1.0
 
         }
         function PrintTagResponse(StartUpData) {
-            document.getElementById('LoadingText').style.display = 'none';
+            //document.getElementById('LoadingText').style.display = 'none';
+
             var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
             restaurantContainer.innerHTML = "";
             for (var i = 0; i < StartUpData.PromotedProducts.length; i++) {
@@ -3016,6 +3024,13 @@ Version: 1.0
                 p_2.className = "text-gray mb-3 time";
                 p_2.innerHTML = '<span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"> 15–25 min</span>';
 
+
+                var Open_P1 = document.createElement('p');
+                Open_P1.className = "text-gray mb-3 time";
+                Open_P1.innerHTML = '<span class="bg-' + StartUpData.PromotedProducts[i].EstaAbierto ? 'success' : 'danger'  + ' text-dark rounded-sm pl-2 pb-1 pt-1 pr-2" >' + StartUpData.PromotedProducts[i].EstaAbierto ?'Abierto' : 'Cerrado' + '</span>';
+
+
+
                 var h_6 = document.createElement('h6');
                 h_6.className = "mb-1";
                 h_6.innerHTML = StartUpData.PromotedProducts[i].Nombre;
@@ -3046,6 +3061,7 @@ Version: 1.0
                 FifthDiv.appendChild(h_6);
                 FifthDiv.appendChild(p_1);
                 FifthDiv.appendChild(p_2);
+                FifthDiv.appendChild(Open_P1);
                 FifthDiv.appendChild(button);
                 fourthDiv.appendChild(FifthDiv);
                 firstDiv.appendChild(fourthDiv);
@@ -3159,22 +3175,32 @@ Version: 1.0
                     p_2.className = "text-gray mb-3 time";
                     p_2.innerHTML = '<span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"> 15–25 min</span>';
 
-                    var h_6 = document.createElement('h6');
-                    h_6.className = "mb-1";
-                    h_6.innerHTML = StartUpData.PromotedProducts[i].Nombre;
-                    h_6.style.color = "white";
+                    var Open_P1 = document.createElement('p');
+                    Open_P1.className = "text-gray p3 mb-3 time";
+                    console.log(StartUpData.PromotedProducts[i].EstaAbierto);
+                    var Open_P1Insides = StartUpData.PromotedProducts[i].EstaAbierto ? '<span class="bg-success text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Abierto</span>' : '<span class="bg-danger text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Cerrado</span>';
+                    Open_P1.innerHTML = Open_P1Insides;
+
+
+
+                    var h_6 = document.createElement('div');
+                  //  h_6.className = "mb-1";
+                    h_6.innerHTML = "<h6 class='mb-1' style='color:white'>" + StartUpData.PromotedProducts[i].Nombre + "</h6>" +"<p style='color:grey'>"+  REstaurantDescriptorDetermination(StartUpData.PromotedProducts[i].Categoriasbitfield) + "</p>";
+                   // h_6.style.color = "white";
 
                     var button = document.createElement('button');
                     button.style.cssText = "background-color: #f44336; border: none;color: white;padding: 6px 15px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;width:100%";
                     button.innerHTML = "Ver Restaurante";
                     button.ContextualID = StartUpData.PromotedProducts[i].ID;
                     //button.id = "Restaurant_"
+
                     button.RestaurantHash = StartUpData.PromotedProducts[i].CarppiHash;
                     //CarppiHash
 
                     button.ImagenDelNegocio = "data:image/png;base64," + StartUpData.PromotedProducts[i].Foto;
                     button.NombreDelREstauratnte = StartUpData.PromotedProducts[i].Nombre;
                     button.EstaAbierto = StartUpData.PromotedProducts[i].EstaAbierto;
+                    //YCategoriabitfield
 
                     button.addEventListener('click', function () {
                         console.log(this.ContextualID);
@@ -3187,8 +3213,9 @@ Version: 1.0
                     });
 
                     FifthDiv.appendChild(h_6);
-                    FifthDiv.appendChild(p_1);
+                    //FifthDiv.appendChild(p_1);
                     FifthDiv.appendChild(p_2);
+                    FifthDiv.appendChild(Open_P1);
                     FifthDiv.appendChild(button);
                     fourthDiv.appendChild(FifthDiv);
                     firstDiv.appendChild(fourthDiv);
@@ -3243,6 +3270,376 @@ Version: 1.0
             }
 
         }
+        //UpdateREstaurantGrid
+
+        function SetCategoriesStartup(Marking) {
+            document.getElementById('AllTopSelector').style.display = 'block';
+            document.getElementById('HambuguerTopSelector').style.display = ((Marking & AvailableFoodListing.Hamburgesas) == AvailableFoodListing.Hamburgesas) ? 'block' : 'none';
+            document.getElementById('GuajoloteTopSelector').style.display = ((Marking & AvailableFoodListing.Guajolotes) == AvailableFoodListing.Guajolotes) ? 'block' : 'none';
+            document.getElementById('PostresTopSelector').style.display = ((Marking & AvailableFoodListing.Postres) == AvailableFoodListing.Postres) ? 'block' : 'none';
+            document.getElementById('PolloTopSelector').style.display = ((Marking & AvailableFoodListing.Pollo) == AvailableFoodListing.Pollo) ? 'block' : 'none';
+            document.getElementById('IndianTopSelector').style.display = ((Marking & AvailableFoodListing.Indio) == AvailableFoodListing.Indio) ? 'block' : 'none';
+            document.getElementById('AmericanTopSelector').style.display = ((Marking & AvailableFoodListing.Americano) == AvailableFoodListing.Americano) ? 'block' : 'none';
+            document.getElementById('PizzaTopSelector').style.display = ((Marking & AvailableFoodListing.Pizza) == AvailableFoodListing.Pizza) ? 'block' : 'none';
+            document.getElementById('SaludableTopSelector').style.display = ((Marking & AvailableFoodListing.Saludable) == AvailableFoodListing.Saludable) ? 'block' : 'none';
+            document.getElementById('VegetarianoTopSelector').style.display = ((Marking & AvailableFoodListing.Vegetariano) == AvailableFoodListing.Vegetariano) ? 'block' : 'none';
+            document.getElementById('ChinoTopSelector').style.display = ((Marking & AvailableFoodListing.Chino) == AvailableFoodListing.Chino) ? 'block' : 'none';
+            //
+            document.getElementById('TacosTopSelector').style.display = ((Marking & AvailableFoodListing.Tacos) == AvailableFoodListing.Tacos) ? 'block' : 'none';
+            document.getElementById('AntojitosTopSelector').style.display = ((Marking & AvailableFoodListing.Antojitos) == AvailableFoodListing.Antojitos) ? 'block' : 'none';
+            document.getElementById('CorridaTopSelector').style.display = ((Marking & AvailableFoodListing.Comida_Corrida) == AvailableFoodListing.Comida_Corrida) ? 'block' : 'none';
+            document.getElementById('SushiTopSelector').style.display = ((Marking & AvailableFoodListing.Sushi_ComidaJaponesa) == AvailableFoodListing.Sushi_ComidaJaponesa) ? 'block' : 'none';
+            document.getElementById('BebidaTopSelector').style.display = ((Marking & AvailableFoodListing.Bebidas_Sin_Alcohol) == AvailableFoodListing.Bebidas_Sin_Alcohol) ? 'block' : 'none';
+            document.getElementById('AlcoholTopSelector').style.display = ((Marking & AvailableFoodListing.Bebidas_Alcoholicas) == AvailableFoodListing.Bebidas_Alcoholicas) ? 'block' : 'none';
+                //AlcoholTopSelector
+
+
+        }
+
+        function NoRestaurantsInArea() {
+            var bar = document.getElementById('SuperSearchBar');
+            bar.style.display = 'none';
+           // var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+
+            var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+            restaurantContainer.innerHTML = "<h4 style='color:white'>No hay restaurantes en tu area :(</h4>";
+
+        }
+        function NoPermitionAlowed() {
+            var bar = document.getElementById('SuperSearchBar');
+            bar.style.display = 'none';
+            // var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+
+            var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+            /* <div class="col-lg-4 col-md-4 col-sm-12 form-group" onclick="">
+                                    <div onclick="FullfillMainViewWithSearchBar();;  setTimeout(function () {
+                window.Android.SearchByText(document.getElementById('TextToSearch').value);
+            }, 1000);" class="btn btn-primary btn-block btn-lg btn-gradient">Buscar</div>
+                                    <!--<button type="submit" class="btn btn-primary btn-block btn-lg btn-gradient">Search</button>-->
+                                </div>*/
+            var Div0 = document.createElement('div');
+            Div0.className = "col-lg-12 col-md-12 col-sm-12 form-group";
+           
+            var Div1 = document.createElement('div');
+            Div1.className = "btn btn-primary btn-block btn-lg btn-gradient";
+            Div1.innerHTML = "No Otorgaste Permisos, ¿Reintentar?";
+            Div1.addEventListener('click', function () {
+                window.Android.RequestPermissions();
+            });
+            Div0.appendChild(Div1);
+            restaurantContainer.appendChild(Div0);
+            //restaurantContainer.innerHTML = "<h4 style='color:white'>No hay restaurantes en tu area :(</h4>";
+        }
+        //NoGpsActivated
+
+        function NoGpsActivated() {
+            var bar = document.getElementById('SuperSearchBar');
+            bar.style.display = 'none';
+            // var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+
+            var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+            /* <div class="col-lg-4 col-md-4 col-sm-12 form-group" onclick="">
+                                    <div onclick="FullfillMainViewWithSearchBar();;  setTimeout(function () {
+                window.Android.SearchByText(document.getElementById('TextToSearch').value);
+            }, 1000);" class="btn btn-primary btn-block btn-lg btn-gradient">Buscar</div>
+                                    <!--<button type="submit" class="btn btn-primary btn-block btn-lg btn-gradient">Search</button>-->
+                                </div>*/
+            var Div0 = document.createElement('div');
+            Div0.className = "col-lg-12 col-md-12 col-sm-12 form-group";
+
+            var Div1 = document.createElement('div');
+            Div1.className = "btn btn-primary btn-block btn-lg btn-gradient";
+            Div1.innerHTML = "Si no activas el GPS no podemos obtener los restaurantes ¿Reintentar?";
+            Div1.addEventListener('click', function () {
+                window.Android.RequestPermissions();
+            });
+            Div0.appendChild(Div1);
+            restaurantContainer.appendChild(Div0);
+            //restaurantContainer.innerHTML = "<h4 style='color:white'>No hay restaurantes en tu area :(</h4>";
+        }
+
+        function UpdateREstaurantGridLegacy(RestaurantData) {
+         
+            try {
+           
+              
+                var restaurantContainer = document.getElementById('IndexOfStartingRestaurants');
+                    var firstDiv = document.createElement('div');
+                    //firstDiv.style.cssText = "margin-bottom:10%";
+                    firstDiv.className = "list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm";
+                    firstDiv.style.backgroundColor = "#303030";
+
+                    var SecondDiv = document.createElement('div');
+                    SecondDiv.className = "list-card-image";
+                    SecondDiv.style.backgroundColor = "#303030";
+
+                    var ThirdDiv = document.createElement('div');
+                    ThirdDiv.className = "member-plan position-absolute";
+                    ThirdDiv.innerHTML = '<span class="badge badge-danger">Promoted</span>';
+                    var restaurantImage = document.createElement('img');
+                    restaurantImage.className = "img-fluid item-img";
+                    restaurantImage.style.cssText = 'width:auto;height:250px;min-width:99%';
+                    restaurantImage.src = "data:image/png;base64," + RestaurantData.Foto;
+
+                    SecondDiv.appendChild(ThirdDiv);
+                    SecondDiv.appendChild(restaurantImage);
+                    firstDiv.appendChild(SecondDiv);
+
+                    var fourthDiv = document.createElement('div');
+                    fourthDiv.className = "p-3 position-relative";
+                    fourthDiv.style.backgroundColor = "#303030";
+
+
+
+                    var FifthDiv = document.createElement('div');
+                    FifthDiv.className = "list-card-body";
+                    FifthDiv.style.backgroundColor = "#303030";
+
+
+                    var p_1 = document.createElement('p');
+                    p_1.className = "text-gray mb-3";
+            p_1.innerHTML = REstaurantDescriptorDetermination(RestaurantData.Categoriasbitfield);//"Hamburgesas • Guajolotes";
+                    var p_2 = document.createElement('p');
+                    p_2.className = "text-gray mb-3 time";
+                    p_2.innerHTML = '<span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"> 15–25 min</span>';
+
+                    var Open_P1 = document.createElement('p');
+                    Open_P1.className = "text-gray p3 mb-3 time";
+            console.log(RestaurantData.EstaAbierto);
+            var Open_P1Insides = RestaurantData.EstaAbierto ? '<span class="bg-success text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Abierto</span>' : '<span class="bg-danger text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Cerrado</span>';
+                    Open_P1.innerHTML = Open_P1Insides;
+
+
+
+                    var h_6 = document.createElement('div');
+                    //  h_6.className = "mb-1";
+            h_6.innerHTML = "<h6 class='mb-1' style='color:white'>" + RestaurantData.Nombre + "</h6>" + "<p style='color:grey'>" + REstaurantDescriptorDetermination(RestaurantData.Categoriasbitfield) + "</p>";
+                    // h_6.style.color = "white";
+
+                    var button = document.createElement('button');
+                    button.style.cssText = "background-color: #f44336; border: none;color: white;padding: 6px 15px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;width:100%";
+                    button.innerHTML = "Ver Restaurante";
+            button.ContextualID = RestaurantData.ID;
+                    //button.id = "Restaurant_"
+
+            button.RestaurantHash = RestaurantData.CarppiHash;
+                    //CarppiHash
+
+            button.ImagenDelNegocio = "data:image/png;base64," + RestaurantData.Foto;
+            button.NombreDelREstauratnte = RestaurantData.Nombre;
+            button.EstaAbierto = RestaurantData.EstaAbierto;
+                    //YCategoriabitfield
+
+                    button.addEventListener('click', function () {
+                        console.log(this.ContextualID);
+                        this.innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
+                        setTimeout(function (ContextualID, RestaurantHash, Imagen, NombreDelREstauratnte, EstaAbierto) {
+                            window.Android.RestaurantDetailedView(ContextualID, RestaurantHash, Imagen, NombreDelREstauratnte, EstaAbierto);
+
+                        }, 600, this.ContextualID, this.RestaurantHash, this.ImagenDelNegocio, this.NombreDelREstauratnte, this.EstaAbierto);
+
+                    });
+
+                    FifthDiv.appendChild(h_6);
+                    //FifthDiv.appendChild(p_1);
+                    FifthDiv.appendChild(p_2);
+                    FifthDiv.appendChild(Open_P1);
+                    FifthDiv.appendChild(button);
+                    fourthDiv.appendChild(FifthDiv);
+                    firstDiv.appendChild(fourthDiv);
+
+
+
+
+
+                    restaurantContainer.appendChild(firstDiv);
+                    var spacing_paragraph = document.createElement('p');
+                    restaurantContainer.appendChild(spacing_paragraph);
+                
+
+                var bar = document.getElementById('SuperSearchBar');
+                bar.style.display = 'none';
+
+              
+
+            }
+            catch (err) {
+                console.log(err);
+            }
+
+        }
+
+
+        function UpdateREstaurantGrid(RestaurantData) {
+            try {
+                var Search = document.getElementById('SuperSearchBar');
+                Search.style.display = 'none';
+                if (RestaurantData.Foto != null) {
+                    console.log(JSON.stringify(RestaurantData));
+
+                    var Container = document.getElementById('IndexOfStartingRestaurants');
+
+                    var Div_1 = document.createElement('div');
+                    Div_1.className = "mb-3";
+                    Div_1.style.backgroundColor = "#303030";
+                    var Div_2 = document.createElement('div');
+                    //Div_2.className = "list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm";
+                    Div_2.className = "shadow-sm";
+                    Div_2.style.backgroundColor = "#303030!important";
+                    Div_2.style.cssText = "overflow: hidden;margin: auto;box-shadow: 0 4px 8px 0 rgba(30,30,30,0.2);;background-color:#303030;margin: auto;width: " + (screen.width * 0.91) + "px;";
+
+
+
+                    var Div_3 = document.createElement('div');
+                    Div_3.style.backgroundColor = "#303030";
+                    var img_1 = document.createElement('img');
+                    img_1.className = "img-fluid item-img";
+                    Div_3.style.cssText = 'float: left;width:' + (screen.width * 0.30) + ';min-width:' + (screen.width * 0.30) + 'px;max-width:' + (screen.width * 0.30) + 'px;min-height:' + (screen.width * 0.30) + 'px;max-height:' + (screen.width * 0.30) + 'px;';
+                    img_1.style.cssText = 'width:auto;min-width:' + (screen.width * 0.30) + 'px;max-width:' + (screen.width * 0.30) + 'px;min-height:' + (screen.width * 0.30) + 'px;max-height:' + (screen.width * 0.30) + 'px;';
+                    //console.log(ProductData.Foto);
+                    img_1.src = "data:image/png;base64," + RestaurantData.Foto;
+                    img_1.style.backgroundColor = "#303030";
+                    Div_3.appendChild(img_1);
+
+
+                    //------------------------------------------------------
+
+
+
+
+
+                    var Div_2_Data = document.createElement('div');
+                    Div_2_Data.className = "p-3 position-relative";
+                    Div_2_Data.style.backgroundColor = "#303030";
+                    Div_2_Data.style.cssText = 'float: left;width:' + (screen.width * 0.6) + ';min-width:' + (screen.width * 0.6) + 'px;max-width:' + (screen.width * 0.6) + 'px';
+
+
+                    var Div_3_Data = document.createElement('div');
+                    // Div_3_Data.className = "list-card-body";
+
+                    Div_3_Data.style.backgroundColor = "#303030";
+
+                    var h6_Data = document.createElement('h6');
+                    h6_Data.className = "mb-1";
+                    console.log(RestaurantData.calificacion);
+                    var start_rating = RestaurantData.calificacion == undefined ? 4.0 : RestaurantData.calificacion;
+                    h6_Data.innerHTML = RestaurantData.Nombre + "   " + start_rating + '&#9733';
+                    h6_Data.style.color = "white";
+
+                    var p1_Data = document.createElement('p');
+                    p1_Data.className = "text-gray mb-2";
+                    p1_Data.innerHTML = REstaurantDescriptorDetermination(RestaurantData.Categoriasbitfield);//RestaurantData.Nombre;
+
+
+                    var p2_Data = document.createElement('p');
+                    p2_Data.className = "text-gray time mb-0";
+                    p2_Data.style.backgroundColor = "#303030";
+
+                    var Open_P1 = document.createElement('p');
+                    Open_P1.className = "text-gray p3 mb-3 time";
+                    console.log(RestaurantData.EstaAbierto);
+                    var Open_P1Insides = RestaurantData.EstaAbierto ? '<span class="bg-success text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Abierto</span>' : '<span class="bg-danger text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Cerrado</span>';
+                    Open_P1.innerHTML = Open_P1Insides;
+
+
+                    var Open_P2 = document.createElement('p');
+                    Open_P2.className = "text-gray p3 mb-3 time";
+                    console.log(RestaurantData.EstaAbierto);
+                    var Open_P2Insides = RestaurantData.AnyDeliveryMan ? '<span class="bg-success text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Reparto Disponible</span>' : '<span class="bg-danger text-white rounded-sm pl-2 pb-1 pt-1 pr-2"> Sin Repartidores</span>';
+                    Open_P2.innerHTML = Open_P2Insides;
+
+
+
+
+                    Div_1.ContextualID = RestaurantData.ID;
+                    //button.id = "Restaurant_"
+
+                    Div_1.RestaurantHash = RestaurantData.CarppiHash;
+                    //CarppiHash
+
+                    Div_1.ImagenDelNegocio = "data:image/png;base64," + RestaurantData.Foto;
+                    Div_1.NombreDelREstauratnte = RestaurantData.Nombre;
+                    Div_1.EstaAbierto = RestaurantData.EstaAbierto;
+                    //YCategoriabitfield
+
+                    Div_1.addEventListener('click', function () {
+                        console.log(this.ContextualID);
+                        //this.innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
+                        setTimeout(function (ContextualID, RestaurantHash, Imagen, NombreDelREstauratnte, EstaAbierto) {
+                            window.Android.RestaurantDetailedView(ContextualID, RestaurantHash, Imagen, NombreDelREstauratnte, EstaAbierto);
+
+                        }, 600, this.ContextualID, this.RestaurantHash, this.ImagenDelNegocio, this.NombreDelREstauratnte, this.EstaAbierto);
+
+                    });
+
+/*
+                    var Text_1_Data = document.createElement('div');
+                    Text_1_Data.className = "btn btn-link btn-sm pl-0 text-black pr-0";
+                    Text_1_Data.innerHTML = "$" + RestaurantData.Nombre;
+                    Text_1_Data.style.color = "white";
+                    */
+
+                  //  var Span_1_Data = document.createElement('span');
+                   // Span_1_Data.className = "float-right";
+                   // console.log(ProductData.ID);
+
+                    /*
+                    var buttonDiv = document.createElement('div');
+                    buttonDiv.setAttribute("name", "ProductButton");
+                    buttonDiv.id = "ItemID_" + ProductData.ID;
+                    buttonDiv.className = "btn btn-outline-secondary btn-sm";
+                    buttonDiv.innerHTML = "Añadir";
+                    buttonDiv.ExtraData = ProductData;
+                    buttonDiv.style.color = "black";
+                    buttonDiv.style.backgroundColor = "white";
+
+                    buttonDiv.addEventListener('click', function () {
+
+                        AddItemToShopingKart(this.ExtraData);
+                    });
+
+
+                    Span_1_Data.appendChild(buttonDiv);
+                    */
+
+                   // Span_1_Data.ExtraData = RestaurantData;
+
+                   // Span_1_Data.ProductExtraData = RestaurantData;
+
+
+                    // p2_Data.appendChild(Text_1_Data);
+                    p2_Data.appendChild(Open_P1);
+                    p2_Data.appendChild(Open_P2);
+                   // p2_Data.appendChild(Span_1_Data);
+
+                    Div_3_Data.appendChild(h6_Data);
+                    Div_3_Data.appendChild(p1_Data);
+                    Div_3_Data.appendChild(p2_Data);
+                    Div_2_Data.appendChild(Div_3_Data);
+                    //-----------------------------------------------
+
+
+
+
+                    Div_2.appendChild(Div_3);
+                    Div_2.appendChild(Div_2_Data);
+                    Div_1.appendChild(Div_2);
+
+                  
+
+                    Container.appendChild(Div_1);
+
+
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+
+        
+
+        }
+
         function REstaurantDescriptorDetermination(value) {
             /*   Hamburgesas: 1,
             Guajolotes: 2,

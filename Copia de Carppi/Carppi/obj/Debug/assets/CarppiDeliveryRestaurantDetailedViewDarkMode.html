@@ -3550,12 +3550,19 @@
                 for (var i = 0; i < botones.length; i++) {
 
 
-                    if (!ProductList.includes(botones[i].ExtraData.ID)) {
-                        // isExisting = true;
-
+                    if (!ProductList.includes(parseInt(botones[i].ButtonID))) {
+                        // isExisting = true
+                        botones[i].style.backgroundColor = "#FFF";
                         botones[i].innerHTML = "Añadir";
+                        botones[i].style.color = "#000";
 
 
+                    }
+                    else
+                    {
+                        botones[i].style.color = "#FFF";
+                        botones[i].style.backgroundColor = "#309950";
+                        botones[i].innerHTML = "Opciones";
                     }
 
 
@@ -3651,6 +3658,7 @@
                     buttonDiv.className = "btn btn-outline-secondary btn-sm";
                     buttonDiv.innerHTML = "Añadir";
                     buttonDiv.ExtraData = ProductData;
+                    buttonDiv.ButtonID = ProductData.ID;
                     buttonDiv.style.color = "black";
                     buttonDiv.style.backgroundColor = "white";
 
@@ -3837,6 +3845,15 @@
             //console.log(JSON.stringify(Data));
 
             try {
+                var button = document.getElementById("ItemID_" + Data.ID);
+                if (button.innerHTML == "Añadir") {
+                    window.Android.UpdateProductList(JSON.stringify(Data), 0);
+                }
+                else {
+                    window.Android.UpdateProductList(JSON.stringify(Data), 1);
+                }
+               
+                /*
                 var TExtCounter = document.getElementById('ShopingKartCounter');
                 var button = document.getElementById("ItemID_" + Data.ID);
                 console.log(Data.ID);
@@ -3851,6 +3868,7 @@
                     window.Android.UpdateProductList(JSON.stringify(Data), -1);
                 }
                 TExtCounter.innerHTML = " " + window.GlobalCounter;
+                */
             }
             catch (err) {
                 console.log(err);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
@@ -21,6 +22,7 @@ using Android.Util;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
+using Carppi.Clases;
 using Carppi.DatabaseTypes;
 using Java.Interop;
 using Newtonsoft.Json;
@@ -244,11 +246,14 @@ namespace Carppi.Fragments
                 var databasePath5 = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Log_info_user.db");
                 var db5 = new SQLiteConnection(databasePath5);
                 //Post_Travel(string Argument, string FaceId, string Vehiculo, string Costo)
+                var RegionTemp = "";
                 try
                 {
 
                     var query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
                     FaceID = query.ProfileId;
+                    RegionTemp = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
+                    
                 }
                 catch (Exception ex)
                 {
@@ -256,7 +261,7 @@ namespace Carppi.Fragments
                 }
                 // SearchForPassengerAreaByStateAndCountry(string Town, string Country, string State, string FacebookID_UpdateArea)
                 var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/CarppiRestaurantExistanceDetermination?" +
-                    "RegionParaDeterminacionDeProductos=" +2
+                    "RegionParaDeterminacionDeProductos=" + RegionTemp
 
 
                     ));
@@ -450,7 +455,7 @@ namespace Carppi.Fragments
                     web_ViewLocal.Post(action);
 
                 }
-                aTimer = new System.Timers.Timer(1500);
+                aTimer = new System.Timers.Timer(100);
                 // Hook up the Elapsed event for the timer. 
                 aTimer.Elapsed += OnTimedEvent;
                 aTimer.AutoReset = true;
@@ -579,19 +584,26 @@ namespace Carppi.Fragments
                         {
                             //var jsr = new JavascriptResult();
                             var Respuesta = JsonConvert.DeserializeObject<Carppi_ProductosPorRestaurantes>(S_Response.Response);
-                            var AddingProduct = db10.Insert(new DatabaseTypes.Carppi_ProductosPorRestaurantes()
+                            try
                             {
-                                ID = Respuesta.ID,
-                                IDdRestaurante = Respuesta.IDdRestaurante,
-                                Nombre = Respuesta.Nombre,
-                                Descripcion = Respuesta.Descripcion,
-                                Foto = Respuesta.Foto,
-                                Costo = Respuesta.Costo,
-                                Categoria = Respuesta.Categoria,
-                                Disponibilidad = Respuesta.Disponibilidad,
-                                ComprasDelProducto = Respuesta.ComprasDelProducto
+                                var AddingProduct = db10.Insert(new DatabaseTypes.Carppi_ProductosPorRestaurantes()
+                                {
+                                    ID = Respuesta.ID,
+                                    IDdRestaurante = Respuesta.IDdRestaurante,
+                                    Nombre = Respuesta.Nombre,
+                                    Descripcion = Respuesta.Descripcion,
+                                    Foto = Respuesta.Foto,
+                                    Costo = Respuesta.Costo,
+                                    Categoria = Respuesta.Categoria,
+                                    Disponibilidad = Respuesta.Disponibilidad,
+                                    ComprasDelProducto = Respuesta.ComprasDelProducto
 
-                            });
+                                });
+                            }
+                            catch(Exception)
+                            {
+
+                            }
                             // var asas = new SevenZip.Compression.LZMA.Decoder();
 
                             Respuesta.Foto = Decompress(Respuesta.Foto);
@@ -798,6 +810,104 @@ namespace Carppi.Fragments
             webi_static = web;
             StaticContext = Act;
         }
+        public class ObligatedAidreslonse
+        {
+            public string ObligatedArray;
+           // public List<OptionalChoice> ObligatedArray;
+        }
+        public string ReturnOptionHash(string OGString)
+        {
+            try
+            {
+                var Ls = OGString.Replace("\\", "").Replace("\"", "").Split("},{");
+                var BrandNewString = "";
+                var HAsh = Regex.Unescape(OGString.Replace("\\", "").Replace("\"", "").Replace("ID", "\"ID\"").Replace("OptionHash", "\"OptionHash\"").Replace("CostoExtra", "\"CostoExtra\"").Replace("Disponible", "\"Disponible\"")); ;
+                foreach (var Section in Ls)
+                {
+                    string St = Section;
+                    int pFrom = St.IndexOf("OptionHash:") + "OptionHash:".Length;
+                    int pTo = St.LastIndexOf(",CostoExtra:");
+
+                    String result = St.Substring(pFrom, pTo - pFrom);
+                    // var HAsh = Regex.Unescape(Section.Replace("\\", "").Replace("\"", "").Replace("ID", "\"ID\"").Replace("OptionHash", "\"OptionHash\"").Replace("CostoExtra", "\"CostoExtra\"").Replace("Disponible", "\"Disponible\"")); ;
+                    HAsh = HAsh.Replace(result, "\"" + result + "\"");
+                    //BrandNewString += HAsh;
+                    //return result;
+                }
+                return HAsh;
+            }
+
+            catch(Exception)
+            {
+                return "";
+            }
+//String St = "super exemple of string key : text I want to keep - end of my string";
+
+        }
+        //EraseItemFromList
+        [JavascriptInterface]
+        [Export("EraseItemFromList")]
+        public async void EraseItemFromList(long ProductIndexh)
+        {
+            var sss = FragmentRestaurantDetailedView.ListaDeProductos.Where(X => X.ID == ProductIndexh).FirstOrDefault();
+            FragmentRestaurantDetailedView.ListaDeProductos.Remove(sss);
+            DissmissBottomModal();
+        }
+
+            //AddToShopingKart, oks.ObligatedArray = SelectedObligatory;
+            [JavascriptInterface]
+        [Export("AddToShopingKart")]
+        public async void AddToShopingKart(long ProductIndex,string ProductCounterStr, string Obligatedarr, string OptionalArr, string ProductHash)
+        {
+            
+            var Producto = JsonConvert.DeserializeObject<restaurantProducto>((ProductHash));
+            var ObligatoryItems = new List<OptionalChoice>();
+            var OptionalArrItems = new List<OptionalChoice>();
+            //List<OptionalChoice> OptionName;
+            try
+            {
+                var HAsh = ReturnOptionHash(Obligatedarr);// Regex.Unescape(Obligatedarr.Replace("\\", "").Replace("\"", ""));//.Replace("ID", "\"ID\"").Replace("OptionHash", "\"OptionHash\"").Replace("CostoExtra", "\"CostoExtra\"").Replace("Disponible", "\"Disponible\"")); ;
+                var OptionalHash = ReturnOptionHash(OptionalArr);
+                ObligatoryItems = JsonConvert.DeserializeObject<List<OptionalChoice>>(HAsh);
+                OptionalArrItems = JsonConvert.DeserializeObject<List<OptionalChoice>>(OptionalHash);
+            }
+            catch(Exception ex)
+            {
+
+            }
+            var ProductCounter = Convert.ToInt32(ProductCounterStr);
+
+
+            var Cadena = new CarppiGroceryProductos();
+            Cadena.Cantidad = Producto.Cantidad;
+            Cadena.Foto = Producto.Foto;
+            Cadena.Costo = Producto.Costo;
+            Cadena.Producto = Producto.Nombre;
+            Cadena.ID = Producto.ID;
+            Cadena.RegionID = Producto.RegionID;
+            Cadena.Descripcion = Producto.Descripcion;
+            
+            var sss = FragmentRestaurantDetailedView.ListaDeProductos.Where(X => X.ID == ProductIndex).FirstOrDefault();
+            if (sss == null)
+            {
+
+                Cadena.Cantidad = ProductCounter;
+                Cadena.PersonalOptions = OptionalArrItems;
+                Cadena.ObligatoryOptions = ObligatoryItems;
+                FragmentRestaurantDetailedView.ListaDeProductos.Add(Cadena);
+            }
+            else
+            {
+                sss.Cantidad = ProductCounter;
+                sss.PersonalOptions = OptionalArrItems;
+                sss.ObligatoryOptions = ObligatoryItems;
+            }
+            
+              DissmissBottomModal();
+        }
+
+
+
         //window.Android.SearchByItsTagInDetailedView(IntergerToquery);
         [JavascriptInterface]
         [Export("SearchByItsNameInDetailedView")]
@@ -1226,7 +1336,7 @@ namespace Carppi.Fragments
             {
                 var db5 = new SQLiteConnection(databasePath5);
                 query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
-                Region = (query.Region_Delivery == null ? 2.ToString() : (query.Region_Delivery).ToString());
+                Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
             }
             catch (Exception)
             {
@@ -1274,8 +1384,8 @@ namespace Carppi.Fragments
             try
             {
                 var db5 = new SQLiteConnection(databasePath5);
-                query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
-                Region = (query.Region_Delivery == null ? 2.ToString() : (query.Region_Delivery).ToString());
+                query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
             }
             catch (Exception)
             {
@@ -1439,14 +1549,39 @@ namespace Carppi.Fragments
                     else
                     {
                         //ShopItem
-                        List<ShopItem> ListaDEItems = new List<ShopItem>();
+                        List<CarppiGroceryProductos> ListaDEItems = new List<CarppiGroceryProductos>();
                         var cost = 0.0;
                         foreach (var element in FragmentRestaurantDetailedView.ListaDeProductos)
                         {
-                            var nuevoElemento = new ShopItem();
-                            nuevoElemento.ItemID = element.ID;
-                            nuevoElemento.Quantity = element.Cantidad;
+
+                             var nuevoElemento = new CarppiGroceryProductos();
+                             nuevoElemento.ID = element.ID;
+                             nuevoElemento.Cantidad = element.Cantidad;
+                            nuevoElemento.Costo = element.Costo;
+                            nuevoElemento.ObligatoryOptions = element.ObligatoryOptions;
+                            nuevoElemento.PersonalOptions = element.PersonalOptions;
+                            //var ListaObligatoria = new List<OptionalChoice>(element.ObligatoryOptions);
+                            //ListaObligatoriaf
+                            try
+                            {
+                                foreach (var elem in nuevoElemento.ObligatoryOptions)
+                                {
+                                    elem.OptionHash = null;
+                                }
+                            }
+                            catch (Exception) { }
+                            try
+                            {
+                                foreach (var elem in nuevoElemento.PersonalOptions)
+                                {
+                                    elem.OptionHash = null;
+                                }
+                            }
+                            catch (Exception) { }
+
+                            // nuevoElemento.Producto = element.Producto;
                             ListaDEItems.Add(nuevoElemento);
+                            //element.Cantidad = element.Cantidad;
                             cost += element.Costo * element.Cantidad;
 
                         }
@@ -1459,7 +1594,7 @@ namespace Carppi.Fragments
                         {
                             var db5 = new SQLiteConnection(databasePath5);
                             query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
-                            Region = (query.Region_Delivery == null ? 2.ToString() : (query.Region_Delivery).ToString());
+                            Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
                         }
                         catch (Exception)
                         {
@@ -1475,14 +1610,170 @@ namespace Carppi.Fragments
 
                                 alert.SetPositiveButton("Continuar!", async (senderAlert, args) =>
                                 {
+                                    var longuri = string.Format("https://geolocale.azurewebsites.net/api/CarppiRestaurantApi/GeneratePurchaseOrder_ComentariosAndDetails?" +
+                                        "FaceIDOfBuyer=" + query.ProfileId
+                                        + "&Lati=" + MyLatLong.Latitude.ToString().Replace(",", ".")
+                                        + "&Loni=" + MyLatLong.Longitude.ToString().Replace(",", ".")
+                                        + "&Region=" + Region
+                                        + "&tipoDePago=" + Tipodepago
+                                        + "&Comentario=" + Comentario
+                                        );
+                                    HttpClient client = new HttpClient();
+                                    client.BaseAddress = new Uri(longuri);
+                                    client.DefaultRequestHeaders
+                                          .Accept
+                                          .Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
+
+                                    HttpRequestMessage request = new HttpRequestMessage(System.Net.Http.HttpMethod.Post, "relativeAddress");
+                                    var contenido= new StringContent(ProductoHAsh,
+                                                                        Encoding.UTF8,
+                                                                        "application/json");//CONTENT-TYPE header
+                                    
+
+                                   await client.PostAsync(longuri, contenido)
+                                          .ContinueWith(responseTask =>
+                                          {
+                                              var response = responseTask.Result;
+                                              switch (response.StatusCode)
+                                              {
+                                                  case System.Net.HttpStatusCode.Gone:
+                                                      {
+                                                          Action action = () =>
+                                                          {
+                                                              AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                                                              alert.SetTitle("Error");
+                                                              var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+         {
+                '"'
+         });
+
+                                                              alert.SetMessage(errorMessage1);
+
+                                                              alert.SetPositiveButton("Aceptar", (senderAlert, args) =>
+                                                              {
+
+                                                              });
+
+
+
+                                                              Dialog dialog = alert.Create();
+                                                              dialog.Show();
+
+
+                                                          };
+                                                          ((Activity)mContext).RunOnUiThread(action);
+
+
+                                                      }
+                                                      break;
+                                                  case System.Net.HttpStatusCode.Moved:
+                                                      {
+                                                          Action action = () =>
+                                                          {
+                                                              AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                                                              alert.SetTitle("Error");
+                                                              alert.SetMessage("El repartidor tiene muchas ordenes pendientes, intenta en unos minutos");
+
+                                                              alert.SetPositiveButton("Aceptar", (senderAlert, args) =>
+                                                              {
+
+                                                              });
+
+
+
+                                                              Dialog dialog = alert.Create();
+                                                              dialog.Show();
+
+                                                              //CurrentDialogReference = dialog;
+                                                          };
+                                                          ((Activity)mContext).RunOnUiThread(action);
+
+                                                          //Sin Log En la base de datos
+                                                      }
+                                                      break;
+                                                  case System.Net.HttpStatusCode.Unauthorized:
+                                                      {
+                                                          Action action = () =>
+                                                          {
+                                                              AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                                                              alert.SetTitle("Error");
+                                                              alert.SetMessage("No Puedes pedir sin Logear, deseas hacerlo ahora?, presiona cerrar al terminar");
+
+                                                              alert.SetPositiveButton("Loguear", (senderAlert, args) =>
+                                                              {
+                                                                  MainActivity.LoadFragment_Static(Resource.Id.nav_LoginButton);
+                                                              });
+
+                                                              alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
+                                                              {
+                                                                  //  count--;
+                                                                  //  button.Text = string.Format("{0} clicks!", count);
+                                                              });
+
+                                                              Dialog dialog = alert.Create();
+                                                              dialog.Show();
+
+                                                              //CurrentDialogReference = dialog;
+                                                          };
+                                                          ((Activity)mContext).RunOnUiThread(action);
+
+                                                          //Sin Log En la base de datos
+                                                      }
+                                                      break;
+                                                  case System.Net.HttpStatusCode.Forbidden:
+                                                      {
+
+                                                      }
+                                                      break;
+                                                  case System.Net.HttpStatusCode.OK:
+                                                      {
+                                                          MainActivity.LoadFragment_Static(Resource.Id.menu_video);
+                                                          //fragment = FragmentSelectTypeOfPurchase.NewInstance();
+                                                          MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
+                                                          Action action_WhowAlert = () =>
+                                                          {
+                                                              var sss = ((Activity)mContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
+                                                              sss.Settings.JavaScriptEnabled = true;
+
+                                                              sss.Settings.DomStorageEnabled = true;
+                                                              sss.Settings.LoadWithOverviewMode = true;
+                                                              sss.Settings.UseWideViewPort = true;
+                                                              sss.Settings.BuiltInZoomControls = true;
+                                                              sss.Settings.DisplayZoomControls = false;
+                                                              sss.Settings.SetSupportZoom(true);
+                                                              sss.Settings.JavaScriptEnabled = true;
+
+                                                              AssetManager assets = ((Activity)mContext).Assets;
+                                                              string content;
+                                                              using (StreamReader sr = new StreamReader(assets.Open("EmptyPage.html")))
+                                                              {
+                                                                  content = sr.ReadToEnd();
+                                                                  sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
+
+                                                              }
+
+
+                                                          };
+
+                                                          ((Activity)mContext).RunOnUiThread(action_WhowAlert);
+
+                                                          MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
+                                                      }
+                                                      break;
+                                              }
+
+                                              //Console.WriteLine("Response: {0}", responseTask.Result);
+                                          });
+
+                                    /*
 
                                     HttpClient client = new HttpClient();
 
-                                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/GeneratePurchaseOrder_Comentarios?" +
+                                    var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/GeneratePurchaseOrder_ComentariosAndDetails?" +
                                         "FaceIDOfBuyer=" + query.ProfileId
-                                        + "&BuyList=" + ProductoHAsh
-                                        + "&Lat=" + MyLatLong.Latitude.ToString().Replace(",", ".")
-                                        + "&Log=" + MyLatLong.Longitude.ToString().Replace(",", ".")
+                                        + "&BuyListDetailed=" + ProductoHAsh
+                                        + "&Lati=" + MyLatLong.Latitude.ToString().Replace(",", ".")
+                                        + "&Loni=" + MyLatLong.Longitude.ToString().Replace(",", ".")
                                         + "&Region=" + Region
                                         + "&tipoDePago=" + Tipodepago
                                         + "&Comentario=" + Comentario
@@ -1513,11 +1804,11 @@ namespace Carppi.Fragments
                                                     Dialog dialog = alert.Create();
                                                     dialog.Show();
 
-                                                    //CurrentDialogReference = dialog;
+                                                   
                                                 };
                                                 ((Activity)mContext).RunOnUiThread(action);
 
-                                                //Sin Log En la base de datos
+                                                
                                             }
                                             break;
                                         case System.Net.HttpStatusCode.Moved:
@@ -1576,55 +1867,7 @@ namespace Carppi.Fragments
                                             break;
                                         case System.Net.HttpStatusCode.Forbidden:
                                             {
-                                                /*
-                                                Action action = () =>
-                                                {
-                                                    AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
-                                                    alert.SetTitle("Error");
-                                                    alert.SetMessage("No Puedes pedir mandado sin un metodo de pago, deseas añadirlo ahora?");
-
-                                                    alert.SetPositiveButton("Añadir", (senderAlert, args) =>
-                                                    {
-                                                        AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
-                                                        LocalWebView sss = new LocalWebView(mContext);
-                                                        sss.Settings.JavaScriptEnabled = true;
-
-                                                        sss.Settings.DomStorageEnabled = true;
-                                                        sss.Settings.LoadWithOverviewMode = true;
-                                                        sss.Settings.UseWideViewPort = true;
-                                                        sss.Settings.BuiltInZoomControls = true;
-                                                        sss.Settings.DisplayZoomControls = false;
-                                                        sss.Settings.SetSupportZoom(true);
-                                                        sss.Settings.JavaScriptEnabled = true;
-                                                        var wew = new UtilityJavascriptInterface(mContext, webi);
-                                                        sss.AddJavascriptInterface(wew, "Android_BottomModal");
-                                                        sss.LoadUrl("https://geolocale.azurewebsites.net/CarppiAddCard/Index?Amount=" + 1000 + "&User=" + query.ProfileId + "&ServiceArea=" + 1 + "&LatitudObjectivo=" + MyLatLong.Latitude.ToString().Replace(",", ".") + "&LongitudObjetivo=" + MyLatLong.Longitude.ToString().Replace(",", ".") + "&NombreDestino=" + "Noname" + "&Gender=" + (int)Gender.Male + "&LatitudOrigen=" + MyLatLong.Latitude.ToString().Replace(",", ".") + "&LongitudOrigen=" + MyLatLong.Longitude.ToString().Replace(",", "."));
-
-                                                        alert.SetView(sss);
-
-
-                                                        alert.SetPositiveButton("Cerrar", (senderAlert, args) =>
-                                                        {
-                                                        });
-                                                        Dialog dialog = alert.Create();
-                                                        dialog.Window.ClearFlags(WindowManagerFlags.NotFocusable | WindowManagerFlags.AltFocusableIm | WindowManagerFlags.LocalFocusMode);
-                                                        dialog.Window.SetSoftInputMode(SoftInput.StateVisible | SoftInput.StateAlwaysVisible);
                                                
-                                                    });
-
-                                                    alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
-                                                    {
-                                                       
-                                                    });
-
-                                                    Dialog dialog = alert.Create();
-                                                    dialog.Show();
-
-                                                   
-                                                };
-                                                ((Activity)mContext).RunOnUiThread(action);
-                                            }
-                                            */
                                             }
                                             break;
                                         case System.Net.HttpStatusCode.OK:
@@ -1647,16 +1890,13 @@ namespace Carppi.Fragments
 
                                                     AssetManager assets = ((Activity)mContext).Assets;
                                                     string content;
-                                                    //var Viewww = new UtilityJavascriptInterface(mContext, sss);
-                                                    //sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
-                                                    using (StreamReader sr = new StreamReader(assets.Open("EmptyPage.html")))
+                                                      using (StreamReader sr = new StreamReader(assets.Open("EmptyPage.html")))
                                                     {
                                                         content = sr.ReadToEnd();
                                                         sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
 
                                                     }
-                                                    //sss.SetWebViewClient(new LocalWebViewClient());
-
+                                                  
 
                                                 };
 
@@ -1666,6 +1906,7 @@ namespace Carppi.Fragments
                                             }
                                             break;
                                     }
+                                    */
                                 });
 
                                 alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
@@ -1926,8 +2167,8 @@ namespace Carppi.Fragments
                         try
                         {
                             var db5 = new SQLiteConnection(databasePath5);
-                            query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
-                            Region = (query.Region_Delivery == null ? 2.ToString() : (query.Region_Delivery).ToString());
+                            query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID > 0).FirstOrDefault();
+                            Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
                         }
                         catch (Exception)
                         {
@@ -2305,12 +2546,11 @@ namespace Carppi.Fragments
             public int RegionID;
 
         }
-        
+        public enum ItemOptionButton { NewToAdd, AlreadyAdded};
         [JavascriptInterface]
         [Export("UpdateProductList")]
-        public static void UpdateProductList(string ProductHash, int direction)
+        public static async void UpdateProductList(string ProductHash, ItemOptionButton direction)
         {
-            // var casde = Base64Decode(ProductHash);
             var Producto = JsonConvert.DeserializeObject<restaurantProducto>((ProductHash));
             var Cadena = new CarppiGroceryProductos();
             Cadena.Cantidad = Producto.Cantidad;
@@ -2320,29 +2560,309 @@ namespace Carppi.Fragments
             Cadena.ID = Producto.ID;
             Cadena.RegionID = Producto.RegionID;
             Cadena.Descripcion = Producto.Descripcion;
+            long ProductQuantity = 1;
+            
 
-            //var Cadena = JsonConvert.DeserializeObject<CarppiGroceryProductos>((ProductHash));
+
+
 
             var sss = FragmentRestaurantDetailedView.ListaDeProductos.Where(X => X.ID == Cadena.ID).FirstOrDefault();
-            if (sss == null)
+            if (sss != null)
             {
+                ProductQuantity = sss.Cantidad;
+            }
+            HttpClient client = new HttpClient();
+            var uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/SeeProductAvailability?" +
+                   "ProductToSeIfItsAvailabe=" + Producto.ID));
+            HttpResponseMessage response;
 
-                Cadena.Cantidad = 1;
-                FragmentRestaurantDetailedView.ListaDeProductos.Add(Cadena);
-            }
-            else
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            response = await client.GetAsync(uri);
+
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                if (sss.Cantidad == 1 && direction == -1)
+                var errorMessage1 = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+          {
+                '"'
+          });
+                var isAvailable = JsonConvert.DeserializeObject<ProductAvailabilityResponse>(errorMessage1);
+                var ReplaceOptionsContent = new OptionalBlockUI();
+                if (isAvailable.HasOptionsToSelect)
                 {
-                    FragmentRestaurantDetailedView.ListaDeProductos.Remove(sss);
+                    uri = new Uri(string.Format("http://geolocale.azurewebsites.net/api/CarppiRestaurantApi/DownloadProductOptions?" +
+                      "ProductToDownloaditsOptions=" + Producto.ID));
+                    response = await client.GetAsync(uri);
+                    var ResponseMessage = response.Content.ReadAsStringAsync().Result.Replace("\\", "").Trim(new char[1]
+         {
+                '"'
+         });
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ReplaceOptionsContent = GenerateOptionalContent(Producto.ID, ResponseMessage);
+                    }
+
                 }
-                else
+                Action action_WhowAlert = () =>
                 {
-                    sss.Cantidad = sss.Cantidad + direction;
-                }
+                    Android.Webkit.WebView.SetWebContentsDebuggingEnabled(true);
+                    var sss = ((Activity)StaticContext).FindViewById<WebView>(Resource.Id.webView_Bottomsheet);
+                    sss.Settings.JavaScriptEnabled = true;
+
+                    sss.Settings.DomStorageEnabled = true;
+                    sss.Settings.LoadWithOverviewMode = true;
+                    sss.Settings.UseWideViewPort = true;
+                    sss.Settings.BuiltInZoomControls = true;
+                    sss.Settings.DisplayZoomControls = false;
+                    sss.Settings.SetSupportZoom(true);
+                    sss.Settings.JavaScriptEnabled = true;
+
+                    AssetManager assets = ((Activity)StaticContext).Assets;
+                    string content;
+                    var Viewww = new UtilityJavascriptInterface_RestaurantDetailedView((Activity)StaticContext, sss);
+                    sss.AddJavascriptInterface(Viewww, "Android_BottomModal");
+
+                    var colorEnv = new Carppi.Clases.Environment_Android();
+                    //  var asss = colorEnv.GetOperatingSystemTheme();
+
+                    var Template = "ProductDetailsDarkMode.html";
+                    using (StreamReader sr = new StreamReader(assets.Open(Template)))
+                    {
+                        content = sr.ReadToEnd();
+                        // var cadea = GenerateRowsForCheckOutModal(FragmentRestaurantDetailedView.ListaDeProductos);
+                        var ccc = Shoppingkart2List(FragmentRestaurantDetailedView.ListaDeProductos);
+                        //content = content.Replace("<!--ReplaceProductFromTheList-->", cadea);
+                        content = content.Replace("---REstaurantName-----", Cadena.Producto);
+                        content = content.Replace("---OpenTag---", (isAvailable.ProductAvailable == null || isAvailable.ProductAvailable == false) ? "No Disponible" : "Disponible");
+                        content = content.Replace("---OpenTagColor---", (isAvailable.ProductAvailable == null || isAvailable.ProductAvailable == false) ? "danger" : "success");
+                        content = content.Replace("<div id=\"OptionalContent\"></div>", ReplaceOptionsContent.UI);
+                        content = content.Replace("ObligatoryValues", ReplaceOptionsContent.ObligatorylValues);
+                        content = content.Replace("OptionalValues", ReplaceOptionsContent.OptionalValues);
+                        content = content.Replace("ProductIndexToRePlace", Cadena.ID.ToString());
+                        content = content.Replace("MEantToBEEncodedProductData", ProductHash);
+                        content = content.Replace("DisplayEraseButton", direction == ItemOptionButton.AlreadyAdded ? "block" : "none");
+                        content = content.Replace("PoductTobeErasedID", Producto.ID.ToString());
+                        content = content.Replace("Añadir", direction == ItemOptionButton.AlreadyAdded ? "Actualizar" : "Añadir");
+                        content = content.Replace("QuantityMeantToBeUpdated", ProductQuantity.ToString());
+                        //Producto.ID
+                        //MEantToBEEncodedProductData
+                        //QuantityMeantToBeUpdated
+                        /*
+                        content = content.Replace("<div id=\"OrderItems\"></div>", ccc);
+                        content = content.Replace("0000000000", "asd");
+                        content = content.Replace("CompleCostOFGroceryy", CompleteCostOFGrocery(FragmentRestaurantDetailedView.ListaDeProductos));
+
+                        content = content.Replace("ViewOfCardPaymentSelect", true ? "block" : "none");
+                        content = content.Replace("DigitOfCardPaymentSelect", true ? "1" : "0");
+                        //LoggedCardVar
+                        content = content.Replace("LoggedCardVar", true ? "1" : "0");
+                        //<div id="CardNotLoggedAcknowladge"></div>
+                        content = content.Replace("<div id='CardNotLoggedAcknowladge'></div>", true ? "" : "<h6 style='color:white'> Aun no se registra ninguna tarjeta, al clickear se te pedira</h6>");
+                        //GroceryCostPlusFee
+                        //No has Logueado
+                        content = content.Replace("No has Logueado", true ? "No has logueado, no podemos darte promiciones si no te conocemos" : "Gracias por usar Carppi :D");
+                        content = content.Replace("1329", CompleteCostOFGroceryPlusFee(FragmentRestaurantDetailedView.ListaDeProductos, (int)0).ToString());
+                        */
+                        sss.LoadDataWithBaseURL(null, content, "text/html", "utf-8", null);
+
+                    }
+                    sss.SetWebViewClient(new FragmentMain.LocalWebViewClient());
+
+                    //<span class="woocommerce-Price-currencySymbol">£</span>90.00</span>
+                    //CompleCostOFGroceryy
+
+
+                };
+
+                ((Activity)StaticContext).RunOnUiThread(action_WhowAlert);
+
+                MainActivity.mbottomSheetBehavior.State = BottomSheetBehavior.StateExpanded;
+
+
             }
+            /*
+              var Producto = JsonConvert.DeserializeObject<restaurantProducto>((ProductHash));
+              var Cadena = new CarppiGroceryProductos();
+              Cadena.Cantidad = Producto.Cantidad;
+              Cadena.Foto = Producto.Foto;
+              Cadena.Costo = Producto.Costo;
+              Cadena.Producto = Producto.Nombre;
+              Cadena.ID = Producto.ID;
+              Cadena.RegionID = Producto.RegionID;
+              Cadena.Descripcion = Producto.Descripcion;
+              var sss = FragmentRestaurantDetailedView.ListaDeProductos.Where(X => X.ID == Cadena.ID).FirstOrDefault();
+              if (sss == null)
+              {
+
+                  Cadena.Cantidad = 1;
+                  FragmentRestaurantDetailedView.ListaDeProductos.Add(Cadena);
+              }
+              else
+              {
+                  if (sss.Cantidad == 1 && direction == -1)
+                  {
+                      FragmentRestaurantDetailedView.ListaDeProductos.Remove(sss);
+                  }
+                  else
+                  {
+                      sss.Cantidad = sss.Cantidad + direction;
+                  }
+              }
+              */
+
+
+
         }
 
+        public class ProductAvailabilityResponse
+        {
+            public bool ProductAvailable;
+            public bool HasOptionsToSelect;
+        }
+        public static OptionalBlockUI GenerateOptionalContent(long productID, string UnserializedContent)
+        {
+
+            var sss = FragmentRestaurantDetailedView.ListaDeProductos.Where(X => X.ID == productID).FirstOrDefault();
+            var Resstr = "";
+            var ResponseObj = JsonConvert.DeserializeObject<OptionOfProduct>(UnserializedContent);
+            List<string> ObligatoryNames = new List<string>();
+            List<string> OptionalNames = new List<string>();
+            if (sss == null) { 
+
+          
+            foreach (var Set in ResponseObj.Obligatory)
+            {
+
+                Resstr += "<div style='padding-top:4%;background-color:#191919 '>";
+                Resstr += "<h5 style='color:white'>" + "Obligatorio: " + Set.OptionValue + "</h5>";
+                bool counter = true;
+                ObligatoryNames.Add("\"optradio_" + Set.OptionValue + "\"");
+                foreach (var Option in Set.OptionName)
+                {
+                    Resstr += "<label style='color:" + (Option.Disponible ? "white" : "#505050") + "' class='container'>" + Option.OptionHash;
+                    Resstr += "<input value='" + JsonConvert.SerializeObject(Option) + "' name='optradio_" + Set.OptionValue + "' type='radio' " + (Option.Disponible ? "" : "disabled") + (counter && Option.Disponible ? "checked" : "") + ">";//checked='checked'
+                    Resstr += "<span class='checkmarkRadio'></span>";
+                    Resstr += "</label>";
+                    /* Resstr += "<div class='radio " + (Option.Disponible? "" : "disabled") + "'>";
+                     Resstr += "<label><input type='radio' name='optradio_" + Set.OptionValue + "' " + (counter== 0? "checked" : "") + " "  +(Option.Disponible ? "" : "disabled") +">" + Option .OptionHash + "</label>";
+                     Resstr += "</div>";*/
+                    counter = false;
+                }
+                Resstr += "</div>";
+
+            }
+            foreach (var Set in ResponseObj.Optional)
+            {
+                Resstr += "<div style='padding-top:4%;background-color:#191919 '>";
+                Resstr += "<h5 style='color:white'>" + "Opcional: " + Set.OptionValue + "</h5>";
+                int counter = 0;
+                OptionalNames.Add("\"optCheckbox_" + Set.OptionValue + "\"");
+                //  OptionalNames.Add("'optCheckbox_" + Set.OptionValue + "'");
+                foreach (var Option in Set.OptionName)
+                {
+                    Resstr += "<label style='color:" + (Option.Disponible ? "white" : "#505050") + "' class='container'>" + Option.OptionHash + "  +$" + Option.CostoExtra;
+                    Resstr += "<input value='" + JsonConvert.SerializeObject(Option) + "' name='optCheckbox_" + Set.OptionValue + "' type='checkbox' " + (Option.Disponible ? "" : "disabled") + ">";//checked='checked'
+                    Resstr += "<span class='checkmark'></span>";
+                    Resstr += "</label>";
+                    /* Resstr += "<div class='checkbox " + (Option.Disponible ? "" : "disabled") + "'>";
+                     Resstr += "<label><input type='checkbox'" + (Option.Disponible ? "" : "disabled") + ">" + Option.OptionHash + "     +$" +Option.CostoExtra + "</label>";
+                     Resstr += "</div>";
+                    */
+                    counter++;
+                }
+                Resstr += "</div>";
+
+            }
+        }
+        else
+        {
+                
+                foreach (var Set in ResponseObj.Obligatory)
+                {
+
+                    Resstr += "<div style='padding-top:4%;background-color:#191919 '>";
+                    Resstr += "<h5 style='color:white'>" + "Obligatorio: " + Set.OptionValue + "</h5>";
+                    bool counter = true;
+                    ObligatoryNames.Add("\"optradio_" + Set.OptionValue + "\"");
+
+                    foreach (var Option in Set.OptionName)
+                    {
+                        Resstr += "<label style='color:" + (Option.Disponible ? "white" : "#505050") + "' class='container'>" + Option.OptionHash;
+                        Resstr += "<input value='" + JsonConvert.SerializeObject(Option) + "' name='optradio_" + Set.OptionValue + "' type='radio' " + (Option.Disponible ? "" : "disabled ") +( (sss.ObligatoryOptions.Where(x=> x.OptionHash == Option.OptionHash && x.ID == Option.ID).FirstOrDefault() != null ) && Option.Disponible ? " checked" : "") + ">";//checked='checked'
+                        Resstr += "<span class='checkmarkRadio'></span>";
+                        Resstr += "</label>";
+                        /* Resstr += "<div class='radio " + (Option.Disponible? "" : "disabled") + "'>";
+                         Resstr += "<label><input type='radio' name='optradio_" + Set.OptionValue + "' " + (counter== 0? "checked" : "") + " "  +(Option.Disponible ? "" : "disabled") +">" + Option .OptionHash + "</label>";
+                         Resstr += "</div>";*/
+                        counter = false;
+                    }
+                    Resstr += "</div>";
+
+                }
+                foreach (var Set in ResponseObj.Optional)
+                {
+                    Resstr += "<div style='padding-top:4%;background-color:#191919 '>";
+                    Resstr += "<h5 style='color:white'>" + "Opcional: " + Set.OptionValue + "</h5>";
+                    int counter = 0;
+                    OptionalNames.Add("\"optCheckbox_" + Set.OptionValue + "\"");
+                    //  OptionalNames.Add("'optCheckbox_" + Set.OptionValue + "'");
+                    foreach (var Option in Set.OptionName)
+                    {
+                        Resstr += "<label style='color:" + (Option.Disponible ? "white" : "#505050") + "' class='container'>" + Option.OptionHash + "  +$" + Option.CostoExtra;
+                        Resstr += "<input value='" + JsonConvert.SerializeObject(Option) + "' name='optCheckbox_" + Set.OptionValue + "' type='checkbox' " + (Option.Disponible ? " " : " disabled ") + (((sss.PersonalOptions.Where(x => x.OptionHash == Option.OptionHash && x.ID == Option.ID).FirstOrDefault() != null) && Option.Disponible) ? " checked='checked' " : "") + ">";//checked='checked'
+                        Resstr += "<span class='checkmark'></span>";
+                        Resstr += "</label>";
+                        /* Resstr += "<div class='checkbox " + (Option.Disponible ? "" : "disabled") + "'>";
+                         Resstr += "<label><input type='checkbox'" + (Option.Disponible ? "" : "disabled") + ">" + Option.OptionHash + "     +$" +Option.CostoExtra + "</label>";
+                         Resstr += "</div>";
+                        */
+                        counter++;
+                    }
+                    Resstr += "</div>";
+
+                }
+            }
+            var Response = new OptionalBlockUI();
+            Response.UI = Resstr;
+            Response.ObligatorylValues = string.Join( ",", ObligatoryNames);
+            Response.OptionalValues = String.Join(",", OptionalNames); ;
+
+            return Response;
+        }
+        public class OptionalBlockUI
+        {
+            public string UI;
+            public string ObligatorylValues;
+            public string OptionalValues;
+        }
+        public class OptionOfProduct
+        {
+            public List<ObligatoriOptions> Obligatory;
+            public List<OpcionalOptions> Optional;
+        }
+        public class ObligatoriOptions
+        {
+            public string OptionValue;
+            public List<OptionalChoice> OptionName;
+
+        }
+        public class OpcionalOptions
+        {
+            public string OptionValue;
+            public List<OptionalChoice> OptionName;
+
+        }
+        /*
+        public class OptionalChoice
+        {
+            public long ID;
+            public string OptionHash;
+            public double CostoExtra;
+            public bool Disponible;
+
+        }
+        */
 
         [JavascriptInterface]
         [Export("UpdateProductQuantity")]
@@ -2383,7 +2903,7 @@ namespace Carppi.Fragments
             {
                 var db5 = new SQLiteConnection(databasePath5);
                 query = db5.Table<DatabaseTypes.Log_info>().Where(v => v.ID == 1).FirstOrDefault();
-                Region = (query.Region_Delivery == null ? 2.ToString() : (query.Region_Delivery).ToString());
+                Region = (query.Region_Delivery == null ? 0.ToString() : (query.Region_Delivery).ToString());
             }
             catch (Exception)
             {
@@ -3137,12 +3657,32 @@ namespace Carppi.Fragments
                         CharArrr += "<div class='mr-3'><i class='icofont-ui-home icofont-3x'></i></div>";
                         CharArrr += "<div class='media-body'>";
                         CharArrr += "<h6 class='mb-1' style='color:white'>"+ element.Producto + "</h6>";
-                        CharArrr += "<p>" + element.Descripcion  + "</p>";
-                        CharArrr += "<p style='color:white'>$" + element.Costo + "</p>";
+                        try
+                        {
+                            foreach (var opc in element.ObligatoryOptions)
+                            {
+                                CharArrr += "<p style='color:white'>" + opc.OptionHash + "</p>";
+                            }
+                        }
+                        catch (Exception) { }
+                        var ExtraCost = 0.0;
+                        try
+                        {
+                            foreach (var opc in element.PersonalOptions)
+                            {
+                                CharArrr += "<p style='color:white'>Opcion extra: " + opc.OptionHash + "   +$" + opc.CostoExtra + "</p>";
+                                ExtraCost += opc.CostoExtra;
+                            }
+                        }
+                        catch (Exception) { }
+                        var Costok = element.Costo + ExtraCost;
+
+
+                        CharArrr += "<p style='color:white'>$" + Costok + "</p>";
                         CharArrr += "<p class='mb-0 text-black font-weight-bold'>";
                         CharArrr += "<div class='btn btn-sm btn-success mr-2' style='width:100%'>Cantidad: </div>";
-                        CharArrr += "<div class='btn btn-sm btn-success mr-2' style='width:100%;display:inline-block'><div><button onclick='IncrementByID(" + element.ID + ",-1, " + element.Costo+ " );' class='btn btn-sm btn-success' style='width:29%'>-</button><button id='Counter_" + element.ID + "' class='btn btn-sm btn-success' style='width:29%' disabled />"+ element.Cantidad + "</button> <button onclick='IncrementByID(" + element.ID + ",1, " + element.Costo + " );' class='btn btn-sm btn-success' style='width:29%'>+</button></div></div>";
-                        CharArrr += "<h6 style='width:100%;display:none' id='InvisiblePrice_" + element.ID + "' name='InvisiblePriceAdjustemt'>" + element.Costo + "</h6>";
+                        CharArrr += "<div class='btn btn-sm btn-success mr-2' style='width:100%;display:inline-block'><div><button onclick='IncrementByID(" + element.ID + ",-1, " + Costok + " );' class='btn btn-sm btn-success' style='width:29%'>-</button><button id='Counter_" + element.ID + "' class='btn btn-sm btn-success' style='width:29%' disabled />"+ element.Cantidad + "</button> <button onclick='IncrementByID(" + element.ID + ",1, " + Costok + " );' class='btn btn-sm btn-success' style='width:29%'>+</button></div></div>";
+                        CharArrr += "<h6 style='width:100%;display:none' id='InvisiblePrice_" + element.ID + "' name='InvisiblePriceAdjustemt'>" + Costok + "</h6>";
                         CharArrr += "<hr />";
                         CharArrr += "<div class='btn btn-sm btn-danger mr-2' style='width:100%' onclick='RemoveFromList(" + element.ID + ")'> Retirar</div>";
                         //CharArrr += "<span>30MIN</span>";
@@ -3199,7 +3739,19 @@ namespace Carppi.Fragments
             var Cost = 0.0;
             foreach (var element in carppiGroceryProductos)
             {
-                Cost += (element.Costo * element.Cantidad);
+                var GenericCost = element.Costo;
+                try
+                {
+                    foreach (var extraitem in element.PersonalOptions)
+                    {
+                        GenericCost += extraitem.CostoExtra;
+                    }
+                }
+                catch(Exception)
+                {
+
+                }
+                Cost += ((GenericCost) * element.Cantidad);
 
             }
             return (Cost + CostOfTravel);
@@ -3343,11 +3895,14 @@ namespace Carppi.Fragments
         public double Costo;
         public byte[] Foto;
         public string Descripcion;
+        public List<OptionalChoice> ObligatoryOptions;
+        public List<OptionalChoice> PersonalOptions;
 
 
 
 
     }
+
     public class CarppiGrocery_BuyOrders
     {
         public long ID { get; set; }

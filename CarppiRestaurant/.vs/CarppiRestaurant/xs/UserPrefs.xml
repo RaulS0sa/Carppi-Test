@@ -1,0 +1,49 @@
+﻿<Properties StartupConfiguration="{DE55BBA8-B038-4504-8411-56AC750F6E80}|">
+  <MonoDevelop.Ide.ItemProperties.CarppiRestaurant PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml">
+    <Files>
+      <File FileName="CarppiRestaurant/Views/Home/Index.cshtml" Line="31869" Column="91" />
+      <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" />
+      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" />
+      <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" />
+      <File FileName="CarppiRestaurant/Web.config" />
+      <File FileName="CarppiRestaurant/Startup.cs" />
+      <File FileName="CarppiRestaurant/packages.config" />
+      <File FileName="CarppiRestaurant/Global.asax" />
+      <File FileName="CarppiRestaurant/favicon.ico" />
+      <File FileName="CarppiRestaurant/Views/Web.config" />
+      <File FileName="CarppiRestaurant/App_Start/WebApiConfig.cs" />
+      <File FileName="CarppiRestaurant/App_Start/Startup.Auth.cs" />
+      <File FileName="CarppiRestaurant/App_Start/BundleConfig.cs" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="32098" Column="20" />
+      <File FileName="CarppiRestaurant/Controllers/HomeController.cs" />
+      <File FileName="CarppiRestaurant/Controllers/ManageController.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CarppiRestaurant" expanded="True">
+            <Node name="CarppiRestaurant" expanded="True">
+              <Node name="App_Start" expanded="True" />
+              <Node name="Content" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="NewRestaurant" expanded="True" />
+                <Node name="RestaurantDashBoard" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -28,6 +28,11 @@ namespace Carppi.DatabaseTypes
         public long? Categoria { get; set; }
         public bool Disponibilidad { get; set; }
         public long ComprasDelProducto { get; set; }
+        public string Delta { get; set; }
+
+
+
+        public long? UpdateTimer { get; set; }
 
     }
 }

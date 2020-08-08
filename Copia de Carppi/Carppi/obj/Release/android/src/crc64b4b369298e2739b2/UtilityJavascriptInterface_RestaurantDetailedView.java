@@ -10,6 +10,9 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_EraseItemFromList:(J)V:__export__\n" +
+			"n_AddToShopingKart:(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V:__export__\n" +
+			"n_SearchByItsNameInDetailedView:(Ljava/lang/String;)V:__export__\n" +
 			"n_SearchByItsTagInDetailedView:(I)V:__export__\n" +
 			"n_SearchMostWanted:()V:__export__\n" +
 			"n_RateFoodDeliverMan:(ILjava/lang/String;)V:__export__\n" +
@@ -45,6 +48,33 @@ public class UtilityJavascriptInterface_RestaurantDetailedView
 		if (getClass () == UtilityJavascriptInterface_RestaurantDetailedView.class)
 			mono.android.TypeManager.Activate ("Carppi.Fragments.UtilityJavascriptInterface_RestaurantDetailedView, Carppi", "Android.App.Activity, Mono.Android:Android.Webkit.WebView, Mono.Android", this, new java.lang.Object[] { p0, p1 });
 	}
+
+	@android.webkit.JavascriptInterface
+
+	public void EraseItemFromList (long p0)
+	{
+		n_EraseItemFromList (p0);
+	}
+
+	private native void n_EraseItemFromList (long p0);
+
+	@android.webkit.JavascriptInterface
+
+	public void AddToShopingKart (long p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4)
+	{
+		n_AddToShopingKart (p0, p1, p2, p3, p4);
+	}
+
+	private native void n_AddToShopingKart (long p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4);
+
+	@android.webkit.JavascriptInterface
+
+	public void SearchByItsNameInDetailedView (java.lang.String p0)
+	{
+		n_SearchByItsNameInDetailedView (p0);
+	}
+
+	private native void n_SearchByItsNameInDetailedView (java.lang.String p0);
 
 	@android.webkit.JavascriptInterface
 

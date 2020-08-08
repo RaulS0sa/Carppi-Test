@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="239e557bbdfd460ca57f5c2737a24405" Name="Diagram1">
+        <EntityTypeShape EntityType="PidgeonModel.Carppi_ComentariosHaciaElPerfil" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Carppi_IndicesdeRestaurantes" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Carppi_MensajesRideshare" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Carppi_ProductosPorRestaurantes" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiConductoresRideShare" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiGrocery_BuyOrders" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiGrocery_Mensajes" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiGrocery_Productos" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiGrocery_Regiones" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiGrocery_Repartidores" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiRegiones" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiRequestForDrive" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiRestaurant_BuyOrders" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiREstaurant_MensajesClienteRestaurante" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiRestaurant_MensajesRepartidorCliente" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.CarppiRestaurant_MensajesRepartidorRestaurante" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Coches_en_renta" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Dispositivos" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Fotos_de_coches" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.GenInstruccionesAccesos" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Lease_FotosPublicacion" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Lease_Interrutores" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Lease_Publicaciones" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Local_" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.ObligatoriOptionsList" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.OpcionalOptionsList" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.OptionalChoice" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Pos_Fotos_productos" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.PosUsers" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Prestamos_Monedas" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Productos" Width="1.5" PointX="16.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Traveler_Perfil" Width="1.5" PointX="6.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Traveler_SolicitudDeViajeTemporal" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Traveler_Viajes" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Traveler_Viajes_historial" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Travelers_Grupos_de_Conversacion" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Travelers_Integrantes_Grupos_de_Conversacion" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Travelers_Mensajes_Grupos_de_Conversacion" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Trayectorias_geoloc" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.UrbanCabDrivers" Width="1.5" PointX="8.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.UrbanCabNewTrip" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.UrbanCabPassengers" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.UrbanCabTripRequest" Width="1.5" PointX="2.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Usuarios" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Ventas" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PidgeonModel.Ventas_lista" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
