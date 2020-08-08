@@ -31798,107 +31798,191 @@
             animation: chartjs-render-animation 0.001s;
         }
     </style>
+    <style>
+        
+/* Progress Bar */
+.progress {
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: #f0e78b;
+  border-radius: 2px;
+  background-clip: padding-box;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden; }
+        .progress .determinate {
+            position: absolute;
+            background-color: inherit;
+            top: 0;
+            bottom: 0;
+            background-color: #e5781d;
+            transition: width .3s linear;
+        }
+        .progress .indeterminate {
+            background-color: #e5781d;
+        }
+    .progress .indeterminate:before {
+      content: '';
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      will-change: left, right;
+      -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+              animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
+    .progress .indeterminate:after {
+      content: '';
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      will-change: left, right;
+      -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+              animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+      -webkit-animation-delay: 1.15s;
+              animation-delay: 1.15s; }
+
+@@-webkit-keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
+@@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
+@@-webkit-keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%; }
+  60% {
+    left: 107%;
+    right: -8%; }
+  100% {
+    left: 107%;
+    right: -8%; } }
+@@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%; }
+  60% {
+    left: 107%;
+    right: -8%; }
+  100% {
+    left: 107%;
+    right: -8%; } }
+    </style>
     <style class="darkreader darkreader--sync" media="screen"></style>
     <style></style>
     <style class="darkreader darkreader--sync" media="screen"></style>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/41/8/intl/es_ALL/common.js"></script>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/41/8/intl/es_ALL/util.js"></script>
 </head>
-<body>
-    <app-root _nghost-svf-c77="" ng-version="9.1.11">
-        <app-preloader _ngcontent-svf-c77="" _nghost-svf-c76="">
-            <div _ngcontent-svf-c76="" id="preloader-wrap" class="loaded">
-                <div _ngcontent-svf-c76="" class="spinner spinner-8">
-                    <div _ngcontent-svf-c76="" class="ms-circle1 ms-child"></div>
-                    <div _ngcontent-svf-c76="" class="ms-circle2 ms-child"></div>
-                    <div _ngcontent-svf-c76="" class="ms-circle3 ms-child"></div>
-                    <div _ngcontent-svf-c76="" class="ms-circle4 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle5 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle6 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle7 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle8 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle9 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle10 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle11 ms-child"></div><div _ngcontent-svf-c76="" class="ms-circle12 ms-child"></div>
-                </div>
-            </div>
-        </app-preloader>
-        <router-outlet _ngcontent-svf-c77=""></router-outlet>
-        <app-default-login _nghost-svf-c62="">
-            <div _ngcontent-svf-c62="" class="ms-body ms-primary-theme ms-logged-out">
+<body style="min-width:100%;background-color:white">
+
+    <app-root _nghost-svf-c77="" ng-version="9.1.11" style="min-width:100%;background-color:white">
+
+
+        <app-default-login _nghost-svf-c62="" style="min-width:100%;background-color:white">
+            <div _ngcontent-svf-c62="" class="ms-body ms-primary-theme ms-logged-out" style="min-width:100%;background-color:white">
                 <!--<app-side-navbar _ngcontent-svf-c62="" _nghost-svf-c7="">
                 <aside _ngcontent-svf-c7="" id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left ps ps--active-y"><div _ngcontent-svf-c7="" class="logo-sn ms-d-block-lg"><a _ngcontent-svf-c7="" routerlink="/" class="pl-0 ml-0 text-center" href="/themes/themeforest/angular/costic/"><img _ngcontent-svf-c7="" src="assets/img/costic/costic-logo-216x62.png" alt="logo"></a></div><ul _ngcontent-svf-c7="" id="side-nav-accordion" class="accordion ms-main-aside fs-14"><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">dashboard</i>Dashboard </span></a><ul _ngcontent-svf-c7="" id="dashboard" aria-labelledby="dashboard" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/" routerlinkactive="active" href="/themes/themeforest/angular/costic/">Costic</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#product" aria-expanded="false" aria-controls="product" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="fa fa-archive fs-16"></i>Menus </span></a><ul _ngcontent-svf-c7="" id="product" aria-labelledby="product" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/menu-catalogue" routerlinkactive="active" href="/themes/themeforest/angular/costic/menu-catalogue">Menu Catalogue</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/menu-list" routerlinkactive="active" href="/themes/themeforest/angular/costic/menu-list">Menu List</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/menu-grid" routerlinkactive="active" href="/themes/themeforest/angular/costic/menu-grid">Menu Grid</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/add-product" routerlinkactive="active" href="/themes/themeforest/angular/costic/add-product">Add Product</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/product-detail" routerlinkactive="active" href="/themes/themeforest/angular/costic/product-detail">Product Detail</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/order" routerlinkactive="active" href="/themes/themeforest/angular/costic/order"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="fas fa-clipboard-list fs-16"></i>Orders</span></a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/restaurant-list" routerlinkactive="active" href="/themes/themeforest/angular/costic/restaurant-list"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="fa fa-tasks fs-16"></i>Restaurants List</span></a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#invoice" aria-expanded="false" aria-controls="invoice" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="fas fa-file-invoice fs-16"></i>Invoice </span></a><ul _ngcontent-svf-c7="" id="invoice" aria-labelledby="invoice" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/invoice-detail" routerlinkactive="active" href="/themes/themeforest/angular/costic/invoice-detail">Invoice Detail</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/invoice-list" routerlinkactive="active" href="/themes/themeforest/angular/costic/invoice-list">Invoice List</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#customer" aria-expanded="false" aria-controls="customer" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="fas fa-user-friends fs-16"></i>Customers </span></a><ul _ngcontent-svf-c7="" id="customer" aria-labelledby="customer" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/customer-review" routerlinkactive="active" href="/themes/themeforest/angular/costic/customer-review">Customers Review</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/customer-list" routerlinkactive="active" href="/themes/themeforest/angular/costic/customer-list">Customers List</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/social-activity" routerlinkactive="active" href="/themes/themeforest/angular/costic/social-activity">Social Activity</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/sales" routerlinkactive="active" href="/themes/themeforest/angular/costic/sales"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="fa fa-briefcase fs-16"></i>Sales</span></a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/widgets" routerlinkactive="active" href="/themes/themeforest/angular/costic/widgets"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">widgets</i>Widgets</span></a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#basic-elements" aria-expanded="false" aria-controls="basic-elements" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">filter_list</i>Basic UI Elements</span></a><ul _ngcontent-svf-c7="" id="basic-elements" aria-labelledby="basic-elements" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/accordions" routerlinkactive="active" href="/themes/themeforest/angular/costic/accordions">Accordions</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/alerts" routerlinkactive="active" href="/themes/themeforest/angular/costic/alerts">Alerts</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/buttons" routerlinkactive="active" href="/themes/themeforest/angular/costic/buttons">Buttons</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/breadcrumbs" routerlinkactive="active" href="/themes/themeforest/angular/costic/breadcrumbs">Breadcrumbs</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/badges" routerlinkactive="active" href="/themes/themeforest/angular/costic/badges">Badges</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/cards" routerlinkactive="active" href="/themes/themeforest/angular/costic/cards">Cards</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/progress-bars" routerlinkactive="active" href="/themes/themeforest/angular/costic/progress-bars">Progress Bars</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/preloaders" routerlinkactive="active" href="/themes/themeforest/angular/costic/preloaders">Pre-loaders</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/pagination" routerlinkactive="active" href="/themes/themeforest/angular/costic/pagination">Pagination</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/tabs" routerlinkactive="active" href="/themes/themeforest/angular/costic/tabs">Tabs</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/typography" routerlinkactive="active" href="/themes/themeforest/angular/costic/typography">Typography</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#advanced-elements" aria-expanded="false" aria-controls="advanced-elements" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">code</i>Advanced UI Elements</span></a><ul _ngcontent-svf-c7="" id="advanced-elements" aria-labelledby="advanced-elements" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/draggable" routerlinkactive="active" href="/themes/themeforest/angular/costic/draggable">Draggables</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/sliders" routerlinkactive="active" href="/themes/themeforest/angular/costic/sliders">Sliders</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/modals" routerlinkactive="active" href="/themes/themeforest/angular/costic/modals">Modals</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/rating" routerlinkactive="active" href="/themes/themeforest/angular/costic/rating">Rating</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/tour" routerlinkactive="active" href="/themes/themeforest/angular/costic/tour">Tour</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/cropper" routerlinkactive="active" href="/themes/themeforest/angular/costic/cropper">Cropper</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/range-sliders" routerlinkactive="active" href="/themes/themeforest/angular/costic/range-sliders">Range Slider</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/animation" routerlinkactive="active" href="/themes/themeforest/angular/costic/animation"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">format_paint</i>Animations</span></a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#form-elements" aria-expanded="false" aria-controls="form-elements" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">input</i>Form Elements</span></a><ul _ngcontent-svf-c7="" id="form-elements" aria-labelledby="form-elements" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/form-elements" routerlinkactive="active" href="/themes/themeforest/angular/costic/form-elements">Form Elements</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/form-layouts" routerlinkactive="active" href="/themes/themeforest/angular/costic/form-layouts">Form Layouts</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/form-validation" routerlinkactive="active" href="/themes/themeforest/angular/costic/form-validation">Form Validation</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/form-wizard" routerlinkactive="active" href="/themes/themeforest/angular/costic/form-wizard">Form Wizard</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#charts" aria-expanded="false" aria-controls="charts" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">equalizer</i>Charts</span></a><ul _ngcontent-svf-c7="" id="charts" aria-labelledby="charts" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/chartjs" routerlinkactive="active" href="/themes/themeforest/angular/costic/chartjs">Chart JS</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/morris-chart" routerlinkactive="active" href="/themes/themeforest/angular/costic/morris-chart">Morris Chart</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#tables" aria-expanded="false" aria-controls="tables" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">tune</i>Tables</span></a><ul _ngcontent-svf-c7="" id="tables" aria-labelledby="tables" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/basic-table" routerlinkactive="active" href="/themes/themeforest/angular/costic/basic-table">Basic Tables</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/data-table" routerlinkactive="active" href="/themes/themeforest/angular/costic/data-table">Data tables</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#popups" aria-expanded="false" aria-controls="popups" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">message</i>Popups</span></a><ul _ngcontent-svf-c7="" id="popups" aria-labelledby="popups" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/sweet-alert" routerlinkactive="active" href="/themes/themeforest/angular/costic/sweet-alert">Sweet Alerts</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/toast" routerlinkactive="active" href="/themes/themeforest/angular/costic/toast">Toast</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#icons" aria-expanded="false" aria-controls="icons" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">border_color</i>Icons</span></a><ul _ngcontent-svf-c7="" id="icons" aria-labelledby="icons" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/fontawesome" routerlinkactive="active" href="/themes/themeforest/angular/costic/fontawesome">Fontawesome</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/flaticons" routerlinkactive="active" href="/themes/themeforest/angular/costic/flaticons">Flaticons</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/materialize" routerlinkactive="active" href="/themes/themeforest/angular/costic/materialize">Materialize</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#maps" aria-expanded="false" aria-controls="maps" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">map</i>Maps</span></a><ul _ngcontent-svf-c7="" id="maps" aria-labelledby="maps" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/google-map" routerlinkactive="active" href="/themes/themeforest/angular/costic/google-map">Google Maps</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/vector-map" routerlinkactive="active" href="/themes/themeforest/angular/costic/vector-map">Vector Maps</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#bonuspages" aria-expanded="false" aria-controls="bonuspages" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">insert_drive_file</i> Bonus Pages</span></a><ul _ngcontent-svf-c7="" id="bonuspages" aria-labelledby="bonuspages" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/web-analytics" routerlinkactive="active" href="/themes/themeforest/angular/costic/web-analytics"> Web Analytics </a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/stock-management" routerlinkactive="active" href="/themes/themeforest/angular/costic/stock-management">Stock Management</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/client-management" routerlinkactive="active" href="/themes/themeforest/angular/costic/client-management">Client Management</a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="has-chevron active"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">insert_drive_file</i>Pages</span></a><ul _ngcontent-svf-c7="" id="pages" aria-labelledby="pages" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#authentication" aria-expanded="false" aria-controls="authentication" class="has-chevron active">Authentication</a><ul _ngcontent-svf-c7="" id="authentication" aria-labelledby="authentication" data-parent="#pages" class="collapse show"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/default-login" routerlinkactive="active" href="/themes/themeforest/angular/costic/default-login" class="active">Default Login</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/modal-login" routerlinkactive="active" href="/themes/themeforest/angular/costic/modal-login">Modal Login</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/default-register" routerlinkactive="active" href="/themes/themeforest/angular/costic/default-register">Default Registration</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/modal-register" routerlinkactive="active" href="/themes/themeforest/angular/costic/modal-register">Modal Registration</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/lock-screen" routerlinkactive="active" href="/themes/themeforest/angular/costic/lock-screen">Lock Screen</a></li></ul></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/coming-soon" routerlinkactive="active" href="/themes/themeforest/angular/costic/coming-soon">Coming Soon</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/error-404" routerlinkactive="active" href="/themes/themeforest/angular/costic/error-404">Error Page</a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/faq" routerlinkactive="active" href="/themes/themeforest/angular/costic/faq"> FAQ </a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/portfolio" routerlinkactive="active" href="/themes/themeforest/angular/costic/portfolio"> Portfolio </a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/user-profile" routerlinkactive="active" href="/themes/themeforest/angular/costic/user-profile"> User Profile </a></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" routerlink="/invoice" routerlinkactive="active" href="/themes/themeforest/angular/costic/invoice"> Invoice </a></li></ul></li><li _ngcontent-svf-c7="" class="menu-item"><a _ngcontent-svf-c7="" href="#" data-toggle="collapse" data-target="#apps" aria-expanded="false" aria-controls="apps" class="has-chevron"><span _ngcontent-svf-c7=""><i _ngcontent-svf-c7="" class="material-icons fs-16">phone_iphone</i>Apps</span></a><ul _ngcontent-svf-c7="" id="apps" aria-labelledby="apps" data-parent="#side-nav-accordion" class="collapse"><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/chat" routerlinkactive="active" href="/themes/themeforest/angular/costic/chat">Chat</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/email" routerlinkactive="active" href="/themes/themeforest/angular/costic/email">Email</a></li><li _ngcontent-svf-c7=""><a _ngcontent-svf-c7="" routerlink="/to-do-list" routerlinkactive="active" href="/themes/themeforest/angular/costic/to-do-list">To-do List</a></li></ul></li></ul><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 657px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 387px;"></div></div></aside></app-side-navbar>--->
-                <main _ngcontent-svf-c62="" class="body-content">
+                <main class="body-content" style="min-width:100%;background-color:white">
                     <!--<app-top-navbar _ngcontent-svf-c62="" _nghost-svf-c8=""><nav _ngcontent-svf-c8="" class="navbar ms-navbar"><div _ngcontent-svf-c8="" data-target="#ms-side-nav" data-toggle="slideLeft" class="ms-aside-toggler ms-toggler pl-0"><span _ngcontent-svf-c8="" class="ms-toggler-bar bg-primary"></span><span _ngcontent-svf-c8="" class="ms-toggler-bar bg-primary"></span><span _ngcontent-svf-c8="" class="ms-toggler-bar bg-primary"></span></div><div _ngcontent-svf-c8="" class="logo-sn logo-sm ms-d-block-sm"><a _ngcontent-svf-c8="" routerlink="/" class="pl-0 ml-0 text-center navbar-brand mr-0" href="/themes/themeforest/angular/costic/"><img _ngcontent-svf-c8="" src="assets/img/costic/costic-logo-84x41.png" alt="logo"></a></div><ul _ngcontent-svf-c8="" id="ms-nav-options" class="ms-nav-list ms-inline mb-0"><li _ngcontent-svf-c8="" class="ms-nav-item ms-search-form pb-0 py-0"><form _ngcontent-svf-c8="" method="post" class="ms-form"><div _ngcontent-svf-c8="" class="ms-form-group my-0 mb-0 has-icon fs-14"><input _ngcontent-svf-c8="" type="search" name="search" placeholder="Search here..." value="" class="ms-form-input"><i _ngcontent-svf-c8="" class="flaticon-search text-disabled"></i></div></form></li><li _ngcontent-svf-c8="" class="ms-nav-item dropdown"><a _ngcontent-svf-c8="" href="#" id="mailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="text-disabled ms-has-notification"><i _ngcontent-svf-c8="" class="flaticon-mail"></i></a><ul _ngcontent-svf-c8="" aria-labelledby="mailDropdown" class="dropdown-menu dropdown-menu-right"><li _ngcontent-svf-c8="" class="dropdown-menu-header"><h6 _ngcontent-svf-c8="" class="dropdown-header ms-inline m-0"><span _ngcontent-svf-c8="" class="text-disabled">Mail</span></h6><span _ngcontent-svf-c8="" class="badge badge-pill badge-success">3 New</span></li><li _ngcontent-svf-c8="" class="dropdown-divider"></li><li _ngcontent-svf-c8="" class="ms-scrollable ms-dropdown-list ps"><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="ms-chat-status ms-status-offline ms-chat-img mr-2 align-self-center"><img _ngcontent-svf-c8="" src="assets/img/costic/customer-3.jpg" alt="people" class="ms-img-round"></div><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">Hey man, looking forward to your new project.</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 30 seconds ago</p></div></a><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="ms-chat-status ms-status-online ms-chat-img mr-2 align-self-center"><img _ngcontent-svf-c8="" src="assets/img/costic/customer-2.jpg" alt="people" class="ms-img-round"></div><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">Dear John, I was told you bought Costic! Send me your feedback</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 28 minutes ago</p></div></a><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="ms-chat-status ms-status-offline ms-chat-img mr-2 align-self-center"><img _ngcontent-svf-c8="" src="assets/img/costic/customer-1.jpg" alt="people" class="ms-img-round"></div><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">How many people are we inviting to the dashboard?</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 6 hours ago</p></div></a><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></li><li _ngcontent-svf-c8="" class="dropdown-divider"></li><li _ngcontent-svf-c8="" class="dropdown-menu-footer text-center"><a _ngcontent-svf-c8="" routerlink="/email" href="/themes/themeforest/angular/costic/email">Go to Inbox</a></li></ul></li><li _ngcontent-svf-c8="" class="ms-nav-item dropdown"><a _ngcontent-svf-c8="" href="#" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="text-disabled ms-has-notification"><i _ngcontent-svf-c8="" class="flaticon-bell"></i></a><ul _ngcontent-svf-c8="" aria-labelledby="notificationDropdown" class="dropdown-menu dropdown-menu-right"><li _ngcontent-svf-c8="" class="dropdown-menu-header"><h6 _ngcontent-svf-c8="" class="dropdown-header ms-inline m-0"><span _ngcontent-svf-c8="" class="text-disabled">Notifications</span></h6><span _ngcontent-svf-c8="" class="badge badge-pill badge-info">4 New</span></li><li _ngcontent-svf-c8="" class="dropdown-divider"></li><li _ngcontent-svf-c8="" class="ms-scrollable ms-dropdown-list ps"><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">12 ways to improve your crypto dashboard</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 30 seconds ago</p></div></a><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">You have newly registered users</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 45 minutes ago</p></div></a><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">Your account was logged in from an unauthorized IP</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 2 hours ago</p></div></a><a _ngcontent-svf-c8="" href="#" class="media p-2"><div _ngcontent-svf-c8="" class="media-body"><span _ngcontent-svf-c8="">An application form has been submitted</span><p _ngcontent-svf-c8="" class="fs-10 my-1 text-disabled"><i _ngcontent-svf-c8="" class="material-icons">access_time</i> 1 day ago</p></div></a><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></li><li _ngcontent-svf-c8="" class="dropdown-divider"></li><li _ngcontent-svf-c8="" class="dropdown-menu-footer text-center"><a _ngcontent-svf-c8="" href="#">View all Notifications</a></li></ul></li><li _ngcontent-svf-c8="" class="ms-nav-item ms-nav-user dropdown"><a _ngcontent-svf-c8="" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img _ngcontent-svf-c8="" src="assets/img/costic/customer-6.jpg" alt="people" class="ms-user-img ms-img-round float-right"></a><ul _ngcontent-svf-c8="" aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-right user-dropdown"><li _ngcontent-svf-c8="" class="dropdown-menu-header"><h6 _ngcontent-svf-c8="" class="dropdown-header ms-inline m-0"><span _ngcontent-svf-c8="" class="text-disabled">Welcome, Anny Farisha</span></h6></li><li _ngcontent-svf-c8="" class="dropdown-divider"></li><li _ngcontent-svf-c8="" class="ms-dropdown-list"><a _ngcontent-svf-c8="" routerlink="/user-profile" class="media fs-14 p-2" href="/themes/themeforest/angular/costic/user-profile"><span _ngcontent-svf-c8=""><i _ngcontent-svf-c8="" class="flaticon-user mr-2"></i> Profile</span></a><a _ngcontent-svf-c8="" routerlink="/email" class="media fs-14 p-2" href="/themes/themeforest/angular/costic/email"><span _ngcontent-svf-c8=""><i _ngcontent-svf-c8="" class="flaticon-mail mr-2"></i> Inbox</span><span _ngcontent-svf-c8="" class="badge badge-pill badge-info">3</span></a><a _ngcontent-svf-c8="" routerlink="/user-profile" class="media fs-14 p-2" href="/themes/themeforest/angular/costic/user-profile"><span _ngcontent-svf-c8=""><i _ngcontent-svf-c8="" class="flaticon-gear mr-2"></i> Account Settings</span></a></li><li _ngcontent-svf-c8="" class="dropdown-divider"></li><li _ngcontent-svf-c8="" class="dropdown-menu-footer"><a _ngcontent-svf-c8="" routerlink="/lock-screen" class="media fs-14 p-2" href="/themes/themeforest/angular/costic/lock-screen"><span _ngcontent-svf-c8=""><i _ngcontent-svf-c8="" class="flaticon-security mr-2"></i> Lock</span></a></li><li _ngcontent-svf-c8="" class="dropdown-menu-footer"><a _ngcontent-svf-c8="" routerlink="/default-login" class="media fs-14 p-2" href="/themes/themeforest/angular/costic/default-login"><span _ngcontent-svf-c8=""><i _ngcontent-svf-c8="" class="flaticon-shut-down mr-2"></i> Logout</span></a></li></ul></li></ul><div _ngcontent-svf-c8="" data-toggle="slideDown" data-target="#ms-nav-options" class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler"><span _ngcontent-svf-c8="" class="ms-toggler-bar bg-primary"></span><span _ngcontent-svf-c8="" class="ms-toggler-bar bg-primary"></span><span _ngcontent-svf-c8="" class="ms-toggler-bar bg-primary"></span></div></nav></app-top-navbar>-->
                     <div _ngcontent-svf-c62="" class="ms-content-wrapper ms-auth">
                         <div _ngcontent-svf-c62="" class="ms-auth-container">
-                            <div _ngcontent-svf-c62="" class="ms-auth-col">
-                                <div _ngcontent-svf-c62="" class="ms-auth-bg">
+                            <div _ngcontent-svf-c62="" class="ms-auth-col" style="max-width:50%;max-height:50%;">
+                                <img id="MyShopImage" style="max-width:600px;max-height:600px;" src="https://1.bp.blogspot.com/-Qcr0HTgGarw/XsG-es26VmI/AAAAAAAALyU/5AsH05lanbcg_4-0hKLecYXeMEknlKB2wCLcBGAsYHQ/s1600/pasta-penne-carbonara-receta.JPG" />
+                                <!--
+                                <div _ngcontent-svf-c62="" class="ms-auth-bg" id="mybigCommerceImage">
 
                                 </div>
+                                -->
                             </div>
                             <div _ngcontent-svf-c62="" class="ms-auth-col" style="min-width:30%">
                                 <div _ngcontent-svf-c62="" class="ms-auth-form">
                                     <div _ngcontent-svf-c62="" novalidate="" class="needs-validation">
                                         <h3 _ngcontent-svf-c62="">Crear cuenta</h3>
                                         <p _ngcontent-svf-c62="">Porfavor proporciona tus datos para poder crearte una cuenta</p>
-                                         <div _ngcontent-svf-c62="" class="mb-3">
-                                            <label _ngcontent-svf-c62="" for="validationCustom08">Imagen</label>
+                                        <div _ngcontent-svf-c62="" class="mb-3">
                                             <div _ngcontent-svf-c62="" class="input-group">
-                                                <img id="MyShopImage" style="max-width:300px;max-height:300px;"/>
-                                                <input _ngcontent-svf-c62="" type="file" class="btn btn-primary mt-4 d-block w-100" style="background-color:red" accept="image/*">    Añade una imagen!     </input>
+
+                                                <button _ngcontent-svf-c62="" type="submit" class="btn btn-primary mt-4 d-block w-100" style="background-color:red" onclick="document.getElementById('ImageInputFile').click();">    Añade una imagen!    </button>
+                                                <input id="ImageInputFile" type="file" style="display:none" accept="image/*" multiple />
                                             </div>
                                         </div>
-                                         <div _ngcontent-svf-c62="" class="mb-3">
+                                        <div _ngcontent-svf-c62="" class="mb-3">
                                             <label _ngcontent-svf-c62="" for="validationCustom08">El Nombre de tu comercio</label>
                                             <div _ngcontent-svf-c62="" class="input-group">
-                                                <input _ngcontent-svf-c62="" type="text" id="validationCustom08" placeholder="Ingresa el nombre de tu comercio" required="" class="form-control">
-                                                
+                                                <input _ngcontent-svf-c62="" type="text" id="NameOfRestaurant" placeholder="Ingresa el nombre de tu comercio" required="" class="form-control">
+                                                <input class="form-control" id="Selec_city_autocomplete" type="text" placeholder="Direccion: "
+                                                       style="background-color:white;opacity:1;font-size:medium;width:100%;" onfocus="document.getElementById('Selec_city_autocomplete').value='';" />
                                             </div>
                                         </div>
                                         <div _ngcontent-svf-c62="" class="mb-3">
                                             <label _ngcontent-svf-c62="" for="validationCustom08">Correo electronico</label>
                                             <div _ngcontent-svf-c62="" class="input-group">
-                                                <input _ngcontent-svf-c62="" type="email" id="validationCustom08" placeholder="Ingresa tu correo electronico" required="" class="form-control">
+                                                <input _ngcontent-svf-c62="" type="email" id="EmailOfRestaurant" placeholder="Ingresa tu correo electronico" required="" class="form-control">
                                                 <div _ngcontent-svf-c62="" class="invalid-feedback">Proporciona un Correo Electronico.</div>
                                             </div>
                                         </div>
                                         <div _ngcontent-svf-c62="" class="mb-2">
                                             <label _ngcontent-svf-c62="" for="validationCustom09">Contraseña</label>
                                             <div _ngcontent-svf-c62="" class="input-group">
-                                                <input _ngcontent-svf-c62="" type="password" id="validationCustom09" placeholder="Ingresa tu Contraseña" required="" class="form-control">
+                                                <input _ngcontent-svf-c62="" type="password" id="PAssWrodOfRestaurant" placeholder="Ingresa tu Contraseña" required="" class="form-control">
                                                 <div _ngcontent-svf-c62="" class="invalid-feedback">Proporciona una contraseña correcta</div>
-                                            </div>
-                                        </div>
-                                          <div _ngcontent-svf-c62="" class="mb-2">
-                                            <label _ngcontent-svf-c62="" for="validationCustom09">Categorias</label>
-                                            <div _ngcontent-svf-c62="" class="input-group">
-                                               <select name="cars" id="cars" class="btn btn-primary mt-4 d-block w-100" style="background-color:red" >
-      <option value="none">Selecciona tu Categoria</option>
-            <option value="Hamburguesa">Hamburguesa</option>
-            <option value="Guajolote">Guajolote</option>
-            <option value="Postre">Postre/Resposteria</option>
-            <option value="Pollo">Pollo</option>
-            <option value="India">Comida India</option>
-            <option value="Americana">Americana</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Saludable">Ensaladas/Saludable</option>
-            <option value="Vegetariano">Vegetariano</option>
-            <option value="Chino">Chino</option>
-            <option value="Continental">Continental</option>
-            <option value="Pastes">Pastes y empanadas</option>
-            <option value="Tacos">Tacos</option>
-            <option value="Antojitos">Antojitos</option>
-            <option value="ComidaCorrida">Comida Mexicana</option>
-            <option value="SushiYJapones">Sushi/Comida Japonesa</option>
-            <option value="BebidasSinAlcohol">Bebidas Sin Alcohol</option>
-            <option value="BebidasConAlcohol">Bebidas Alcoholicas</option>
-            <option value="Desayunos">Desayuno</option>
-            <option value="Chilaquiles">Chilaquiles</option>
-            <option value="Papas">Papas</option>
-
-
-
-</select>
                                             </div>
                                         </div>
                                         <div _ngcontent-svf-c62="" class="mb-2">
                                             <label _ngcontent-svf-c62="" for="validationCustom09">Categorias</label>
                                             <div _ngcontent-svf-c62="" class="input-group">
-                                                <input _ngcontent-svf-c62="" type="text" id="validationCustom09" placeholder="Añade una lista de categorias de tu comercio" required="" class="form-control">
+                                                <select name="cars" id="CategoriesOfRestaurant" class="btn btn-primary mt-4 d-block w-100" style="background-color:red">
+                                                    <option value="none">Selecciona tu Categoria</option>
+                                                    <option value="Hamburguesa">Hamburguesa</option>
+                                                    <option value="Guajolote">Guajolote</option>
+                                                    <option value="Postre">Postre/Resposteria</option>
+                                                    <option value="Pollo">Pollo</option>
+                                                    <option value="India">Comida India</option>
+                                                    <option value="Americana">Americana</option>
+                                                    <option value="Pizza">Pizza</option>
+                                                    <option value="Saludable">Ensaladas/Saludable</option>
+                                                    <option value="Vegetariano">Vegetariano</option>
+                                                    <option value="Chino">Chino</option>
+                                                    <option value="Continental">Continental</option>
+                                                    <option value="Pastes">Pastes y empanadas</option>
+                                                    <option value="Tacos">Tacos</option>
+                                                    <option value="Antojitos">Antojitos</option>
+                                                    <option value="ComidaCorrida">Comida Mexicana</option>
+                                                    <option value="SushiYJapones">Sushi/Comida Japonesa</option>
+                                                    <option value="BebidasSinAlcohol">Bebidas Sin Alcohol</option>
+                                                    <option value="BebidasConAlcohol">Bebidas Alcoholicas</option>
+                                                    <option value="Desayunos">Desayuno</option>
+                                                    <option value="Chilaquiles">Chilaquiles</option>
+                                                    <option value="Papas">Papas</option>
+
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div _ngcontent-svf-c62="" class="mb-2">
+                                            <label _ngcontent-svf-c62="" for="validationCustom09">Categorias</label>
+                                            <div _ngcontent-svf-c62="" class="input-group">
+                                                <input _ngcontent-svf-c62="" type="text" id="CategoriesOfBussines" placeholder="Añade una lista de categorias de tu comercio" required="" class="form-control">
                                                 <div _ngcontent-svf-c62="" class="invalid-feedback">Proporciona una contraseña correcta</div>
                                             </div>
                                         </div>
@@ -31914,7 +31998,8 @@
                                             </label>
                                         </div>
                                         -->
-                                        <button _ngcontent-svf-c62="" type="submit" class="btn btn-primary mt-4 d-block w-100" style="background-color:green" onclick="LoginRequest();">    Loguea!     </button>
+                                        <button id="UploadButton" type="submit" class="btn btn-success mt-4 d-block w-100" onclick="PrepareEverthingToBeUploaded();">    Loguea!     </button>
+                                        <div id="spacerContainer"></div>
                                         <p _ngcontent-svf-c62="" class="mb-0 mt-3 text-center">
                                             Ya tienes cuenta?
                                             <a _ngcontent-svf-c62="" routerlink="/default-register" class="btn-link" href="/Home">Login</a>
@@ -31944,47 +32029,290 @@
             </div>
         </app-default-login><!---->
     </app-root>
+    <!--https://www.gstatic.com/firebasejs/7.17.1/firebase-messaging.js
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg" async="" defer=""></script>
+    -->
     <script src="https://colorlib.com/preview/theme/bulkapp/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script>function LoginRequest() {
-            alert("holi");
-            var mail = document.getElementById('validationCustom08').value;
-            var pass = document.getElementById('validationCustom09').value;
-            $.ajax({
-                type: "POST",
-                url: "/Home/ProcessLoginRequest?User=" + mail + "&Pass=" + pass,
-                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
-                //data: '{Valor_Busqueda: "' + dc1 + '" }',
-                data: '{ }',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    // document.getElementById('nombre_mensaje').value = "";
-                    // document.getElementById('correo_mensaje').value = "";
-                    // document.getElementById('mensaje_mensaje').value = "";
-                    alert(JSON.stringify(response));
-                    //               <div class="col-lg-3 col-md-6">
-                    //         <div class="feature_item">
-                    //           <img src="img/icon/f-icon-1.png" alt="">
-                    //         <h4>Maintenance</h4>
-                    //       <p>inappropriate behavior is often laughed off as boys will be boys,” women face higher conduct standards especially in the workplace. That’s why.</p>
-                    //        </div>
-                    //   </div>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/firebase/init.js"></script>
+ 
+    <script>
+     getLocation();
+        window.latitude = 0;
+        window.longitude = 0;
+        window.Token = "";
+
+     var firebaseConfig = {
+            apiKey: "AIzaSyAR87SDISBR-T_YKS-s6gmF6j-PX3TUOQY",
+            authDomain: "carppi-restaurante.firebaseapp.com",
+            databaseURL: "https://carppi-restaurante.firebaseio.com",
+            projectId: "carppi-restaurante",
+            storageBucket: "carppi-restaurante.appspot.com",
+            messagingSenderId: "92212278629",
+            appId: "1:92212278629:web:7ea2bf7099b0fa0fd45d8c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
 
 
+    var messaging = firebase.messaging();
 
-                },
-                failure: function (response) {
-                    alert(JSON.stringify(response));
+       
+        // initAutocomplete();
 
-                },
-                error: function (response) {
-                    alert(JSON.stringify(response));
+        messaging.usePublicVapidKey("BHF94g9bR2-oGMlh_7_hsh7DU56WnYCyNtaV81GwwVnIoRvrT9VeZq8HX9R12z5BWjT4ct1jRGqolvMkmCBSG2w");
+        messaging.requestPermission().then(() => {
+        messaging.getToken().then((currentToken) => {
+            if (currentToken) {
+               // alert(currentToken);
 
-                }
+                window.Token = currentToken;
+    //sendTokenToServer(currentToken);
+    //updateUIForPushEnabled(currentToken);
+
+  } else {
+    // Show permission request.
+
+    console.log('No Instance ID token available. Request permission to generate one.');
+    // Show permission UI.
+    //updateUIForPushPermissionRequired();
+    //setTokenSentToServer(false);
+
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+  //showToken('Error retrieving Instance ID token. ', err);
+  //setTokenSentToServer(false);
+});
             });
 
+        function getLocation() {
+            /*
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                // x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+            */
+        }
+        function showPosition(position) {
+            window.latitude = position.coords.latitude;
+            window.longitude = position.coords.longitude;
+            //x.innerHTML = "Latitude: " + position.coords.latitude +
+            //"<br>Longitude: " + position.coords.longitude;
+
+        }
+        document.getElementById('ImageInputFile').onchange = function (evt) {
+            var tgt = evt.target || window.event.srcElement,
+                files = tgt.files;
+
+            // FileReader support
+            if (FileReader && files && files.length) {
+                var fr = new FileReader();
+                fr.onload = function () {
+                    document.getElementById('MyShopImage').src = fr.result;
+                }
+                fr.readAsDataURL(files[0]);
+            }
+
+            // Not supported
+            else {
+                // fallback -- perhaps submit the input to an iframe and temporarily store
+                // them on the server until the user's session ends.
+            }
+        }
+
+
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+
+            autocomplete = new google.maps.places.Autocomplete(
+                (document.getElementById('Selec_city_autocomplete'))
+                , {
+                    types: ['address', '(cities)'],
+                    componentRestrictions: { country: 'mx' }
+                });
+
+            autocomplete2 = new google.maps.places.Autocomplete(
+                (document.getElementById('Selec_city_Destination_autocomplete'))
+                , {
+                    types: ['address', '(cities)'],
+                    componentRestrictions: { country: 'mx' }
+                });
+
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+
+            autocomplete2.addListener('place_changed', fillInAddress2);
+        }
+        var place;
+        var place2;
+
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            place = autocomplete.getPlace();
+            var lat = place.geometry.location.lat(),
+                lng = place.geometry.location.lng();
+            alert(lat + " " + lng);
+
+        }
+
+        function fillInAddress2() {
+            // Get the place details from the autocomplete object.
+            place2 = autocomplete2.getPlace();
+            var lat = place2.geometry.location.lat(),
+                lng = place2.geometry.location.lng();
+            alert(lat + " " + lng);
+
+        }
+        function PrepareEverthingToBeUploaded() {
+            //document.getElementById("btnTrigger_Progreso_subida").click();
+
+            var formdata = new FormData(); //FormData object
+            var phothoData = new FormData(); //FormData object
+
+            //var fileInput = document.getElementById('FilesFromHomeworkModal');
+
+            var PhotographInput = document.getElementById('ImageInputFile');
+            var Title = document.getElementById('NameOfRestaurant').value;
+            var EmailOfRestaurant = document.getElementById('EmailOfRestaurant').value;
+            var PAssWrodOfRestaurant = document.getElementById('PAssWrodOfRestaurant').value;
+            var CategoriesOfRestaurant = document.getElementById('CategoriesOfRestaurant').selectedIndex;
+            //CategoriesOfBussines
+
+            var CategoriesOfBussines = document.getElementById('CategoriesOfBussines').value;
+            //Iterating through each files selected in fileInput
+            //   var Tags = document.getElementById('SelectionOfTags_uploadHomeworkModal');
+            //var tah_array = ReturnTagArray(document.getElementById('SelectionOfTags_uploadHomeworkModal'));
+
+
+            if (PhotographInput.files[0] == undefined) {
+                alert("Falta la imagen de tu comercio");
+            }
+            else if (window.Token = "" || Title == "" || EmailOfRestaurant == "" || PAssWrodOfRestaurant == "" || CategoriesOfRestaurant == 0 || CategoriesOfBussines == "") {
+                alert("no todos los campos son correctos");
+            }
+            else {
+                formdata.append(PhotographInput.files[0].name, PhotographInput.files[0]);
+                submitRestaurant(formdata, Title, EmailOfRestaurant, PAssWrodOfRestaurant, CategoriesOfRestaurant, CategoriesOfBussines);
+            }
+
+
+
+            return false;
+
+        }
+
+
+
+        function submitRestaurant(formdata, Title, EmailOfRestaurant, PAssWrodOfRestaurant, CategoriesOfRestaurant, CategoriesOfBussines) {
+
+            // string LAtitud, String Logitud)
+            //console.log(tah_array);
+            $.ajax({
+                type: "POST",
+                url: "/NewRestaurant/Upload_files?Title=" + Title + "&EmailOfRestaurant=" + EmailOfRestaurant + "&PAssWrodOfRestaurant=" + PAssWrodOfRestaurant + "&CategoriesOfRestaurant=" + CategoriesOfRestaurant + "&CategoriesOfBussines=" + CategoriesOfBussines + "&LAtitud=" + window.latitude + "&Logitud=" + window.longitude + "&FirebaseHash=" + window.Token,
+                data: formdata,
+                async: true,
+                beforeSend: function (request, xhr) {
+
+                },
+                processData: false,
+
+                contentType: false,
+                cache: false,
+                timeout: 6000000,
+                success: function (data) {
+
+                    if (data.result == 'Redirect') {
+                        alert("exito");
+                        window.location = data.url;
+                    }
+                    else {
+                        alert(data.result);
+                    }
+                    /* setTimeout(function () {
+                         alert("holi");
+                     }, 1000);
+                     */
+
+                },
+
+                xhr: function () {
+                    //Get XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr();
+                    //Set onprogress event handler
+                    xhr.upload.onprogress = function (data) {
+
+                        var perc = Math.round((data.loaded / data.total) * 100);
+                        /*"<div class='progress'><div class='determinate0 style='width: 70%'></div></div>"*/
+                        //var barra = document.getElementById("progres_bar_subida");
+                        //barra.innerHTML = perc.toString() + '%';
+                        //barra.style.width = perc.toString() + '%';
+                        //barra.style["aria-valuenow"] = perc.toString();
+                        //barra.style["aria-valuemin"] = "0";
+                        //barra.style["aria-valuemin"] = "100";
+                        var botton = document.getElementById('spacerContainer');
+                        botton.innerHTML = "<div class='progress'><div class='determinate' style='width: " + perc.toString() + "%'></div></div>";
+                        console.log(perc.toString() + '%');
+
+                        if (perc >= 99) {
+                            //    document.getElementById("dismiss_modal_progresso").click();
+                        }
+                        // $('#progressBar').text(perc + '%');
+                        // $('#progressBar').css('width', perc + '%');
+
+                    };
+                    return xhr;
+                },
+                error: function (e) {
+                    // HideLoad();
+                    console.log('Error has occurred while uploading the media file.');
+                }
+
+
+            });
+
+        }
+        function initMap() {
+
+
+            var input = document.getElementById('Selec_city_autocomplete');
+            // var input_2 = document.getElementById('pac-input_2');
+
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            //  var autocomplete_2 = new google.maps.places.Autocomplete(input_2);
+
+            //   autocomplete_2.addListener('place_changed', function () {
+
+
+            // });
+            autocomplete.addListener('place_changed', function () {
+
+                // alert(JSON.stringify(autocomplete.getPlace()));
+                var place2 = autocomplete.getPlace();
+                var lat2 = place2.geometry.location.lat();
+                var lng2 = place2.geometry.location.lng();
+                window.latitude = lat2;
+                window.longitude = lng2;
+            });
+
+
+
+
+
         }</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8acSDAU3skMi8UcTduRLrbWlzD_K8USI&libraries=places&callback=initMap"
+            defer></script>
+
+
     <!--
     <script src="runtime-es2015.0dae8cbc97194c7caed4.js" type="module"></script>
     <script src="runtime-es5.0dae8cbc97194c7caed4.js" nomodule="" defer=""></script>

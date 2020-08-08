@@ -425,6 +425,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\RestaurantDashBoard\Index.cshtml" />
     <Content Include="Views\NewRestaurant\Index.cshtml" />
+    <Content Include="firebase-messaging-sw.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
