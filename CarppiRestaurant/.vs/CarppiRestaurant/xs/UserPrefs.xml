@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{DE55BBA8-B038-4504-8411-56AC750F6E80}|">
   <MonoDevelop.Ide.ItemProperties.CarppiRestaurant PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Controllers/NewRestaurantController.cs">
     <Files>
-      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="162" Column="38" />
-      <File FileName="CarppiRestaurant/App_Data/Receipt.html" Line="906" Column="8" />
-      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="31892" Column="33" />
+      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="50" Column="43" />
+      <File FileName="CarppiRestaurant/App_Data/Receipt.html" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="32226" Column="39" />
+      <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" Line="1" Column="1" />
+      <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" Line="64" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,11 +14,12 @@
           <Node name="CarppiRestaurant" expanded="True">
             <Node name="CarppiRestaurant" expanded="True">
               <Node name="App_Data" expanded="True" />
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="NewRestaurantController.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="RestaurantDashBoard" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
+                <Node name="NewRestaurant" expanded="True" />
+                <Node name="RestaurantDashBoard" expanded="True" />
               </Node>
             </Node>
           </Node>
