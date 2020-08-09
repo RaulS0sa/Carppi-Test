@@ -60,6 +60,8 @@ namespace CarppiRestaurant.Controllers
                     var RndNmbr = (Rnd.NextDouble() * (999999 - 100000)) + 100000;
                     try
                     {
+                        var Photo = Request.Files[0];
+                        NewHome.Foto = ConvertToByteArray_InputStream(Photo);
                         /*
                         var httpRequest = HttpContext.Current.Request;
                         var fileCollection = httpRequest.Files;
@@ -575,6 +577,21 @@ namespace CarppiRestaurant.Controllers
             }
 
 
+        }
+        public byte[] ConvertToByteArray_InputStream(HttpPostedFileBase file)
+        {
+            byte[] data;
+            using (Stream inputStream = file.InputStream)
+            {
+                MemoryStream memoryStream = inputStream as MemoryStream;
+                if (memoryStream == null)
+                {
+                    memoryStream = new MemoryStream();
+                    inputStream.CopyTo(memoryStream);
+                }
+                data = memoryStream.ToArray();
+                return data;
+            }
         }
 
 
