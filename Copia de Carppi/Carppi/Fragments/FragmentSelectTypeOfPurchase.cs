@@ -398,7 +398,7 @@ namespace Carppi.Fragments
                                         var db10 = new SQLiteConnection(databasePath10);
 
                                         db10.CreateTable<DatabaseTypes.Log_info>();
-                                        RegionResponse = 15;
+                                       // RegionResponse = 15;
                                         if (query == null)
                                         {
 

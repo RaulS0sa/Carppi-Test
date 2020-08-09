@@ -21,6 +21,30 @@ namespace CarppiRestaurant.Controllers
         public enum enumTipoDePago { Efectivo, Tarjeta };
 
         public enum RoleInCoversation { Sender, Receiver };
+        public enum AvailableFoodListing
+        {
+            Hamburgesas = 1,
+            Guajolotes = 2,
+            Postres = 4,
+            Pollo = 8,
+            Indio = 16,
+            Americano = 32,
+            Pizza = 64,
+            Saludable = 128,
+            Vegetariano = 256,
+            Chino = 512,
+            Continental = 1024,
+            Pastes = 2048,
+            Tacos = 4096,
+            Antojitos = 8192,
+            ComidaCorrida = 16384,
+            SushiYJapones = 32768,
+            BebidasSinAlcohol = 65536,
+            BebidasConAlcohol = 131072,
+            Desayuno = 262144,
+            Chilaquiles = 524288,
+            Papas = 1048576
+        };
 
         PidgeonEntities db = new PidgeonEntities();
         // GET: RestaurantDashBoard
@@ -31,11 +55,149 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
+
         [HttpPost]
-        public JsonResult TransferToAcoount(string ServiceProviderToTransferHash, IndexOfConnectedAccount TypeOfAcoount)
+        public JsonResult AddProduct(int ProductCategory, double CostTotal, string nombre, string descriptcion)
+        {
+
+            //      var User = db.TutoriUsuarios.Where(x => x.FaceID == FaceBookIDTutoriToAddHomework).FirstOrDefault();
+            try
+            {
+                var ServiceProviderToTransferHash = Session["RestaurantID"].ToString();
+                var NewHome = new Carppi_ProductosPorRestaurantes();
+/*
+                var httpRequest = HttpContext.Current.Request;
+                var fileCollection = httpRequest.Files;
+                var keycollection = httpRequest.Files.AllKeys;
+*/
+                try
+                {
+                    var Photo = Request.Files[0];
+                    NewHome.Foto = ConvertToByteArray_InputStream(Photo);//ToByteArray(Photo);
+                    /*
+                    var httpRequest = HttpContext.Current.Request;
+                    var fileCollection = httpRequest.Files;
+                    var keycollection = httpRequest.Files.AllKeys;
+
+
+                    var MMfile = fileCollection[keycollection.FirstOrDefault()];
+
+                    NewHome.Foto = ToByteArray(MMfile.InputStream);
+                    */
+                }
+                catch (Exception)
+                {
+
+                }
+
+
+                //var MMfile = fileCollection[keycollection.FirstOrDefault()];
+               // var NewHome = new Carppi_ProductosPorRestaurantes();
+              //  NewHome.Foto = ToByteArray(MMfile.InputStream);
+                NewHome.Categoria = ReturnRealBit(ProductCategory);
+                NewHome.Costo = CostTotal;
+                NewHome.Descripcion = descriptcion;
+                NewHome.Nombre = nombre;
+                NewHome.Disponibilidad = true;
+                NewHome.IDdRestaurante = ServiceProviderToTransferHash;
+                db.Carppi_ProductosPorRestaurantes.Add(NewHome);
+
+
+
+
+                db.SaveChanges();
+
+                return Json(new { StatusCode = "Created", Response = "" });
+                //  return Request.CreateResponse(HttpStatusCode.Created, NewHome.ID);
+            }
+            catch (Exception)
+            {
+
+            }
+
+
+            return Json(new { StatusCode = "BadRequest", Response = "" });
+            //  return Request.CreateResponse(HttpStatusCode.BadRequest, "");
+
+        }
+
+
+        public int ReturnRealBit(int Regularbit)
+        {
+            switch (Regularbit)
+            {
+                case 1:
+                    return (Int32)AvailableFoodListing.Hamburgesas;
+                case 2:
+                    return (Int32)AvailableFoodListing.Guajolotes;
+                case 3:
+                    return (Int32)AvailableFoodListing.Postres;
+                case 4:
+                    return (Int32)AvailableFoodListing.Pollo;
+                case 5:
+                    return (Int32)AvailableFoodListing.Indio;
+                case 6:
+                    return (Int32)AvailableFoodListing.Americano;
+                case 7:
+                    return (Int32)AvailableFoodListing.Pizza;
+                case 8:
+                    return (Int32)AvailableFoodListing.Saludable;
+                case 9:
+                    return (Int32)AvailableFoodListing.Vegetariano;
+                case 10:
+                    return (Int32)AvailableFoodListing.Chino;
+                case 11:
+                    return (Int32)AvailableFoodListing.Continental;
+                case 12:
+                    return (Int32)AvailableFoodListing.Pastes;
+                case 13:
+                    return (Int32)AvailableFoodListing.Tacos;
+                case 14:
+                    return (Int32)AvailableFoodListing.Antojitos;
+                case 15:
+                    return (Int32)AvailableFoodListing.ComidaCorrida;
+                case 16:
+                    return (Int32)AvailableFoodListing.SushiYJapones;
+                case 17:
+                    return (Int32)AvailableFoodListing.BebidasSinAlcohol;
+                case 18:
+                    return (Int32)AvailableFoodListing.BebidasConAlcohol;
+
+                case 19:
+                    return (Int32)AvailableFoodListing.Desayuno;
+                case 20:
+                    return (Int32)AvailableFoodListing.Chilaquiles;
+                case 21:
+                    return (Int32)AvailableFoodListing.Papas;
+                default:
+                    return 0;
+
+
+            }
+        }
+        public byte[] ToByteArray(Stream stream)
         {
             try
             {
+                stream.Position = 0;
+                byte[] buffer = new byte[stream.Length];
+                for (int totalBytesCopied = 0; totalBytesCopied < stream.Length;)
+                    totalBytesCopied += stream.Read(buffer, totalBytesCopied, Convert.ToInt32(stream.Length) - totalBytesCopied);
+                return buffer;
+            }
+            catch (Exception)
+            {
+                return new byte[] { };
+            }
+        }
+
+        [HttpPost]
+        public JsonResult TransferToAcoount()
+        {
+            try
+            {
+                var ServiceProviderToTransferHash = Session["RestaurantID"].ToString();
+                var TypeOfAcoount = IndexOfConnectedAccount.Restaurant;
                 if (TypeOfAcoount == IndexOfConnectedAccount.Restaurant)
                 {
                     var Reataurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == ServiceProviderToTransferHash).FirstOrDefault();
@@ -48,7 +210,15 @@ namespace CarppiRestaurant.Controllers
                             {
                                 StripeConfiguration.ApiKey = "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";
                                 var Fecha = DateTime.UtcNow.ToString();
-                                var amount = (long)(((Reataurante.DebtToRestaurant) - (Reataurante.DebtToRestaurant * 0.05)) * 100);
+                                
+                                var debt = new DebtReturnType();
+
+                                debt.RawDebt = Reataurante.DebtToRestaurant;
+                                debt.CarppiComision = Reataurante.DebtToRestaurant * 0.05;
+                                debt.StripeComision = (Reataurante.DebtToRestaurant * 0.025) + 12;
+                                debt.Total = Reataurante.DebtToRestaurant - (Reataurante.DebtToRestaurant * 0.05) - ((Reataurante.DebtToRestaurant * 0.025) + 12);
+
+                                var amount = (long)(debt.Total * 100);//(long)(((Reataurante.DebtToRestaurant) - (Reataurante.DebtToRestaurant * 0.05)) * 100);
                                 var options = new TransferCreateOptions
                                 {
                                     Amount = amount,
@@ -59,12 +229,6 @@ namespace CarppiRestaurant.Controllers
                                 };
                                 var service = new TransferService();
                                 var tresponse = service.Create(options);
-                                var debt = new DebtReturnType();
-
-                                debt.RawDebt = Reataurante.DebtToRestaurant;
-                                debt.CarppiComision = Reataurante.DebtToRestaurant * 0.05;
-                                debt.StripeComision = (Reataurante.DebtToRestaurant * 0.025) + 12;
-                                debt.Total = Reataurante.DebtToRestaurant - (Reataurante.DebtToRestaurant * 0.05) - ((Reataurante.DebtToRestaurant * 0.025) + 12);
 
                                 SendReceipt(debt, Reataurante.Correo, "Tu recibo " + Reataurante.Nombre, tresponse.Id);
                                 Reataurante.DebtToRestaurant = 0;
@@ -211,6 +375,8 @@ namespace CarppiRestaurant.Controllers
         }
         public class DebtReturnType
         {
+            public string RestaurantName;
+            public string Mail;
             public long RawDebt;
             public double CarppiComision;
             public double StripeComision;
@@ -610,6 +776,22 @@ namespace CarppiRestaurant.Controllers
                 Console.WriteLine(ep.Message);
             }
         }
+        public byte[] ConvertToByteArray_InputStream(HttpPostedFileBase file)
+        {
+            byte[] data;
+            using (Stream inputStream = file.InputStream)
+            {
+                MemoryStream memoryStream = inputStream as MemoryStream;
+                if (memoryStream == null)
+                {
+                    memoryStream = new MemoryStream();
+                    inputStream.CopyTo(memoryStream);
+                }
+                data = memoryStream.ToArray();
+                return data;
+            }
+        }
+
 
         public class MesssageData
         {
