@@ -1,8 +1,0 @@
-<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"><item android:id="@+id/menu_home" android:enabled="true" android:icon="@drawable/ic_action_not_listed_location" android:title="@string/tab1_title" app:showAsAction="ifRoom" android:background="@color/colorPrimary" app:itemIconTint="#529" app:itemTextColor="#529" /><!--
-  <item
-      android:id="@+id/menu_audio"
-      android:enabled="true"
-      android:icon="@drawable/ic_action_not_listed_location"
-      android:title="@string/tab2_title"
-      app:showAsAction="ifRoom" />
-    --><item android:id="@+id/menu_video" android:enabled="true" android:icon="@drawable/ic_action_account_circle" android:title="@string/tab3_title" app:showAsAction="ifRoom" android:background="@color/colorPrimary" app:itemIconTint="@drawable/nav_item_colors" app:itemTextColor="@drawable/nav_item_colors" /></menu>
