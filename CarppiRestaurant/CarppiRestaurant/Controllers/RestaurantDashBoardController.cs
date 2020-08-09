@@ -29,11 +29,11 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
-        [HttpGet]
-        [ActionName("ApiByAction")]
-        public JsonResult CarppiProductDetailedView_Compresed(int ProductDetailID_CompressedData)
+        [HttpPost]
+        public JsonResult CarppiProductDetailedView_Compresed(string ProductDetailID_CompressedData)
         {
-            var Producto = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductDetailID_CompressedData).FirstOrDefault();
+            var ID = Convert.ToInt32(ProductDetailID_CompressedData);
+            var Producto = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ID).FirstOrDefault();
 
             /*var nuevoProducto = new Carppi_ProductosPorRestaurantes();
             nuevoProducto = Producto;

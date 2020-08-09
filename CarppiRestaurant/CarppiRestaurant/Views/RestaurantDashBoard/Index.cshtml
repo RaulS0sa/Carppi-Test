@@ -32303,7 +32303,7 @@
                 dataType: "json",
                 success: function (response) {
                     if (response.StatusCode == "OK") {
-                        for (var i = 0; i < response.Response; i++)
+                        for (var i = 0; i < response.Response.length; i++)
                         {
                             printMenuItem(response.Response[i]);
                         }
@@ -32337,6 +32337,7 @@
                         //console.log(JSON.stringify(response));
                         var div0 = document.createElement('div');
                         div0.className = "col-lg-4 col-md-6 col-sm-6";
+                        div0.style.display = "inline-block";
 
                         var div1 = document.createElement('div');
                         div1.className = "ms-card";
@@ -32344,7 +32345,7 @@
                         var div2 = document.createElement('div');
                         div2.className = "ms-card-img";
                         var img0 = document.createElement('img');
-                        img0.src = "data:image/png;base64," + response.Response.Foto;
+                        img0.src = "data:image/png;base64," +_arrayBufferToBase64( response.Response.Foto);
                         div2.appendChild(img0);
                         div1.appendChild(div2);
 
@@ -32364,7 +32365,7 @@
                           var div5 = document.createElement('div');
                         div5.className = "wrapper-new1";
                         var h6_2 = document.createElement('span');
-                        h6_2.innerHTML  = ProductData.Disponibilidad ? '<strong _ngcontent-rec-c11="" class="color-green">Disponible</strong>' : '<strong _ngcontent-rec-c11="" class="color-red">No disponible</strong>' ;
+                        h6_2.innerHTML  =  response.Response.Disponibilidad ? '<strong _ngcontent-rec-c11="" class="color-green">Disponible</strong>' : '<strong _ngcontent-rec-c11="" class="color-red">No disponible</strong>' ;
                         //h6_2.innerHTML = response.Response.Disponibilidad ? "Disponible" : "No Disponible";;
                         div5.appendChild(h6_2);
 
@@ -32372,7 +32373,7 @@
 
 
                         var span_1 = document.createElement('span');
-                        span_1.innerHTML = response.Response.Costo;
+                        span_1.innerHTML ="$"+ response.Response.Costo;
 
                         div4.appendChild(h6_1);
                         div4.appendChild(h6_2);
@@ -32551,6 +32552,15 @@
                 }
                  });
         }
+        function _arrayBufferToBase64( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return window.btoa( binary );
+}
 
         //onclick="ChangeToSelectedView(enumVistaSeleccionada.Ordenes);"
         //name="NAvigationItem"
