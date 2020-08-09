@@ -1,10 +1,12 @@
 ﻿using CarppiRestaurant.Models;
 using Newtonsoft.Json;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -29,6 +31,194 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
+        [HttpPost]
+        public JsonResult TransferToAcoount(string ServiceProviderToTransferHash, IndexOfConnectedAccount TypeOfAcoount)
+        {
+            try
+            {
+                if (TypeOfAcoount == IndexOfConnectedAccount.Restaurant)
+                {
+                    var Reataurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == ServiceProviderToTransferHash).FirstOrDefault();
+                    if (Reataurante.StripeHash != null)
+                    {
+                        if (Reataurante.DebtToRestaurant > 15)
+                        {
+                            //CarppiDeliveryHash
+                            try
+                            {
+                                StripeConfiguration.ApiKey = "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";
+                                var Fecha = DateTime.UtcNow.ToString();
+                                var amount = (long)(((Reataurante.DebtToRestaurant) - (Reataurante.DebtToRestaurant * 0.05)) * 100);
+                                var options = new TransferCreateOptions
+                                {
+                                    Amount = amount,
+                                    Currency = "mxn",
+                                    Destination = Reataurante.StripeHash,
+
+                                    Description = "Carppi restaurant Transfer Date " + Fecha,
+                                };
+                                var service = new TransferService();
+                                var tresponse = service.Create(options);
+                                var debt = new DebtReturnType();
+
+                                debt.RawDebt = Reataurante.DebtToRestaurant;
+                                debt.CarppiComision = Reataurante.DebtToRestaurant * 0.05;
+                                debt.StripeComision = (Reataurante.DebtToRestaurant * 0.025) + 12;
+                                debt.Total = Reataurante.DebtToRestaurant - (Reataurante.DebtToRestaurant * 0.05) - ((Reataurante.DebtToRestaurant * 0.025) + 12);
+
+                                SendReceipt(debt, Reataurante.Correo, "Tu recibo " + Reataurante.Nombre, tresponse.Id);
+                                Reataurante.DebtToRestaurant = 0;
+                                db.SaveChanges();
+                                return Json(new { StatusCode = "OK", Response = "" });
+                                // return new HttpResponseMessage(HttpStatusCode.OK);
+                            }
+                            catch (Exception ex)
+                            {
+                                return Json(new { StatusCode = "InternalServerError", Response = "" });
+                                // return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { StatusCode = "NotFound", Response = "" });
+                        // return new HttpResponseMessage(HttpStatusCode.NotFound);
+                    }
+
+                }
+                else if (TypeOfAcoount == IndexOfConnectedAccount.DeliveryMan)
+                {
+
+                    var Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == ServiceProviderToTransferHash).FirstOrDefault();
+                    if (Repartidor.StripeHash != null)
+                    {
+                        if (Repartidor.DebtToDeliverMan > 15)
+                        {
+                            //CarppiDeliveryHash
+                            try
+                            {
+                                StripeConfiguration.ApiKey = "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";
+                                var Fecha = DateTime.UtcNow.ToString();
+                                var amount = Repartidor.DebtToDeliverMan * 100;
+                                var options = new TransferCreateOptions
+                                {
+                                    Amount = amount,
+                                    Currency = "mxn",
+                                    Destination = Repartidor.StripeHash,
+
+                                    Description = "Carppi restaurant Transfer Date " + Fecha,
+                                };
+                                var service = new TransferService();
+                                var tresponse = service.Create(options);
+
+                                var debt = new DebtReturnType();
+
+                                debt.RawDebt = Repartidor.DebtToDeliverMan;
+                                debt.CarppiComision = Repartidor.DebtToDeliverMan * 0.00;
+                                debt.StripeComision = ((Repartidor.DebtToDeliverMan * 0.025) + 12);
+                                debt.Total = debt.RawDebt - (debt.RawDebt * 0.00) - ((debt.RawDebt * 0.025) + 12);
+                                SendReceipt(debt, Repartidor.Email, "Tu recibo " + Repartidor.Nombre, tresponse.Id);
+                                Repartidor.DebtToDeliverMan = 0;
+                                db.SaveChanges();
+                                return Json(new { StatusCode = "OK", Response = "" });
+                                //return new HttpResponseMessage(HttpStatusCode.OK);
+                            }
+                            catch (Exception ex)
+                            {
+                                return Json(new { StatusCode = "InternalServerError", Response = "" });
+                                // return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { StatusCode = "NotFound", Response = "" });
+                        // return new HttpResponseMessage(HttpStatusCode.NotFound);
+                    }
+
+                }
+
+
+
+                db.SaveChanges();
+                return Json(new { StatusCode = "Accepted", Response = "" });
+                //return new HttpResponseMessage(HttpStatusCode.Accepted);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { StatusCode = "InternalServerError", Response = "" });
+                //return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            }
+            // var User = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == ServiceProviderHash).FirstOrDefault();
+            // var User = db.TutoriUsuarios.Where(x => x.FaceID == Tutori_participantToUpdate).FirstOrDefault();
+            //User.StripeDriverID = StripeComercianteID;
+
+
+        }
+
+        [HttpPost]
+        public JsonResult GetDebtData()
+        {
+            try
+            {
+                var DebtorHash = Session["RestaurantID"].ToString();
+                var DebtorType = IndexOfConnectedAccount.Restaurant;
+                if (DebtorType == IndexOfConnectedAccount.Restaurant)
+                {
+                    var Reataurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == DebtorHash).FirstOrDefault();
+                    var debt = new DebtReturnType();
+
+                    debt.RawDebt = Reataurante.DebtToRestaurant;
+                    debt.CarppiComision = Reataurante.DebtToRestaurant * 0.05;
+                    debt.StripeComision = (Reataurante.DebtToRestaurant * 0.025) + 12;
+                    debt.Total = Reataurante.DebtToRestaurant - (Reataurante.DebtToRestaurant * 0.05) - ((Reataurante.DebtToRestaurant * 0.025) + 12);
+
+                    return Json(new { StatusCode = "OK", Response = debt });
+                    // return Request.CreateResponse(HttpStatusCode.OK, debt);
+                    // return new HttpResponseMessage(HttpStatusCode.OK, debt);
+                }
+                else if (DebtorType == IndexOfConnectedAccount.DeliveryMan)
+                {
+                    var Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == DebtorHash).FirstOrDefault();
+                    var debt = new DebtReturnType();
+
+                    debt.RawDebt = Repartidor.DebtToDeliverMan;
+                    debt.CarppiComision = Repartidor.DebtToDeliverMan * 0;
+                    debt.StripeComision = ((Repartidor.DebtToDeliverMan * 0.025) + 12);
+                    debt.Total = debt.RawDebt - (debt.RawDebt * 0) - ((debt.RawDebt * 0.025) + 12);
+                    //return Request.CreateResponse(HttpStatusCode.OK, debt);
+                    return Json(new { StatusCode = "OK", Response = debt });
+                }
+
+
+
+                //                db.SaveChanges();
+                return Json(new { StatusCode = "Accepted", Response = "" });
+                //return new HttpResponseMessage(HttpStatusCode.Accepted);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { StatusCode = "InternalServerError", Response = "" });
+               // return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            }
+            // var User = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == ServiceProviderHash).FirstOrDefault();
+            // var User = db.TutoriUsuarios.Where(x => x.FaceID == Tutori_participantToUpdate).FirstOrDefault();
+            //User.StripeDriverID = StripeComercianteID;
+
+
+        }
+        public class DebtReturnType
+        {
+            public long RawDebt;
+            public double CarppiComision;
+            public double StripeComision;
+            public double Total;
+        }
+    
+
+
         [HttpPost]
         public JsonResult CarppiProductDetailedView_Compresed(string ProductDetailID_CompressedData)
         {
@@ -352,7 +542,75 @@ namespace CarppiRestaurant.Controllers
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
-        
+        void SendReceipt(DebtReturnType debtdata, string email, string subject, string transferID)
+        {
+            var Raul = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == "10217260473614661").FirstOrDefault();//10217260473614661
+            var Raul_Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == "10221568290107381").FirstOrDefault();//10217260473614661
+            try
+            {
+                string path = Server.MapPath("~/App_Data/Sample.jpg");
+                // string path = HttpContext.Current.Server.MapPath("~/App_Data/Sample.jpg");
+                byte[] imageByteData = System.IO.File.ReadAllBytes(path);
+                string imageBase64Data = Convert.ToBase64String(imageByteData);
+                string imageDataURL = string.Format("data:image/png;base64,{0}", imageBase64Data);
+                //ViewBag.ImageData = imageDataURL;
+
+
+                //  var TotalAmount = 15.ToString();
+                //  var TotalCard = 15.ToString();
+                //  var TotalCash = 15.ToString();
+                //  var TotalFare = 15.ToString();
+
+
+                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
+                var message = new MailMessage();
+                message.To.Add(new System.Net.Mail.MailAddress("raul.sosa.cortes@gmail.com"));  // replace with valid value 
+                message.To.Add(new System.Net.Mail.MailAddress(email));  // replace with valid value 
+                message.From = new System.Net.Mail.MailAddress("carppi_mexico@carppi.com.mx");  // replace with valid value
+                message.Subject = subject;
+                string path2 = Server.MapPath("~/App_Data/Receipt.html");
+                //string path2 = HttpContext.Current.Server.MapPath("~/App_Data/Receipt.html");
+                var fileContents = System.IO.File.ReadAllText(path2);
+                var r1 = fileContents.Replace("%%%TagForMoney%%%", "Total bruto: " + debtdata.RawDebt.ToString());
+                r1 = r1.Replace("%%%TagForCard%%%", "Comision Carppi: " + debtdata.CarppiComision.ToString());
+                r1 = r1.Replace("%%%TagForCash%%%", "Comision Bancaria: " + debtdata.StripeComision.ToString());
+                r1 = r1.Replace("%%%TagForFare%%%", "Total: " + debtdata.Total.ToString());
+
+                r1 = r1.Replace("%%%TagForID%%%", "Id de seguimiento: " + transferID);
+
+                message.Body = r1;
+                message.IsBodyHtml = true;
+
+                using (var smtp = new System.Net.Mail.SmtpClient())
+                {
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "carppi_mexico@carppi.com.mx",  // replace with valid value
+                        Password = "THELASTTIMEaround"  // replace with valid value
+                    };
+                    smtp.Credentials = credential;
+                    smtp.Host = "smtp-relay.gmail.com";
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+                    // smtp.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+                    smtp.Send(message);
+                    //await smtp.SendMailAsync(message);
+                    //  return RedirectToAction("Sent");
+                }
+
+
+                Console.WriteLine("email was sent successfully!");
+            }
+            catch (Exception ep)
+            {
+                //var Raul_Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == "10221568290107381").FirstOrDefault();//10217260473614661
+                // Push_Repartidor(ep.ToString(), "holi", Raul_Repartidor.FirebaseID, "");
+                Push(ep.ToString(), "Error", Raul.FirebaseID, "");
+                Console.WriteLine("failed to send email with the following error:");
+                Console.WriteLine(ep.Message);
+            }
+        }
+
         public class MesssageData
         {
             public CarppiREstaurant_MensajesClienteRestaurante MessageContext;
