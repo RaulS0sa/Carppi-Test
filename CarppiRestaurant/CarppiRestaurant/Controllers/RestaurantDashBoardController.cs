@@ -57,8 +57,7 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
-        [HttpGet]
-        [ActionName("ApiByAction")]
+        [HttpPost]
         public JsonResult SetOrderStatus(GroceryOrderState Estado, Int32 OrderID)
         {
             var Order = db.CarppiRestaurant_BuyOrders.Where(x => x.ID == OrderID).FirstOrDefault();
