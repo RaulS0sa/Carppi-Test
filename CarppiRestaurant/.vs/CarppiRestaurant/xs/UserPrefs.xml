@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{DE55BBA8-B038-4504-8411-56AC750F6E80}|">
   <MonoDevelop.Ide.ItemProperties.CarppiRestaurant PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Clases/BusquedaRepartidor.cs">
     <Files>
-      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="111" Column="33" />
-      <File FileName="CarppiRestaurant/App_Data/Receipt.html" Line="906" Column="8" />
-      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="33198" Column="51" />
+      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="61" Column="26" />
+      <File FileName="CarppiRestaurant/App_Data/Receipt.html" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="32607" Column="119" />
       <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" />
       <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" />
       <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" Line="31" Column="46" />
+      <File FileName="CarppiRestaurant/Clases/BusquedaRepartidor.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,14 +16,10 @@
           <Node name="CarppiRestaurant" expanded="True">
             <Node name="CarppiRestaurant" expanded="True">
               <Node name="App_Data" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Model1.edmx" expanded="True">
-                  <Node name="Model1.tt" expanded="True">
-                    <Node name="CarppiGrocery_Repartidores.cs" selected="True" />
-                  </Node>
-                </Node>
+              <Node name="Clases" expanded="True">
+                <Node name="BusquedaRepartidor.cs" selected="True" />
               </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="NewRestaurant" expanded="True" />
                 <Node name="RestaurantDashBoard" expanded="True" />
@@ -37,7 +34,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiRestaurant/CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" relfile="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" line="93" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiRestaurant/CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" relfile="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" line="170" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

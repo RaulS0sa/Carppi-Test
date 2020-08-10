@@ -32527,8 +32527,8 @@
                         <input _ngcontent-vcs-c38="" type="checkbox" value="">
                         <i _ngcontent-vcs-c38="" class="ms-checkbox-check"></i>
                             </label><span _ngcontent-vcs-c38=""> Don't Show me Again </span></div>-->
-                    <button _ngcontent-vcs-c38="" type="button" data-dismiss="modal" class="btn btn-light">Rechazar Orden</button>
-                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-primary shadow-none">Aceptar Orden</button>
+                    <button _ngcontent-vcs-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="SetOrderstat(GroceryOrderState.RequestRejected);">Rechazar Orden</button>
+                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-primary shadow-none" onclick="SetOrderstat(GroceryOrderState.RequestAccepted);">Aceptar Orden</button>
                 </div>
             </div>
         </div>
@@ -32543,6 +32543,7 @@
                           
                             <div _ngcontent-vcs-c10="" class="ms-panel-body ms-scrollable ps">
                                 <div id="ConversationLayout">
+                                    <!--
                                 <div _ngcontent-vcs-c10="" class="ms-chat-bubble ms-chat-message ms-chat-outgoing media clearfix">
                                     <div _ngcontent-vcs-c10="" class="ms-chat-status ms-status-online ms-chat-img">
                                         <img _ngcontent-vcs-c10="" src="assets/img/costic/customer-1.jpg" alt="people" class="ms-img-round">
@@ -32573,6 +32574,7 @@
                                         <p _ngcontent-vcs-c10="">There are many variations of passages of Lorem Ipsum available</p></div>
                                     <p _ngcontent-vcs-c10="" class="ms-chat-time">11:03 pm</p></div>
                                 </div>
+                                    -->
                                 </div>
                                 <div _ngcontent-vcs-c10="" class="ms-panel-footer">
                                     <div _ngcontent-vcs-c10="" class="ms-chat-textbox">
@@ -32602,8 +32604,8 @@
                         </div>
                     </div>
                      
-                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-primary shadow-none" style="width:100%">Pedir Repartidor</button>
-                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-primary shadow-none">El Repartidor ha llegado, cerrar Orden</button>
+                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-primary shadow-none" style="width:100%" onclick="RequestDriver();">Pedir Repartidor</button>
+                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-primary shadow-none" style="width:100%" onclick="SetOrderstat(GroceryOrderState.RequestGoingToClient);">El Repartidor ha llegado, cerrar Orden</button>
                 </div>
             </div>
         </div>
@@ -32622,6 +32624,8 @@
     <script>
         var EnumEstadosDelTrabajo = { RequestCreated: 0, RequestBeingAttended: 1, RequestAccepted: 2, RequestGoingToClient: 3, RequestEnded: 4, RequestRejected: 5 };
         var enumVistaSeleccionada = { Ordenes: 0, Menu: 1, Repartidores: 2, AñadirProducto: 3, AñadirTarjeta: 4, MisFinanzas: 5 };
+        //public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded, RequestRejected };
+        var GroceryOrderState = { RequestCreated: 0, RequestBeingAttended: 1, RequestAccepted: 2, RequestGoingToClient: 3, RequestEnded: 4, RequestRejected: 5 };
         //public enum RoleInCoversation { Sender, Receiver };
         var RoleInCoversation = { Sender: 0, Receiver: 1 };
 
@@ -32814,9 +32818,74 @@
         }
 
 
+        //SetOrderstat
+          function SetOrderstat(State)
+        {
+            //document.getElementById('TemMenuContfainer').innerHTML = "";
+ $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/SetOrderStatus?Estado=" + State + "&OrderID="+RequestID,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+     success: function (response) {
+         alert(response.Response);
+         /*alert(response.Response);
+         
+                    if (response.StatusCode == "Accepted") {
+                      
+                    }
+                    */
 
+         
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
 
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
 
+                }
+                 });
+        }
+
+          function RequestDriver()
+        {
+            //document.getElementById('TemMenuContfainer').innerHTML = "";
+ $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/RequestDriver?NewOrderID=" + RequestID,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+     success: function (response) {
+         alert(response.Response);
+         /*
+                    if (response.StatusCode == "OK") {
+                        for (var i = 0; i < response.Response.length; i++)
+                        {
+                            printMenuItem(response.Response[i]);
+                        }
+                     // ((CarppiProductDetailedView_Compresed(int ProductDetailID_CompressedData)))
+               
+                    }
+         */
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+                 });
+        }
 
         function QueryItemsToMenu()
         {
@@ -33176,7 +33245,7 @@
                             div_1.innerHTML += '</div>';
 
                             var AppendStar = '<ul _ngcontent-rec-c20="" class="ms-star-rating rating-fill rating-circle ratings-new">';
-                            for (var j = 0; j <5; j++)
+                            for (var j = 5; j > 0; j--)
                             {
                                 if (j < parseInt(AssignedDeliver.Repartidor.Rating_double)) {
                                     AppendStar += '<li _ngcontent-rec-c20="" class="ms-rating-item rated">';
@@ -33531,7 +33600,7 @@
                             var TipoDePagoTexto = parseInt(ListOfOrders[i].Orden.TipoDePago) == 0 ? "<h6 style='color:#FF0000'>Pago en efectivo</h6>" : "<h6 style='color:#228B22'>Pago con Tarjeta</h6>";
                             var Comentario = (ListOfOrders[i].Orden.Comentario == null ? "" : ListOfOrders[i].Orden.Comentario);
                             var OrderObj_text = JSON.stringify(ListOfOrders[i]);
-                            var OrderText = '<div _ngcontent-vcs-c13="" class="col-xl-3 col-lg-4 col-md-6 col-sm-6"><div _ngcontent-vcs-c13="" class="ms-card"><div _ngcontent-vcs-c13="" class="ms-card-img"><img _ngcontent-vcs-c13="" src="http://metropolitanhost.com/themes/themeforest/angular/costic/assets/img/costic/food-1.jpg" alt="card_img"></div><div _ngcontent-vcs-c13="" class="ms-card-body"><div _ngcontent-vcs-c13="" class="new"><h6 _ngcontent-vcs-c13="" class="mb-0">' + Chain + ' </h6><h6 _ngcontent-vcs-c13="" class="ms-text-primary mb-0">$' + ListOfOrders[i].Costo.toFixed(2) + '</h6></div><div _ngcontent-vcs-c13="" class="new meta"><p _ngcontent-vcs-c13=""> ID:' + ListOfOrders[i].Orden.ID + '</p>' + Banner + '</div>' + TipoDePagoTexto + '<p _ngcontent-vcs-c13="">' + Comentario + '</p><div _ngcontent-vcs-c13="" class="new mb-0"><button _ngcontent-vcs-c13="" type="button" class="btn grid-btn mt-0 btn-sm btn-primary" onclick="PresentOptions(' + ListOfOrders[i].Orden.ID + ')">Opciones</button></div></div></div></div>';
+                            var OrderText = '<div _ngcontent-vcs-c13="" class="col-xl-4 col-lg-6 col-md-6 col-sm-6"><div _ngcontent-vcs-c13="" class="ms-card"><div _ngcontent-vcs-c13="" class="ms-card-img"><img _ngcontent-vcs-c13="" src="http://metropolitanhost.com/themes/themeforest/angular/costic/assets/img/costic/food-1.jpg" alt="card_img"></div><div _ngcontent-vcs-c13="" class="ms-card-body"><div _ngcontent-vcs-c13="" class="new"><h6 _ngcontent-vcs-c13="" class="mb-0">' + Chain + ' </h6><h6 _ngcontent-vcs-c13="" class="ms-text-primary mb-0">$' + ListOfOrders[i].Costo.toFixed(2) + '</h6></div><div _ngcontent-vcs-c13="" class="new meta"><p _ngcontent-vcs-c13=""> ID:' + ListOfOrders[i].Orden.ID + '</p>' + Banner + '</div>' + TipoDePagoTexto + '<p _ngcontent-vcs-c13="">' + Comentario + '</p><div _ngcontent-vcs-c13="" class="new mb-0"><button _ngcontent-vcs-c13="" type="button" class="btn grid-btn mt-0 btn-sm btn-primary" onclick="PresentOptions(' + ListOfOrders[i].Orden.ID + ')">Opciones</button></div></div></div></div>';
                             container.innerHTML += OrderText;
                             //555555
 
