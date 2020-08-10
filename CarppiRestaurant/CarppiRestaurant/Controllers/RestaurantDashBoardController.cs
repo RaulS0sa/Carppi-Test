@@ -57,6 +57,94 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
+
+        [HttpPost]
+        public JsonResult PostMessageInRestauranDeliver(string DeliverRequest, String Message)
+        {
+            var FaceID_speaker = Session["RestaurantID"].ToString();
+            var REquest_OfTrip = db.CarppiRestaurant_BuyOrders.Where(x => x.RestaurantHash == FaceID_speaker && x.FaceIDRepartidor_RepartidorCadena == DeliverRequest).FirstOrDefault();
+            if (REquest_OfTrip == null)
+            {
+                var NewesID = Convert.ToInt32(DeliverRequest);
+                REquest_OfTrip = db.CarppiRestaurant_BuyOrders.Where(x => x.FaceIDRepartidor_RepartidorCadena == FaceID_speaker && x.ID == NewesID).FirstOrDefault();
+            }
+
+            if (REquest_OfTrip != null)
+            {
+                //                --CREATE TABLE Carppi_MensajesRideshare(
+                //--ID bigint primary key IDENTITY(1,1) NOT NULL,
+                //--Mensaje varchar(max),
+                //--FaceID_Sender varchar(450),
+                //--RequestID bigint,
+                //--DateInSeconds bigint,
+                //--Entregado bit not null default 0,
+                //--Leido bit not null default 0);
+                var NewMessage = new CarppiRestaurant_MensajesRepartidorRestaurante();
+                NewMessage.Mensaje = Message;
+                NewMessage.FaceID_Sender = FaceID_speaker;
+                NewMessage.BuyOrderID = REquest_OfTrip.ID;
+                NewMessage.DateInSeconds = (long)(((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds) / 1000);
+                db.CarppiRestaurant_MensajesRepartidorRestaurante.Add(NewMessage);
+                db.SaveChanges();
+
+                //var Driver = db.CarppiRequestForDrives.Where(x => x.FaceIDDriver == FaceID_Interlocutor && x.ID == TripRequest).FirstOrDefault();
+                //var Passenger = db.CarppiRequestForDrives.Where(x => x.FaceIDPassenger == FaceID_Interlocutor && x.ID == TripRequest).FirstOrDefault();
+
+                //var Token = "";
+                //Token = Driver == null ? "" : db.Traveler_Perfil.Where(x=> x.Facebook_profile_id == FaceID_Interlocutor).FirstOrDefault().FirebaseID;
+                //Token = Passenger == null ? Token : db.Traveler_Perfil.Where(x => x.Facebook_profile_id == FaceID_Interlocutor).FirstOrDefault().FirebaseID;
+                if (FaceID_speaker == REquest_OfTrip.RestaurantHash)
+                {
+                    //var intermitentID= 
+
+                    var repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor.Contains(REquest_OfTrip.FaceIDRepartidor_RepartidorCadena)).FirstOrDefault();
+                    Push_Repartidor(Message, "Mensaje restaurante, orden " + REquest_OfTrip.ID.ToString(), repartidor.FirebaseID, "");
+
+                }
+                else
+                {
+                    // var Token = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == REquest_OfTrip.UserID).FirstOrDefault().FirebaseID;
+                    var Restaurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash.Contains(REquest_OfTrip.RestaurantHash)).FirstOrDefault();
+                    // Push_re(Message, "Mensaje del cliente" + REquest_OfTrip.ID.ToString(), repartidor.FirebaseID, "");
+                    Push_Restaurante(Message, "Mensaje repartidor, orden" + REquest_OfTrip.ID.ToString(), Restaurante.FirebaseID, "");
+
+                    //Push(Message, "Mensaje Del Repartidor", Token, "");
+                    //Push(Message, "Mensaje Del cliente", Token, "");
+                }
+
+
+            }
+            return Json(new { StatusCode = "Accepted", Response = "" });
+            //return Request.CreateResponse(HttpStatusCode.Accepted, "");
+
+        }
+
+        [HttpPost]
+        public JsonResult GetAlMessagesFromConversationRestauranDeliver(string DeliverRequest)
+        {
+            var FaceID_Interest = Session["RestaurantID"].ToString();
+            var REquest_OfTrip = db.CarppiRestaurant_BuyOrders.Where(x => x.RestaurantHash == FaceID_Interest && x.FaceIDRepartidor_RepartidorCadena == DeliverRequest).FirstOrDefault();
+            if (REquest_OfTrip == null)
+            {
+                var NewesID = Convert.ToInt32(DeliverRequest);
+                REquest_OfTrip = db.CarppiRestaurant_BuyOrders.Where(x => x.FaceIDRepartidor_RepartidorCadena == FaceID_Interest && x.ID == NewesID).FirstOrDefault();
+
+            }
+            var Messages = db.CarppiRestaurant_MensajesRepartidorRestaurante.Where(x => x.BuyOrderID == REquest_OfTrip.ID);
+            List<MesssageValue> messsageDatas = new List<MesssageValue>();
+            foreach (var aca in Messages)
+            {
+                var OldMessage = new MesssageValue();
+                OldMessage.MessageContext = aca;
+                OldMessage.RoleInConversation = aca.FaceID_Sender == FaceID_Interest ? RoleInCoversation.Sender : RoleInCoversation.Receiver;
+                messsageDatas.Add(OldMessage);
+            }
+            return Json(new { StatusCode = "Accepted", Response = messsageDatas });
+            //return Request.CreateResponse(HttpStatusCode.Accepted, messsageDatas);
+
+        }
+
+
         [HttpPost]
         public JsonResult SetOrderStatus(GroceryOrderState Estado, Int32 OrderID)
         {
@@ -812,6 +900,19 @@ namespace CarppiRestaurant.Controllers
                     }
                     miorden.ListaDeProductos = datas;
                     miorden.Costo = TotalCost;
+                    if(aca.FaceIDRepartidor_RepartidorCadena != null)
+                    {
+                        try
+                        {
+                            var Nombre = db.CarppiGrocery_Repartidores.Where(x=> x.FaceID_Repartidor == aca.FaceIDRepartidor_RepartidorCadena).FirstOrDefault();
+                            miorden.DeliveryManName = Nombre.Nombre + " " + Nombre.Apellido;
+                        }
+                        catch(Exception)
+                        { }
+                    }
+
+
+                    
                     Retorn.Add(miorden);
 
                 }
@@ -1294,6 +1395,7 @@ namespace CarppiRestaurant.Controllers
             public CarppiRestaurant_BuyOrders Orden;
             public List<OrderData> ListaDeProductos;
             public double Costo;
+            public string  DeliveryManName;
 
         }
         class OrderData
