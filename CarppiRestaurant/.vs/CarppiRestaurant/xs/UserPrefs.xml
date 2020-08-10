@@ -1,16 +1,17 @@
 ﻿<Properties StartupConfiguration="{DE55BBA8-B038-4504-8411-56AC750F6E80}|">
   <MonoDevelop.Ide.ItemProperties.CarppiRestaurant PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Models/Carppi_ProductosPorRestaurantes.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs">
     <Files>
-      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="63" Column="46" />
+      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="70" Column="13" />
       <File FileName="CarppiRestaurant/App_Data/Receipt.html" />
-      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="33061" Column="33" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="31886" Column="40" />
       <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" />
       <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" Line="457" Column="1" />
       <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" Line="31" Column="46" />
       <File FileName="CarppiRestaurant/Clases/BusquedaRepartidor.cs" Line="30" Column="51" />
       <File FileName="CarppiRestaurant/Models/Model1.Context.cs" Line="31" Column="51" />
       <File FileName="CarppiRestaurant/Models/Carppi_ProductosPorRestaurantes.cs" Line="26" Column="53" />
+      <File FileName="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs" Line="37" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,14 +20,8 @@
             <Node name="CarppiRestaurant" expanded="True">
               <Node name="App_Data" expanded="True" />
               <Node name="Clases" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Model1.edmx" expanded="True">
-                  <Node name="Model1.tt" expanded="True">
-                    <Node name="Carppi_ProductosPorRestaurantes.cs" selected="True" />
-                  </Node>
-                  <Node name="Model1.Context.tt" expanded="True" />
-                </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="CarppiRestaurantAddCard.cs" selected="True" />
               </Node>
               <Node name="Views" expanded="True">
                 <Node name="NewRestaurant" expanded="True" />
