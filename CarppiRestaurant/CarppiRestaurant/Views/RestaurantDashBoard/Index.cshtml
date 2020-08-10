@@ -32629,7 +32629,7 @@
         var RequestID = 0;
         setInterval(function () {
             poolFunctions();
-        }, 1000);
+        }, 2500);
          document.getElementById('ImageOfProductoToUpload').onchange = function (evt) {
             var tgt = evt.target || window.event.srcElement,
                 files = tgt.files;
@@ -33290,6 +33290,13 @@
                     debt.CarppiComision = Reataurante.DebtToRestaurant * 0.05;
                     debt.StripeComision = (Reataurante.DebtToRestaurant * 0.025) + 12;
                     debt.Total = Reataurante.DebtToRestaurant - (Reataurante.DebtToRestaurant * 0.05) - ((Reataurante.DebtToRestaurant * 0.025) + 12);
+
+  public string RestaurantName;
+            public string Mail;
+            public long RawDebt;
+            public double CarppiComision;
+            public double StripeComision;
+            public double Total;
 */
                       
                        // alert(JSON.stringify(response.Response));
