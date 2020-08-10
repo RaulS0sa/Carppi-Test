@@ -57,6 +57,65 @@ namespace CarppiRestaurant.Controllers
         }
 
         [HttpPost]
+        public JsonResult RestaurantDeliveryManAssigned()
+        {
+            //var Order = db.CarppiRestaurant_BuyOrders.Where(x => x.RestaurantHash == RestaurantHashDeliveryMan);
+            var RestaurantHashDeliveryMan = Session["RestaurantID"].ToString();
+            var Order = db.CarppiRestaurant_BuyOrders.Where(x => x.RestaurantHash == RestaurantHashDeliveryMan && x.Stat == ((int)GroceryOrderState.RequestCreated) || x.Stat == (int)GroceryOrderState.RequestBeingAttended || x.Stat == (int)GroceryOrderState.RequestAccepted || x.Stat == ((int)GroceryOrderState.RequestDeliverManInRestaurantSpot));
+            List<CarppiGrocery_Repartidores> ListaRepartidores = new List<CarppiGrocery_Repartidores>();
+            foreach (var ordenes in Order)
+            {
+                var Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == ordenes.FaceIDRepartidor_RepartidorCadena).FirstOrDefault();
+                ListaRepartidores.Add(Repartidor);
+            }
+            if (ListaRepartidores.Count() != 0)
+            {
+                var ListaUnnica = ListaRepartidores.Distinct();
+                List<RepartidorYOrdenes> ListaDeOrdener = new List<RepartidorYOrdenes>();
+                foreach (var rep in ListaUnnica)
+                {
+                    RepartidorYOrdenes repartidorYOrdenes = new RepartidorYOrdenes();
+                    List<long> IDTemporales = new List<long>();
+                    repartidorYOrdenes.Repartidor = rep;
+
+                    var OrdenNueva = db.CarppiRestaurant_BuyOrders.Where(x => x.FaceIDRepartidor_RepartidorCadena == rep.FaceID_Repartidor);
+                    foreach (var ord in OrdenNueva)
+                    {
+                        IDTemporales.Add(ord.ID);
+
+
+                    }
+                    repartidorYOrdenes.ListaDeOrdenes = IDTemporales;
+
+
+                    ListaDeOrdener.Add(repartidorYOrdenes);
+                }
+                return Json(new { StatusCode = "OK", Response = ListaDeOrdener });
+                //return Request.CreateResponse(HttpStatusCode.OK, ListaDeOrdener);
+            }
+            else
+            {
+                return Json(new { StatusCode = "Moved", Response = "" });
+                //return Request.CreateResponse(HttpStatusCode.Moved, "sinrepartidores");
+            }
+
+        }
+        /*
+        public class ItemsPorRepartidor 
+        { 
+            public long IdDeOrden
+        }
+        */
+        public class RepartidorYOrdenes
+        {
+            public CarppiGrocery_Repartidores Repartidor;
+            public List<long> ListaDeOrdenes;
+        }
+        public enum ItemAvailability { SetUnavailable, SetAvailable };
+
+
+
+        [HttpPost]
         public JsonResult AddProduct(int ProductCategory, double CostTotal, string nombre, string descriptcion)
         {
 
