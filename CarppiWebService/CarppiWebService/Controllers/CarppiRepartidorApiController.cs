@@ -65,7 +65,9 @@ namespace CarppiWebService.Controllers
                 var Orden = new DeliveryOrderQuery();
                 Orden.Orden = ord;
                 var ProductosDecoded = Base64Decode(ord.ListaDeProductos);
-                var Listanueva = JsonConvert.DeserializeObject<List<ShopItem>>(ProductosDecoded);
+                if (ProductosDecoded.Contains("ItemID") && ProductosDecoded.Contains("Quantity"))
+                {
+                    var Listanueva = JsonConvert.DeserializeObject<List<ShopItem>>(ProductosDecoded);
 
                 List<Carppi_ProductosPorRestaurantes> Productos = new List<Carppi_ProductosPorRestaurantes>();
                 foreach (var prod in Listanueva)
@@ -83,6 +85,39 @@ namespace CarppiWebService.Controllers
 
                 Orden.Productos = Productos;
                 deliveryOrders.Add(Orden);
+            }
+                else
+                {
+                    var Listanueva = JsonConvert.DeserializeObject<List<ShopListItem>>(ProductosDecoded);
+
+                    List<Carppi_ProductosPorRestaurantes> Productos = new List<Carppi_ProductosPorRestaurantes>();
+                    foreach (var prod in Listanueva)
+                    {
+                        var Producto = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == prod.ID).FirstOrDefault();
+                        var ProductoTemporal = new Carppi_ProductosPorRestaurantes();
+                        ProductoTemporal.ID = Producto.ID;
+                        ProductoTemporal.Costo = Producto.Costo;
+                        ProductoTemporal.Nombre = Producto.Nombre;
+                        ProductoTemporal.IDdRestaurante = Producto.IDdRestaurante;
+                        var CostoNormal =Convert.ToDouble( Producto.Costo);
+                        try
+                        {
+                            foreach (var c in prod.PersonalOptions)
+                            {
+                                var Adicional = db.OptionalChoice.Where(x => x.ID == c.ID).FirstOrDefault();
+                                CostoNormal += Convert.ToDouble(Adicional.CostoExtra);
+                            }
+                        }
+                        catch (Exception)
+                        { }
+                        CostoParcial += Convert.ToDouble(CostoNormal * prod.Cantidad);
+
+                        Productos.Add(ProductoTemporal);
+                    }
+
+                    Orden.Productos = Productos;
+                    deliveryOrders.Add(Orden);
+                }
 
             }
 
@@ -108,7 +143,9 @@ namespace CarppiWebService.Controllers
                 var Orden = new DeliveryOrderQuery();
                 Orden.Orden = ord;
                 var ProductosDecoded = Base64Decode(ord.ListaDeProductos);
-                var Listanueva = JsonConvert.DeserializeObject<List<ShopItem>>(ProductosDecoded);
+                if (ProductosDecoded.Contains("ItemID") && ProductosDecoded.Contains("Quantity"))
+                {
+                    var Listanueva = JsonConvert.DeserializeObject<List<ShopItem>>(ProductosDecoded);
 
                 List<Carppi_ProductosPorRestaurantes> Productos = new List<Carppi_ProductosPorRestaurantes>();
                 foreach (var prod in Listanueva)
@@ -119,24 +156,71 @@ namespace CarppiWebService.Controllers
                     ProductoTemporal.Costo = Producto.Costo;
                     ProductoTemporal.Nombre = Producto.Nombre;
                     ProductoTemporal.IDdRestaurante = Producto.IDdRestaurante;
-                    CostoParcial +=Convert.ToDouble( Producto.Costo * prod.Quantity);
+                    CostoParcial += Convert.ToDouble(Producto.Costo * prod.Quantity);
 
                     Productos.Add(ProductoTemporal);
                 }
 
                 Orden.Productos = Productos;
                 deliveryOrders.Add(Orden);
+            }
+                else
+                {
+                    var Listanueva = JsonConvert.DeserializeObject<List<ShopListItem>>(ProductosDecoded);
+
+                    List<Carppi_ProductosPorRestaurantes> Productos = new List<Carppi_ProductosPorRestaurantes>();
+                    foreach (var prod in Listanueva)
+                    {
+                        var Producto = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == prod.ID).FirstOrDefault();
+                        var ProductoTemporal = new Carppi_ProductosPorRestaurantes();
+                        ProductoTemporal.ID = Producto.ID;
+                        ProductoTemporal.Costo = Producto.Costo;
+                        ProductoTemporal.Nombre = Producto.Nombre;
+                        ProductoTemporal.IDdRestaurante = Producto.IDdRestaurante;
+                        var CostoNormal = Convert.ToDouble(Producto.Costo);
+                        try
+                        {
+                            foreach (var c in prod.PersonalOptions)
+                            {
+                                var Adicional = db.OptionalChoice.Where(x => x.ID == c.ID).FirstOrDefault();
+                                CostoNormal += Convert.ToDouble(Adicional.CostoExtra);
+                            }
+                        }
+                        catch(Exception)
+                        { }
+                        CostoParcial += Convert.ToDouble(CostoNormal * prod.Cantidad);
+
+                        Productos.Add(ProductoTemporal);
+                    }
+
+                    Orden.Productos = Productos;
+                    deliveryOrders.Add(Orden);
+
+                }
 
             }
 
             var Contexto = new DeliveryContext();
             Contexto.deliveryOrderQuery = deliveryOrders;
-            Contexto.CostoTotal = CostoParcial;
+            Contexto.CostoTotal = Convert.ToDouble(Order.FirstOrDefault().Precio);// CostoParcial;
             Contexto.cliente = Order.FirstOrDefault().NombreDelUsuario;
             Contexto.TarifaDelEnvio = Order.FirstOrDefault().TarifaDelServicio;
 
             return Request.CreateResponse(HttpStatusCode.Accepted, Contexto);
 
+        }
+
+        public class ShopListItem
+        {
+            public int ID;
+            public int RegionID;
+            public int Cantidad;
+            public string Producto;
+            public double Costo;
+            public byte[] Foto;
+            public string Descripcion;
+            public List<OptionalChoice> ObligatoryOptions;
+            public List<OptionalChoice> PersonalOptions;
         }
         class DeliveryContext
         {
