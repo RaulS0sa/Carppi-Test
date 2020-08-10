@@ -32119,6 +32119,7 @@
                                 <div _ngcontent-rec-c20="" class="ms-panel ms-panel-fh">
                                 <div _ngcontent-rec-c20="" class="ms-panel-body p-0">
                                     <ul _ngcontent-rec-c20="" class="ms-list ms-feed ms-twitter-feed ms-recent-support-tickets" id="ContainerOfListOfDeliverMans">
+                                    <!--
                                     <li _ngcontent-rec-c20="" class="ms-list-item">
                                         <a _ngcontent-rec-c20="" routerlink="/customer-review" class="media clearfix" href="/themes/themeforest/angular/costic/customer-review">
                                         <img _ngcontent-rec-c20="" src="assets/img/costic/customer-1.jpg" alt="This is another feature" class="ms-img-round ms-img-small">
@@ -32160,6 +32161,7 @@
                                             </div>
                                             </a>
                                         </li>
+                                    -->
                                     <!--
                                     <li _ngcontent-rec-c20="" class="ms-list-item">
                                         <a _ngcontent-rec-c20="" routerlink="/customer-review" class="media clearfix" href="/themes/themeforest/angular/costic/customer-review">
@@ -33151,6 +33153,7 @@
                 success: function (response) {
                     if (response.StatusCode == "OK") {
                         var container = document.getElementById('ContainerOfListOfDeliverMans');
+                        container.innerHTML = "";
                         for (var i = 0; i < response.Response.length; i++) {
                             var AssignedDeliver = response.Response[i];
 
@@ -33161,9 +33164,11 @@
                             var a_1 = document.createElement('a');
                             a_1.className = "media clearfix";
                             a_1.href = "javascript:void(0)";
-
-
+                            var amg = document.createElement('img');
+                            amg.src = "https://www.seekpng.com/png/detail/114-1145491_graphic-royalty-free-library-delivery-vector-person-delivery.png";
+                            amg.style.cssText = "max-heigth:150px;max-width:150px;";
                             var div_1 = document.createElement('div');
+                            div_1.style.cssText = "margin-left:20px;padding-left:20px;";
                             div_1.className = "media-body";
                             div_1.innerHTML = '<div _ngcontent-rec-c20="" class="d-flex justify-content-between">';
                             div_1.innerHTML += '<div _ngcontent-rec-c20="" class="new">';
@@ -33171,11 +33176,18 @@
                             div_1.innerHTML += '</div>';
 
                             var AppendStar = '<ul _ngcontent-rec-c20="" class="ms-star-rating rating-fill rating-circle ratings-new">';
-                            for (var j = 0; j < parseInt(AssignedDeliver.Repartidor.Rating_double); j++)
+                            for (var j = 0; j <5; j++)
                             {
-                                AppendStar += '<li _ngcontent-rec-c20="" class="ms-rating-item">';
-                                AppendStar += '<i _ngcontent-rec-c20="" class="material-icons">star</i>';
-                                AppendStar += '</li>';
+                                if (j < parseInt(AssignedDeliver.Repartidor.Rating_double)) {
+                                    AppendStar += '<li _ngcontent-rec-c20="" class="ms-rating-item rated">';
+                                    AppendStar += '<i _ngcontent-rec-c20="" class="material-icons">star</i>';
+                                    AppendStar += '</li>';
+                                }
+                                else {
+                                       AppendStar += '<li _ngcontent-rec-c20="" class="ms-rating-item">';
+                                    AppendStar += '<i _ngcontent-rec-c20="" class="material-icons">star</i>';
+                                    AppendStar += '</li>';
+                                }
 
 
                             }
@@ -33192,17 +33204,17 @@
                 {
                     //var p_1 = document.createElement('p');
 
-                     Chain = ListOfDeliveryMan[i].ListaDeOrdenes[j];
+                     Chain += AssignedDeliver.ListaDeOrdenes[j];
                     Chain += ',';
                     //p_1.innerHTML = Chain;
                     //div2.appendChild(p_1);
                 }
                 
-                            div_1.innerHTML += '<p _ngcontent-rec-c20="" class="d-block">' + Ordenes + '</p>';
+                            div_1.innerHTML += '<p _ngcontent-rec-c20="" class="d-block">' + Chain + '</p>';
                             div_1.innerHTML += '</div></a></li>';
-
-
+                            a_1.appendChild(amg);
                             a_1.appendChild(div_1);
+                            
                             li_1.appendChild(a_1);
 
                             container.appendChild(li_1);
