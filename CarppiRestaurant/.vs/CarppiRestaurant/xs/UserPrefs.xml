@@ -4,13 +4,13 @@
     <Files>
       <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="70" Column="13" />
       <File FileName="CarppiRestaurant/App_Data/Receipt.html" />
-      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="31886" Column="40" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" />
       <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" />
-      <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" Line="457" Column="1" />
-      <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" Line="31" Column="46" />
-      <File FileName="CarppiRestaurant/Clases/BusquedaRepartidor.cs" Line="30" Column="51" />
-      <File FileName="CarppiRestaurant/Models/Model1.Context.cs" Line="31" Column="51" />
-      <File FileName="CarppiRestaurant/Models/Carppi_ProductosPorRestaurantes.cs" Line="26" Column="53" />
+      <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" />
+      <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" />
+      <File FileName="CarppiRestaurant/Clases/BusquedaRepartidor.cs" />
+      <File FileName="CarppiRestaurant/Models/Model1.Context.cs" />
+      <File FileName="CarppiRestaurant/Models/Carppi_ProductosPorRestaurantes.cs" />
       <File FileName="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs" Line="37" Column="1" />
     </Files>
     <Pads>
