@@ -357,6 +357,10 @@ namespace CarppiWebService.Controllers
                         Reataurante.contextualVailidationNumber = RndNmbr;
                         Envio_DeCorreo("Valida tu clave", "Clave: " + (int)RndNmbr, Reataurante.Correo);
                         Push_Restaurante("Codigo de validacion", "Clave " + RndNmbr.ToString(), Reataurante.FirebaseID, "");
+                        if(Reataurante.WebsiteFirebaseHash != null)
+                        {
+                            Push_Restaurante("Codigo de validacion", "Clave " + RndNmbr.ToString(), Reataurante.WebsiteFirebaseHash, "");
+                        }
 
                     }
 

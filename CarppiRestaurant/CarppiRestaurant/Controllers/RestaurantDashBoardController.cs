@@ -62,7 +62,13 @@ namespace CarppiRestaurant.Controllers
         [HttpPost]
         public JsonResult UpdateFireBaseToken(string Token)
         {
-          
+            if (Token != null)
+            {
+                var FaceID_speaker = Session["RestaurantID"].ToString();
+                var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault();
+                RestaurantStatePool.WebsiteFirebaseHash = Token;
+                db.SaveChanges();
+            }
             return Json(new { StatusCode = "Accepted", Response = "" });
         }
 

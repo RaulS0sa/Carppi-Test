@@ -47,6 +47,8 @@
     <Property Name="StripeAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="StripeHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="DebtToRestaurant" Type="Int64" Nullable="false" />
+    <Property Name="WebsitePasword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="WebsiteFirebaseHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Carppi_MensajesRideshare">
     <Key>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PidgeonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PidgeonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carppi_ComentariosHaciaElPerfil">
           <Key>
             <PropertyRef Name="ID" />
@@ -53,6 +53,7 @@
           <Property Name="StripeHash" Type="varchar(max)" />
           <Property Name="DebtToRestaurant" Type="bigint" Nullable="false" />
           <Property Name="WebsitePasword" Type="varchar(max)" Nullable="false" />
+          <Property Name="WebsiteFirebaseHash" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Carppi_MensajesRideshare">
           <Key>
@@ -786,8 +787,7 @@
           <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ventas_lista" EntityType="Self.Ventas_lista" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PidgeonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -839,6 +839,7 @@
           <Property Name="StripeHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DebtToRestaurant" Type="Int64" Nullable="false" />
           <Property Name="WebsitePasword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WebsiteFirebaseHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Carppi_MensajesRideshare">
           <Key>
@@ -1592,6 +1593,7 @@
           <EntitySetMapping Name="Carppi_IndicesdeRestaurantes">
             <EntityTypeMapping TypeName="PidgeonModel.Carppi_IndicesdeRestaurantes">
               <MappingFragment StoreEntitySet="Carppi_IndicesdeRestaurantes">
+                <ScalarProperty Name="WebsiteFirebaseHash" ColumnName="WebsiteFirebaseHash" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />

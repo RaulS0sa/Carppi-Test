@@ -33,6 +33,11 @@ namespace CarppiWebService.DeliveryJobSchedule
                     Push("Prueba intentando mas tarde", "El restaurante rechazo tu orden", cliente.FirebaseID, "");
                     var restaurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == orden.RestaurantHash).FirstOrDefault();
                     Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad","Orden Rechazada", restaurante.FirebaseID, "");
+                    if (restaurante.WebsiteFirebaseHash != null)
+                    {
+                        Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+                        
+                    }
                     orden.Stat = (int)GroceryOrderState.RequestRejected;
                     //db.SaveChanges();
                     Task.Delay(4000).ContinueWith(t => EraseBuyOrder(orden));

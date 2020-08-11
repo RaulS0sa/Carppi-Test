@@ -394,6 +394,10 @@ namespace CarppiWebService.Controllers
                 {
                     var Restaurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == RestauranteMasCercano.RestaurantHash).FirstOrDefault();
                     Push_Restaurante("El repartidor ha llegado", "El repartidor va a llegar, ten lista sus ordenes", Restaurante.FirebaseID, "");
+                    if (Restaurante.WebsiteFirebaseHash != null)
+                    {
+                        Push_Restaurante("El repartidor ha llegado", "El repartidor va a llegar, ten lista sus ordenes", Restaurante.WebsiteFirebaseHash, "");
+                    }
                     RestauranteMasCercano.ReparidorEnElAreaDelRestaurante = true;
                     db.SaveChanges();
                 }
@@ -456,6 +460,10 @@ namespace CarppiWebService.Controllers
                 {
                     var Restaurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == RestauranteMasCercano.RestaurantHash).FirstOrDefault();
                     Push_Restaurante("El repartidor ha llegado", "El repartidor va a llegar, ten lista sus ordenes", Restaurante.FirebaseID, "");
+                    if (Restaurante.WebsiteFirebaseHash != null)
+                    {
+                        Push_Restaurante("El repartidor ha llegado", "El repartidor va a llegar, ten lista sus ordenes", Restaurante.WebsiteFirebaseHash, "");
+                    }
                     RestauranteMasCercano.ReparidorEnElAreaDelRestaurante = true;
                     db.SaveChanges();
                 }

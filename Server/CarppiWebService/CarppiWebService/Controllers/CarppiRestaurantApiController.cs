@@ -222,7 +222,7 @@ namespace CarppiWebService.Controllers
 
                     Envio_DeCorreo("Identificacion", "Clave: " + (int)RndNmbr, Correo);
                     Push_Restaurante("Identificacion", "Clave: " + (int)RndNmbr, FirebaseHash, "");
-
+                    
 
                     db.SaveChanges();
 
@@ -1600,6 +1600,10 @@ namespace CarppiWebService.Controllers
                         //Push_Repartidor("tienes una nueva orden", "Nueva Orden", Busqueda.Repartidor.FirebaseID, "");
 
                         Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.FirebaseID, "");
+                        if (Restaurante.WebsiteFirebaseHash != null)
+                        {
+                            Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.WebsiteFirebaseHash, "");
+                        }
 
                         //
 
@@ -1811,6 +1815,10 @@ namespace CarppiWebService.Controllers
                         //Push_Repartidor("tienes una nueva orden", "Nueva Orden", Busqueda.Repartidor.FirebaseID, "");
 
                         Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.FirebaseID, "");
+                        if (Restaurante.WebsiteFirebaseHash != null)
+                        {
+                            Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.WebsiteFirebaseHash, "");
+                        }
 
                         //
 
@@ -1942,6 +1950,10 @@ namespace CarppiWebService.Controllers
                     //Push_Repartidor("tienes una nueva orden", "Nueva Orden", Busqueda.Repartidor.FirebaseID, "");
 
                     Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.FirebaseID, "");
+                    if (Restaurante.WebsiteFirebaseHash != null)
+                    {
+                        Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.WebsiteFirebaseHash, "");
+                    }
                     return Request.CreateResponse(HttpStatusCode.OK, "OK");
                 }
             }

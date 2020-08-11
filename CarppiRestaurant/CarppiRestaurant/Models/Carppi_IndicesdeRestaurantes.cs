@@ -48,5 +48,6 @@ namespace CarppiRestaurant.Models
         public string StripeHash { get; set; }
         public long DebtToRestaurant { get; set; }
         public string WebsitePasword { get; set; }
+        public string WebsiteFirebaseHash { get; set; }
     }
 }

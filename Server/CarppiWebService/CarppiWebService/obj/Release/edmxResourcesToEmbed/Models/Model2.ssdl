@@ -47,6 +47,8 @@
     <Property Name="StripeAccount" Type="varchar(max)" />
     <Property Name="StripeHash" Type="varchar(max)" />
     <Property Name="DebtToRestaurant" Type="bigint" Nullable="false" />
+    <Property Name="WebsitePasword" Type="varchar(max)" Nullable="false" />
+    <Property Name="WebsiteFirebaseHash" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Carppi_MensajesRideshare">
     <Key>

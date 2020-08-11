@@ -52,6 +52,8 @@
           <Property Name="StripeAccount" Type="varchar(max)" />
           <Property Name="StripeHash" Type="varchar(max)" />
           <Property Name="DebtToRestaurant" Type="bigint" Nullable="false" />
+          <Property Name="WebsitePasword" Type="varchar(max)" Nullable="false" />
+          <Property Name="WebsiteFirebaseHash" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Carppi_MensajesRideshare">
           <Key>
@@ -836,6 +838,8 @@
           <Property Name="StripeAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="StripeHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DebtToRestaurant" Type="Int64" Nullable="false" />
+          <Property Name="WebsitePasword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteFirebaseHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Carppi_MensajesRideshare">
           <Key>
@@ -1589,6 +1593,8 @@
           <EntitySetMapping Name="Carppi_IndicesdeRestaurantes">
             <EntityTypeMapping TypeName="PidgeonModel1.Carppi_IndicesdeRestaurantes">
               <MappingFragment StoreEntitySet="Carppi_IndicesdeRestaurantes">
+                <ScalarProperty Name="WebsiteFirebaseHash" ColumnName="WebsiteFirebaseHash" />
+                <ScalarProperty Name="WebsitePasword" ColumnName="WebsitePasword" />
                 <ScalarProperty Name="DebtToRestaurant" ColumnName="DebtToRestaurant" />
                 <ScalarProperty Name="StripeHash" ColumnName="StripeHash" />
                 <ScalarProperty Name="StripeAccount" ColumnName="StripeAccount" />

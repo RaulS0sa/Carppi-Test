@@ -75,6 +75,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
@@ -93,6 +99,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
@@ -111,6 +123,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
@@ -129,6 +147,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
@@ -147,6 +171,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
@@ -165,6 +195,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
@@ -183,6 +219,12 @@ namespace CarppiWebService.DeliveryJobSchedule
                             if (Restaurant.EstaAbierto == false)
                             {
                                 Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.FirebaseID, "");
+                                if (Restaurant.WebsiteFirebaseHash != null)
+                                {
+                                    Push_Restaurante("Tu restaurante se ha abierto automaticamente de acuerdo al horario especificado", "Restaurant abierto", Restaurant.WebsiteFirebaseHash, "");
+                                    // Push_Restaurante("Una de tus ordenes fue rechazada automaticamente por inactividad", "Orden Rechazada", restaurante.WebsiteFirebaseHash, "");
+
+                                }
                                 Restaurant.EstaAbierto = true;
                             }
                         }
