@@ -32756,6 +32756,29 @@
         var GroceryOrderState = { RequestCreated: 0, RequestBeingAttended: 1, RequestAccepted: 2, RequestGoingToClient: 3, RequestEnded: 4, RequestRejected: 5 };
         //public enum RoleInCoversation { Sender, Receiver };
         var RoleInCoversation = { Sender: 0, Receiver: 1 };
+          var AvailableFoodListing = {
+            Hamburgesas: 1,
+            Guajolotes: 2,
+            Postres: 4,
+            Pollo: 8,
+            Indio: 16,
+            Americano: 32,
+            Pizza: 64,
+            Saludable: 128,
+            Vegetariano: 256,
+            Chino: 512,
+            Continental: 1024,
+            Pastes: 2048,
+            Tacos:4096,
+            Antojitos: 8192,
+            Comida_Corrida: 16384,
+            Sushi_ComidaJaponesa: 32768,
+            Bebidas_Sin_Alcohol: 65536,
+            Bebidas_Alcoholicas: 131072,
+            Desayuno : 262144,
+            Chilaquiles: 524288,
+
+        };
 
         var myHash = {};
         var SelectedView = 0;
@@ -32954,6 +32977,7 @@
           function SetOrderstat(State)
         {
             //document.getElementById('TemMenuContfainer').innerHTML = "";
+
  $.ajax({
                 type: "POST",
                 url: "/RestaurantDashBoard/SetOrderStatus?Estado=" + State + "&OrderID="+RequestID,
@@ -33531,7 +33555,7 @@
                             //li_1.DeliverManID = AssignedDeliver.Repartidor.FaceIDRepartidor_RepartidorCadena;
                             li_1.appendChild(a_1);
                             li_1.addEventHandler('click', function () {
-                                SelectedDeliveryMan = this..DeliverManID;
+                                SelectedDeliveryMan = this.DeliverManID;
                                  document.getElementById('modal_repartidorButton').click();
             
                                  document.getElementById('modal_repartidor').style.display = "block";
