@@ -16,8 +16,8 @@ namespace CarppiWebService.Controllers
         PidgeonEntities db = new PidgeonEntities();
 
         public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded };
-       
 
+        public enum enumTipoDePago { Efectivo, Tarjeta };
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
@@ -124,7 +124,8 @@ namespace CarppiWebService.Controllers
             var Contexto = new DeliveryContext();
             Contexto.deliveryOrderQuery = deliveryOrders;
             Contexto.CostoTotal = CostoParcial;
-            Contexto.cliente = Order.FirstOrDefault().NombreDelRestaurante;
+            var TypeOfPaymentAppend = Order.FirstOrDefault().TipoDePago == (int)enumTipoDePago.Efectivo ? " TipoDePago: Efectivo" : " TipoDePago: Tarjeta";
+            Contexto.cliente = Order.FirstOrDefault().NombreDelRestaurante+ "   ," + TypeOfPaymentAppend;
 
             return Request.CreateResponse(HttpStatusCode.Accepted, Contexto);
 
@@ -199,11 +200,11 @@ namespace CarppiWebService.Controllers
                 }
 
             }
-
+            var TypeOfPaymentAppend = Order.FirstOrDefault().TipoDePago == (int)enumTipoDePago.Efectivo ? " TipoDePago: Efectivo" :  " TipoDePago: Tarjeta";
             var Contexto = new DeliveryContext();
             Contexto.deliveryOrderQuery = deliveryOrders;
             Contexto.CostoTotal = Convert.ToDouble(Order.FirstOrDefault().Precio);// CostoParcial;
-            Contexto.cliente = Order.FirstOrDefault().NombreDelUsuario;
+            Contexto.cliente = Order.FirstOrDefault().NombreDelUsuario + "  ," + TypeOfPaymentAppend;
             Contexto.TarifaDelEnvio = Order.FirstOrDefault().TarifaDelServicio;
 
             return Request.CreateResponse(HttpStatusCode.Accepted, Contexto);
