@@ -31800,6 +31800,70 @@
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/41/8/intl/es_ALL/common.js"></script>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/41/8/intl/es_ALL/util.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <style>
+        /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+    </style>
 </head>
 <body>
     <app-root _nghost-svf-c77="" ng-version="9.1.11">
@@ -32384,8 +32448,15 @@
                                 <table _ngcontent-rec-c15="" class="table ms-profile-information">
                                     <tbody _ngcontent-rec-c15="">
                                     <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Precio</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Price">$15</td></tr>
-                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Product Category</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Categoria"></td></tr>
-                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Availiblity</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Available"></td></tr>
+                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Categoria</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Categoria"></td></tr>
+                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Disponibilidad</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Available"></td></tr>
+                                        <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Cambiar Disponibilidad</th><td _ngcontent-rec-c15="">
+    <!-- Rounded switch -->
+    <label class="switch">
+        <input type="checkbox" id="IsItemAvailable">
+        <span class="slider round"></span>
+    </label>
+</td></tr>
                                     <!--<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Delivery Charges</th><td _ngcontent-rec-c15="">Free</td></tr>-->
                                     <!--<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">SKU Identification</th><td _ngcontent-rec-c15="">23445</td></tr>-->
                                         </tbody>
@@ -33045,7 +33116,19 @@
 
         function getProductDetails(ProductID)
         {
-              var SelectableItems = document.getElementsByName('NAvigationItem');
+            
+            $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/DownloadProductDetails?ProductID=" + ProductID,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+
+                      var SelectableItems = document.getElementsByName('NAvigationItem');
             var UIScreens = document.getElementsByName('NAvigationElement');
              for (var i = 0; i < SelectableItems.length; i++)
             {
@@ -33056,22 +33139,44 @@
              }
             //alert(ProductID);
             document.getElementById('ProductDetailsView').style.display = "block";
-            $.ajax({
+
+                    document.getElementById('DataillViewOfProduct_Image').src = "data:image/png;base64," + _arrayBufferToBase64(response.Response.Foto);
+                    document.getElementById('DataillViewOfProduct_Price').innerHTML = "$" + response.Response.Costo;
+                    document.getElementById('DataillViewOfProduct_Nombre').innerHTML = response.Response.Nombre;
+                    document.getElementById('DataillViewOfProduct_Descripcion').innerHTML =  response.Response.Descripcion;
+                    document.getElementById('DataillViewOfProduct_Available').innerHTML = !response.Response.Disponibilidad ? '<span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">No Disponible</span>' : '<span _ngcontent-rec-c15="" class="badge badge-pill badge-success">Disponible</span>';
+                    document.getElementById('IsItemAvailable').checked = response.Response.Disponibilidad;
+
+                    document.getElementById('DataillViewOfProduct_Categoria').innerHTML = REstaurantDescriptorDetermination(response.Response.Categoria);
+
+
+                    var CheckCall = document.getElementById('IsItemAvailable');
+                    CheckCall.addEventListener('change', function () {
+                         $.ajax({
                 type: "POST",
-                url: "/RestaurantDashBoard/DownloadProductDetails?ProductID=" + ProductID,
+                url: "/RestaurantDashBoard/ChangeProductState?ProductID=" + ProductID + "&Estado=" + this.checked,
                 //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
                 //data: '{Valor_Busqueda: "' + dc1 + '" }',
                 data: '{ }',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    document.getElementById('DataillViewOfProduct_Image').src = "data:image/png;base64," + _arrayBufferToBase64(response.Response.Foto);
-                    document.getElementById('DataillViewOfProduct_Price').innerHTML = "$" + response.Response.Costo;
-                    document.getElementById('DataillViewOfProduct_Nombre').innerHTML = response.Response.Nombre;
-                    document.getElementById('DataillViewOfProduct_Descripcion').innerHTML =  response.Response.Descripcion;
-                    document.getElementById('DataillViewOfProduct_Available').innerHTML = !response.Response.Disponibilidad ? '<span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">No Disponible</span>' : '<span _ngcontent-rec-c15="" class="badge badge-pill badge-success">Disponible</span>';
-                    document.getElementById('DataillViewOfProduct_Categoria').innerHTML = REstaurantDescriptorDetermination(response.Response.Categoria);
-                    /*DataillViewOfProduct_Price DataillViewOfProduct_Nombre
+
+                    alert(response.Response);
+        
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+                 });
+                    });
+
+                    /*DataillViewOfProduct_Price DataillViewOfProduct_Nombre  IsItemAvailable
                      * <span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">In stock</span>
                      * public long ID { get; set; }
         public string IDdRestaurante { get; set; }
@@ -33554,7 +33659,7 @@
                             li_1.DeliverManID = AssignedDeliver.Repartidor.FaceIDRepartidor_RepartidorCadena;
                             //li_1.DeliverManID = AssignedDeliver.Repartidor.FaceIDRepartidor_RepartidorCadena;
                             li_1.appendChild(a_1);
-                            li_1.addEventHandler('click', function () {
+                            li_1.addEventListener('click', function () {
                                 SelectedDeliveryMan = this.DeliverManID;
                                  document.getElementById('modal_repartidorButton').click();
             
@@ -34016,7 +34121,7 @@
         function PresentOptions(OrderObj) {
                RequestID = myHash[OrderObj].Orden.ID;
             if (myHash[OrderObj].Orden.Stat == EnumEstadosDelTrabajo.RequestCreated) {
-                 document.getElementById('AcceptOrderModal').click();
+                document.getElementById('AcceptOrderModal').click();
                 document.getElementById('modal-1').style.display = "block";
             }
             else if(myHash[OrderObj].Orden.Stat == EnumEstadosDelTrabajo.RequestBeingAttended) {

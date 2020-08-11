@@ -57,11 +57,28 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
+        //ChangeProductState
         [HttpPost]
         public JsonResult DownloadProductDetails(Int64 ProductID)
         {
             var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();
             return Json(new { StatusCode = "Accepted", Response = P });
+        }
+
+        [HttpPost]
+        public JsonResult ChangeProductState(Int64 ProductID, bool Estado)
+        {
+            try
+            {
+                var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();
+                P.Disponibilidad = Estado;
+                db.SaveChanges();
+            return Json(new { StatusCode = "Accepted", Response = "Cambio Realizado" });
+            }
+            catch(Exception)
+            {
+                return Json(new { StatusCode = "Accepted", Response = "Error" });
+            }
         }
 
             [HttpPost]
