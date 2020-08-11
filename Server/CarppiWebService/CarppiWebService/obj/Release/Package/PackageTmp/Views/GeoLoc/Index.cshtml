@@ -1,0 +1,186 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Index</title>
+    <link rel="stylesheet" href="~/ClasesDeEstilos/StyleSheetOpenPAy.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
+    <script type='text/javascript'
+            src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .cc-img {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="original">
+
+     <form>
+         <div id="paypal-button" style="display:inline-block; padding: 200px 10px 200px 10px; width:100%"></div>
+     </form>
+
+
+
+        <!--
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h3 class="text-center">Payment Details</h3>
+                        <img class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="tel" class="form-control" placeholder="Valid Card Number" />
+                                        <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input type="tel" class="form-control" placeholder="MM / YY" />
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label>CV CODE</label>
+                                    <input type="tel" class="form-control" placeholder="CVC" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>CARD OWNER</label>
+                                    <input type="text" class="form-control" placeholder="Card Owner Names" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-warning btn-lg btn-block" onclick="cambio_de_pagina();">Process payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    </div>
+
+
+    <div class="container" style="display:none" id="cambio">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h3 class="text-center">Payment Details</h3>
+                            <img class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <p> hola, esto es un cambio</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+        al_arrancar();
+        function al_arrancar() {
+            document.getElementById("paypal-button").click();
+
+        }
+
+
+        paypal.Button.render({
+            // Configure environment
+            env: 'production',
+            client: {
+                sandbox: 'Aem5TTvuH2cpRqk4aqp3O9vVgIGlNJ5_qO-l0s9fKhmHpUH5nUKODgaunrwcMn_ankYF_GURclCjtUzS',
+                production: 'AdQf4JUmxEyvuJ63W2n7BV69Q6Yhb_sn1xvACb-MZiiVQwK8Bv9qErazOHMzDDsdHxcJuhAoR3g7jNt4'
+            },
+            // Customize button (optional)
+            locale: 'en_US',
+            style: {
+                size: 'responsive',
+                color: 'gold',
+                shape: 'pill',
+                label: 'pay',
+            },
+            // Set up a payment
+            payment: function (data, actions) {
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: '20',
+                            currency: 'MXN'
+                        }
+                    }]
+                });
+            },
+            funding: {
+                allowed: [paypal.FUNDING.CARD]
+            },
+            // Execute the payment
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
+                    // Show a confirmation message to the buyer
+                    // window.alert('Thank you for your purchase!');
+                    try {
+                        // alert('hola');
+                        window.Android.ValidaPago("");
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+
+                });
+            }
+        }, '#paypal-button');
+
+    </script>
+   
+</body>
+
+</html>

@@ -1,0 +1,783 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PidgeonModel1StoreContainer" CdmEntityContainer="PidgeonEntities">
+    <EntitySetMapping Name="Carppi_ComentariosHaciaElPerfil">
+      <EntityTypeMapping TypeName="PidgeonModel1.Carppi_ComentariosHaciaElPerfil">
+        <MappingFragment StoreEntitySet="Carppi_ComentariosHaciaElPerfil">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="FaceID_OfComentedFolk" ColumnName="FaceID_OfComentedFolk" />
+          <ScalarProperty Name="FaceID_OfRater" ColumnName="FaceID_OfRater" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carppi_IndicesdeRestaurantes">
+      <EntityTypeMapping TypeName="PidgeonModel1.Carppi_IndicesdeRestaurantes">
+        <MappingFragment StoreEntitySet="Carppi_IndicesdeRestaurantes">
+          <ScalarProperty Name="DebtToRestaurant" ColumnName="DebtToRestaurant" />
+          <ScalarProperty Name="StripeHash" ColumnName="StripeHash" />
+          <ScalarProperty Name="StripeAccount" ColumnName="StripeAccount" />
+          <ScalarProperty Name="SunDayOpenningSchedule" ColumnName="SunDayOpenningSchedule" />
+          <ScalarProperty Name="FridayOpenningSchedule" ColumnName="FridayOpenningSchedule" />
+          <ScalarProperty Name="ThursDayOpenningSchedule" ColumnName="ThursDayOpenningSchedule" />
+          <ScalarProperty Name="WednesdayOpenningSchedule" ColumnName="WednesdayOpenningSchedule" />
+          <ScalarProperty Name="TuesdayOpenningSchedule" ColumnName="TuesdayOpenningSchedule" />
+          <ScalarProperty Name="MondayOpenningSchedule" ColumnName="MondayOpenningSchedule" />
+          <ScalarProperty Name="SaturdayOpenningSchedule" ColumnName="SaturdayOpenningSchedule" />
+          <ScalarProperty Name="TimeZoneID" ColumnName="TimeZoneID" />
+          <ScalarProperty Name="IsATestRestaurant" ColumnName="IsATestRestaurant" />
+          <ScalarProperty Name="Categoriasbitfield" ColumnName="Categoriasbitfield" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+          <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+          <ScalarProperty Name="contextualVailidationNumber" ColumnName="contextualVailidationNumber" />
+          <ScalarProperty Name="TypeOfStore" ColumnName="TypeOfStore" />
+          <ScalarProperty Name="CarppiHash" ColumnName="CarppiHash" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="VerificacionDecuenta" ColumnName="VerificacionDecuenta" />
+          <ScalarProperty Name="RegistroValidado" ColumnName="RegistroValidado" />
+          <ScalarProperty Name="EstaAbierto" ColumnName="EstaAbierto" />
+          <ScalarProperty Name="Categorias" ColumnName="Categorias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carppi_MensajesRideshare">
+      <EntityTypeMapping TypeName="PidgeonModel1.Carppi_MensajesRideshare">
+        <MappingFragment StoreEntitySet="Carppi_MensajesRideshare">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+          <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="Leido" ColumnName="Leido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carppi_ProductosPorRestaurantes">
+      <EntityTypeMapping TypeName="PidgeonModel1.Carppi_ProductosPorRestaurantes">
+        <MappingFragment StoreEntitySet="Carppi_ProductosPorRestaurantes">
+          <ScalarProperty Name="HasOptionsToSelect" ColumnName="HasOptionsToSelect" />
+          <ScalarProperty Name="ComprasDelProducto" ColumnName="ComprasDelProducto" />
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDdRestaurante" ColumnName="IDdRestaurante" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiConductoresRideShare">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiConductoresRideShare">
+        <MappingFragment StoreEntitySet="CarppiConductoresRideShare">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="ApellidoUsuario" ColumnName="ApellidoUsuario" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+          <ScalarProperty Name="StripeDriverID" ColumnName="StripeDriverID" />
+          <ScalarProperty Name="FaceBookProfileId" ColumnName="FaceBookProfileId" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Viajes" ColumnName="Viajes" />
+          <ScalarProperty Name="TripID" ColumnName="TripID" />
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+          <ScalarProperty Name="Reseñas" ColumnName="Reseñas" />
+          <ScalarProperty Name="LatitudActual" ColumnName="LatitudActual" />
+          <ScalarProperty Name="LongitudActual" ColumnName="LongitudActual" />
+          <ScalarProperty Name="LatitudObjetivo" ColumnName="LatitudObjetivo" />
+          <ScalarProperty Name="LongitudObjetivo" ColumnName="LongitudObjetivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiGrocery_BuyOrders">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiGrocery_BuyOrders">
+        <MappingFragment StoreEntitySet="CarppiGrocery_BuyOrders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="paymentIntent" ColumnName="paymentIntent" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Stat" ColumnName="Stat" />
+          <ScalarProperty Name="ListaDeProductos" ColumnName="ListaDeProductos" />
+          <ScalarProperty Name="Latitud_Repartidor" ColumnName="Latitud_Repartidor" />
+          <ScalarProperty Name="Longitud_Repartidor" ColumnName="Longitud_Repartidor" />
+          <ScalarProperty Name="FaceIDRepartidor_Repartidor" ColumnName="FaceIDRepartidor_Repartidor" />
+          <ScalarProperty Name="FaceIDRepartidor_RepartidorCadena" ColumnName="FaceIDRepartidor_RepartidorCadena" />
+          <ScalarProperty Name="NombreDelUsuario" ColumnName="NombreDelUsuario" />
+          <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiGrocery_Mensajes">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiGrocery_Mensajes">
+        <MappingFragment StoreEntitySet="CarppiGrocery_Mensajes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+          <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+          <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="Leido" ColumnName="Leido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiGrocery_Productos">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiGrocery_Productos">
+        <MappingFragment StoreEntitySet="CarppiGrocery_Productos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiGrocery_Regiones">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiGrocery_Regiones">
+        <MappingFragment StoreEntitySet="CarppiGrocery_Regiones">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiGrocery_Repartidores">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiGrocery_Repartidores">
+        <MappingFragment StoreEntitySet="CarppiGrocery_Repartidores">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ValidationCode" ColumnName="ValidationCode" />
+          <ScalarProperty Name="FleetManagerHash" ColumnName="FleetManagerHash" />
+          <ScalarProperty Name="StripeHash" ColumnName="StripeHash" />
+          <ScalarProperty Name="MonetMadeByDeliverMan" ColumnName="MonetMadeByDeliverMan" />
+          <ScalarProperty Name="LastTimeOfLogin" ColumnName="LastTimeOfLogin" />
+          <ScalarProperty Name="DebtToDeliverMan" ColumnName="DebtToDeliverMan" />
+          <ScalarProperty Name="UltimoComentario" ColumnName="UltimoComentario" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FaceID_Repartidor" ColumnName="FaceID_Repartidor" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+          <ScalarProperty Name="StripeDeliverID" ColumnName="StripeDeliverID" />
+          <ScalarProperty Name="Foto_repartidor" ColumnName="Foto_repartidor" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IsAvailableForDeliver" ColumnName="IsAvailableForDeliver" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Rating_double" ColumnName="Rating_double" />
+          <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca_Vehiculo" />
+          <ScalarProperty Name="Modelo_Vehiculo" ColumnName="Modelo_Vehiculo" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="FotoDelVehiculo_ByteArray" ColumnName="FotoDelVehiculo_ByteArray" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiRegiones">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiRegiones">
+        <MappingFragment StoreEntitySet="CarppiRegiones">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="LatitudCentroide" ColumnName="LatitudCentroide" />
+          <ScalarProperty Name="LongitudCentroide" ColumnName="LongitudCentroide" />
+          <ScalarProperty Name="ServicioRegional" ColumnName="ServicioRegional" />
+          <ScalarProperty Name="Radio" ColumnName="Radio" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="CountryCoin" ColumnName="CountryCoin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiRequestForDrive">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiRequestForDrive">
+        <MappingFragment StoreEntitySet="CarppiRequestForDrive">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FaceIDDriver" ColumnName="FaceIDDriver" />
+          <ScalarProperty Name="FaceIDPassenger" ColumnName="FaceIDPassenger" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Stat" ColumnName="Stat" />
+          <ScalarProperty Name="LatitudViajePendiente" ColumnName="LatitudViajePendiente" />
+          <ScalarProperty Name="LongitudViajePendiente" ColumnName="LongitudViajePendiente" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="NameOfRequester" ColumnName="NameOfRequester" />
+          <ScalarProperty Name="NameOfPlace" ColumnName="NameOfPlace" />
+          <ScalarProperty Name="PaymentIntentID" ColumnName="PaymentIntentID" />
+          <ScalarProperty Name="IsRequestNotTimedOut" ColumnName="IsRequestNotTimedOut" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="OriginOfRequest_Latitude" ColumnName="OriginOfRequest_Latitude" />
+          <ScalarProperty Name="OriginOfRequest_Longitude" ColumnName="OriginOfRequest_Longitude" />
+          <ScalarProperty Name="GenderSearch" ColumnName="GenderSearch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coches_en_renta">
+      <EntityTypeMapping TypeName="PidgeonModel1.Coches_en_renta">
+        <MappingFragment StoreEntitySet="Coches_en_renta">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Arrendatario" ColumnName="Arrendatario" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+          <ScalarProperty Name="Relacion_base_fotografias" ColumnName="Relacion_base_fotografias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dispositivos">
+      <EntityTypeMapping TypeName="PidgeonModel1.Dispositivos">
+        <MappingFragment StoreEntitySet="Dispositivos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Fecha_Activacion" ColumnName="Fecha_Activacion" />
+          <ScalarProperty Name="Fecha_Fin_Contrato" ColumnName="Fecha_Fin_Contrato" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Vigente" ColumnName="Vigente" />
+          <ScalarProperty Name="Velocidad" ColumnName="Velocidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fotos_de_coches">
+      <EntityTypeMapping TypeName="PidgeonModel1.Fotos_de_coches">
+        <MappingFragment StoreEntitySet="Fotos_de_coches">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Id_de_publicacion" ColumnName="Id_de_publicacion" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Indicie_de_foto" ColumnName="Indicie_de_foto" />
+          <ScalarProperty Name="indice_de_foto_temporal" ColumnName="indice_de_foto_temporal" />
+          <ScalarProperty Name="cadena_de_foto_temporal" ColumnName="cadena_de_foto_temporal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenInstruccionesAccesos">
+      <EntityTypeMapping TypeName="PidgeonModel1.GenInstruccionesAccesos">
+        <MappingFragment StoreEntitySet="GenInstruccionesAccesos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+          <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+          <ScalarProperty Name="instruccion" ColumnName="instruccion" />
+          <ScalarProperty Name="leido" ColumnName="leido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lease_FotosPublicacion">
+      <EntityTypeMapping TypeName="PidgeonModel1.Lease_FotosPublicacion">
+        <MappingFragment StoreEntitySet="Lease_FotosPublicacion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Id_de_la_publicacion" ColumnName="Id_de_la_publicacion" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lease_Interrutores">
+      <EntityTypeMapping TypeName="PidgeonModel1.Lease_Interrutores">
+        <MappingFragment StoreEntitySet="Lease_Interrutores">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Casa" ColumnName="Casa" />
+          <ScalarProperty Name="Habitacion" ColumnName="Habitacion" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Instruccion" ColumnName="Instruccion" />
+          <ScalarProperty Name="Es_Dimmer" ColumnName="Es_Dimmer" />
+          <ScalarProperty Name="Porcentaje_dimming" ColumnName="Porcentaje_dimming" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lease_Publicaciones">
+      <EntityTypeMapping TypeName="PidgeonModel1.Lease_Publicaciones">
+        <MappingFragment StoreEntitySet="Lease_Publicaciones">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cuartos" ColumnName="Cuartos" />
+          <ScalarProperty Name="Banos" ColumnName="Banos" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="Perfil_de_publicacion" ColumnName="Perfil_de_publicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Local_">
+      <EntityTypeMapping TypeName="PidgeonModel1.Local_">
+        <MappingFragment StoreEntitySet="Local_">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tendero" ColumnName="Tendero" />
+          <ScalarProperty Name="Indice_de_local" ColumnName="Indice_de_local" />
+          <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pos_Fotos_productos">
+      <EntityTypeMapping TypeName="PidgeonModel1.Pos_Fotos_productos">
+        <MappingFragment StoreEntitySet="Pos_Fotos_productos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_de_producto" ColumnName="ID_de_producto" />
+          <ScalarProperty Name="Foto_de_Producto" ColumnName="Foto_de_Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PosUsers">
+      <EntityTypeMapping TypeName="PidgeonModel1.PosUsers">
+        <MappingFragment StoreEntitySet="PosUsers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prestamos_Monedas">
+      <EntityTypeMapping TypeName="PidgeonModel1.Prestamos_Monedas">
+        <MappingFragment StoreEntitySet="Prestamos_Monedas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="Billetera" ColumnName="Billetera" />
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="PidgeonModel1.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nombre_de_producto" ColumnName="Nombre_de_producto" />
+          <ScalarProperty Name="Existencias" ColumnName="Existencias" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id_de_la_tienda" ColumnName="Id_de_la_tienda" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Traveler_Perfil">
+      <EntityTypeMapping TypeName="PidgeonModel1.Traveler_Perfil">
+        <MappingFragment StoreEntitySet="Traveler_Perfil">
+          <ScalarProperty Name="AmountOfJoke" ColumnName="AmountOfJoke" />
+          <ScalarProperty Name="IsUserAJoker" ColumnName="IsUserAJoker" />
+          <ScalarProperty Name="IsFirstOrder" ColumnName="IsFirstOrder" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nombre_usuario" ColumnName="Nombre_usuario" />
+          <ScalarProperty Name="Numero_de_telefono" ColumnName="Numero_de_telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Resenas" ColumnName="Resenas" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Telefono_verificado" ColumnName="Telefono_verificado" />
+          <ScalarProperty Name="Stripe_id" ColumnName="Stripe_id" />
+          <ScalarProperty Name="Facebook_profile_id" ColumnName="Facebook_profile_id" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Viaje_asociado" ColumnName="Viaje_asociado" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="pidiendo_viaje" ColumnName="pidiendo_viaje" />
+          <ScalarProperty Name="Latitud_un_decimal" ColumnName="Latitud_un_decimal" />
+          <ScalarProperty Name="Longitud_un_decimal" ColumnName="Longitud_un_decimal" />
+          <ScalarProperty Name="TarjetaValidada" ColumnName="TarjetaValidada" />
+          <ScalarProperty Name="IdentidadComprobada" ColumnName="IdentidadComprobada" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirebaseID" ColumnName="FirebaseID" />
+          <ScalarProperty Name="StripeClientID" ColumnName="StripeClientID" />
+          <ScalarProperty Name="StripeDriverID" ColumnName="StripeDriverID" />
+          <ScalarProperty Name="BusquedaGuardada_Latitud_salida" ColumnName="BusquedaGuardada_Latitud_salida" />
+          <ScalarProperty Name="BusquedaGuardada_Longitud_salida" ColumnName="BusquedaGuardada_Longitud_salida" />
+          <ScalarProperty Name="BusquedaGuardada_Latitud_Llegada" ColumnName="BusquedaGuardada_Latitud_Llegada" />
+          <ScalarProperty Name="BusquedaGuardada_Longitud_Llegada" ColumnName="BusquedaGuardada_Longitud_Llegada" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Rating_double" ColumnName="Rating_double" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LatitudObjetivoRideSharer" ColumnName="LatitudObjetivoRideSharer" />
+          <ScalarProperty Name="LongitudObjetivoRideSharer" ColumnName="LongitudObjetivoRideSharer" />
+          <ScalarProperty Name="StripeLastPaymentIntent" ColumnName="StripeLastPaymentIntent" />
+          <ScalarProperty Name="StripeLastPaymentIntent_ID" ColumnName="StripeLastPaymentIntent_ID" />
+          <ScalarProperty Name="Foto_ByteArray" ColumnName="Foto_ByteArray" />
+          <ScalarProperty Name="FotoDelVehiculo_ByteArray" ColumnName="FotoDelVehiculo_ByteArray" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Modelo_Vehiculo" ColumnName="Modelo_Vehiculo" />
+          <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca_Vehiculo" />
+          <ScalarProperty Name="Color_Vehiculo" ColumnName="Color_Vehiculo" />
+          <ScalarProperty Name="hasConfirmedGender" ColumnName="hasConfirmedGender" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="IsUserADriver" ColumnName="IsUserADriver" />
+          <ScalarProperty Name="Region_ReparticionDeAlimentos" ColumnName="Region_ReparticionDeAlimentos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Traveler_SolicitudDeViajeTemporal">
+      <EntityTypeMapping TypeName="PidgeonModel1.Traveler_SolicitudDeViajeTemporal">
+        <MappingFragment StoreEntitySet="Traveler_SolicitudDeViajeTemporal">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Face_id_solicitante" ColumnName="Face_id_solicitante" />
+          <ScalarProperty Name="Estado_De_solicitud" ColumnName="Estado_De_solicitud" />
+          <ScalarProperty Name="Id_del_viaje" ColumnName="Id_del_viaje" />
+          <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+          <ScalarProperty Name="MoneyOwnedToDriver" ColumnName="MoneyOwnedToDriver" />
+          <ScalarProperty Name="PaymentIntentID" ColumnName="PaymentIntentID" />
+          <ScalarProperty Name="StripeCharge" ColumnName="StripeCharge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Traveler_Viajes">
+      <EntityTypeMapping TypeName="PidgeonModel1.Traveler_Viajes">
+        <MappingFragment StoreEntitySet="Traveler_Viajes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="Kilometros" ColumnName="Kilometros" />
+          <ScalarProperty Name="Tiempo_estimado" ColumnName="Tiempo_estimado" />
+          <ScalarProperty Name="Vehiculo" ColumnName="Vehiculo" />
+          <ScalarProperty Name="Fecha_y_hora" ColumnName="Fecha_y_hora" />
+          <ScalarProperty Name="asientos_disponibles" ColumnName="asientos_disponibles" />
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+          <ScalarProperty Name="En_curso" ColumnName="En_curso" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Estado_del_viaje" ColumnName="Estado_del_viaje" />
+          <ScalarProperty Name="FaceIdDelConductor" ColumnName="FaceIdDelConductor" />
+          <ScalarProperty Name="Latitud_destino" ColumnName="Latitud_destino" />
+          <ScalarProperty Name="Longitud_destino" ColumnName="Longitud_destino" />
+          <ScalarProperty Name="TimeData" ColumnName="TimeData" />
+          <ScalarProperty Name="Costo_po_Usuario" ColumnName="Costo_po_Usuario" />
+          <ScalarProperty Name="Viaje_Periodico" ColumnName="Viaje_Periodico" />
+          <ScalarProperty Name="Asientos_Totales" ColumnName="Asientos_Totales" />
+          <ScalarProperty Name="Conductor_a_asociado_su_tarjeta" ColumnName="Conductor_a_asociado_su_tarjeta" />
+          <ScalarProperty Name="PaisOrigen" ColumnName="PaisOrigen" />
+          <ScalarProperty Name="PaisDestino" ColumnName="PaisDestino" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="Privado" ColumnName="Privado" />
+          <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+          <ScalarProperty Name="DiaDeViaje" ColumnName="DiaDeViaje" />
+          <ScalarProperty Name="MesDeViaje" ColumnName="MesDeViaje" />
+          <ScalarProperty Name="AnoDeViaje" ColumnName="AnoDeViaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Traveler_Viajes_historial">
+      <EntityTypeMapping TypeName="PidgeonModel1.Traveler_Viajes_historial">
+        <MappingFragment StoreEntitySet="Traveler_Viajes_historial">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="Kilometros" ColumnName="Kilometros" />
+          <ScalarProperty Name="Tiempo_estimado" ColumnName="Tiempo_estimado" />
+          <ScalarProperty Name="Fecha_y_hora" ColumnName="Fecha_y_hora" />
+          <ScalarProperty Name="Pasajeros_numero" ColumnName="Pasajeros_numero" />
+          <ScalarProperty Name="Pasajeros_IDS" ColumnName="Pasajeros_IDS" />
+          <ScalarProperty Name="FaceIdDelConductor" ColumnName="FaceIdDelConductor" />
+          <ScalarProperty Name="TimeData" ColumnName="TimeData" />
+          <ScalarProperty Name="Costo_por_Usuario" ColumnName="Costo_por_Usuario" />
+          <ScalarProperty Name="CobroPorPasajero" ColumnName="CobroPorPasajero" />
+          <ScalarProperty Name="GananciaConductor" ColumnName="GananciaConductor" />
+          <ScalarProperty Name="GananciaCarppi" ColumnName="GananciaCarppi" />
+          <ScalarProperty Name="ComicionMotorPago" ColumnName="ComicionMotorPago" />
+          <ScalarProperty Name="PasajerosQuePagaronConTarjeta" ColumnName="PasajerosQuePagaronConTarjeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Travelers_Grupos_de_Conversacion">
+      <EntityTypeMapping TypeName="PidgeonModel1.Travelers_Grupos_de_Conversacion">
+        <MappingFragment StoreEntitySet="Travelers_Grupos_de_Conversacion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AliasConversacion" ColumnName="AliasConversacion" />
+          <ScalarProperty Name="FaceIdDeConductor" ColumnName="FaceIdDeConductor" />
+          <ScalarProperty Name="FaceIdDePasajero" ColumnName="FaceIdDePasajero" />
+          <ScalarProperty Name="IsGroupConversation" ColumnName="IsGroupConversation" />
+          <ScalarProperty Name="HasDriverSeenIt" ColumnName="HasDriverSeenIt" />
+          <ScalarProperty Name="HaspassengerSeenIt" ColumnName="HaspassengerSeenIt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Travelers_Integrantes_Grupos_de_Conversacion">
+      <EntityTypeMapping TypeName="PidgeonModel1.Travelers_Integrantes_Grupos_de_Conversacion">
+        <MappingFragment StoreEntitySet="Travelers_Integrantes_Grupos_de_Conversacion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Id_de_conversacion" ColumnName="Id_de_conversacion" />
+          <ScalarProperty Name="FaceIdDeIntegrante" ColumnName="FaceIdDeIntegrante" />
+          <ScalarProperty Name="IsGroupAdministrator" ColumnName="IsGroupAdministrator" />
+          <ScalarProperty Name="HasSeenMesageInGroup" ColumnName="HasSeenMesageInGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Travelers_Mensajes_Grupos_de_Conversacion">
+      <EntityTypeMapping TypeName="PidgeonModel1.Travelers_Mensajes_Grupos_de_Conversacion">
+        <MappingFragment StoreEntitySet="Travelers_Mensajes_Grupos_de_Conversacion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Id_de_conversacion" ColumnName="Id_de_conversacion" />
+          <ScalarProperty Name="FaceIdDeConductor" ColumnName="FaceIdDeConductor" />
+          <ScalarProperty Name="FaceIdDePasajero" ColumnName="FaceIdDePasajero" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="MensajeGrupal" ColumnName="MensajeGrupal" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="Leido" ColumnName="Leido" />
+          <ScalarProperty Name="NameOfSender" ColumnName="NameOfSender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trayectorias_geoloc">
+      <EntityTypeMapping TypeName="PidgeonModel1.Trayectorias_geoloc">
+        <MappingFragment StoreEntitySet="Trayectorias_geoloc">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrbanCabDrivers">
+      <EntityTypeMapping TypeName="PidgeonModel1.UrbanCabDrivers">
+        <MappingFragment StoreEntitySet="UrbanCabDrivers">
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="StripeID" ColumnName="StripeID" />
+          <ScalarProperty Name="OpenPayID" ColumnName="OpenPayID" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+          <ScalarProperty Name="clabe" ColumnName="clabe" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="Identidad_validada" ColumnName="Identidad_validada" />
+          <ScalarProperty Name="Numero_validado" ColumnName="Numero_validado" />
+          <ScalarProperty Name="Correo_validado" ColumnName="Correo_validado" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="FaceID" ColumnName="FaceID" />
+          <ScalarProperty Name="AvailableToDrive" ColumnName="AvailableToDrive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrbanCabNewTrip">
+      <EntityTypeMapping TypeName="PidgeonModel1.UrbanCabNewTrip">
+        <MappingFragment StoreEntitySet="UrbanCabNewTrip">
+          <ScalarProperty Name="TripRequestNumberID" ColumnName="TripRequestNumberID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Latitud_Origen" ColumnName="Latitud_Origen" />
+          <ScalarProperty Name="Longitud_Origen" ColumnName="Longitud_Origen" />
+          <ScalarProperty Name="Latitud_Actual" ColumnName="Latitud_Actual" />
+          <ScalarProperty Name="Longitud_Actual" ColumnName="Longitud_Actual" />
+          <ScalarProperty Name="Latitud_Destino" ColumnName="Latitud_Destino" />
+          <ScalarProperty Name="Longitud_Destino" ColumnName="Longitud_Destino" />
+          <ScalarProperty Name="PrecioSugerido" ColumnName="PrecioSugerido" />
+          <ScalarProperty Name="Distancia" ColumnName="Distancia" />
+          <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Aceptado" ColumnName="Aceptado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrbanCabPassengers">
+      <EntityTypeMapping TypeName="PidgeonModel1.UrbanCabPassengers">
+        <MappingFragment StoreEntitySet="UrbanCabPassengers">
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="StripeID" ColumnName="StripeID" />
+          <ScalarProperty Name="OpenPayID" ColumnName="OpenPayID" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+          <ScalarProperty Name="clabe" ColumnName="clabe" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="Identidad_validada" ColumnName="Identidad_validada" />
+          <ScalarProperty Name="Numero_validado" ColumnName="Numero_validado" />
+          <ScalarProperty Name="Correo_validado" ColumnName="Correo_validado" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="FaceID" ColumnName="FaceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrbanCabTripRequest">
+      <EntityTypeMapping TypeName="PidgeonModel1.UrbanCabTripRequest">
+        <MappingFragment StoreEntitySet="UrbanCabTripRequest">
+          <ScalarProperty Name="TripRequestNumberID" ColumnName="TripRequestNumberID" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Latitud_Origen" ColumnName="Latitud_Origen" />
+          <ScalarProperty Name="Longitud_Origen" ColumnName="Longitud_Origen" />
+          <ScalarProperty Name="Latitud_Destino" ColumnName="Latitud_Destino" />
+          <ScalarProperty Name="Longitud_Destino" ColumnName="Longitud_Destino" />
+          <ScalarProperty Name="PrecioSugerido" ColumnName="PrecioSugerido" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Aceptado" ColumnName="Aceptado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="PidgeonModel1.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Numero_de_telefono" ColumnName="Numero_de_telefono" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="firebase_token" ColumnName="firebase_token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="PidgeonModel1.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tendero" ColumnName="Tendero" />
+          <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas_lista">
+      <EntityTypeMapping TypeName="PidgeonModel1.Ventas_lista">
+        <MappingFragment StoreEntitySet="Ventas_lista">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Indicie_recibo" ColumnName="Indicie_recibo" />
+          <ScalarProperty Name="Tienda" ColumnName="Tienda" />
+          <ScalarProperty Name="articulo" ColumnName="articulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiRestaurant_BuyOrders">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiRestaurant_BuyOrders">
+        <MappingFragment StoreEntitySet="CarppiRestaurant_BuyOrders">
+          <ScalarProperty Name="StripeChargeID" ColumnName="StripeChargeID" />
+          <ScalarProperty Name="TimeOfCreation" ColumnName="TimeOfCreation" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="TarifaDelServicio" ColumnName="TarifaDelServicio" />
+          <ScalarProperty Name="CostoDeTransporte" ColumnName="CostoDeTransporte" />
+          <ScalarProperty Name="ReparidorEnElAreaDelCliente" ColumnName="ReparidorEnElAreaDelCliente" />
+          <ScalarProperty Name="ReparidorEnElAreaDelRestaurante" ColumnName="ReparidorEnElAreaDelRestaurante" />
+          <ScalarProperty Name="RestaurantToDisplayOrders" ColumnName="RestaurantToDisplayOrders" />
+          <ScalarProperty Name="TipoDePago" ColumnName="TipoDePago" />
+          <ScalarProperty Name="FaceIDRepartidor_RepartidorCadena" ColumnName="FaceIDRepartidor_RepartidorCadena" />
+          <ScalarProperty Name="ListaDeProductos" ColumnName="ListaDeProductos" />
+          <ScalarProperty Name="NombreDelUsuario" ColumnName="NombreDelUsuario" />
+          <ScalarProperty Name="NombreDelRestaurante" ColumnName="NombreDelRestaurante" />
+          <ScalarProperty Name="RestaurantHash" ColumnName="RestaurantHash" />
+          <ScalarProperty Name="Stat" ColumnName="Stat" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="LongitudRepartidor" ColumnName="LongitudRepartidor" />
+          <ScalarProperty Name="LatitudRepartidor" ColumnName="LatitudRepartidor" />
+          <ScalarProperty Name="LongitudRestaurante" ColumnName="LongitudRestaurante" />
+          <ScalarProperty Name="LatitudRestaurante" ColumnName="LatitudRestaurante" />
+          <ScalarProperty Name="LongitudPeticion" ColumnName="LongitudPeticion" />
+          <ScalarProperty Name="LatitudPeticion" ColumnName="LatitudPeticion" />
+          <ScalarProperty Name="paymentIntent" ColumnName="paymentIntent" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiREstaurant_MensajesClienteRestaurante">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiREstaurant_MensajesClienteRestaurante">
+        <MappingFragment StoreEntitySet="CarppiREstaurant_MensajesClienteRestaurante">
+          <ScalarProperty Name="Leido" ColumnName="Leido" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+          <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+          <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiRestaurant_MensajesRepartidorCliente">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiRestaurant_MensajesRepartidorCliente">
+        <MappingFragment StoreEntitySet="CarppiRestaurant_MensajesRepartidorCliente">
+          <ScalarProperty Name="Leido" ColumnName="Leido" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+          <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+          <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarppiRestaurant_MensajesRepartidorRestaurante">
+      <EntityTypeMapping TypeName="PidgeonModel1.CarppiRestaurant_MensajesRepartidorRestaurante">
+        <MappingFragment StoreEntitySet="CarppiRestaurant_MensajesRepartidorRestaurante">
+          <ScalarProperty Name="Leido" ColumnName="Leido" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="DateInSeconds" ColumnName="DateInSeconds" />
+          <ScalarProperty Name="BuyOrderID" ColumnName="BuyOrderID" />
+          <ScalarProperty Name="FaceID_Sender" ColumnName="FaceID_Sender" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObligatoriOptionsList">
+      <EntityTypeMapping TypeName="PidgeonModel1.ObligatoriOptionsList">
+        <MappingFragment StoreEntitySet="ObligatoriOptionsList">
+          <ScalarProperty Name="NombreDelConjunto" ColumnName="NombreDelConjunto" />
+          <ScalarProperty Name="IDdelProducto" ColumnName="IDdelProducto" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpcionalOptionsList">
+      <EntityTypeMapping TypeName="PidgeonModel1.OpcionalOptionsList">
+        <MappingFragment StoreEntitySet="OpcionalOptionsList">
+          <ScalarProperty Name="NombreDelConjunto" ColumnName="NombreDelConjunto" />
+          <ScalarProperty Name="IDdelProducto" ColumnName="IDdelProducto" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OptionalChoice">
+      <EntityTypeMapping TypeName="PidgeonModel1.OptionalChoice">
+        <MappingFragment StoreEntitySet="OptionalChoice">
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+          <ScalarProperty Name="CostoExtra" ColumnName="CostoExtra" />
+          <ScalarProperty Name="OptionHash" ColumnName="OptionHash" />
+          <ScalarProperty Name="EsPersonal" ColumnName="EsPersonal" />
+          <ScalarProperty Name="IDdelConjunto" ColumnName="IDdelConjunto" />
+          <ScalarProperty Name="IDdelProducto" ColumnName="IDdelProducto" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

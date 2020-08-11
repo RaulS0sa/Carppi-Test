@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Openpay</name>
+    </assembly>
+    <members>
+        <member name="T:Openpay.Entities.Webhook">
+            <summary>
+            Clase utilizada como contenedor de los parametros para la creacion de un webhook
+            </summary>
+        </member>
+        <member name="F:Openpay.Entities.UseCardPointsType.MIXED">
+            mixed. Cargo con pesos y puntos
+        </member>
+        <member name="F:Openpay.Entities.UseCardPointsType.NONE">
+            none. Cargo en pesos
+        </member>
+        <member name="F:Openpay.Entities.UseCardPointsType.ONLY_POINTS">
+            only points. Cargo solo con puntos
+        </member>
+        <member name="F:Openpay.Entities.PointsType.NONE">
+            The None PointsType. 
+        </member>
+        <member name="F:Openpay.Entities.PointsType.BANCOMER">
+            The Bancomer PointsType. 
+        </member>
+        <member name="F:Openpay.Entities.PointsType.SANTANDER">
+            The Santander PointsType. 
+        </member>
+        <member name="F:Openpay.Entities.PointsType.SCOTIA">
+            The Scotiabank PointsType. 
+        </member>
+        <member name="T:Openpay.WebhookService">
+            <summary>
+            Clase base que contiene las operaciones disponibles para la administracion de los webhooks
+            </summary>
+        </member>
+    </members>
+</doc>
