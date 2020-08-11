@@ -445,11 +445,9 @@
     <Content Include="Views\NewRestaurant\Index.cshtml" />
     <Content Include="firebase-messaging-sw.js" />
     <Content Include="App_Data\Receipt.html" />
+    <Content Include="Views\CarppiRestaurantAddCard\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Clases\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
