@@ -31881,9 +31881,13 @@ input:checked + .slider:before {
                 <app-side-navbar _ngcontent-svf-c16="" _nghost-svf-c7="">
                     <aside _ngcontent-svf-c7="" id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left ps ps--active-y">
                         <div _ngcontent-svf-c7="" class="logo-sn ms-d-block-lg">
-                            <a _ngcontent-svf-c7="" routerlink="/" class="pl-0 ml-0 text-center" href="#">
-                                <img _ngcontent-svf-c7="" src="assets/img/costic/costic-logo-216x62.png" alt="logo">
+                            
+                            
+                            <a class="btn btn-primary shadow-none" href="javascript:void(0)" id="RestaurantStateTag">
+                                Cerrado
+                                <!--<img _ngcontent-svf-c7="" src="assets/img/costic/costic-logo-216x62.png" alt="logo">-->
                             </a>
+                            
                         </div>
                         <ul _ngcontent-svf-c7="" id="side-nav-accordion" class="accordion ms-main-aside fs-14">
                             <!--
@@ -32735,7 +32739,7 @@ input:checked + .slider:before {
         <div _ngcontent-vcs-c38="" role="document" class="modal-dialog modal-dialog-centered modal-min">
             <div _ngcontent-vcs-c38="" class="modal-content">
                 <div _ngcontent-vcs-c38="" class="modal-body text-center" >
-                    <button onclick="document.getElementById('modal_repartidor').style.display = 'none';" _ngcontent-vcs-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close"><span _ngcontent-vcs-c38="" aria-hidden="true">×</span></button><h6 _ngcontent-vcs-c38="">Datos de la Orden</h6>
+                    <button onclick="document.getElementById('modal_repartidor').style.display = 'none';" _ngcontent-vcs-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close"><span _ngcontent-vcs-c38="" aria-hidden="true">×</span></button><h6 _ngcontent-vcs-c38="">Conversacion con el repartidor</h6>
                     <div style="overflow-y: auto;max-height:50%">
                         <div _ngcontent-vcs-c10="" class="ms-panel ms-panel-fh ms-widget ms-chat-conversations">
                           
@@ -32881,6 +32885,7 @@ input:checked + .slider:before {
 
         function poolFunctions()
         {
+            PoolRestaurantState();
               switch (SelectedView) {
                 case enumVistaSeleccionada.Ordenes:
                     {
@@ -32919,6 +32924,37 @@ input:checked + .slider:before {
                     break;
             }
         }
+
+
+          function PoolRestaurantState()
+        {
+            //document.getElementById('TemMenuContfainer').innerHTML = "";
+
+ $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/RestaurantState",
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+     success: function (response) {
+        
+         document.getElementById('RestaurantStateTag').innerHTML = response.Response == true ? "Restaurant Abierto" : "Restaurant Cerrado";
+         document.getElementById('RestaurantStateTag').className = response.Response == true ?"btn btn-success shadow-none" : "btn btn-primary shadow-none";
+         
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+                 });
+        }
+
 
          function PrepareEverthingToBeUploaded() {
             //document.getElementById("btnTrigger_Progreso_subida").click();
@@ -33656,7 +33692,7 @@ input:checked + .slider:before {
                             div_1.innerHTML += '</div></a></li>';
                             a_1.appendChild(amg);
                             a_1.appendChild(div_1);
-                            li_1.DeliverManID = AssignedDeliver.Repartidor.FaceIDRepartidor_RepartidorCadena;
+                            li_1.DeliverManID = AssignedDeliver.Repartidor.FaceID_Repartidor;
                             //li_1.DeliverManID = AssignedDeliver.Repartidor.FaceIDRepartidor_RepartidorCadena;
                             li_1.appendChild(a_1);
                             li_1.addEventListener('click', function () {
