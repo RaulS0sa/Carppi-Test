@@ -43,13 +43,14 @@ namespace CarppiRestaurant.Controllers
                 var Rest = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault();
                 Rest.StripeAccount = response.StripeUserId;
                 Rest.StripeHash = response.StripeUserId;
+                db.SaveChanges();
                 //ViewBag.connected_account_id = response.StripeUserId;
                 return View();
             }
             catch (Exception ex)
             {
                 var Raul = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == "10217260473614661").FirstOrDefault();//10217260473614661
-                Push(ex.ToString(), "Error", Raul.FirebaseID, "");
+                Push(ex.ToString(), "Error" , Raul.FirebaseID, "");
             }
             return View();
         }
