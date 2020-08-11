@@ -455,3 +455,7 @@ CarppiWebService/CarppiWebService/obj/Release/CarppiWebService.dll
 CarppiWebService/CarppiWebService/obj/Release/CarppiWebService.pdb
 CarppiWebService/CarppiWebService/obj/Release/Package/PackageTmp/bin/CarppiWebService.dll
 CarppiWebService/CarppiWebService/obj/Release/Package/PackageTmp/bin/CarppiWebService.pdb
+CarppiWebService/.vs/CarppiWebService/v16/.suo
+CarppiWebService/.vs/CarppiWebService/v16/Server/sqlite3/storage.ide-wal
+CarppiWebService/CarppiWebService/CarppiWebService.csproj.user
+CarppiWebService/CarppiWebService/obj/Debug/CarppiWebService.csprojAssemblyReference.cache
