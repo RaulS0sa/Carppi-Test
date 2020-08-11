@@ -57,6 +57,14 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
+        //url: "/RestaurantDashBoard/UpdateFireBaseToken?Token=" + currentToken,
+
+        [HttpPost]
+        public JsonResult UpdateFireBaseToken(string Token)
+        {
+          
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
 
 
         [HttpPost]

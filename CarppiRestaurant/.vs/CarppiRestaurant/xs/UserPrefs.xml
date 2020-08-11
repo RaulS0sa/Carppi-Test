@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{DE55BBA8-B038-4504-8411-56AC750F6E80}|">
   <MonoDevelop.Ide.ItemProperties.CarppiRestaurant PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Models/IdentityModels.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/firebase-messaging-sw.js">
     <Files>
-      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="70" Column="13" />
+      <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="65" Column="11" />
       <File FileName="CarppiRestaurant/App_Data/Receipt.html" />
-      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="34031" Column="10" />
-      <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="33028" Column="19" />
+      <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" Line="32064" Column="7" />
       <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" />
-      <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" />
+      <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" Line="18" Column="40" />
       <File FileName="CarppiRestaurant/Clases/BusquedaRepartidor.cs" />
-      <File FileName="CarppiRestaurant/Models/Model1.Context.cs" />
+      <File FileName="CarppiRestaurant/Models/Model1.Context.cs" Line="37" Column="49" />
       <File FileName="CarppiRestaurant/Models/Carppi_ProductosPorRestaurantes.cs" />
-      <File FileName="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs" Line="56" Column="21" />
-      <File FileName="CarppiRestaurant/Views/CarppiRestaurantAddCard/Index.cshtml" Line="1" Column="1" />
-      <File FileName="CarppiRestaurant/Models/IdentityModels.cs" Line="24" Column="1" />
+      <File FileName="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs" Line="50" Column="33" />
+      <File FileName="CarppiRestaurant/Views/CarppiRestaurantAddCard/Index.cshtml" Line="32" Column="67" />
+      <File FileName="CarppiRestaurant/Models/IdentityModels.cs" Line="29" Column="10" />
+      <File FileName="CarppiRestaurant/firebase-messaging-sw.js" Line="25" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,9 +23,8 @@
             <Node name="CarppiRestaurant" expanded="True">
               <Node name="App_Data" expanded="True" />
               <Node name="Clases" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="IdentityModels.cs" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
               </Node>
               <Node name="Views" expanded="True">
                 <Node name="CarppiRestaurantAddCard" expanded="True" />
@@ -41,8 +41,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiRestaurant/CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" relfile="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" line="376" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiRestaurant/CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" relfile="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" line="441" column="1" />
       <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiRestaurant/CarppiRestaurant/Controllers/CarppiRestaurantAddCardController.cs" relfile="CarppiRestaurant/Controllers/CarppiRestaurantAddCardController.cs" line="24" column="1" />
+      <Breakpoint file="/Users/macbookair/Documents/GitHub/Carppi-Test/CarppiRestaurant/CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" relfile="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" line="66" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
