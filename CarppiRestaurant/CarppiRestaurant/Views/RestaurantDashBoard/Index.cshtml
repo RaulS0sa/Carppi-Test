@@ -32632,7 +32632,7 @@ input:checked + .slider:before {
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_repartidor" class="btn btn-primary" style="display:none" id="modal_repartidorButton"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_SetStateRestaurant" class="btn btn-primary" style="display:none" id="modal_SetStateRestaurantButton"> Click Me </button>
 
-    <div _ngcontent-vcs-c38="" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="modal_SetStateRestaurant" class="modal fade show" style="display: none; padding-right: 17px;">
+    <div _ngcontent-vcs-c38="" id="modal_SetStateRestaurant" tabindex="-1" role="dialog" class="modal fade show" style="display: none; padding-right: 17px;">
         <div _ngcontent-vcs-c38="" role="document" class="modal-dialog modal-dialog-centered">
             <div _ngcontent-vcs-c38="" class="modal-content">
                 <div _ngcontent-vcs-c38="" class="modal-header">
@@ -32746,7 +32746,7 @@ input:checked + .slider:before {
                                                     <i _ngcontent-vcs-c10="" class="material-icons">tag_faces</i>
                                                 </span><span _ngcontent-vcs-c10=""><i _ngcontent-vcs-c10="" class="material-icons">attach_file</i></span>
                                                 -->
-                                                <span _ngcontent-vcs-c10=""><i _ngcontent-vcs-c10="" class="material-icons" onclick="PostMessage();;">send_alt</i></span>
+                                                <span _ngcontent-vcs-c10=""><i _ngcontent-vcs-c10="" class="material-icons" onclick="document.getElementById('InputMessageToSend').value =  '';PostMessage();;">send_alt</i></span>
                                             </li>
                                         </ul>
                                     </div>
@@ -32823,7 +32823,7 @@ input:checked + .slider:before {
                                                     <i _ngcontent-vcs-c10="" class="material-icons">tag_faces</i>
                                                 </span><span _ngcontent-vcs-c10=""><i _ngcontent-vcs-c10="" class="material-icons">attach_file</i></span>
                                                 -->
-                                                <span _ngcontent-vcs-c10=""><i _ngcontent-vcs-c10="" class="material-icons" onclick="PostMessage_DeliveryMAn();;">send_alt</i></span>
+                                                <span _ngcontent-vcs-c10=""><i _ngcontent-vcs-c10="" class="material-icons" onclick="document.getElementById('InputMessageToSend_RepartidorView').value =  '';PostMessage_DeliveryMAn();;">send_alt</i></span>
                                             </li>
                                         </ul>
                                     </div>
@@ -32896,6 +32896,44 @@ input:checked + .slider:before {
         setInterval(function () {
             poolFunctions();
         }, 2500);
+
+
+         var textinputnode_InputMessageToSend_RepartidorView = document.getElementById('InputMessageToSend_RepartidorView');
+        textinputnode_InputMessageToSend_RepartidorView.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                // Do work
+
+                FullfillMainViewWithSearchBar();; setTimeout(function () {
+
+                    /*var obj = new Object();
+                    obj.Method = 'SearchByText';
+                    obj.Argument1 = document.getElementById('TextToSearch').value;
+                    window.webkit.messageHandlers.IOSInterface.postMessage(JSON.stringify(obj));
+                    */
+                    window.Android.SearchByText(document.getElementById('InputMessageToSend_RepartidorView').value);
+
+                }, 1000);
+            }
+        });
+
+            var textinputnode_InputMessageToSend = document.getElementById('InputMessageToSend');
+        textinputnode_InputMessageToSend.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                // Do work
+
+                 setTimeout(function () {
+
+                    /*var obj = new Object();
+                    obj.Method = 'SearchByText';
+                    obj.Argument1 = document.getElementById('TextToSearch').value;
+                    window.webkit.messageHandlers.IOSInterface.postMessage(JSON.stringify(obj));
+                    */
+                    window.Android.SearchByText(document.getElementById('InputMessageToSend').value);
+
+                }, 1000);
+            }
+        });
+
          document.getElementById('ImageOfProductoToUpload').onchange = function (evt) {
             var tgt = evt.target || window.event.srcElement,
                 files = tgt.files;
