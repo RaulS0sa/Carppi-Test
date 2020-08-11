@@ -59,6 +59,17 @@ namespace CarppiRestaurant.Controllers
         }
 
 
+        [HttpPost]
+        public JsonResult SetRestaurantState(int State)
+        {
+            var FaceID_speaker = Session["RestaurantID"].ToString();
+            var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault();
+            RestaurantStatePool.EstaAbierto = State == 0 ? false : true;
+            db.SaveChanges();
+            /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
+
         //RestaurantState
         [HttpPost]
         public JsonResult RestaurantState()

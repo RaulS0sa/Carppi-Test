@@ -31883,8 +31883,8 @@ input:checked + .slider:before {
                         <div _ngcontent-svf-c7="" class="logo-sn ms-d-block-lg">
                             
                             
-                            <a class="btn btn-primary shadow-none" href="javascript:void(0)" id="RestaurantStateTag">
-                                Cerrado
+                            <a class="btn btn-warning shadow-none" href="javascript:void(0)" id="RestaurantStateTag" onclick="ShowRestaurantStateModal();">
+                                Determinando...
                                 <!--<img _ngcontent-svf-c7="" src="assets/img/costic/costic-logo-216x62.png" alt="logo">-->
                             </a>
                             
@@ -32630,6 +32630,38 @@ input:checked + .slider:before {
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal-1" class="btn btn-primary" style="display:none" id="AcceptOrderModal"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal-9" class="btn btn-primary" style="display:none" id="OptionsOrderModal"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_repartidor" class="btn btn-primary" style="display:none" id="modal_repartidorButton"> Click Me </button>
+    <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_SetStateRestaurant" class="btn btn-primary" style="display:none" id="modal_SetStateRestaurantButton"> Click Me </button>
+
+    <div _ngcontent-vcs-c38="" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="modal_SetStateRestaurant" class="modal fade show" style="display: none; padding-right: 17px;">
+        <div _ngcontent-vcs-c38="" role="document" class="modal-dialog modal-dialog-centered">
+            <div _ngcontent-vcs-c38="" class="modal-content">
+                <div _ngcontent-vcs-c38="" class="modal-header">
+                    <h3 _ngcontent-vcs-c38="" class="modal-title has-icon ms-icon-round">
+                        <i _ngcontent-vcs-c38="" class="flaticon-alert-1 bg-primary text-white">
+                        </i> Atencion!
+                    </h3>
+                    <button onclick="document.getElementById('modal_SetStateRestaurant').style.display = 'none';" _ngcontent-vcs-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span _ngcontent-vcs-c38="" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div _ngcontent-vcs-c38="" class="modal-body">
+                    <p _ngcontent-vcs-c38="">Selecciona el estado de tu restaurante</p>
+                </div>
+                <div _ngcontent-vcs-c38="" class="modal-footer">
+                    <!--
+                    <div _ngcontent-vcs-c38="" class="modal-notice">
+                        <label _ngcontent-vcs-c38="" class="ms-checkbox-wrap">
+                        <input _ngcontent-vcs-c38="" type="checkbox" value="">
+                        <i _ngcontent-vcs-c38="" class="ms-checkbox-check"></i>
+                            </label><span _ngcontent-vcs-c38=""> Don't Show me Again </span></div>-->
+                    <button _ngcontent-vcs-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="SetRestaurantState(enumRestaurantState.Closed);">Cerrar Restaurante</button>
+                    <button _ngcontent-vcs-c38="" type="button" class="btn btn-success shadow-none" onclick="SetRestaurantState(enumRestaurantState.Open);">Abrir Restaurante</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div _ngcontent-vcs-c38="" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="modal-1" class="modal fade show" style="display: none; padding-right: 17px;">
         <div _ngcontent-vcs-c38="" role="document" class="modal-dialog modal-dialog-centered">
             <div _ngcontent-vcs-c38="" class="modal-content">
@@ -32706,7 +32738,7 @@ input:checked + .slider:before {
                                         <ul _ngcontent-vcs-c10="" class="ms-list-flex mb-0">
                                             <!--<li _ngcontent-vcs-c10="" class="ms-chat-vn"><i _ngcontent-vcs-c10="" class="material-icons">mic</i></li>-->
                                             <li _ngcontent-vcs-c10="" class="ms-chat-input">
-                                                <input id="InputMessageToSend" _ngcontent-vcs-c10="" type="text" name="msg" placeholder="Enter Message" value="">
+                                                <input id="InputMessageToSend" _ngcontent-vcs-c10="" type="text" name="msg" placeholder="Enter Message" value="" style="color:black">
                                             </li>
                                             <li _ngcontent-vcs-c10="" class="ms-chat-text-controls ms-list-flex">
                                                 <!--
@@ -32783,7 +32815,7 @@ input:checked + .slider:before {
                                         <ul _ngcontent-vcs-c10="" class="ms-list-flex mb-0">
                                             <!--<li _ngcontent-vcs-c10="" class="ms-chat-vn"><i _ngcontent-vcs-c10="" class="material-icons">mic</i></li>-->
                                             <li _ngcontent-vcs-c10="" class="ms-chat-input">
-                                                <input id="InputMessageToSend_RepartidorView" _ngcontent-vcs-c10="" type="text" name="msg" placeholder="Enter Message" value="">
+                                                <input style="color:black" id="InputMessageToSend_RepartidorView" _ngcontent-vcs-c10="" type="text" name="msg" placeholder="Enter Message" value="">
                                             </li>
                                             <li _ngcontent-vcs-c10="" class="ms-chat-text-controls ms-list-flex">
                                                 <!--
@@ -32830,6 +32862,7 @@ input:checked + .slider:before {
         //public enum GroceryOrderState { RequestCreated, RequestBeingAttended, RequestAccepted, RequestGoingToClient, RequestEnded, RequestRejected };
         var GroceryOrderState = { RequestCreated: 0, RequestBeingAttended: 1, RequestAccepted: 2, RequestGoingToClient: 3, RequestEnded: 4, RequestRejected: 5 };
         //public enum RoleInCoversation { Sender, Receiver };
+        var enumRestaurantState = { Closed: 0, Open: 1 };
         var RoleInCoversation = { Sender: 0, Receiver: 1 };
           var AvailableFoodListing = {
             Hamburgesas: 1,
@@ -32881,6 +32914,37 @@ input:checked + .slider:before {
                 // fallback -- perhaps submit the input to an iframe and temporarily store
                 // them on the server until the user's session ends.
             }
+         }
+        function SetRestaurantState(StateToSet) {
+            $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/SetRestaurantState?State=" + StateToSet,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                  
+
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+            });
+
+        }
+
+        function ShowRestaurantStateModal()
+        {
+            document.getElementById('modal_SetStateRestaurantButton').click();
+            document.getElementById('modal_SetStateRestaurant').style.display = "block";
         }
 
         function poolFunctions()
@@ -33937,7 +34001,7 @@ input:checked + .slider:before {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    if (response.StatusCode == "OK") {
+                    if (response.StatusCode == "Accepted") {
                         var ListOfMessages = response.Response;
                         var container = document.getElementById('ConversationLayout_DeliveryMan');
                         container.innerHTML = "";
