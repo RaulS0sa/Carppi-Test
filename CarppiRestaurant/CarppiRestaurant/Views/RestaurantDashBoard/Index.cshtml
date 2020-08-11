@@ -34014,10 +34014,19 @@
         }
 
         function PresentOptions(OrderObj) {
-            RequestID = myHash[OrderObj].Orden.ID;
-            document.getElementById('OptionsOrderModal').click();
+               RequestID = myHash[OrderObj].Orden.ID;
+            if (myHash[OrderObj].Orden.Stat == EnumEstadosDelTrabajo.RequestCreated) {
+             
+                document.getElementById('OptionsOrderModal').click();
+                document.getElementById('modal-9').style.display = "block";
+            }
+            else if(myHash[OrderObj].Orden.Stat == EnumEstadosDelTrabajo.RequestBeingAttended) {
+             
+                document.getElementById('AcceptOrderModal').click();
+                document.getElementById('modal-1').style.display = "block";
+            }
             //document.getElementById('modal-1').style.display = "block";
-            document.getElementById('modal-9').style.display = "block";
+            
             // alert(JSON.stringify(myHash[OrderObj]));
         }
     </script>
