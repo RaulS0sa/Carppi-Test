@@ -11,14 +11,14 @@ using Stripe;
 
 namespace CarppiRestaurant.Controllers
 {
-    public class CarppiRestaurantAddCard : Controller
+    public class CarppiRestaurantAddCardController : Controller
     {
         // GET: CarppiRestautantAddAcount
         PidgeonEntities db = new PidgeonEntities();
 
         public ActionResult Index(string code)
         {
-            var Raul = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == "10217260473614661").FirstOrDefault();//10217260473614661
+            
             try
             {
                 ViewBag.Code = code;
@@ -48,7 +48,7 @@ namespace CarppiRestaurant.Controllers
             }
             catch (Exception ex)
             {
-
+                var Raul = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == "10217260473614661").FirstOrDefault();//10217260473614661
                 Push(ex.ToString(), "Error", Raul.FirebaseID, "");
             }
             return View();

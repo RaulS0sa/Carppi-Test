@@ -365,7 +365,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\NewRestaurantController.cs" />
     <Compile Include="Clases\BusquedaRepartidor.cs" />
-    <Compile Include="Controllers\CarppiRestaurantAddCard.cs" />
+    <Compile Include="Controllers\CarppiRestaurantAddCardController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

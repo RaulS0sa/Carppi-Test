@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{DE55BBA8-B038-4504-8411-56AC750F6E80}|">
   <MonoDevelop.Ide.ItemProperties.CarppiRestaurant PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarppiRestaurant/Controllers/CarppiRestaurantAddCardController.cs">
     <Files>
       <File FileName="CarppiRestaurant/Controllers/RestaurantDashBoardController.cs" Line="70" Column="13" />
       <File FileName="CarppiRestaurant/App_Data/Receipt.html" />
-      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" />
+      <File FileName="CarppiRestaurant/Views/RestaurantDashBoard/Index.cshtml" Line="34031" Column="10" />
       <File FileName="CarppiRestaurant/Views/NewRestaurant/Index.cshtml" />
       <File FileName="CarppiRestaurant/Controllers/NewRestaurantController.cs" />
       <File FileName="CarppiRestaurant/Models/CarppiGrocery_Repartidores.cs" />
       <File FileName="CarppiRestaurant/Clases/BusquedaRepartidor.cs" />
       <File FileName="CarppiRestaurant/Models/Model1.Context.cs" />
       <File FileName="CarppiRestaurant/Models/Carppi_ProductosPorRestaurantes.cs" />
-      <File FileName="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs" Line="53" Column="14" />
+      <File FileName="CarppiRestaurant/Controllers/CarppiRestaurantAddCard.cs" Line="42" Column="26" />
+      <File FileName="CarppiRestaurant/Views/CarppiRestaurantAddCard/Index.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,9 +22,10 @@
               <Node name="App_Data" expanded="True" />
               <Node name="Clases" expanded="True" />
               <Node name="Controllers" expanded="True">
-                <Node name="CarppiRestaurantAddCard.cs" selected="True" />
+                <Node name="CarppiRestaurantAddCardController.cs" selected="True" />
               </Node>
               <Node name="Views" expanded="True">
+                <Node name="CarppiRestaurantAddCard" expanded="True" />
                 <Node name="NewRestaurant" expanded="True" />
                 <Node name="RestaurantDashBoard" expanded="True" />
               </Node>
