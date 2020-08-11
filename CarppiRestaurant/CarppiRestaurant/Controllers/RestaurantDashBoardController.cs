@@ -57,6 +57,20 @@ namespace CarppiRestaurant.Controllers
             Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
+
+
+        //RestaurantState
+        [HttpPost]
+        public JsonResult RestaurantState()
+        {
+            var FaceID_speaker = Session["RestaurantID"].ToString();
+            var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault().EstaAbierto;
+            /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
+            return Json(new { StatusCode = "Accepted", Response = RestaurantStatePool });
+        }
+
+
+
         //ChangeProductState
         [HttpPost]
         public JsonResult DownloadProductDetails(Int64 ProductID)
