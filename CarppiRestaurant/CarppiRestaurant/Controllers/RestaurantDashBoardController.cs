@@ -90,6 +90,21 @@ namespace CarppiRestaurant.Controllers
             return Json(new { StatusCode = "Accepted", Response = P });
         }
 
+
+
+        [HttpPost]
+        public JsonResult EraseProduct(Int64 ProductID)
+        {
+            var FaceID_speaker = Session["RestaurantID"].ToString();
+            var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID && x.IDdRestaurante == FaceID_speaker).FirstOrDefault();
+            if(P!= null)
+            {
+                db.Carppi_ProductosPorRestaurantes.Remove(P);
+                db.SaveChanges();
+            }
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
+
         [HttpPost]
         public JsonResult ChangeProductState(Int64 ProductID, bool Estado)
         {

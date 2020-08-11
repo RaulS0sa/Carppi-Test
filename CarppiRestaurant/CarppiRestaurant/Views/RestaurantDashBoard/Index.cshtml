@@ -32465,7 +32465,10 @@ input:checked + .slider:before {
                                     <!--<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">SKU Identification</th><td _ngcontent-rec-c15="">23445</td></tr>-->
                                         </tbody>
                                     </table>
-                                <div _ngcontent-rec-c15="" class="new"><button _ngcontent-rec-c15="" type="button" class="btn btn-primary">Edit</button><button _ngcontent-rec-c15="" type="button" class="btn btn-secondary">Delete</button></div>
+                                <div _ngcontent-rec-c15="" class="new">
+                                    <button _ngcontent-rec-c15="" type="button" class="btn btn-primary">Editar</button>
+                                    <button _ngcontent-rec-c15="" type="button" class="btn btn-secondary" onclick="CallToEraseButton();">Borrar</button>
+                                </div>
                                     </div>
                                 </div>
                                 </div>
@@ -32640,7 +32643,7 @@ input:checked + .slider:before {
                         <i _ngcontent-vcs-c38="" class="flaticon-alert-1 bg-primary text-white">
                         </i> Atencion!
                     </h3>
-                    <button onclick="document.getElementById('modal_SetStateRestaurant').style.display = 'none';" _ngcontent-vcs-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <button id="closemodal_SetStateRestaurant" onclick="document.getElementById('modal_SetStateRestaurant').style.display = 'none';" _ngcontent-vcs-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close">
                         <span _ngcontent-vcs-c38="" aria-hidden="true">×</span>
                     </button>
                 </div>
@@ -32903,14 +32906,16 @@ input:checked + .slider:before {
             if (event.key === "Enter") {
                 // Do work
 
-                FullfillMainViewWithSearchBar();; setTimeout(function () {
-
+                setTimeout(function () {
+                    
+                    PostMessage_DeliveryMAn();
+                    document.getElementById('InputMessageToSend_RepartidorView').value = "";
                     /*var obj = new Object();
                     obj.Method = 'SearchByText';
                     obj.Argument1 = document.getElementById('TextToSearch').value;
                     window.webkit.messageHandlers.IOSInterface.postMessage(JSON.stringify(obj));
                     */
-                    window.Android.SearchByText(document.getElementById('InputMessageToSend_RepartidorView').value);
+                  //  window.Android.SearchByText(document.getElementById('InputMessageToSend_RepartidorView').value);
 
                 }, 1000);
             }
@@ -32921,14 +32926,16 @@ input:checked + .slider:before {
             if (event.key === "Enter") {
                 // Do work
 
-                 setTimeout(function () {
+                setTimeout(function () {
+                    PostMessage();
+                     document.getElementById('InputMessageToSend').value= "";
 
                     /*var obj = new Object();
                     obj.Method = 'SearchByText';
                     obj.Argument1 = document.getElementById('TextToSearch').value;
                     window.webkit.messageHandlers.IOSInterface.postMessage(JSON.stringify(obj));
                     */
-                    window.Android.SearchByText(document.getElementById('InputMessageToSend').value);
+                   // window.Android.SearchByText();
 
                 }, 1000);
             }
@@ -32953,6 +32960,33 @@ input:checked + .slider:before {
                 // them on the server until the user's session ends.
             }
          }
+
+
+        function CallToEraseButton()
+        {
+    $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/EraseProduct?ProductID=" + ProductID,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+                 });
+        }
+
         function SetRestaurantState(StateToSet) {
             $.ajax({
                 type: "POST",
@@ -32965,7 +32999,7 @@ input:checked + .slider:before {
                 success: function (response) {
 
                   
-
+                    document.getElementById('closemodal_SetStateRestaurant').click();
                 },
                 failure: function (response) {
                     // alert(JSON.stringify(response));
