@@ -32517,7 +32517,7 @@ input:checked + .slider:before {
                                                         <td _ngcontent-rec-c15="">
                                                             <!-- Rounded switch -->
                                                             <label class="switch">
-                                                                <input type="checkbox" id="IsItemAvailable">
+                                                                <input type="checkbox" id="IsItemAvailable" onchange="ChangeStateOfProduct();">
                                                                 <span class="slider round"></span>
                                                             </label>
                                                         </td>
@@ -32921,7 +32921,7 @@ input:checked + .slider:before {
             </div>
         </div>
     </div>
-    <div _ngcontent-jgc-c38="" id="modal_addObligatoryOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addObligatoryOtions" class="modal fade show" style="display: block;">
+    <div _ngcontent-jgc-c38="" id="modal_addObligatoryOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addObligatoryOtions" class="modal fade show" style="display: block;display:none;">
     <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
         <div _ngcontent-jgc-c38="" class="modal-content">
         <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
@@ -32948,7 +32948,7 @@ input:checked + .slider:before {
             </div>
         </div>
     </div>
-     <div _ngcontent-jgc-c38="" id="modal_addOptionalOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addOptionalOtions" class="modal fade show" style="display: block;">
+     <div _ngcontent-jgc-c38="" id="modal_addOptionalOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addOptionalOtions" class="modal fade show" style="display: block;display:none;">
     <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
         <div _ngcontent-jgc-c38="" class="modal-content">
         <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
@@ -33596,8 +33596,7 @@ input:checked + .slider:before {
         function ChangeStateOfProduct()
         {
              var CheckCall = document.getElementById('IsItemAvailable');
-                    CheckCall.addEventListener('change', function () {
-                        $.ajax({
+                   $.ajax({
                             type: "POST",
                             url: "/RestaurantDashBoard/ChangeProductState?ProductID=" + window.GlobalProductID + "&Estado=" + this.checked,
                             //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
@@ -33619,7 +33618,6 @@ input:checked + .slider:before {
 
                             }
                         });
-                    });
 
         }
 
