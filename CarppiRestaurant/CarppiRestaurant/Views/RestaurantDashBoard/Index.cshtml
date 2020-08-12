@@ -32483,7 +32483,7 @@ input:checked + .slider:before {
                     </div>
                     <div style="display:none" name="NAvigationElement" id="ProductDetailsView">
                         <div _ngcontent-rec-c15="" class="ms-content-wrapper">
-                            <div _ngcontent-rec-c15="" class="row">
+                            <div _ngcontent-rec-c15="" class="row" id="ExtraDataForProductView">
                                 <div _ngcontent-rec-c15="" class="col-md-12"><nav _ngcontent-rec-c15="" aria-label="breadcrumb"><ol _ngcontent-rec-c15="" class="breadcrumb pl-0"><li _ngcontent-rec-c15="" class="breadcrumb-item"><a _ngcontent-rec-c15="" href="#"><i _ngcontent-rec-c15="" class="material-icons">home</i> Home</a></li><li _ngcontent-rec-c15="" class="breadcrumb-item"><a _ngcontent-rec-c15="" href="#">Menu</a></li><li _ngcontent-rec-c15="" aria-current="page" class="breadcrumb-item active">Product Detail</li></ol></nav></div>
                                 <div _ngcontent-rec-c15="" class="col-md-12">
                                     <div _ngcontent-rec-c15="" class="ms-panel">
@@ -32527,7 +32527,7 @@ input:checked + .slider:before {
                                                 </tbody>
                                             </table>
                                             <div _ngcontent-rec-c15="" class="new">
-                                                <button _ngcontent-rec-c15="" type="button" class="btn btn-primary">Editar</button>
+                                                <!--<button _ngcontent-rec-c15="" type="button" class="btn btn-primary">Editar</button>-->
                                                 <button _ngcontent-rec-c15="" type="button" class="btn btn-secondary" onclick="CallToEraseButton();">Borrar</button>
                                             </div>
                                         </div>
@@ -32538,6 +32538,14 @@ input:checked + .slider:before {
                                         <div _ngcontent-rec-c15="" class="ms-panel-body">
                                             <h4 _ngcontent-rec-c15="" class="section-title bold" id="DataillViewOfProduct_Nombre">Product Details </h4>
                                             <p _ngcontent-rec-c15="" class="description" id="DataillViewOfProduct_Descripcion"></p>
+                                        </div>
+                                        <div _ngcontent-rec-c15="" class="ms-quick-stats">
+                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
+                                          <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addObligatoryOtionsButton').click(); document.getElementById('modal_addObligatoryOtions').style.display = 'block';">Añadir Clase Obligatoria</button>
+                                        </div>
+                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
+                                            <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addOptionalOtionsButton').click(); document.getElementById('modal_addOptionalOtions').style.display = 'block';">Añadir Clase Opcional</button>
+                                        </div>
                                         </div>
                                         <!--<div _ngcontent-rec-c15="" class="ms-quick-stats"><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-bullhorn"></i><p _ngcontent-rec-c15="" class="ms-text-dark">1,033</p><span _ngcontent-rec-c15="">Today Order</span></div><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-heart"></i><p _ngcontent-rec-c15="" class="ms-text-dark">3,039</p><span _ngcontent-rec-c15="">Favourite</span></div></div>-->
                                     </div>
@@ -32697,6 +32705,8 @@ input:checked + .slider:before {
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal-9" class="btn btn-primary" style="display:none" id="OptionsOrderModal"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_repartidor" class="btn btn-primary" style="display:none" id="modal_repartidorButton"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_SetStateRestaurant" class="btn btn-primary" style="display:none" id="modal_SetStateRestaurantButton"> Click Me </button>
+    <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_addObligatoryOtions" class="btn btn-primary" style="display:none" id="modal_addObligatoryOtionsButton"> Click Me </button>
+    <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_addOptionalOtions" class="btn btn-primary" style="display:none" id="modal_addOptionalOtionsButton"> Click Me </button>
 
     <div _ngcontent-vcs-c38="" id="modal_SetStateRestaurant" tabindex="-1" role="dialog" class="modal fade show" style="display: none; padding-right: 17px;">
         <div _ngcontent-vcs-c38="" role="document" class="modal-dialog modal-dialog-centered">
@@ -32911,8 +32921,61 @@ input:checked + .slider:before {
             </div>
         </div>
     </div>
-
-
+    <div _ngcontent-jgc-c38="" id="modal_addObligatoryOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addObligatoryOtions" class="modal fade show" style="display: block;">
+    <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
+        <div _ngcontent-jgc-c38="" class="modal-content">
+        <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
+            <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
+            <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Opciones obligatorias al producto
+                </h3>
+            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('modal_addObligatoryOtions').style.display = 'none';">
+            <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
+                </button>
+            </div>
+        <div _ngcontent-jgc-c38="" class="modal-body">
+            <div _ngcontent-jgc-c38="" method="post">
+            <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
+                <label _ngcontent-jgc-c38="">Escoge el nombre de tu categoria</label>
+                <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria" name="news-letter" value="" class="form-control" id="ObligatoryCategory">
+                <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+                </div>
+                </div>
+            </div>
+        <div _ngcontent-jgc-c38="" class="modal-footer">
+            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('modal_addObligatoryOtions').style.display = 'none';">Cancel</button>
+            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddObligatoryItem();document.getElementById('modal_addObligatoryOtions').style.display = 'none';">Añadir</button>
+            </div>
+            </div>
+        </div>
+    </div>
+     <div _ngcontent-jgc-c38="" id="modal_addOptionalOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addOptionalOtions" class="modal fade show" style="display: block;">
+    <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
+        <div _ngcontent-jgc-c38="" class="modal-content">
+        <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
+            <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
+            <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Extras al producto
+                </h3>
+            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('modal_addOptionalOtions').style.display = 'none';">
+            <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
+                </button>
+            </div>
+        <div _ngcontent-jgc-c38="" class="modal-body">
+            <div _ngcontent-jgc-c38="" method="post">
+            <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
+                <label _ngcontent-jgc-c38="">Escoge el nombre de tu categoria</label>
+                <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria extra" name="news-letter" value="" class="form-control" id="ExtraCategory">
+                <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+                </div>
+                </div>
+            </div>
+        <div _ngcontent-jgc-c38="" class="modal-footer">
+            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('modal_addOptionalOtions').style.display = 'none';">Cancel</button>
+            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddOptionalItem();document.getElementById('modal_addOptionalOtions').style.display = 'none';">Añadir</button>
+            </div>
+            </div>
+        </div>
+    </div>
+  
 
 
     <div id="snackbar">-</div>
@@ -33102,6 +33165,58 @@ input:checked + .slider:before {
                 // them on the server until the user's session ends.
             }
         }
+
+        function AddObligatoryItem() {
+            //id="ExtraCategory"
+            var ObligatoryCategory = document.getElementById('ObligatoryCategory').value;
+              $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/AddObligatoryItem?ProductID=" + window.GlobalProductID+ "&ObligatoryCategoryName=" + ObligatoryCategory,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+            });
+        }
+        function AddOptionalItem() {
+             //id="ExtraCategory"
+            var ExtraCategory = document.getElementById('ExtraCategory').value;
+               $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/AddOptionalItem?ProductID=" + window.GlobalProductID + "&ExtraCategoryName=" + ExtraCategory,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
+
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
+
+                }
+            });
+        }
+
         function UpdateFirebaseToken() {
             messaging.getToken().then((currentToken) => {
                 if (currentToken) {
@@ -33478,6 +33593,36 @@ input:checked + .slider:before {
             });
         }
         window.GlobalProductID = 0;
+        function ChangeStateOfProduct()
+        {
+             var CheckCall = document.getElementById('IsItemAvailable');
+                    CheckCall.addEventListener('change', function () {
+                        $.ajax({
+                            type: "POST",
+                            url: "/RestaurantDashBoard/ChangeProductState?ProductID=" + window.GlobalProductID + "&Estado=" + this.checked,
+                            //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                            //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                            data: '{ }',
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (response) {
+
+                                //alert(response.Response);
+
+                            },
+                            failure: function (response) {
+                                // alert(JSON.stringify(response));
+
+                            },
+                            error: function (response) {
+                                // alert(JSON.stringify(response));
+
+                            }
+                        });
+                    });
+
+        }
+
         function getProductDetails(ProductID) {
             GlobalProductID = ProductID;
 
@@ -33503,43 +33648,79 @@ input:checked + .slider:before {
                     //alert(ProductID);
                     document.getElementById('ProductDetailsView').style.display = "block";
 
-                    document.getElementById('DataillViewOfProduct_Image').src = "data:image/png;base64," + _arrayBufferToBase64(response.Response.Foto);
-                    document.getElementById('DataillViewOfProduct_Price').innerHTML = "$" + response.Response.Costo;
-                    document.getElementById('DataillViewOfProduct_Nombre').innerHTML = response.Response.Nombre;
-                    document.getElementById('DataillViewOfProduct_Descripcion').innerHTML = response.Response.Descripcion;
-                    document.getElementById('DataillViewOfProduct_Available').innerHTML = !response.Response.Disponibilidad ? '<span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">No Disponible</span>' : '<span _ngcontent-rec-c15="" class="badge badge-pill badge-success">Disponible</span>';
-                    document.getElementById('IsItemAvailable').checked = response.Response.Disponibilidad;
+                    document.getElementById('DataillViewOfProduct_Image').src = "data:image/png;base64," + _arrayBufferToBase64(response.Response.Producto.Foto);
+                    document.getElementById('DataillViewOfProduct_Price').innerHTML = "$" + response.Response.Producto.Costo;
+                    document.getElementById('DataillViewOfProduct_Nombre').innerHTML = response.Response.Producto.Nombre;
+                    document.getElementById('DataillViewOfProduct_Descripcion').innerHTML = response.Response.Producto.Descripcion;
+                    document.getElementById('DataillViewOfProduct_Available').innerHTML = !response.Response.Producto.Disponibilidad ? '<span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">No Disponible</span>' : '<span _ngcontent-rec-c15="" class="badge badge-pill badge-success">Disponible</span>';
+                    document.getElementById('IsItemAvailable').checked = response.Response.Producto.Disponibilidad;
 
-                    document.getElementById('DataillViewOfProduct_Categoria').innerHTML = REstaurantDescriptorDetermination(response.Response.Categoria);
-
-
-                    var CheckCall = document.getElementById('IsItemAvailable');
-                    CheckCall.addEventListener('change', function () {
-                        $.ajax({
-                            type: "POST",
-                            url: "/RestaurantDashBoard/ChangeProductState?ProductID=" + ProductID + "&Estado=" + this.checked,
-                            //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
-                            //data: '{Valor_Busqueda: "' + dc1 + '" }',
-                            data: '{ }',
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            success: function (response) {
-
-                                alert(response.Response);
-
-                            },
-                            failure: function (response) {
-                                // alert(JSON.stringify(response));
-
-                            },
-                            error: function (response) {
-                                // alert(JSON.stringify(response));
-
+                    document.getElementById('DataillViewOfProduct_Categoria').innerHTML = REstaurantDescriptorDetermination(response.Response.Producto.Categoria);
+                    if (response.Response.AllOptions != null)
+                    {
+                        var Container = document.getElementById('ExtraDataForProductView');
+                        if (response.Response.AllOptions.Obligatory != null)
+                        {
+                            for (var i = 0; i < response.Response.AllOptions.Obligatory.length; i++) {
+                                var div0 = document.createElement('div');
+                                div0.className = "col-md-6";
+                                var div1 = document.createElement('div');
+                                div1.className = "ms-panel ms-panel-fh";
+                                var div2 = document.createElement('div');
+                                div2.className = "ms-panel-body";
+                                var h4_1 = document.createElement('h4');
+                                h4_1.className = "section-title bold";
+                                h4_1.innerHTML = response.Response.AllOption.Obligatory[i].OptionValue;
+                                div2.appendChild(h4_1);
+                                div1.appendChild(div2);
+                                div0.appendChild(div1);
+                                Container.appendChild(div0);
                             }
-                        });
-                    });
+                        }
+                        if (response.Response.AllOptions.Optional != null)
+                        {
+                            for (var i = 0; i < response.Response.AllOptions.Optional.length; i++) {
+                                var div0 = document.createElement('div');
+                                div0.className = "col-md-6";
+                                var div1 = document.createElement('div');
+                                div1.className = "ms-panel ms-panel-fh";
+                                var div2 = document.createElement('div');
+                                div2.className = "ms-panel-body";
+                                var h4_1 = document.createElement('h4');
+                                h4_1.className = "section-title bold";
+                                h4_1.innerHTML = response.Response.AllOption.Optional[i].OptionValue;
+                                div2.appendChild(h4_1);
+                                div1.appendChild(div2);
+                                div0.appendChild(div1);
+                                Container.appendChild(div0);
+                            }
+                        }
 
-                    /*DataillViewOfProduct_Price DataillViewOfProduct_Nombre  IsItemAvailable
+                    }
+                    //ExtraDataForProductView
+                    /*  <div _ngcontent-rec-c15="" class="col-md-6">
+                     *  
+                                    <div _ngcontent-rec-c15="" class="ms-panel ms-panel-fh">
+                                        <div _ngcontent-rec-c15="" class="ms-panel-body">
+                                            <h4 _ngcontent-rec-c15="" class="section-title bold" id="DataillViewOfProduct_Nombre">Product Details </h4>
+                                            <p _ngcontent-rec-c15="" class="description" id="DataillViewOfProduct_Descripcion"></p>
+                                        </div>
+                                        <div _ngcontent-rec-c15="" class="ms-quick-stats">
+                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
+                                          <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addObligatoryOtionsButton').click(); document.getElementById('modal_addObligatoryOtions').style.display = 'block';">Añadir Clase Obligatoria</button>
+                                        </div>
+                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
+                                            <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addOptionalOtionsButton').click(); document.getElementById('modal_addOptionalOtions').style.display = 'block';">Añadir Clase Opcional</button>
+                                        </div>
+                                        </div>
+                                        <!--<div _ngcontent-rec-c15="" class="ms-quick-stats"><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-bullhorn"></i><p _ngcontent-rec-c15="" class="ms-text-dark">1,033</p><span _ngcontent-rec-c15="">Today Order</span></div><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-heart"></i><p _ngcontent-rec-c15="" class="ms-text-dark">3,039</p><span _ngcontent-rec-c15="">Favourite</span></div></div>-->
+                                    </div>
+                                </div>
+                                */
+
+                   
+                    /*ExtraDataForProductView
+                     * DataillViewOfProduct_Price DataillViewOfProduct_Nombre  IsItemAvailable
                      * <span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">In stock</span>
                      * public long ID { get; set; }
         public string IDdRestaurante { get; set; }

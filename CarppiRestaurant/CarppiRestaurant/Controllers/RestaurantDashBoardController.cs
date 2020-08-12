@@ -95,16 +95,152 @@ namespace CarppiRestaurant.Controllers
         }
 
 
-
+        public enum IsOptionalSet { NoItsNot, YesItIs };
         //ChangeProductState
         [HttpPost]
         public JsonResult DownloadProductDetails(Int64 ProductID)
         {
             var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();
-            return Json(new { StatusCode = "Accepted", Response = P });
+            var produc = new ProductExtraDetails();
+            produc.Producto = P;
+            if (P.HasOptionsToSelect)
+            {
+                var IsNoOptionaldubset = (int)IsOptionalSet.NoItsNot;
+                var IsOptionaldubset = (int)IsOptionalSet.YesItIs;
+                var Opt = db.OptionalChoice.Where(x => x.IDdelProducto == ProductID && x.EsPersonal == IsOptionaldubset).FirstOrDefault();
+                var Obt = db.OptionalChoice.Where(x => x.IDdelProducto == ProductID && x.EsPersonal == IsNoOptionaldubset).FirstOrDefault();
+                if (Opt == null && Obt == null)
+                {
+                   // return Request.CreateResponse(HttpStatusCode.BadRequest, "es");
+                }
+                else
+                {
+                    var respuesta = new OptionOfProduct();
+                    var respuesta_Obligatory = new List<ObligatoriOptions>();
+                    var respuesta_Optional = new List<OpcionalOptions>();
+
+                    var ObligatoruSubset = db.ObligatoriOptionsList.Where(x => x.IDdelProducto == ProductID);
+                    var OptionalSubset = db.OpcionalOptionsList.Where(x => x.IDdelProducto == ProductID);
+
+                    foreach (var subset in ObligatoruSubset)
+                    {
+                        var ob_option = new ObligatoriOptions();
+                        ob_option.OptionValue = subset.NombreDelConjunto;
+                        var ObtList = db.OptionalChoice.Where(x => x.IDdelConjunto == subset.ID && x.IDdelProducto == ProductID && x.EsPersonal == IsNoOptionaldubset);
+                        var opcionesopcionales = new List<OptionalChoice>();
+                        foreach (var Opt_toquery in ObtList)
+                        {
+                            var Opcion1_1 = new OptionalChoice();
+                            Opcion1_1.CostoExtra = Convert.ToDouble(Opt_toquery.CostoExtra);
+                            Opcion1_1.Disponible = Opt_toquery.Disponible;
+                            Opcion1_1.OptionHash = Opt_toquery.OptionHash;
+                            Opcion1_1.ID = Opt_toquery.ID;
+                            opcionesopcionales.Add(Opcion1_1);
+                        }
+                        ob_option.OptionName = opcionesopcionales;
+                        respuesta_Obligatory.Add(ob_option);
+
+                    }
+                    foreach (var subset in OptionalSubset)
+                    {
+                        var Posible_Option = new OpcionalOptions();
+                        Posible_Option.OptionValue = subset.NombreDelConjunto;
+                        var ObtList = db.OptionalChoice.Where(x => x.IDdelConjunto == subset.ID && x.IDdelProducto == ProductID && x.EsPersonal == IsOptionaldubset);
+                        var opcionesopcionales = new List<OptionalChoice>();
+
+                        foreach (var Opt_toquery in ObtList)
+                        {
+                            var Opcion1_1 = new OptionalChoice();
+                            Opcion1_1.CostoExtra = Convert.ToDouble(Opt_toquery.CostoExtra);
+                            Opcion1_1.Disponible = Opt_toquery.Disponible;
+                            Opcion1_1.OptionHash = Opt_toquery.OptionHash;
+                            Opcion1_1.ID = Opt_toquery.ID;
+                            opcionesopcionales.Add(Opcion1_1);
+                        }
+                        Posible_Option.OptionName = opcionesopcionales;
+                        respuesta_Optional.Add(Posible_Option);
+                    }
+                    respuesta.Obligatory = respuesta_Obligatory;
+                    respuesta.Optional = respuesta_Optional;
+                    produc.AllOptions = respuesta;
+                }
+               
+            }
+            return Json(new { StatusCode = "Accepted", Response = produc });
+        }
+        public class OptionOfProduct
+        {
+            public List<ObligatoriOptions> Obligatory;
+            public List<OpcionalOptions> Optional;
+        }
+        public class ObligatoriOptions
+        {
+            public string OptionValue;
+            public List<OptionalChoice> OptionName;
+
+        }
+        public class OpcionalOptions
+        {
+            public string OptionValue;
+            public List<OptionalChoice> OptionName;
+
+        }
+        public class OptionalChoice
+        {
+            public string OptionHash;
+            public double CostoExtra;
+            public bool Disponible;
+            public long ID;
+
+        }
+        public class ProductExtraDetails
+        {
+            public Carppi_ProductosPorRestaurantes Producto;
+            public OptionOfProduct AllOptions;
         }
 
+        [HttpPost]
+        public JsonResult AddObligatoryItem(Int64 ProductID, string ObligatoryCategoryName)
+        {
+            var FaceID_speaker = Session["RestaurantID"].ToString();
+            var newoptionList = new ObligatoriOptionsList();
+            newoptionList.IDdelProducto = ProductID;
+            newoptionList.NombreDelConjunto = ObligatoryCategoryName;
+            db.ObligatoriOptionsList.Add(newoptionList);
+            var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID && x.IDdRestaurante == FaceID_speaker).FirstOrDefault();
+            P.HasOptionsToSelect = true;
+            db.SaveChanges();
+            /* var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID && x.IDdRestaurante == FaceID_speaker).FirstOrDefault();
+             if (P != null)
+             {
+                 db.Carppi_ProductosPorRestaurantes.Remove(P);
+                 db.SaveChanges();
+             }
+             */
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
 
+        [HttpPost]
+        public JsonResult AddOptionalItem(Int64 ProductID, string ExtraCategoryName)
+        {
+            var FaceID_speaker = Session["RestaurantID"].ToString();
+            var newoptionList = new OpcionalOptionsList();
+            newoptionList.IDdelProducto = ProductID;
+            newoptionList.NombreDelConjunto = ExtraCategoryName;
+            db.OpcionalOptionsList.Add(newoptionList);
+            var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID && x.IDdRestaurante == FaceID_speaker).FirstOrDefault();
+            P.HasOptionsToSelect = true;
+            db.SaveChanges();
+
+            /*
+            var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID && x.IDdRestaurante == FaceID_speaker).FirstOrDefault();
+            if (P != null)
+            {
+                db.Carppi_ProductosPorRestaurantes.Remove(P);
+                db.SaveChanges();
+            }*/
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
 
         [HttpPost]
         public JsonResult EraseProduct(Int64 ProductID)
@@ -124,7 +260,8 @@ namespace CarppiRestaurant.Controllers
         {
             try
             {
-                var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();
+                var FaceID_speaker = Session["RestaurantID"].ToString();
+                var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID && x.IDdRestaurante == FaceID_speaker).FirstOrDefault();
                 P.Disponibilidad = Estado;
                 db.SaveChanges();
             return Json(new { StatusCode = "Accepted", Response = "Cambio Realizado" });
@@ -1492,6 +1629,7 @@ namespace CarppiRestaurant.Controllers
             public List<OptionalChoice> ObligatoryOptions;
             public List<OptionalChoice> PersonalOptions;
         }
+        /*
         public class OptionalChoice
         {
             public string OptionHash;
@@ -1500,6 +1638,7 @@ namespace CarppiRestaurant.Controllers
             public long ID;
 
         }
+        */
 
     }
 }
