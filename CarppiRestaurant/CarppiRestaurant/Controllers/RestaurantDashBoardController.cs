@@ -94,6 +94,21 @@ namespace CarppiRestaurant.Controllers
             return Json(new { StatusCode = "Accepted", Response = RestaurantStatePool });
         }
 
+        /// <summary>
+        /// url: "/RestaurantDashBoard/ChangeOptionalItemState?ProductID" + this.ProductID +"&OptionID=" + OptionID,
+        /// </summary>
+        ///  [HttpPost]
+        public JsonResult ChangeOptionalItemState(long ProductID, long OptionID, bool Checked)
+        {
+            var Option = db.OptionalChoice.Where(x => x.ID == OptionID && x.IDdelProducto == ProductID).FirstOrDefault();
+            Option.Disponible = Checked;
+            db.SaveChanges();
+           // var FaceID_speaker = Session["RestaurantID"].ToString();
+           // var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault().EstaAbierto;
+           /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
+
 
         public enum IsOptionalSet { NoItsNot, YesItIs };
         //ChangeProductState
