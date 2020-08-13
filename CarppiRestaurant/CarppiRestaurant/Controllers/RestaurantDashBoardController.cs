@@ -54,7 +54,7 @@ namespace CarppiRestaurant.Controllers
         {
             //https://dashboard.stripe.com/express/oauth/authorize?redirect_uri=https://carppirestaurant.azurewebsites.net&response_type=code&client_id=ca_HefGcaqsN1stYmIBiakDDfvPcpEIfEk6&scope=read_write#/
             //http://metropolitanhost.com/themes/themeforest/angular/costic/order
-            Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
+            //Session["RestaurantID"] = "4501fa592738def70c450dcd5320e613bd6811bff9cef49eeb872f5da9c2d13c";
             return View();
         }
         //url: "/RestaurantDashBoard/UpdateFireBaseToken?Token=" + currentToken,
@@ -62,13 +62,19 @@ namespace CarppiRestaurant.Controllers
         [HttpPost]
         public JsonResult UpdateFireBaseToken(string Token)
         {
-            if (Token != null)
+            try
             {
-                var FaceID_speaker = Session["RestaurantID"].ToString();
-                var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault();
-                RestaurantStatePool.WebsiteFirebaseHash = Token;
-                db.SaveChanges();
+                if (Token != null)
+                {
+                    var FaceID_speaker = Session["RestaurantID"].ToString();
+                    var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault();
+                    RestaurantStatePool.WebsiteFirebaseHash = Token;
+                    db.SaveChanges();
+                }
+                
             }
+            catch(Exception)
+            { }
             return Json(new { StatusCode = "Accepted", Response = "" });
         }
 
@@ -88,16 +94,22 @@ namespace CarppiRestaurant.Controllers
         [HttpPost]
         public JsonResult RestaurantState()
         {
-            var FaceID_speaker = Session["RestaurantID"].ToString();
-            var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault().EstaAbierto;
-            /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
-            return Json(new { StatusCode = "Accepted", Response = RestaurantStatePool });
+            try
+            {
+                var FaceID_speaker = Session["RestaurantID"].ToString();
+                var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault().EstaAbierto;
+                /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
+                return Json(new { StatusCode = "Accepted", Response = RestaurantStatePool });
+            }
+            catch(Exception)
+            { }
+            return Json(new { StatusCode = "Accepted", Response = false });
         }
 
         /// <summary>
         /// url: "/RestaurantDashBoard/ChangeOptionalItemState?ProductID" + this.ProductID +"&OptionID=" + OptionID,
         /// </summary>
-        ///  [HttpPost]
+        [HttpPost]
         public JsonResult ChangeOptionalItemState(long ProductID, long OptionID, bool Checked)
         {
             var Option = db.OptionalChoice.Where(x => x.ID == OptionID && x.IDdelProducto == ProductID).FirstOrDefault();
@@ -108,8 +120,84 @@ namespace CarppiRestaurant.Controllers
            /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
             return Json(new { StatusCode = "Accepted", Response = "" });
         }
+        // url: "/RestaurantDashBoard/EraseCurrentCategory?GroupID=" +this.Context.GroupID + "&IsPersonal=" + 0,
+        [HttpPost]
+        public JsonResult EraseCurrentCategory(long ProductID, long GroupID, int IsPersonal)
+        {
+            var Option = db.OptionalChoice.Where(x => x.IDdelProducto == ProductID && x.IDdelConjunto == GroupID && x.EsPersonal == IsPersonal);
+            foreach (var o in Option)
+            {
+                db.OptionalChoice.Remove(o);
+            }
+            if (IsPersonal == (int)IsOptionalSet.NoItsNot)
+            {
+                /*var ObligatoruSubset = db.ObligatoriOptionsList.Where(x => x.IDdelProducto == ProductID);
+                    var OptionalSubset = db.OpcionalOptionsList.Where(x => x.IDdelProducto == ProductID);*/
+                var Conjunto = db.ObligatoriOptionsList.Where(x => x.IDdelProducto == ProductID && x.ID == GroupID).FirstOrDefault();
+                db.ObligatoriOptionsList.Remove(Conjunto);
+            }
+            else
+            {
+                var Conjunto = db.OpcionalOptionsList.Where(x => x.IDdelProducto == ProductID && x.ID == GroupID).FirstOrDefault();
+                db.OpcionalOptionsList.Remove(Conjunto);
+
+            }
+                db.SaveChanges();
+            // var FaceID_speaker = Session["RestaurantID"].ToString();
+            // var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault().EstaAbierto;
+            /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
+            return Json(new { StatusCode = "Accepted", Response = "" });
+        }
 
 
+        //url: "/RestaurantDashBoard/AddOptionalItemToSubset?ProductID=" + this.ProductID + "&SubsetID=" + this.ContextaulData.GroupID + "&OptionHash=" + newOptionHash + "&IsPersonal=" + 0,
+        //url: "/RestaurantDashBoard/AddOptionalItemToSubset?ProductID=" + this.ProductID + "&SubsetID=" + this.ContextaulData.GroupID + "&OptionHash=" + newOptionHash + "&IsPersonal=" + 1 + "&ExtraCost=" + NewCostExtra,
+        [HttpPost]
+        public JsonResult AddOptionalItemToSubset(long ProductID, long SubsetID, string OptionHash, int IsPersonal, double ExtraCost)
+        {
+            try
+            {
+                if (IsPersonal == (int)IsOptionalSet.NoItsNot)
+                {
+                    var NewObligatoryOption = new Models.OptionalChoice();
+                    NewObligatoryOption.OptionHash = OptionHash;
+                    NewObligatoryOption.CostoExtra = 0.0;
+                    NewObligatoryOption.Disponible = true;
+                    NewObligatoryOption.EsPersonal = (int)IsOptionalSet.NoItsNot;
+                    NewObligatoryOption.IDdelConjunto = SubsetID;
+                    NewObligatoryOption.IDdelProducto = ProductID;
+                    db.OptionalChoice.Add(NewObligatoryOption);
+                    // var Option = db.OptionalChoice.Where(x => x.ID == OptionID && x.IDdelProducto == ProductID).FirstOrDefault();
+                    // Option.Disponible = Checked;
+                    db.SaveChanges();
+                    return Json(new { StatusCode = "Accepted", Response = NewObligatoryOption });
+                }
+                else
+                {
+                    var NewObligatoryOption = new Models.OptionalChoice();
+                    NewObligatoryOption.OptionHash = OptionHash;
+                    NewObligatoryOption.CostoExtra = ExtraCost;
+                    NewObligatoryOption.Disponible = true;
+                    NewObligatoryOption.EsPersonal = (int)IsOptionalSet.YesItIs;
+                    NewObligatoryOption.IDdelConjunto = SubsetID;
+                    NewObligatoryOption.IDdelProducto = ProductID;
+                    db.OptionalChoice.Add(NewObligatoryOption);
+                    // var Option = db.OptionalChoice.Where(x => x.ID == OptionID && x.IDdelProducto == ProductID).FirstOrDefault();
+                    // Option.Disponible = Checked;
+                    db.SaveChanges();
+                    return Json(new { StatusCode = "Accepted", Response = NewObligatoryOption });
+                }
+
+                // var FaceID_speaker = Session["RestaurantID"].ToString();
+                // var RestaurantStatePool = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == FaceID_speaker).FirstOrDefault().EstaAbierto;
+                /*var P = db.Carppi_ProductosPorRestaurantes.Where(x => x.ID == ProductID).FirstOrDefault();*/
+                return Json(new { StatusCode = "Error", Response = "" });
+            }
+            catch(Exception)
+            {
+                return Json(new { StatusCode = "Rejected", Response = "" });
+            }
+        }
         public enum IsOptionalSet { NoItsNot, YesItIs };
         //ChangeProductState
         [HttpPost]
@@ -124,11 +212,11 @@ namespace CarppiRestaurant.Controllers
                 var IsOptionaldubset = (int)IsOptionalSet.YesItIs;
                 var Opt = db.OptionalChoice.Where(x => x.IDdelProducto == ProductID && x.EsPersonal == IsOptionaldubset).FirstOrDefault();
                 var Obt = db.OptionalChoice.Where(x => x.IDdelProducto == ProductID && x.EsPersonal == IsNoOptionaldubset).FirstOrDefault();
-                if (Opt == null && Obt == null)
-                {
+             //   if (Opt == null && Obt == null)
+               // {
                    // return Request.CreateResponse(HttpStatusCode.BadRequest, "es");
-                }
-                else
+             //   }
+              //  else
                 {
                     var respuesta = new OptionOfProduct();
                     var respuesta_Obligatory = new List<ObligatoriOptions>();
@@ -141,6 +229,7 @@ namespace CarppiRestaurant.Controllers
                     {
                         var ob_option = new ObligatoriOptions();
                         ob_option.OptionValue = subset.NombreDelConjunto;
+                        ob_option.GroupID = subset.ID;
                         var ObtList = db.OptionalChoice.Where(x => x.IDdelConjunto == subset.ID && x.IDdelProducto == ProductID && x.EsPersonal == IsNoOptionaldubset);
                         var opcionesopcionales = new List<OptionalChoice>();
                         foreach (var Opt_toquery in ObtList)
@@ -160,6 +249,7 @@ namespace CarppiRestaurant.Controllers
                     {
                         var Posible_Option = new OpcionalOptions();
                         Posible_Option.OptionValue = subset.NombreDelConjunto;
+                        Posible_Option.GroupID = subset.ID;
                         var ObtList = db.OptionalChoice.Where(x => x.IDdelConjunto == subset.ID && x.IDdelProducto == ProductID && x.EsPersonal == IsOptionaldubset);
                         var opcionesopcionales = new List<OptionalChoice>();
 
@@ -191,12 +281,14 @@ namespace CarppiRestaurant.Controllers
         public class ObligatoriOptions
         {
             public string OptionValue;
+            public long GroupID;
             public List<OptionalChoice> OptionName;
 
         }
         public class OpcionalOptions
         {
             public string OptionValue;
+            public long GroupID;
             public List<OptionalChoice> OptionName;
 
         }
@@ -980,17 +1072,25 @@ namespace CarppiRestaurant.Controllers
         [HttpPost]
         public JsonResult GetAlMessagesFromConversationRestauranClient( Int64 shopRequest)
         {
-            var RestaurantHash = Session["RestaurantID"].ToString();
-            var Messages = db.CarppiREstaurant_MensajesClienteRestaurante.Where(x => x.BuyOrderID == shopRequest);
-            List<MesssageData> messsageDatas = new List<MesssageData>();
-            foreach (var aca in Messages)
+            try
             {
-                var OldMessage = new MesssageData();
-                OldMessage.MessageContext = aca;
-                OldMessage.RoleInConversation = aca.FaceID_Sender == RestaurantHash ? RoleInCoversation.Sender : RoleInCoversation.Receiver;
-                messsageDatas.Add(OldMessage);
+                var RestaurantHash = Session["RestaurantID"].ToString();
+                var Messages = db.CarppiREstaurant_MensajesClienteRestaurante.Where(x => x.BuyOrderID == shopRequest);
+                List<MesssageData> messsageDatas = new List<MesssageData>();
+                foreach (var aca in Messages)
+                {
+                    var OldMessage = new MesssageData();
+                    OldMessage.MessageContext = aca;
+                    OldMessage.RoleInConversation = aca.FaceID_Sender == RestaurantHash ? RoleInCoversation.Sender : RoleInCoversation.Receiver;
+                    messsageDatas.Add(OldMessage);
+                }
+                return Json(new { StatusCode = "OK", Response = messsageDatas });
             }
-            return Json(new { StatusCode = "OK", Response = messsageDatas });
+            catch(Exception)
+            {
+                return Json(new { StatusCode = "NotOk", Response = "" });
+
+            }
             //return Request.CreateResponse(HttpStatusCode.Accepted, messsageDatas);
 
         }

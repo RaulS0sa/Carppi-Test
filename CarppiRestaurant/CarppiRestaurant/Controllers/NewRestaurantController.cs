@@ -116,6 +116,7 @@ namespace CarppiRestaurant.Controllers
 
 
                     db.SaveChanges();
+                    Session["RestaurantID"] = NewHome.CarppiHash;
 
                     return Json(new { result = "Redirect", url = Url.Action("Index", "RestaurantDashBoard") });
                     

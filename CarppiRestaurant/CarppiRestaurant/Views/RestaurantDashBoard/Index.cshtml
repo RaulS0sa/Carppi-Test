@@ -32483,7 +32483,7 @@ input:checked + .slider:before {
                     </div>
                     <div style="display:none" name="NAvigationElement" id="ProductDetailsView">
                         <div _ngcontent-rec-c15="" class="ms-content-wrapper">
-                            <div _ngcontent-rec-c15="" class="row" id="ExtraDataForProductView">
+                            <div _ngcontent-rec-c15="" class="row">
                                 <div _ngcontent-rec-c15="" class="col-md-12"><nav _ngcontent-rec-c15="" aria-label="breadcrumb"><ol _ngcontent-rec-c15="" class="breadcrumb pl-0"><li _ngcontent-rec-c15="" class="breadcrumb-item"><a _ngcontent-rec-c15="" href="#"><i _ngcontent-rec-c15="" class="material-icons">home</i> Home</a></li><li _ngcontent-rec-c15="" class="breadcrumb-item"><a _ngcontent-rec-c15="" href="#">Menu</a></li><li _ngcontent-rec-c15="" aria-current="page" class="breadcrumb-item active">Product Detail</li></ol></nav></div>
                                 <div _ngcontent-rec-c15="" class="col-md-12">
                                     <div _ngcontent-rec-c15="" class="ms-panel">
@@ -32540,16 +32540,17 @@ input:checked + .slider:before {
                                             <p _ngcontent-rec-c15="" class="description" id="DataillViewOfProduct_Descripcion"></p>
                                         </div>
                                         <div _ngcontent-rec-c15="" class="ms-quick-stats">
-                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
-                                          <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addObligatoryOtionsButton').click(); document.getElementById('modal_addObligatoryOtions').style.display = 'block';">Añadir Clase Obligatoria</button>
-                                        </div>
-                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
-                                            <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addOptionalOtionsButton').click(); document.getElementById('modal_addOptionalOtions').style.display = 'block';">Añadir Clase Opcional</button>
-                                        </div>
+                                            <div _ngcontent-rec-c15="" class="ms-stats-grid">
+                                                <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addObligatoryOtionsButton').click(); document.getElementById('modal_addObligatoryOtions').style.display = 'block';">Añadir Clase Obligatoria</button>
+                                            </div>
+                                            <div _ngcontent-rec-c15="" class="ms-stats-grid">
+                                                <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addOptionalOtionsButton').click(); document.getElementById('modal_addOptionalOtions').style.display = 'block';">Añadir Clase Opcional</button>
+                                            </div>
                                         </div>
                                         <!--<div _ngcontent-rec-c15="" class="ms-quick-stats"><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-bullhorn"></i><p _ngcontent-rec-c15="" class="ms-text-dark">1,033</p><span _ngcontent-rec-c15="">Today Order</span></div><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-heart"></i><p _ngcontent-rec-c15="" class="ms-text-dark">3,039</p><span _ngcontent-rec-c15="">Favourite</span></div></div>-->
                                     </div>
                                 </div>
+                                <div id="ExtraDataForProductView" class="col-md-12 row"></div>
                             </div>
                         </div>
                     </div>
@@ -32707,6 +32708,7 @@ input:checked + .slider:before {
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_SetStateRestaurant" class="btn btn-primary" style="display:none" id="modal_SetStateRestaurantButton"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_addObligatoryOtions" class="btn btn-primary" style="display:none" id="modal_addObligatoryOtionsButton"> Click Me </button>
     <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#modal_addOptionalOtions" class="btn btn-primary" style="display:none" id="modal_addOptionalOtionsButton"> Click Me </button>
+    <button _ngcontent-vcs-c38="" data-toggle="modal" data-target="#moddalAddNewOption" class="btn btn-primary" style="display:none" id="moddalAddNewOptionButton"> Click Me </button>
 
     <div _ngcontent-vcs-c38="" id="modal_SetStateRestaurant" tabindex="-1" role="dialog" class="modal fade show" style="display: none; padding-right: 17px;">
         <div _ngcontent-vcs-c38="" role="document" class="modal-dialog modal-dialog-centered">
@@ -32922,60 +32924,92 @@ input:checked + .slider:before {
         </div>
     </div>
     <div _ngcontent-jgc-c38="" id="modal_addObligatoryOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addObligatoryOtions" class="modal fade show" style="display: block;display:none;">
-    <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
-        <div _ngcontent-jgc-c38="" class="modal-content">
-        <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
-            <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
-            <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Opciones obligatorias al producto
-                </h3>
-            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('modal_addObligatoryOtions').style.display = 'none';">
-            <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
-                </button>
-            </div>
-        <div _ngcontent-jgc-c38="" class="modal-body">
-            <div _ngcontent-jgc-c38="" method="post">
-            <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
-                <label _ngcontent-jgc-c38="">Escoge el nombre de tu categoria</label>
-                <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria" name="news-letter" value="" class="form-control" id="ObligatoryCategory">
-                <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+        <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
+            <div _ngcontent-jgc-c38="" class="modal-content">
+                <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
+                    <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
+                        <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Opciones obligatorias al producto
+                    </h3>
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('modal_addObligatoryOtions').style.display = 'none';">
+                        <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
+                    </button>
                 </div>
+                <div _ngcontent-jgc-c38="" class="modal-body">
+                    <div _ngcontent-jgc-c38="" method="post">
+                        <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
+                            <label _ngcontent-jgc-c38="">Escoge el nombre de tu categoria</label>
+                            <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria" name="news-letter" value="" class="form-control" id="ObligatoryCategory">
+                            <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        <div _ngcontent-jgc-c38="" class="modal-footer">
-            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('modal_addObligatoryOtions').style.display = 'none';">Cancel</button>
-            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddObligatoryItem();document.getElementById('modal_addObligatoryOtions').style.display = 'none';">Añadir</button>
-            </div>
+                <div _ngcontent-jgc-c38="" class="modal-footer">
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('modal_addObligatoryOtions').style.display = 'none';">Cancel</button>
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddObligatoryItem();">Añadir</button>
+                </div>
             </div>
         </div>
     </div>
-     <div _ngcontent-jgc-c38="" id="modal_addOptionalOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addOptionalOtions" class="modal fade show" style="display: block;display:none;">
-    <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
-        <div _ngcontent-jgc-c38="" class="modal-content">
-        <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
-            <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
-            <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Extras al producto
-                </h3>
-            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('modal_addOptionalOtions').style.display = 'none';">
-            <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
-                </button>
-            </div>
-        <div _ngcontent-jgc-c38="" class="modal-body">
-            <div _ngcontent-jgc-c38="" method="post">
-            <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
-                <label _ngcontent-jgc-c38="">Escoge el nombre de tu categoria</label>
-                <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria extra" name="news-letter" value="" class="form-control" id="ExtraCategory">
-                <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+    <div _ngcontent-jgc-c38="" id="modal_addOptionalOtions" tabindex="-1" role="dialog" aria-labelledby="modal_addOptionalOtions" class="modal fade show" style="display: block;display:none;">
+        <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
+            <div _ngcontent-jgc-c38="" class="modal-content">
+                <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
+                    <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
+                        <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Categoria extra al producto
+                    </h3>
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('modal_addOptionalOtions').style.display = 'none';">
+                        <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
+                    </button>
                 </div>
+                <div _ngcontent-jgc-c38="" class="modal-body">
+                    <div _ngcontent-jgc-c38="" method="post">
+                        <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
+                            <label _ngcontent-jgc-c38="">Escoge el nombre de tu categoria</label>
+                            <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria extra" name="news-letter" value="" class="form-control" id="ExtraCategory">
+                            <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        <div _ngcontent-jgc-c38="" class="modal-footer">
-            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('modal_addOptionalOtions').style.display = 'none';">Cancel</button>
-            <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddOptionalItem();document.getElementById('modal_addOptionalOtions').style.display = 'none';">Añadir</button>
-            </div>
+                <div _ngcontent-jgc-c38="" class="modal-footer">
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('modal_addOptionalOtions').style.display = 'none';">Cancel</button>
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddOptionalItem();">Añadir</button>
+                </div>
             </div>
         </div>
     </div>
-  
+    <div _ngcontent-jgc-c38="" id="moddalAddNewOption" tabindex="-1" role="dialog" aria-labelledby="moddalAddNewOption" class="modal fade show" style="display:none;">
+        <div _ngcontent-jgc-c38="" role="document" class="modal-dialog modal-dialog-centered">
+            <div _ngcontent-jgc-c38="" class="modal-content">
+                <div _ngcontent-jgc-c38="" class="modal-header bg-primary">
+                    <h3 _ngcontent-jgc-c38="" class="modal-title has-icon text-white">
+                        <i _ngcontent-jgc-c38="" class="flaticon-share"></i> Añade Extras al producto
+                    </h3>
+                    <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" aria-label="Close" class="close" onclick="document.getElementById('moddalAddNewOption').style.display = 'none';">
+                        <span _ngcontent-jgc-c38="" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div _ngcontent-jgc-c38="" class="modal-body">
+                    <div _ngcontent-jgc-c38="" method="post">
+                        <div _ngcontent-jgc-c38="" class="ms-form-group has-icon">
+                            <label _ngcontent-jgc-c38="">Escoge el nombre de tu opcion</label>
+                            <input _ngcontent-jgc-c38="" type="text" placeholder="Nombre de la categoria extra" name="news-letter" value="" class="form-control" id="optionToAddToCategory">
+                            <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+                        </div>
+                        <div _ngcontent-jgc-c38="" class="ms-form-group has-icon" id="ExtaCostSelector" style="display:none">
+                            <label _ngcontent-jgc-c38="">Escoge el nombre de tu opcion</label>
+                            <input _ngcontent-jgc-c38="" type="number" placeholder="Costo Extra" name="news-letter" value="" class="form-control" id="CostoExtraDelaCategoria">
+                            <i _ngcontent-jgc-c38="" class="material-icons">email</i>
+                        </div>
+                    </div>
+                </div>
+                <div _ngcontent-jgc-c38="" class="modal-footer" id="AddNewoptionModalFooter">
+                    <!--<button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-light" onclick="document.getElementById('moddalAddNewOption').style.display = 'none';">Cancelar</button>-->
+                    <!--moddalAddNewOption <button _ngcontent-jgc-c38="" type="button" data-dismiss="modal" class="btn btn-primary shadow-none" onclick="AddOptionalItem();document.getElementById('moddalAddNewOption').style.display = 'none';">Añadir</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <div id="snackbar">-</div>
@@ -33169,16 +33203,17 @@ input:checked + .slider:before {
         function AddObligatoryItem() {
             //id="ExtraCategory"
             var ObligatoryCategory = document.getElementById('ObligatoryCategory').value;
-              $.ajax({
+            $.ajax({
                 type: "POST",
-                url: "/RestaurantDashBoard/AddObligatoryItem?ProductID=" + window.GlobalProductID+ "&ObligatoryCategoryName=" + ObligatoryCategory,
+                url: "/RestaurantDashBoard/AddObligatoryItem?ProductID=" + window.GlobalProductID + "&ObligatoryCategoryName=" + ObligatoryCategory,
                 //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
                 //data: '{Valor_Busqueda: "' + dc1 + '" }',
                 data: '{ }',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-
+                    getProductDetails(window.GlobalProductID);
+                    document.getElementById('modal_addObligatoryOtions').style.display = 'none';
 
                 },
                 failure: function (response) {
@@ -33192,9 +33227,9 @@ input:checked + .slider:before {
             });
         }
         function AddOptionalItem() {
-             //id="ExtraCategory"
+            //id="ExtraCategory"
             var ExtraCategory = document.getElementById('ExtraCategory').value;
-               $.ajax({
+            $.ajax({
                 type: "POST",
                 url: "/RestaurantDashBoard/AddOptionalItem?ProductID=" + window.GlobalProductID + "&ExtraCategoryName=" + ExtraCategory,
                 //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
@@ -33203,7 +33238,9 @@ input:checked + .slider:before {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-
+                      getProductDetails(window.GlobalProductID);
+                   // document.getElementById('modal_addObligatoryOtions').style.display = 'none';
+                    document.getElementById('modal_addOptionalOtions').style.display = 'none';
 
                 },
                 failure: function (response) {
@@ -33273,6 +33310,9 @@ input:checked + .slider:before {
             x.innerHTML = message.notification.body;
             x.className = "show";
             setTimeout(function () { x.className = x.className.replace("show", ""); }, 6000);
+            try {
+                GetPendingOrders();
+            } catch (err) {}
         }
 
         function CallToEraseButton() {
@@ -33285,7 +33325,7 @@ input:checked + .slider:before {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-
+                    ChangeToSelectedView(enumVistaSeleccionada.Menu);
 
                 },
                 failure: function (response) {
@@ -33538,6 +33578,8 @@ input:checked + .slider:before {
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+                    document.getElementById('modal-1').style.display = 'none';
+                    document.getElementById('modal-9').style.display = 'none';
                     alert(response.Response);
                     /*alert(response.Response);
 
@@ -33571,6 +33613,7 @@ input:checked + .slider:before {
                 dataType: "json",
                 success: function (response) {
                     alert(response.Response);
+                    document.getElementById('modal-9').style.display = 'none';
                     /*
                                if (response.StatusCode == "OK") {
                                    for (var i = 0; i < response.Response.length; i++)
@@ -33593,31 +33636,30 @@ input:checked + .slider:before {
             });
         }
         window.GlobalProductID = 0;
-        function ChangeStateOfProduct()
-        {
-             var CheckCall = document.getElementById('IsItemAvailable');
-                   $.ajax({
-                            type: "POST",
-                            url: "/RestaurantDashBoard/ChangeProductState?ProductID=" + window.GlobalProductID + "&Estado=" + CheckCall.checked,
-                            //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
-                            //data: '{Valor_Busqueda: "' + dc1 + '" }',
-                            data: '{ }',
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            success: function (response) {
+        function ChangeStateOfProduct() {
+            var CheckCall = document.getElementById('IsItemAvailable');
+            $.ajax({
+                type: "POST",
+                url: "/RestaurantDashBoard/ChangeProductState?ProductID=" + window.GlobalProductID + "&Estado=" + CheckCall.checked,
+                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                data: '{ }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
 
-                                //alert(response.Response);
+                    //alert(response.Response);
 
-                            },
-                            failure: function (response) {
-                                // alert(JSON.stringify(response));
+                },
+                failure: function (response) {
+                    // alert(JSON.stringify(response));
 
-                            },
-                            error: function (response) {
-                                // alert(JSON.stringify(response));
+                },
+                error: function (response) {
+                    // alert(JSON.stringify(response));
 
-                            }
-                        });
+                }
+            });
 
         }
 
@@ -33654,15 +33696,14 @@ input:checked + .slider:before {
                     document.getElementById('IsItemAvailable').checked = response.Response.Producto.Disponibilidad;
 
                     document.getElementById('DataillViewOfProduct_Categoria').innerHTML = REstaurantDescriptorDetermination(response.Response.Producto.Categoria);
-
+                     var Container = document.getElementById('ExtraDataForProductView');
+                        Container.innerHTML = "";
                     //alert(JSON.stringify(response.Response));
-                    if (response.Response.AllOptions != null)
-                    {
-                       // alert(JSON.stringify(response.Response.AllOptions));
-                        var Container = document.getElementById('ExtraDataForProductView');
-                        if (response.Response.AllOptions.Obligatory != null)
-                        {
-                           // alert(JSON.stringify(response.Response.AllOptions.Obligatory ));
+                    if (response.Response.AllOptions != null) {
+                        // alert(JSON.stringify(response.Response.AllOptions));
+                       
+                        if (response.Response.AllOptions.Obligatory != null) {
+                            // alert(JSON.stringify(response.Response.AllOptions.Obligatory ));
                             for (var i = 0; i < response.Response.AllOptions.Obligatory.length; i++) {
                                 var div0 = document.createElement('div');
                                 div0.className = "col-md-6";
@@ -33676,11 +33717,11 @@ input:checked + .slider:before {
                                 var table_1 = document.createElement('table');
                                 table_1.className = "table ms-profile-information";
                                 var tbody_1 = document.createElement('tbody');
-                                //alert(JSON.stringify(response.Response.AllOptions.Obligatory[i]));
+                                
                                 for (var j = 0; j < response.Response.AllOptions.Obligatory[i].OptionName.length; j++) {
                                     var TepField = response.Response.AllOptions.Obligatory[i].OptionName[j];
-                                  //  var appendable = '<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">' + TepField.OptionHash + '</th><td _ngcontent-rec-c15="" id="xxx"></td></tr>';
-                                  //  tbody_1.innerHTML += appendable;
+                                    //  var appendable = '<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">' + TepField.OptionHash + '</th><td _ngcontent-rec-c15="" id="xxx"></td></tr>';
+                                    //  tbody_1.innerHTML += appendable;
                                     /* <tr _ngcontent-rec-c15="">
                                                         <th _ngcontent-rec-c15="" scope="row">Cambiar Disponibilidad</th>
                                                         <td _ngcontent-rec-c15="">
@@ -33707,23 +33748,23 @@ input:checked + .slider:before {
                                         $.ajax({
                                             type: "POST",
                                             url: "/RestaurantDashBoard/ChangeOptionalItemState?ProductID=" + this.ProductID + "&OptionID=" + this.OptionID + "&Checked=" + this.checked,
-                //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
-                //data: '{Valor_Busqueda: "' + dc1 + '" }',
-                data: '{ }',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                  
-                },
-                failure: function (response) {
-                    // alert(JSON.stringify(response));
+                                            //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                                            //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            success: function (response) {
 
-                },
-                error: function (response) {
-                    // alert(JSON.stringify(response));
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
 
-                }
-            });
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                        });
                                     });
                                     var span1 = document.createElement('span');
                                     span1.className = "slider round";
@@ -33737,13 +33778,153 @@ input:checked + .slider:before {
 
                                 div2.appendChild(h4_1);
                                 div2.appendChild(table_1);
+                                
+                                
+                                var divstats = document.createElement('div');
+                                divstats.className = "ms-quick-stats";
+                                var divgrid = document.createElement('div');;
+                                divgrid.className = "ms-quick-grid";
+                                var buttonstats1 = document.createElement('button');
+                                buttonstats1.className = "btn btn-danger";
+                                buttonstats1.style.width = "100%";;
+                                buttonstats1.innerHTML = "Borrar categoria";
+                                buttonstats1.Context = response.Response.AllOptions.Obligatory[i];
+                                buttonstats1.addEventListener('click', function () {
+                                       // alert(JSON.stringify(this.Context));
+                                    
+                                      $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/EraseCurrentCategory?ProductID="+window.GlobalProductID +"&GroupID=" +this.Context.GroupID + "&IsPersonal=" + 0,
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            success: function (response) {
+                                                getProductDetails(window.GlobalProductID);
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                      });
+                                    
+                                    
+
+                                });;
+                                divgrid.appendChild(buttonstats1);
+
+                                var divgrid1 = document.createElement('div');;
+                                divgrid1.className = "ms-quick-grid";
+                                var buttonstats2 = document.createElement('button');
+                                buttonstats2.className = "btn btn-success";
+                                buttonstats2.style.width = "100%";;
+                                buttonstats2.innerHTML = "Añadir Elemento";
+                                buttonstats2.Context = response.Response.AllOptions.Obligatory[i];
+                                buttonstats2.tbody_1 = tbody_1;
+                                buttonstats2.addEventListener('click', function () {
+                       
+                                    document.getElementById('optionToAddToCategory').value = "";
+                                    document.getElementById('ExtaCostSelector').style.display = "none";
+                                    document.getElementById('AddNewoptionModalFooter').innerHTML = "";
+                                    var buttonsubmitData = document.createElement('button');
+                                    buttonsubmitData.className = "btn btn-primary shadow-none";
+                                    buttonsubmitData.innerHTML = "Añade la opcion";
+                                    buttonsubmitData.ProductID = response.Response.Producto.ID;
+                                    //buttonsubmitData.OptionID = TepField.ID;
+                                    buttonsubmitData.ContextaulData = this.Context;
+                                   buttonsubmitData.TableBodyReference = this.tbody_1;
+                                  
+                                    buttonsubmitData.addEventListener('click', function () {
+                                        var newOptionHash = document.getElementById('optionToAddToCategory').value;
+                                    
+
+                                        var OUTScopebodyref = this.TableBodyReference;
+                                          $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/AddOptionalItemToSubset?ProductID=" + this.ProductID + "&SubsetID=" + this.ContextaulData.GroupID + "&OptionHash=" + newOptionHash + "&IsPersonal=" + 0 +"&ExtraCost=" + 0,
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                              success: function (newresponse) {
+                                                  if (newresponse.StatusCode == "Accepted") {
+                                                      var TepField = newresponse.Response;
+                                                     
+                                                          var tr_1 = document.createElement('tr');
+                                    var th1 = document.createElement('th');
+                                    th1.innerHTML = TepField.OptionHash;
+                                    tr_1.appendChild(th1);
+                                    var td1 = document.createElement('td');
+                                    var label1 = document.createElement('label');
+                                    label1.className = "switch";
+                                    var input1 = document.createElement('input');
+                                    input1.type = "checkbox";
+                                    input1.OptionID = TepField.ID;
+                                    input1.checked = TepField.Disponible;
+                                    input1.ProductID = response.Response.Producto.ID;
+                                    input1.addEventListener('change', function () {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/ChangeOptionalItemState?ProductID=" + this.ProductID + "&OptionID=" + this.OptionID + "&Checked=" + this.checked,
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            success: function (response) {
+
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                        });
+                                    });
+                                    var span1 = document.createElement('span');
+                                    span1.className = "slider round";
+                                    label1.appendChild(input1);
+                                    label1.appendChild(span1);
+                                    td1.appendChild(label1);
+                                    tr_1.appendChild(td1);
+                                                      OUTScopebodyref.appendChild(tr_1);
+                                                       document.getElementById('moddalAddNewOption').style.display = 'none';
+                                                  }
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                        });
+                                        
+
+                                    });
+
+                                    document.getElementById('AddNewoptionModalFooter').appendChild(buttonsubmitData);
+                                    document.getElementById('moddalAddNewOption').style.display = 'block';
+                                    document.getElementById('moddalAddNewOptionButton').click();
+
+
+                                });
+                                divgrid1.appendChild(buttonstats2);
+
+                                divstats.appendChild(divgrid);
+                                divstats.appendChild(divgrid1);
+                                //------------------
                                 div1.appendChild(div2);
+                                div1.appendChild(divstats);
                                 div0.appendChild(div1);
                                 Container.appendChild(div0);
                             }
                         }
-                        if (response.Response.AllOptions.Optional != null)
-                        {
+                        if (response.Response.AllOptions.Optional != null) {
                             for (var i = 0; i < response.Response.AllOptions.Optional.length; i++) {
                                 var div0 = document.createElement('div');
                                 div0.className = "col-md-6";
@@ -33753,69 +33934,229 @@ input:checked + .slider:before {
                                 div2.className = "ms-panel-body";
                                 var h4_1 = document.createElement('h4');
                                 h4_1.className = "section-title bold";
-                                h4_1.innerHTML ="Categoria Opcional: " +  response.Response.AllOptions.Optional[i].OptionValue;
+                                h4_1.innerHTML = "Categoria Opcional: " + response.Response.AllOptions.Optional[i].OptionValue;
+
+
+
+
+                                 var table_1 = document.createElement('table');
+                                table_1.className = "table ms-profile-information";
+                                var tbody_1 = document.createElement('tbody');
+                                
+                                for (var j = 0; j < response.Response.AllOptions.Optional[i].OptionName.length; j++) {
+                                    var TepField = response.Response.AllOptions.Optional[i].OptionName[j];
+                                    //  var appendable = '<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">' + TepField.OptionHash + '</th><td _ngcontent-rec-c15="" id="xxx"></td></tr>';
+                                    //  tbody_1.innerHTML += appendable;
+                                    /* <tr _ngcontent-rec-c15="">
+                                                        <th _ngcontent-rec-c15="" scope="row">Cambiar Disponibilidad</th>
+                                                        <td _ngcontent-rec-c15="">
+                                                            <!-- Rounded switch -->
+                                                            <label class="  switch">
+                                                                <input type="checkbox" id="IsItemAvailable" onchange="ChangeStateOfProduct();">
+                                                                <span class="slider round"></span>
+                                                            </label>
+                                                        </td>
+                                                    </tr>*/
+                                    var tr_1 = document.createElement('tr');
+                                    var th1 = document.createElement('th');
+                                    th1.innerHTML = TepField.OptionHash;
+                                    tr_1.appendChild(th1);
+                                    var td1 = document.createElement('td');
+                                    var label1 = document.createElement('label');
+                                    label1.className = "switch";
+                                    var input1 = document.createElement('input');
+                                    input1.type = "checkbox";
+                                    input1.OptionID = TepField.ID;
+                                    input1.checked = TepField.Disponible;
+                                    input1.ProductID = response.Response.Producto.ID;
+                                    input1.addEventListener('change', function () {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/ChangeOptionalItemState?ProductID=" + this.ProductID + "&OptionID=" + this.OptionID + "&Checked=" + this.checked,
+                                            //data: '{Nombre: "' + dc1 + ",correo: " + dc2 + ",mensaje: " + dc3 + '" }',
+                                            //data: '{Valor_Busqueda: "' + dc1 + '" }',
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            success: function (response) {
+
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                        });
+                                    });
+                                    var span1 = document.createElement('span');
+                                    span1.className = "slider round";
+                                    label1.appendChild(input1);
+                                    label1.appendChild(span1);
+                                    td1.appendChild(label1);
+                                    tr_1.appendChild(td1);
+                                    tbody_1.appendChild(tr_1);
+                                }
+                                table_1.appendChild(tbody_1);
+
                                 div2.appendChild(h4_1);
+                                div2.appendChild(table_1);
+                                
+                                
+                                var divstats = document.createElement('div');
+                                divstats.className = "ms-quick-stats";
+                                var divgrid = document.createElement('div');;
+                                divgrid.className = "ms-quick-grid";
+                                var buttonstats1 = document.createElement('button');
+                                buttonstats1.className = "btn btn-danger";
+                                buttonstats1.style.width = "100%";;
+                                buttonstats1.innerHTML = "Borrar categoria";
+                                     buttonstats1.Context = response.Response.AllOptions.Optional[i];
+                                buttonstats1.addEventListener('click', function () {
+                                       // alert(JSON.stringify(this.Context));
+                                    
+                                      $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/EraseCurrentCategory?ProductID="+window.GlobalProductID +"&GroupID=" +this.Context.GroupID + "&IsPersonal=" + 1,
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            success: function (response) {
+                                                getProductDetails(window.GlobalProductID);
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                      });
+                                    
+                                    
+
+                                });;
+                                divgrid.appendChild(buttonstats1);
+
+                                var divgrid1 = document.createElement('div');;
+                                divgrid1.className = "ms-quick-grid";
+                                var buttonstats2 = document.createElement('button');
+                                buttonstats2.className = "btn btn-success";
+                                buttonstats2.style.width = "100%";;
+                                buttonstats2.innerHTML = "Añadir Elemento";
+                                buttonstats2.Context = response.Response.AllOptions.Optional[i];
+                                buttonstats2.tbody_1 = tbody_1;
+                                buttonstats2.addEventListener('click', function () {
+                       
+                                    document.getElementById('optionToAddToCategory').value = "";
+                                    document.getElementById('ExtaCostSelector').style.display = "block";
+                                    document.getElementById('CostoExtraDelaCategoria').value = "";;
+                                    document.getElementById('AddNewoptionModalFooter').innerHTML = "";
+                                    var buttonsubmitData = document.createElement('button');
+                                    buttonsubmitData.className = "btn btn-primary shadow-none";
+                                    buttonsubmitData.innerHTML = "Añade la opcion";
+                                    buttonsubmitData.ProductID = response.Response.Producto.ID;
+                                  //  buttonsubmitData.OptionID = TepField.ID;
+                                    buttonsubmitData.ContextaulData = this.Context;
+                                   buttonsubmitData.TableBodyReference = this.tbody_1;
+                                  
+                                    buttonsubmitData.addEventListener('click', function () {
+                                        var newOptionHash = document.getElementById('optionToAddToCategory').value;
+                                        //CostoExtraDelaCategoria
+                                        var NewCostExtra =  document.getElementById('CostoExtraDelaCategoria').value;
+                                    
+
+                                        var OUTScopebodyref = this.TableBodyReference;
+                                          $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/AddOptionalItemToSubset?ProductID=" + this.ProductID + "&SubsetID=" + this.ContextaulData.GroupID + "&OptionHash=" + newOptionHash + "&IsPersonal=" + 1 + "&ExtraCost=" + NewCostExtra,
+                                         
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                              success: function (newresponse) {
+                                                  if (newresponse.StatusCode == "Accepted") {
+                                                      var TepField = newresponse.Response;
+                                                     
+                                                          var tr_1 = document.createElement('tr');
+                                    var th1 = document.createElement('th');
+                                    th1.innerHTML = TepField.OptionHash;
+                                    tr_1.appendChild(th1);
+                                    var td1 = document.createElement('td');
+                                    var label1 = document.createElement('label');
+                                    label1.className = "switch";
+                                    var input1 = document.createElement('input');
+                                    input1.type = "checkbox";
+                                    input1.OptionID = TepField.ID;
+                                    input1.checked = TepField.Disponible;
+                                    input1.ProductID = response.Response.Producto.ID;
+                                    input1.addEventListener('change', function () {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/RestaurantDashBoard/ChangeOptionalItemState?ProductID=" + this.ProductID + "&OptionID=" + this.OptionID + "&Checked=" + this.checked,
+                                            data: '{ }',
+                                            contentType: "application/json; charset=utf-8",
+                                            dataType: "json",
+                                            success: function (response) {
+
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                        });
+                                    });
+                                    var span1 = document.createElement('span');
+                                    span1.className = "slider round";
+                                    label1.appendChild(input1);
+                                    label1.appendChild(span1);
+                                    td1.appendChild(label1);
+                                    tr_1.appendChild(td1);
+                                                      OUTScopebodyref.appendChild(tr_1);
+                                                       document.getElementById('moddalAddNewOption').style.display = 'none';
+                                                  }
+                                            },
+                                            failure: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            },
+                                            error: function (response) {
+                                                // alert(JSON.stringify(response));
+
+                                            }
+                                        });
+                                        
+
+                                    });
+
+                                    document.getElementById('AddNewoptionModalFooter').appendChild(buttonsubmitData);
+                                    document.getElementById('moddalAddNewOption').style.display = 'block';
+                                    document.getElementById('moddalAddNewOptionButton').click();
+
+
+                                });
+                                divgrid1.appendChild(buttonstats2);
+
+                                divstats.appendChild(divgrid);
+                                divstats.appendChild(divgrid1);
+                                //------------------
                                 div1.appendChild(div2);
+                                div1.appendChild(divstats);
                                 div0.appendChild(div1);
                                 Container.appendChild(div0);
                             }
                         }
 
                     }
-                    /*<table _ngcontent-rec-c15="" class="table ms-profile-information">
-                                                <tbody _ngcontent-rec-c15="">
-                                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Precio</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Price">$15</td></tr>
-                                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Categoria</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Categoria"></td></tr>
-                                                    <tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Disponibilidad</th><td _ngcontent-rec-c15="" id="DataillViewOfProduct_Available"></td></tr>
-                                                    <tr _ngcontent-rec-c15="">
-                                                        <th _ngcontent-rec-c15="" scope="row">Cambiar Disponibilidad</th>
-                                                        <td _ngcontent-rec-c15="">
-                                                            <!-- Rounded switch -->
-                                                            <label class="switch">
-                                                                <input type="checkbox" id="IsItemAvailable" onchange="ChangeStateOfProduct();">
-                                                                <span class="slider round"></span>
-                                                            </label>
-                                                        </td>
-                                                    </tr>
-                                                    <!--<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">Delivery Charges</th><td _ngcontent-rec-c15="">Free</td></tr>-->
-                                                    <!--<tr _ngcontent-rec-c15=""><th _ngcontent-rec-c15="" scope="row">SKU Identification</th><td _ngcontent-rec-c15="">23445</td></tr>-->
-                                                </tbody>
-                                            </table>*/
-                    //ExtraDataForProductView
-                    /*  <div _ngcontent-rec-c15="" class="col-md-6">
-                     *  
-                                    <div _ngcontent-rec-c15="" class="ms-panel ms-panel-fh">
-                                        <div _ngcontent-rec-c15="" class="ms-panel-body">
-                                            <h4 _ngcontent-rec-c15="" class="section-title bold" id="DataillViewOfProduct_Nombre">Product Details </h4>
-                                            <p _ngcontent-rec-c15="" class="description" id="DataillViewOfProduct_Descripcion"></p>
-                                        </div>
-                                        <div _ngcontent-rec-c15="" class="ms-quick-stats">
-                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
-                                          <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addObligatoryOtionsButton').click(); document.getElementById('modal_addObligatoryOtions').style.display = 'block';">Añadir Clase Obligatoria</button>
-                                        </div>
-                                        <div _ngcontent-rec-c15="" class="ms-stats-grid">
-                                            <button _ngcontent-rec-c15="" type="button" class="btn btn-primary" onclick="document.getElementById('modal_addOptionalOtionsButton').click(); document.getElementById('modal_addOptionalOtions').style.display = 'block';">Añadir Clase Opcional</button>
-                                        </div>
-                                        </div>
-                                        <!--<div _ngcontent-rec-c15="" class="ms-quick-stats"><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-bullhorn"></i><p _ngcontent-rec-c15="" class="ms-text-dark">1,033</p><span _ngcontent-rec-c15="">Today Order</span></div><div _ngcontent-rec-c15="" class="ms-stats-grid"><i _ngcontent-rec-c15="" class="fa fa-heart"></i><p _ngcontent-rec-c15="" class="ms-text-dark">3,039</p><span _ngcontent-rec-c15="">Favourite</span></div></div>-->
-                                    </div>
-                                </div>
-                                */
-
-                   
-                    /*ExtraDataForProductView
-                     * DataillViewOfProduct_Price DataillViewOfProduct_Nombre  IsItemAvailable
-                     * <span _ngcontent-rec-c15="" class="badge badge-pill badge-primary">In stock</span>
-                     * public long ID { get; set; }
-        public string IDdRestaurante { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public byte[] Foto { get; set; }
-        public Nullable<double> Costo { get; set; }
-        public Nullable<long> Categoria { get; set; }
-        public bool Disponibilidad { get; set; }
-        public long ComprasDelProducto { get; set; }
-        public bool HasOptionsToSelect { get; set; }*/
+                    
+                    
 
                 },
                 failure: function (response) {
@@ -33830,18 +34171,7 @@ input:checked + .slider:before {
         }
 
         function REstaurantDescriptorDetermination(value) {
-            /*   Hamburgesas: 1,
-            Guajolotes: 2,
-            Postres: 4,
-            Pollo: 8,
-            Indio: 16,
-            Americano: 32,
-            Pizza: 64,
-            Saludable: 128,
-            Vegetariano: 256,
-            Chino: 512,
-            Continental: 1024,
-            Pastes: 2048*/
+         
             switch (value) {
                 case AvailableFoodListing.Hamburgesas:
                     return "Hamburguesas";

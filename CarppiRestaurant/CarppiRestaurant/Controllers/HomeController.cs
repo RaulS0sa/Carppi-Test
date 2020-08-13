@@ -44,10 +44,12 @@ namespace CarppiRestaurant.Controllers
             var restaurant = db.Carppi_IndicesdeRestaurantes.Where(x => x.Correo == User && x.WebsitePasword == Pass).FirstOrDefault();
             if(restaurant == null)
             {
+                
                 return Json(new { result = "Fail", url = Url.Action("Index", "None") });
             }
             else
             {
+                Session["RestaurantID"] = restaurant.CarppiHash;
                 return Json(new { result = "Redirect", url = Url.Action("Index", "RestaurantDashBoard") });
             }
 
