@@ -21,5 +21,6 @@ namespace CarppiWebService.Models
         public double Latitud { get; set; }
         public double Longitud { get; set; }
         public string Moneda { get; set; }
+        public string RestaurantesPorCiudadMemoTable { get; set; }
     }
 }

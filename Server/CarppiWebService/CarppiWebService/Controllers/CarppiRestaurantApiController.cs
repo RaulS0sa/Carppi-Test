@@ -15,6 +15,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 //using System.Web.Mail;
@@ -1954,6 +1955,12 @@ namespace CarppiWebService.Controllers
                     {
                         Push_Restaurante("Tienes una nueva Orden", "Nueva Orden", Restaurante.WebsiteFirebaseHash, "");
                     }
+                    //restaurant donot accept itself. ToDo: add enum
+                    if(Restaurante.AttedsItself == 0)
+                    {
+                        SetOrderStatus(GroceryOrderState.RequestAccepted, BuyOrder.ID);
+                        RequestDriver(Restaurante.CarppiHash, BuyOrder.ID);
+                    }
                     return Request.CreateResponse(HttpStatusCode.OK, "OK");
                 }
             }
@@ -1962,6 +1969,358 @@ namespace CarppiWebService.Controllers
 
             return Request.CreateResponse(HttpStatusCode.Accepted, "error");
         }
+
+        public HttpResponseMessage RequestDriver(string restaurantHashRequestingDriver, long NewOrderID)
+        {
+            var restaurante = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == restaurantHashRequestingDriver).FirstOrDefault();
+            var Busqueda = new BusquedaRepartidor(Convert.ToDouble(restaurante.Latitud), Convert.ToDouble(restaurante.Longitud), Convert.ToInt64(restaurante.Region));
+            CarppiGrocery_Repartidores myrepartidor = Busqueda.SearchForNearestDeliveryBoy();
+            var Order = db.CarppiRestaurant_BuyOrders.Where(x => x.ID == NewOrderID).FirstOrDefault();
+            if (Order.FaceIDRepartidor_RepartidorCadena != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable, "0repartidores");
+            }
+
+            //SearchForNearestDeliveryBoy
+            if (myrepartidor == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.Gone, "0repartidores");
+            }
+            else if (Busqueda.DriverHasToomuchOrders == true)
+            {
+                return Request.CreateResponse(HttpStatusCode.Moved, "0repartidores");
+            }
+            else
+            {
+
+                Order.FaceIDRepartidor_RepartidorCadena = myrepartidor.FaceID_Repartidor;
+                Order.LatitudRepartidor = myrepartidor.Latitud;
+                Order.LongitudRepartidor = myrepartidor.Longitud;
+                Order.LatitudRestaurante = restaurante.Latitud;
+                Order.LongitudRestaurante = restaurante.Longitud;
+
+
+
+                try
+                {
+                    var cliente = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == Order.UserID).FirstOrDefault();
+                    var OnjetoRepartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == Order.FaceIDRepartidor_RepartidorCadena).FirstOrDefault();
+                    var fee = 0.0;
+                    cliente.IsFirstOrder = false;
+                    fee = Busqueda.OperationCost(Convert.ToDouble(Order.LatitudPeticion), Convert.ToDouble(Order.LongitudPeticion));
+                    Order.TarifaDelServicio = (fee + 0.0);
+                    if (Order.TipoDePago == (int)enumTipoDePago.Tarjeta)
+                    {
+                        OnjetoRepartidor.DebtToDeliverMan += fee > 5 ? (int)fee : 15;
+                    }
+                    db.SaveChanges();
+                    /*
+                    if (cliente.IsFirstOrder == true && cliente.ID <= 150)
+                    {
+                        cliente.IsFirstOrder = false;
+                        Order.TarifaDelServicio = 0;
+                         fee = Busqueda.OperationCost(Convert.ToDouble(Order.LatitudPeticion), Convert.ToDouble(Order.LongitudPeticion));
+                       
+                       
+                        OnjetoRepartidor.DebtToDeliverMan += fee > 5 ?(int)fee : 15;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                         fee = Busqueda.OperationCost(Convert.ToDouble(Order.LatitudPeticion), Convert.ToDouble(Order.LongitudPeticion));
+                        Order.TarifaDelServicio = (fee + 0.0);
+
+
+                    }
+                    */
+                    OnjetoRepartidor.MonetMadeByDeliverMan += fee;
+
+                }
+                catch (Exception)
+                { }
+                db.SaveChanges();
+                Push_Repartidor("Tienes una nueva orden", "Nueva Orden", myrepartidor.FirebaseID, "");
+                return Request.CreateResponse(HttpStatusCode.OK, "0repartidores");
+
+            }
+
+
+        }
+
+        public HttpResponseMessage SetOrderStatus(GroceryOrderState Estado, long OrderID)
+        {
+            var Order = db.CarppiRestaurant_BuyOrders.Where(x => x.ID == OrderID).FirstOrDefault();
+            var cliente = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == Order.UserID).FirstOrDefault();
+
+            if (Estado == GroceryOrderState.RequestAccepted)
+            {
+                if (Order.TipoDePago == (int)enumTipoDePago.Efectivo)
+                {
+                    Push("Tu orden fue aceptada, abre la app para conocer mas detalles", "Tu orden ha sido aceptada", cliente.FirebaseID, "");
+                    Task.Delay(10000).ContinueWith(t => ChangeBuyOrderstateToAttended(Order));
+                }
+                else
+                {
+                    if (CaptureFunds(Order.paymentIntent, cliente.Facebook_profile_id))
+                    {
+                        Push("Tu orden fue aceptada, abre la app para conocer mas detalles", "Tu orden ha sido aceptada", cliente.FirebaseID, "");
+                        try
+                        {
+                            var Restauranr = db.Carppi_IndicesdeRestaurantes.Where(x => x.CarppiHash == Order.RestaurantHash).FirstOrDefault();
+                            Restauranr.DebtToRestaurant += (long)Convert.ToDouble(Order.Precio);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                        Task.Delay(10000).ContinueWith(t => ChangeBuyOrderstateToAttended(Order));
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.InternalServerError, "");
+                    }
+                }
+            }
+            else if (Estado == GroceryOrderState.RequestGoingToClient)
+            {
+                if (Order.FaceIDRepartidor_RepartidorCadena != null)
+                {
+                    var Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == Order.FaceIDRepartidor_RepartidorCadena).FirstOrDefault();
+                    var IsDriverInRegion = IsInThisRegion(Convert.ToDouble(Order.LatitudRestaurante), (Convert.ToDouble(Order.LongitudRestaurante)), (Convert.ToDouble(Repartidor.Latitud)), (Convert.ToDouble(Repartidor.Longitud)));
+                    if (IsDriverInRegion)
+                    {
+                        Push("Tu repartidor esta llendo a tu ubicación actual, abre la app para conocer mas detalles", "El repartidor corre hacia ti", cliente.FirebaseID, "");
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.Forbidden, "");
+                    }
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.Conflict, "");
+                }
+
+
+                //Task.Delay(15000).ContinueWith(t => ChangeBuyOrderstateToAttended(Order));
+            }
+
+            else if (Estado == GroceryOrderState.RequestEnded)
+            {
+
+                var Repartidor = db.CarppiGrocery_Repartidores.Where(x => x.FaceID_Repartidor == Order.FaceIDRepartidor_RepartidorCadena).FirstOrDefault();
+                var IsDriverInRegion = IsInThisRegion(Convert.ToDouble(Order.LatitudPeticion), (Convert.ToDouble(Order.LongitudPeticion)), (Convert.ToDouble(Repartidor.Latitud)), (Convert.ToDouble(Repartidor.Longitud)));
+                if (IsDriverInRegion)
+                {
+
+                    Push("Tu orden fue entregada, califica al repartidor", "Tu orden fue entregada", cliente.FirebaseID, "");
+                    Order.Stat = (int)Estado;
+                    db.SaveChanges();
+                }
+
+                /*
+                var mensajesEnConvo = db.CarppiGrocery_Mensajes.Where(x => x.BuyOrderID == Order.ID);
+                foreach (var mensaje in mensajesEnConvo)
+                {
+                    db.CarppiGrocery_Mensajes.Remove(mensaje);
+                }
+                */
+
+                //Task.Delay(24000).ContinueWith(t => EraseBuyOrder(Order));
+
+            }
+            else if (Estado == GroceryOrderState.RequestRejected)
+            {
+
+                if (Order.TipoDePago == (int)enumTipoDePago.Tarjeta)
+                {
+                    RefundOnCancelSolicitud(Order);
+                }
+
+                Push("Prueba intentando mas tarde", "Tu orden fue rechazada", cliente.FirebaseID, "");
+                Order.Stat = (int)Estado;
+                db.SaveChanges();
+                Task.Delay(4000).ContinueWith(t => EraseBuyOrder(Order));
+
+            }
+            Order.Stat = (int)Estado;
+            db.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.Accepted, "");
+
+        }
+        public bool CaptureFunds(string PaymentIntent, string UserID)
+        {
+            bool r_turn = false;
+            try
+            {
+                if (ConfirmPaymentIntet(PaymentIntent, UserID))
+                {
+                    StripeConfiguration.ApiKey = "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";
+                    //StripeConfiguration.ApiKey = "sk_test_6P04GsrUgxVEdGIkt43NXflH00awsFl7rR";
+
+                    var service = new PaymentIntentService();
+
+                    var intent = service.Capture(PaymentIntent);
+                    r_turn = true;
+                }
+                else
+                {
+                    return r_turn;
+                }
+            }
+            catch (Exception ex)
+            {
+                var ME = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == "10217260473614661").FirstOrDefault();
+                Push(ex.Message, "failed to accep payment:", ME.FirebaseID, "");
+                Console.WriteLine(ex.ToString());
+            }
+            return r_turn;
+        }
+        public bool ConfirmPaymentIntet(string PaymentIntent, string UserID)
+        {
+            bool r_turn = false;
+            try
+            {
+                StripeConfiguration.ApiKey = "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";
+
+                var User = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == UserID).FirstOrDefault();
+
+                // To create a PaymentIntent for confirmation, see our guide at: https://stripe.com/docs/payments/payment-intents/creating-payment-intents#creating-for-automatic
+                var options = new PaymentIntentConfirmOptions
+                {
+                    PaymentMethod = User.PaymentMethod,
+                };
+                var service = new PaymentIntentService();
+                service.Confirm(
+                  PaymentIntent,
+                  options
+                );
+
+                //var refunds = new RefundService();
+                //var refundOptions = new RefundCreateOptions
+                //{
+                //    PaymentIntent = c
+                //};
+                // var refund = refunds.Create(refundOptions);
+                r_turn = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return r_turn;
+
+
+        }
+        public bool RefundOnCancelSolicitud(CarppiRestaurant_BuyOrders Solicitud)
+        {
+            bool r_turn = false;
+            try
+            {
+                StripeConfiguration.ApiKey = "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";
+
+                var service = new PaymentIntentService();
+                var options = new PaymentIntentCancelOptions { };
+                var intent = service.Cancel(Solicitud.paymentIntent, options);
+
+                //var refunds = new RefundService();
+                //var refundOptions = new RefundCreateOptions
+                //{
+                //    PaymentIntent = c
+                //};
+                // var refund = refunds.Create(refundOptions);
+                r_turn = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return r_turn;
+
+
+        }
+
+        public bool IsInThisRegion(double RestaurantLat, double RestaurantLong, double DriverLat, double DriverLong)
+        {
+            // var CircleSoround = GenerateCircle(0.0003, Convert.ToDouble(Request_Trip.LatitudViajePendiente), Convert.ToDouble(Request_Trip.LongitudViajePendiente));
+            //            var IsInDeliverRegion = PointInPolygon(CircleSoround.X_Array, CircleSoround.Y_Array, Convert.ToDouble(Driver.Latitud), Convert.ToDouble(Driver.Longitud));
+
+            var CircleSoround = GenerateCircle(0.0006, Convert.ToDouble(RestaurantLat), Convert.ToDouble(RestaurantLong));
+            var IsInDeliverRegion = PointInPolygon(CircleSoround.X_Array, CircleSoround.Y_Array, Convert.ToDouble(DriverLat), Convert.ToDouble(DriverLong));
+
+            return IsInDeliverRegion;
+
+        }
+        public CircleArray GenerateCircle(double Radio, double CentroX, double CentroY)
+        {
+            List<double> x = new List<double>();
+            List<double> y = new List<double>();
+            for (var i = 0.0; i < Math.PI * 2; i = i + 0.1)
+            {
+                x.Add(CentroX + (Radio * Math.Sin(i)));
+                y.Add(CentroY + (Radio * Math.Cos(i)));
+            }
+            return new CircleArray(x, y);
+
+        }
+
+        static bool PointInPolygon(double[] polyX, double[] polyY, double x, double y)
+        {
+            int polyCorners = polyX.Length;
+
+            int i, j = polyCorners - 1;
+            bool oddNodes = false;
+            if (x < polyX.Min() || x > polyX.Max() || y < polyY.Min() || y > (polyY.Max()))
+            {
+
+                // We're outside the polygon!
+            }
+            else
+            {
+                // oddNodes = true;
+
+
+                for (i = 0; i < polyCorners; i++)
+                {
+                    if ((polyY[i] < y && polyY[j] >= y || polyY[j] < y && polyY[i] >= y) && (polyX[i] <= x || polyX[j] <= x))
+                    {
+                        if (polyX[i] + (y - polyY[i]) / (polyY[j] - polyY[i]) * (polyX[j] - polyX[i]) < x)
+                        {
+                            oddNodes = !oddNodes;
+                        }
+                    }
+                    j = i;
+                }
+
+            }
+            return oddNodes;
+        }
+        public class CircleArray
+        {
+            public CircleArray(List<double> X, List<double> y)
+            {
+                X_Array = X.ToArray();
+                Y_Array = y.ToArray();
+
+            }
+            public double[] X_Array;
+            public double[] Y_Array;
+        }
+
+        public void EraseBuyOrder(CarppiRestaurant_BuyOrders OrdenDeCompra)
+        {
+            db.CarppiRestaurant_BuyOrders.Remove(OrdenDeCompra);
+            db.SaveChanges();
+        }
+
+        public void ChangeBuyOrderstateToAttended(CarppiRestaurant_BuyOrders OrdenDeCompra)
+        {
+            OrdenDeCompra.Stat = (int)GroceryOrderState.RequestBeingAttended;
+            db.SaveChanges();
+        }
+      
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);

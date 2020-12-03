@@ -49,6 +49,7 @@
     <Property Name="DebtToRestaurant" Type="bigint" Nullable="false" />
     <Property Name="WebsitePasword" Type="varchar(max)" Nullable="false" />
     <Property Name="WebsiteFirebaseHash" Type="varchar(max)" />
+    <Property Name="AttedsItself" Type="int" />
   </EntityType>
   <EntityType Name="Carppi_MensajesRideshare">
     <Key>

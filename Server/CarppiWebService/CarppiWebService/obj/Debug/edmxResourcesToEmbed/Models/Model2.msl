@@ -15,6 +15,9 @@
     <EntitySetMapping Name="Carppi_IndicesdeRestaurantes">
       <EntityTypeMapping TypeName="PidgeonModel1.Carppi_IndicesdeRestaurantes">
         <MappingFragment StoreEntitySet="Carppi_IndicesdeRestaurantes">
+          <ScalarProperty Name="AttedsItself" ColumnName="AttedsItself" />
+          <ScalarProperty Name="WebsiteFirebaseHash" ColumnName="WebsiteFirebaseHash" />
+          <ScalarProperty Name="WebsitePasword" ColumnName="WebsitePasword" />
           <ScalarProperty Name="DebtToRestaurant" ColumnName="DebtToRestaurant" />
           <ScalarProperty Name="StripeHash" ColumnName="StripeHash" />
           <ScalarProperty Name="StripeAccount" ColumnName="StripeAccount" />

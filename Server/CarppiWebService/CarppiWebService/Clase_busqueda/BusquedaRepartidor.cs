@@ -63,6 +63,25 @@ namespace CarppiWebService.Clase_busqueda
             return IsInDeliverRegion;
 
         }
+        public List<CarppiRestaurant_BuyOrders> OrdersInRegion( string DeliverBoy)
+        {
+
+            var ordenes = db.CarppiRestaurant_BuyOrders.Where(x => x.FaceIDRepartidor_RepartidorCadena == DeliverBoy);
+            List<CarppiRestaurant_BuyOrders> k_ = new List<CarppiRestaurant_BuyOrders>();
+            foreach(var orden in ordenes)
+            {
+                var LatPEticion = Convert.ToDouble(orden.LatitudRestaurante);
+                var longPeticion = Convert.ToDouble(orden.LongitudRestaurante);
+                if ((Math.Pow(Math.Pow((LatPEticion) - LatAtribute, 2) + Math.Pow((longPeticion) - LongAtribute, 2), 0.5) / 0.00909) < 0.06)
+                {
+                    k_.Add(orden);
+                }
+
+            }
+            return k_;
+          //  var RegionenelArea = db.CarppiRestaurant_BuyOrders.Where(x => (Math.Pow(Math.Pow((x.LatitudPeticion) - LatAtribute, 2) + Math.Pow((x.Longitud) - LongAtribute, 2), 0.5) / 0.00909) < 15).FirstOrDefault();
+
+        }
         public CarppiGrocery_Repartidores SearchForNearestDeliveryBoy()
         {
 

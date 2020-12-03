@@ -399,6 +399,20 @@ namespace CarppiWebService.Controllers
                         Push_Restaurante("El repartidor ha llegado", "El repartidor va a llegar, ten lista sus ordenes", Restaurante.WebsiteFirebaseHash, "");
                     }
                     RestauranteMasCercano.ReparidorEnElAreaDelRestaurante = true;
+
+
+                    if(Restaurante.AttedsItself == 0)
+                    {
+                        var ListaPedidos = nuevabusquedarepartidora.OrdersInRegion(user5);
+                        foreach(var pedidos in ListaPedidos)
+                        {
+                            var cliente = db.Traveler_Perfil.Where(x => x.Facebook_profile_id == pedidos.UserID).FirstOrDefault();
+                            //var Order_obj = db.CarppiRestaurant_BuyOrders.Where(x => x.ID == pedidos.ID).FirstOrDefault();
+                            pedidos.Stat = (int)GroceryOrderState.RequestGoingToClient;
+                            Push("Tu repartidor esta llendo a tu ubicación actual, abre la app para conocer mas detalles", "El repartidor corre hacia ti", cliente.FirebaseID, "");
+                        }
+                        
+                    }
                     db.SaveChanges();
                 }
 

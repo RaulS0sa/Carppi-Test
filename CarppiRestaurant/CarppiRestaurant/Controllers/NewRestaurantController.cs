@@ -311,9 +311,10 @@ namespace CarppiRestaurant.Controllers
             // IEnumerable<double> result =sequence.Where(x => x.HasValue).Select(x => x.Value);
             var RegionenelArea = db.CarppiGrocery_Regiones.Where(x => (Math.Pow(Math.Pow((x.Latitud) - LatAtribute, 2) + Math.Pow((x.Longitud) - LongAtribute, 2), 0.5) / 0.00909) < 15).FirstOrDefault();
 
-            double? templong = (double?)LongAtribute;
+           // double? templong = (double?)LongAtribute; 
+            //var RegionenelArea = db.CarppiGrocery_Regiones.Where(x => x.ID == 1).FirstOrDefault();
             // var RegionenelArea2 = db.CarppiGrocery_Regiones.Where(x => (Math.Pow(Math.Pow((x.Latitud) - LatAtribute, 2) + Math.Pow((x.Longitud) - templong, 2), 0.5) /0.00909   )  < 15);
-            if (RegionenelArea == null)
+            if (RegionenelArea != null)
             {
                 return RegionenelArea;
                 //return 0;

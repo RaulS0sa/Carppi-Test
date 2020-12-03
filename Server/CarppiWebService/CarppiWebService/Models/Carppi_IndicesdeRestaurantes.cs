@@ -49,5 +49,6 @@ namespace CarppiWebService.Models
         public long DebtToRestaurant { get; set; }
         public string WebsitePasword { get; set; }
         public string WebsiteFirebaseHash { get; set; }
+        public Nullable<int> AttedsItself { get; set; }
     }
 }

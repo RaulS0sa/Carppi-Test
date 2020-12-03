@@ -54,6 +54,7 @@
           <Property Name="DebtToRestaurant" Type="bigint" Nullable="false" />
           <Property Name="WebsitePasword" Type="varchar(max)" Nullable="false" />
           <Property Name="WebsiteFirebaseHash" Type="varchar(max)" />
+          <Property Name="AttedsItself" Type="int" />
         </EntityType>
         <EntityType Name="Carppi_MensajesRideshare">
           <Key>
@@ -157,6 +158,7 @@
           <Property Name="Latitud" Type="float" Nullable="false" />
           <Property Name="Longitud" Type="float" Nullable="false" />
           <Property Name="Moneda" Type="varchar" MaxLength="200" />
+          <Property Name="RestaurantesPorCiudadMemoTable" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="CarppiGrocery_Repartidores">
           <Key>
@@ -840,6 +842,7 @@
           <Property Name="DebtToRestaurant" Type="Int64" Nullable="false" />
           <Property Name="WebsitePasword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="WebsiteFirebaseHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AttedsItself" Type="Int32" />
         </EntityType>
         <EntityType Name="Carppi_MensajesRideshare">
           <Key>
@@ -943,6 +946,7 @@
           <Property Name="Latitud" Type="Double" Nullable="false" />
           <Property Name="Longitud" Type="Double" Nullable="false" />
           <Property Name="Moneda" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RestaurantesPorCiudadMemoTable" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CarppiGrocery_Repartidores">
           <Key>
@@ -1593,6 +1597,7 @@
           <EntitySetMapping Name="Carppi_IndicesdeRestaurantes">
             <EntityTypeMapping TypeName="PidgeonModel1.Carppi_IndicesdeRestaurantes">
               <MappingFragment StoreEntitySet="Carppi_IndicesdeRestaurantes">
+                <ScalarProperty Name="AttedsItself" ColumnName="AttedsItself" />
                 <ScalarProperty Name="WebsiteFirebaseHash" ColumnName="WebsiteFirebaseHash" />
                 <ScalarProperty Name="WebsitePasword" ColumnName="WebsitePasword" />
                 <ScalarProperty Name="DebtToRestaurant" ColumnName="DebtToRestaurant" />
@@ -1731,6 +1736,7 @@
           <EntitySetMapping Name="CarppiGrocery_Regiones">
             <EntityTypeMapping TypeName="PidgeonModel1.CarppiGrocery_Regiones">
               <MappingFragment StoreEntitySet="CarppiGrocery_Regiones">
+                <ScalarProperty Name="RestaurantesPorCiudadMemoTable" ColumnName="RestaurantesPorCiudadMemoTable" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
